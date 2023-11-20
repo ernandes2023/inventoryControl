@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace inventoryControl
 {
@@ -41,9 +42,25 @@ namespace inventoryControl
 
         private void btn_entrar_Click(object sender, EventArgs e)
         {
-            Operação operacao = new Operação();
-            operacao.Show();
-            this.Hide();
+            MySqlConnection conectar = new MySqlConnection("server = localhost; database = assistencia; uid = root; pwd =''");
+            conectar.Open();
+            MySqlDataAdapter validar = new MySqlDataAdapter("select * from tecnico where login = '"+ txtLogin.Text+"' and senha = '" +txtSenha.Text+"')", conectar);
+            DataTable dt = new DataTable();
+            validar.Fill(dt);
+
+
+           if (dt.Rows.Count == 1)
+            {
+                Operação principal = new Operação();
+                principal.Show();
+                this.Hide();
+                
+            }
+            else
+            {
+                MessageBox.Show("Usuário ou senha inválidos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
