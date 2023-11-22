@@ -42,7 +42,39 @@ namespace inventoryControl
 
         private void btn_entrar_Click(object sender, EventArgs e)
         {
-            MySqlConnection conectar = new MySqlConnection("server = localhost; database = assistencia; uid = root; pwd =''");
+            MySqlConnection conectar = new MySqlConnection("server = localhost; database = assistencia; uid = root; pwd ='etec'");
+            conectar.Open();
+            try
+            {
+                MySqlCommand comando = new MySqlCommand();
+                //Comando SQL
+                comando.CommandText = "select * from tecnico where login = '" + txtLogin.Text + "' and senha = '" + txtSenha.Text + "'";
+
+                comando.Connection = conectar;
+                //Executar Comando
+                var resultado = comando.ExecuteScalar();
+
+                if (resultado != null)
+                {
+                     Operação principal = new Operação();
+                     principal.Show();
+                     this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Usuário ou Senha inválidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (MySqlException er)
+            {
+                MessageBox.Show("Erro do Banco de dados " + er, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conectar.Close();
+                conectar.ClearAllPoolsAsync();
+            }
+            /*MySqlConnection conectar = new MySqlConnection("server = localhost; database = assistencia; uid = root; pwd =''");
             conectar.Open();
             MySqlDataAdapter validar = new MySqlDataAdapter("select * from tecnico where login = '"+ txtLogin.Text+"' and senha = '" +txtSenha.Text+"')", conectar);
             DataTable dt = new DataTable();
@@ -60,7 +92,7 @@ namespace inventoryControl
             {
                 MessageBox.Show("Usuário ou senha inválidos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 
-            }
+            }*/
         }
 
         private void label1_Click(object sender, EventArgs e)
