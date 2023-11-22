@@ -74,25 +74,7 @@ namespace inventoryControl
                 conectar.Close();
                 conectar.ClearAllPoolsAsync();
             }
-            /*MySqlConnection conectar = new MySqlConnection("server = localhost; database = assistencia; uid = root; pwd =''");
-            conectar.Open();
-            MySqlDataAdapter validar = new MySqlDataAdapter("select * from tecnico where login = '"+ txtLogin.Text+"' and senha = '" +txtSenha.Text+"')", conectar);
-            DataTable dt = new DataTable();
-            validar.Fill(dt);
-
-
-           if (dt.Rows.Count == 1)
-            {
-                Operação principal = new Operação();
-                principal.Show();
-                this.Hide();
-                
-            }
-            else
-            {
-                MessageBox.Show("Usuário ou senha inválidos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
-            }*/
+      
         }
 
         private void label1_Click(object sender, EventArgs e)
