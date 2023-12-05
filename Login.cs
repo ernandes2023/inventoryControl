@@ -42,7 +42,7 @@ namespace inventoryControl
 
         private void btn_entrar_Click(object sender, EventArgs e)
         {
-            MySqlConnection conectar = new MySqlConnection("server = localhost; database = assistencia; uid = root; pwd =etec");
+            MySqlConnection conectar = new MySqlConnection("server = localhost; database = assistencia; uid = root; pwd =");
             conectar.Open();
             try
             {

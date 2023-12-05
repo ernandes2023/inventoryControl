@@ -25,46 +25,48 @@ namespace inventoryControl
 
         private void CarregarDadosBanco()
         {
-            string conexao = "server=localhost;database=assistencia;uid=root;pwd=etec";
+            string conexao = "server=localhost;database=assistencia;uid=root;pwd=";
             MySqlConnection conexaoMYSQL = new MySqlConnection(conexao);
             conexaoMYSQL.Open();
-            MySqlDataAdapter adapter = new MySqlDataAdapter("select * from produto", conexaoMYSQL);
+            MySqlDataAdapter adapter = new MySqlDataAdapter("select id_prod as id_do_produto,nome_prod as nome_do_produto,cliente_id as id_do_cliente,id_cliente as id_do_cliente from produto right join cliente on cliente_id = id_cliente", conexaoMYSQL);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             dgvProdutos.DataSource = dt;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void tabPage1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void tabPage3_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void dgvProdutos_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-
+            textBox1.Text = dgvProdutos.Rows[e.RowIndex].Cells[0].Value.ToString();
+            textBox2.Text = dgvProdutos.Rows[e.RowIndex].Cells[1].Value.ToString();
+            textBox3.Text = dgvProdutos.Rows[e.RowIndex].Cells[2].Value.ToString();
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private void btnSalvar_Click_1(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
+            if (textBox2.Text == "" || textBox3.Text == "")
             {
                 MessageBox.Show("Todos os campos devem ser preenchidos");
             }
-            else if (int.TryParse(textBox3.Text, out _) == true || float.TryParse(textBox3.Text, out _) == true)
+            else if (int.TryParse(textBox3.Text, out _) == false)
             {
                 MessageBox.Show("Um ou mais campo estão incorretos!");
             }
             else
             {
-                string conexao = "server=localhost;database=assistencia;uid=root;pwd=etec";
+                string conexao = "server=localhost;database=assistencia;uid=root;pwd=";
                 MySqlConnection conexaoMYSQL = new MySqlConnection(conexao);
                 conexaoMYSQL.Open();
-                MySqlCommand comando = new MySqlCommand("insert into produto(nome_prod,cliente_id) values('" + textBox2 + "'," + textBox3 + ");", conexaoMYSQL);
+                MySqlCommand comando = new MySqlCommand("insert into produto(nome_prod,cliente_id)values('" + textBox2 + "'," + textBox3 + ");", conexaoMYSQL);
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Dados criados!");
                 textBox1.Text = "";
@@ -74,19 +76,19 @@ namespace inventoryControl
             }
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void btnEditar_Click_1(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
+            if (textBox2.Text == "" || textBox3.Text == "")
             {
                 MessageBox.Show("Todos os campos devem ser preenchidos");
             }
-            else if (int.TryParse(textBox3.Text, out _) == true || float.TryParse(textBox3.Text, out _) == true)
+            else if (int.TryParse(textBox3.Text, out _) == false)
             {
                 MessageBox.Show("Um ou mais campo estão incorretos!");
             }
             else
             {
-                string conexao = "server=localhost;database=assistencia;uid=root;pwd=etec";
+                string conexao = "server=localhost;database=assistencia;uid=root;pwd=";
                 MySqlConnection conexaoMYSQL = new MySqlConnection(conexao);
                 conexaoMYSQL.Open();
                 MySqlCommand comando = new MySqlCommand("update produto set nome_prod='" + textBox2.Text + "', cliente_id=" + textBox3.Text + " where id_prod=" + textBox1.Text, conexaoMYSQL);
@@ -99,13 +101,13 @@ namespace inventoryControl
             }
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
+        private void btnExcluir_Click_1(object sender, EventArgs e)
         {
             DialogResult caixaMensagem = MessageBox.Show("Deseja realmente exluir esse produto?", "Aviso", MessageBoxButtons.YesNo);
 
             if (caixaMensagem == DialogResult.Yes)
             {
-                string conexao = "server=localhost;database=assistencia;uid=root;pwd=etec";
+                string conexao = "server=localhost;database=assistencia;uid=root;pwd=";
                 MySqlConnection conexaoMYSQL = new MySqlConnection(conexao);
                 conexaoMYSQL.Open();
                 MySqlCommand comando = new MySqlCommand("delete from produto where id_prod=" + textBox1.Text + ";", conexaoMYSQL);
@@ -118,26 +120,34 @@ namespace inventoryControl
             }
         }
 
-        private void btnSair_Click(object sender, EventArgs e)
+        private void btnSair_Click_1(object sender, EventArgs e)
         {
             Login login = new Login();
             login.Show();
             this.Hide();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            textBox1.Text = dgvProdutos.Rows[e.RowIndex].Cells[0].Value.ToString();
-            textBox2.Text = dgvProdutos.Rows[e.RowIndex].Cells[1].Value.ToString();
-            textBox3.Text = dgvProdutos.Rows[e.RowIndex].Cells[2].Value.ToString();
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
 
         }
 
-        private void tabPage3_Click(object sender, EventArgs e)
+        private void textBox2_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
         {
 
         }

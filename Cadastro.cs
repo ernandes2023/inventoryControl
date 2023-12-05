@@ -44,7 +44,7 @@ namespace inventoryControl
             }
             else
             {
-                MySqlConnection conectar = new MySqlConnection("server = localhost; database = assistencia; uid = root; pwd = 'etec'");
+                MySqlConnection conectar = new MySqlConnection("server = localhost; database = assistencia; uid = root; pwd = ");
                 conectar.Open();
                 MySqlCommand cadastrar = new MySqlCommand("INSERT INTO tecnico (nome_tec, cargo, login, senha) values ('" + textBox1.Text + "','" + textBox4.Text + "','" + textBox3.Text + "','" + textBox2.Text + "');", conectar);
                 cadastrar.ExecuteNonQuery();
