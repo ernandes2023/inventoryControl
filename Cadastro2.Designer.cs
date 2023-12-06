@@ -28,357 +28,443 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnExcluir = new System.Windows.Forms.Button();
+            this.tabCadastro2 = new System.Windows.Forms.TabControl();
+            this.tabCadastroClientes = new System.Windows.Forms.TabPage();
+            this.btnExcluir1 = new System.Windows.Forms.Button();
+            this.btnSair1 = new System.Windows.Forms.Button();
+            this.btnEditar1 = new System.Windows.Forms.Button();
+            this.btnSalvar1 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtId1 = new System.Windows.Forms.TextBox();
+            this.txtNomeCliente = new System.Windows.Forms.TextBox();
+            this.tabCadastroProdutos = new System.Windows.Forms.TabPage();
+            this.txtIdCliente = new System.Windows.Forms.TextBox();
+            this.btnExcluir2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnSair = new System.Windows.Forms.Button();
+            this.btnSair2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnEditar2 = new System.Windows.Forms.Button();
+            this.txtId2 = new System.Windows.Forms.TextBox();
+            this.txtNomeProduto = new System.Windows.Forms.TextBox();
+            this.btnSalvar2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabCadastroComponentes = new System.Windows.Forms.TabPage();
+            this.btnExcluir3 = new System.Windows.Forms.Button();
+            this.btnSair3 = new System.Windows.Forms.Button();
+            this.btnEditar3 = new System.Windows.Forms.Button();
+            this.btnSalvar3 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvComponentes = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.txtId3 = new System.Windows.Forms.TextBox();
+            this.txtNomeComponente = new System.Windows.Forms.TextBox();
+            this.tabCadastro2.SuspendLayout();
+            this.tabCadastroClientes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            this.tabCadastroProdutos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabCadastroComponentes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvComponentes)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabCadastro2
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(1, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(441, 438);
-            this.tabControl1.TabIndex = 12;
+            this.tabCadastro2.Controls.Add(this.tabCadastroClientes);
+            this.tabCadastro2.Controls.Add(this.tabCadastroProdutos);
+            this.tabCadastro2.Controls.Add(this.tabCadastroComponentes);
+            this.tabCadastro2.Location = new System.Drawing.Point(1, 12);
+            this.tabCadastro2.Name = "tabCadastro2";
+            this.tabCadastro2.SelectedIndex = 0;
+            this.tabCadastro2.Size = new System.Drawing.Size(441, 463);
+            this.tabCadastro2.TabIndex = 12;
             // 
-            // tabPage1
+            // tabCadastroClientes
             // 
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button3);
-            this.tabPage1.Controls.Add(this.button4);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.textBox4);
-            this.tabPage1.Controls.Add(this.textBox5);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(433, 412);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Cadastro de clientes";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            this.tabCadastroClientes.Controls.Add(this.btnExcluir1);
+            this.tabCadastroClientes.Controls.Add(this.btnSair1);
+            this.tabCadastroClientes.Controls.Add(this.btnEditar1);
+            this.tabCadastroClientes.Controls.Add(this.btnSalvar1);
+            this.tabCadastroClientes.Controls.Add(this.label7);
+            this.tabCadastroClientes.Controls.Add(this.dgvClientes);
+            this.tabCadastroClientes.Controls.Add(this.label6);
+            this.tabCadastroClientes.Controls.Add(this.txtId1);
+            this.tabCadastroClientes.Controls.Add(this.txtNomeCliente);
+            this.tabCadastroClientes.Location = new System.Drawing.Point(4, 22);
+            this.tabCadastroClientes.Name = "tabCadastroClientes";
+            this.tabCadastroClientes.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCadastroClientes.Size = new System.Drawing.Size(433, 437);
+            this.tabCadastroClientes.TabIndex = 0;
+            this.tabCadastroClientes.Text = "Cadastro de clientes";
+            this.tabCadastroClientes.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // btnExcluir1
             // 
-            this.tabPage2.Controls.Add(this.textBox3);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.btnExcluir);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.btnSair);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.btnEditar);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.btnSalvar);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.dgvProdutos);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(433, 412);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Cadastro de produtos";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            this.btnExcluir1.Location = new System.Drawing.Point(168, 371);
+            this.btnExcluir1.Name = "btnExcluir1";
+            this.btnExcluir1.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir1.TabIndex = 41;
+            this.btnExcluir1.Text = "Excluir";
+            this.btnExcluir1.UseVisualStyleBackColor = true;
+            this.btnExcluir1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox3
+            // btnSair1
             // 
-            this.textBox3.Location = new System.Drawing.Point(6, 97);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(49, 20);
-            this.textBox3.TabIndex = 37;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged_1);
+            this.btnSair1.Location = new System.Drawing.Point(249, 371);
+            this.btnSair1.Name = "btnSair1";
+            this.btnSair1.Size = new System.Drawing.Size(75, 23);
+            this.btnSair1.TabIndex = 40;
+            this.btnSair1.Text = "Sair";
+            this.btnSair1.UseVisualStyleBackColor = true;
+            this.btnSair1.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label1
+            // btnEditar1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(19, 13);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Id:";
+            this.btnEditar1.Location = new System.Drawing.Point(87, 371);
+            this.btnEditar1.Name = "btnEditar1";
+            this.btnEditar1.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar1.TabIndex = 39;
+            this.btnEditar1.Text = "Editar";
+            this.btnEditar1.UseVisualStyleBackColor = true;
+            this.btnEditar1.Click += new System.EventHandler(this.button3_Click);
             // 
-            // btnExcluir
+            // btnSalvar1
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(168, 420);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 35;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = true;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click_1);
+            this.btnSalvar1.Location = new System.Drawing.Point(6, 371);
+            this.btnSalvar1.Name = "btnSalvar1";
+            this.btnSalvar1.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar1.TabIndex = 38;
+            this.btnSalvar1.Text = "Salvar";
+            this.btnSalvar1.UseVisualStyleBackColor = true;
+            this.btnSalvar1.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 71);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(86, 13);
+            this.label7.TabIndex = 37;
+            this.label7.Text = "Lista de clientes:";
+            // 
+            // dgvClientes
+            // 
+            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvClientes.Location = new System.Drawing.Point(6, 87);
+            this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.Size = new System.Drawing.Size(418, 278);
+            this.dgvClientes.TabIndex = 36;
+            this.dgvClientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 29);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(87, 13);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "Nome do cliente:";
+            // 
+            // txtId1
+            // 
+            this.txtId1.Enabled = false;
+            this.txtId1.Location = new System.Drawing.Point(6, 6);
+            this.txtId1.Name = "txtId1";
+            this.txtId1.Size = new System.Drawing.Size(49, 20);
+            this.txtId1.TabIndex = 31;
+            this.txtId1.Visible = false;
+            // 
+            // txtNomeCliente
+            // 
+            this.txtNomeCliente.Location = new System.Drawing.Point(6, 45);
+            this.txtNomeCliente.Name = "txtNomeCliente";
+            this.txtNomeCliente.Size = new System.Drawing.Size(418, 20);
+            this.txtNomeCliente.TabIndex = 32;
+            // 
+            // tabCadastroProdutos
+            // 
+            this.tabCadastroProdutos.Controls.Add(this.txtIdCliente);
+            this.tabCadastroProdutos.Controls.Add(this.btnExcluir2);
+            this.tabCadastroProdutos.Controls.Add(this.label2);
+            this.tabCadastroProdutos.Controls.Add(this.btnSair2);
+            this.tabCadastroProdutos.Controls.Add(this.label3);
+            this.tabCadastroProdutos.Controls.Add(this.btnEditar2);
+            this.tabCadastroProdutos.Controls.Add(this.txtId2);
+            this.tabCadastroProdutos.Controls.Add(this.txtNomeProduto);
+            this.tabCadastroProdutos.Controls.Add(this.btnSalvar2);
+            this.tabCadastroProdutos.Controls.Add(this.label4);
+            this.tabCadastroProdutos.Controls.Add(this.dgvProdutos);
+            this.tabCadastroProdutos.Location = new System.Drawing.Point(4, 22);
+            this.tabCadastroProdutos.Name = "tabCadastroProdutos";
+            this.tabCadastroProdutos.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCadastroProdutos.Size = new System.Drawing.Size(433, 437);
+            this.tabCadastroProdutos.TabIndex = 1;
+            this.tabCadastroProdutos.Text = "Cadastro de produtos";
+            this.tabCadastroProdutos.UseVisualStyleBackColor = true;
+            // 
+            // txtIdCliente
+            // 
+            this.txtIdCliente.Location = new System.Drawing.Point(7, 84);
+            this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.Size = new System.Drawing.Size(49, 20);
+            this.txtIdCliente.TabIndex = 37;
+            // 
+            // btnExcluir2
+            // 
+            this.btnExcluir2.Location = new System.Drawing.Point(169, 407);
+            this.btnExcluir2.Name = "btnExcluir2";
+            this.btnExcluir2.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir2.TabIndex = 35;
+            this.btnExcluir2.Text = "Excluir";
+            this.btnExcluir2.UseVisualStyleBackColor = true;
+            this.btnExcluir2.Click += new System.EventHandler(this.btnExcluir_Click_1);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 42);
+            this.label2.Location = new System.Drawing.Point(7, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 25;
             this.label2.Text = "Nome do produto:";
             // 
-            // btnSair
+            // btnSair2
             // 
-            this.btnSair.Location = new System.Drawing.Point(249, 420);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(75, 23);
-            this.btnSair.TabIndex = 34;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = true;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click_1);
+            this.btnSair2.Location = new System.Drawing.Point(250, 407);
+            this.btnSair2.Name = "btnSair2";
+            this.btnSair2.Size = new System.Drawing.Size(75, 23);
+            this.btnSair2.TabIndex = 34;
+            this.btnSair2.Text = "Sair";
+            this.btnSair2.UseVisualStyleBackColor = true;
+            this.btnSair2.Click += new System.EventHandler(this.btnSair_Click_1);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 81);
+            this.label3.Location = new System.Drawing.Point(7, 68);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 13);
             this.label3.TabIndex = 26;
             this.label3.Text = "Id do cliente:";
             // 
-            // btnEditar
+            // btnEditar2
             // 
-            this.btnEditar.Location = new System.Drawing.Point(87, 420);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 33;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click_1);
+            this.btnEditar2.Location = new System.Drawing.Point(88, 407);
+            this.btnEditar2.Name = "btnEditar2";
+            this.btnEditar2.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar2.TabIndex = 33;
+            this.btnEditar2.Text = "Editar";
+            this.btnEditar2.UseVisualStyleBackColor = true;
+            this.btnEditar2.Click += new System.EventHandler(this.btnEditar_Click_1);
             // 
-            // textBox1
+            // txtId2
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(6, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(49, 20);
-            this.textBox1.TabIndex = 27;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.txtId2.Enabled = false;
+            this.txtId2.Location = new System.Drawing.Point(7, 6);
+            this.txtId2.Name = "txtId2";
+            this.txtId2.Size = new System.Drawing.Size(49, 20);
+            this.txtId2.TabIndex = 27;
+            this.txtId2.Visible = false;
             // 
-            // textBox2
+            // txtNomeProduto
             // 
-            this.textBox2.Location = new System.Drawing.Point(6, 58);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(418, 20);
-            this.textBox2.TabIndex = 28;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged_1);
+            this.txtNomeProduto.Location = new System.Drawing.Point(7, 45);
+            this.txtNomeProduto.Name = "txtNomeProduto";
+            this.txtNomeProduto.Size = new System.Drawing.Size(418, 20);
+            this.txtNomeProduto.TabIndex = 28;
             // 
-            // btnSalvar
+            // btnSalvar2
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(6, 420);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 32;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click_1);
+            this.btnSalvar2.Location = new System.Drawing.Point(7, 407);
+            this.btnSalvar2.Name = "btnSalvar2";
+            this.btnSalvar2.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar2.TabIndex = 32;
+            this.btnSalvar2.Text = "Salvar";
+            this.btnSalvar2.UseVisualStyleBackColor = true;
+            this.btnSalvar2.Click += new System.EventHandler(this.btnSalvar_Click_1);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 120);
+            this.label4.Location = new System.Drawing.Point(7, 107);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 13);
+            this.label4.Size = new System.Drawing.Size(91, 13);
             this.label4.TabIndex = 31;
-            this.label4.Text = "Lista de Produtos:";
+            this.label4.Text = "Lista de produtos:";
             // 
             // dgvProdutos
             // 
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdutos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvProdutos.Location = new System.Drawing.Point(6, 136);
+            this.dgvProdutos.Location = new System.Drawing.Point(7, 123);
             this.dgvProdutos.Name = "dgvProdutos";
             this.dgvProdutos.Size = new System.Drawing.Size(418, 278);
             this.dgvProdutos.TabIndex = 30;
-            this.dgvProdutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutos_CellContentClick);
             this.dgvProdutos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProdutos_CellMouseDoubleClick);
             // 
-            // tabPage3
+            // tabCadastroComponentes
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(433, 412);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
+            this.tabCadastroComponentes.Controls.Add(this.btnExcluir3);
+            this.tabCadastroComponentes.Controls.Add(this.btnSair3);
+            this.tabCadastroComponentes.Controls.Add(this.btnEditar3);
+            this.tabCadastroComponentes.Controls.Add(this.btnSalvar3);
+            this.tabCadastroComponentes.Controls.Add(this.label1);
+            this.tabCadastroComponentes.Controls.Add(this.dgvComponentes);
+            this.tabCadastroComponentes.Controls.Add(this.label5);
+            this.tabCadastroComponentes.Controls.Add(this.txtId3);
+            this.tabCadastroComponentes.Controls.Add(this.txtNomeComponente);
+            this.tabCadastroComponentes.Location = new System.Drawing.Point(4, 22);
+            this.tabCadastroComponentes.Name = "tabCadastroComponentes";
+            this.tabCadastroComponentes.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCadastroComponentes.Size = new System.Drawing.Size(433, 437);
+            this.tabCadastroComponentes.TabIndex = 2;
+            this.tabCadastroComponentes.Text = "Cadastro de componentes";
+            this.tabCadastroComponentes.UseVisualStyleBackColor = true;
+            // 
+            // btnExcluir3
+            // 
+            this.btnExcluir3.Location = new System.Drawing.Point(168, 372);
+            this.btnExcluir3.Name = "btnExcluir3";
+            this.btnExcluir3.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir3.TabIndex = 50;
+            this.btnExcluir3.Text = "Excluir";
+            this.btnExcluir3.UseVisualStyleBackColor = true;
+            this.btnExcluir3.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // btnSair3
+            // 
+            this.btnSair3.Location = new System.Drawing.Point(249, 372);
+            this.btnSair3.Name = "btnSair3";
+            this.btnSair3.Size = new System.Drawing.Size(75, 23);
+            this.btnSair3.TabIndex = 49;
+            this.btnSair3.Text = "Sair";
+            this.btnSair3.UseVisualStyleBackColor = true;
+            this.btnSair3.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // btnEditar3
+            // 
+            this.btnEditar3.Location = new System.Drawing.Point(87, 372);
+            this.btnEditar3.Name = "btnEditar3";
+            this.btnEditar3.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar3.TabIndex = 48;
+            this.btnEditar3.Text = "Editar";
+            this.btnEditar3.UseVisualStyleBackColor = true;
+            this.btnEditar3.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // btnSalvar3
+            // 
+            this.btnSalvar3.Location = new System.Drawing.Point(6, 372);
+            this.btnSalvar3.Name = "btnSalvar3";
+            this.btnSalvar3.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar3.TabIndex = 47;
+            this.btnSalvar3.Text = "Salvar";
+            this.btnSalvar3.UseVisualStyleBackColor = true;
+            this.btnSalvar3.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 72);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 13);
+            this.label1.TabIndex = 46;
+            this.label1.Text = "Lista de componentes:";
+            // 
+            // dgvComponentes
+            // 
+            this.dgvComponentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvComponentes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvComponentes.Location = new System.Drawing.Point(6, 88);
+            this.dgvComponentes.Name = "dgvComponentes";
+            this.dgvComponentes.Size = new System.Drawing.Size(418, 278);
+            this.dgvComponentes.TabIndex = 45;
+            this.dgvComponentes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_CellMouseDoubleClick);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 3);
+            this.label5.Location = new System.Drawing.Point(6, 30);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(19, 13);
-            this.label5.TabIndex = 29;
-            this.label5.Text = "Id:";
+            this.label5.Size = new System.Drawing.Size(115, 13);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "Nome do componente:";
             // 
-            // label6
+            // txtId3
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 42);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(92, 13);
-            this.label6.TabIndex = 30;
-            this.label6.Text = "Nome do produto:";
+            this.txtId3.Enabled = false;
+            this.txtId3.Location = new System.Drawing.Point(6, 7);
+            this.txtId3.Name = "txtId3";
+            this.txtId3.Size = new System.Drawing.Size(49, 20);
+            this.txtId3.TabIndex = 43;
+            this.txtId3.Visible = false;
             // 
-            // textBox4
+            // txtNomeComponente
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(6, 19);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(49, 20);
-            this.textBox4.TabIndex = 31;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(6, 58);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(418, 20);
-            this.textBox5.TabIndex = 32;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(168, 384);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 41;
-            this.button1.Text = "Excluir";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(249, 384);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 40;
-            this.button2.Text = "Sair";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(87, 384);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 39;
-            this.button3.Text = "Editar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(6, 384);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 38;
-            this.button4.Text = "Salvar";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 84);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 13);
-            this.label7.TabIndex = 37;
-            this.label7.Text = "Lista de Produtos:";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 100);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(418, 278);
-            this.dataGridView1.TabIndex = 36;
-            this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
+            this.txtNomeComponente.Location = new System.Drawing.Point(6, 46);
+            this.txtNomeComponente.Name = "txtNomeComponente";
+            this.txtNomeComponente.Size = new System.Drawing.Size(418, 20);
+            this.txtNomeComponente.TabIndex = 44;
             // 
             // Cadastro2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(454, 453);
-            this.Controls.Add(this.tabControl1);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(454, 478);
+            this.Controls.Add(this.tabCadastro2);
             this.Name = "Cadastro2";
-            this.Text = "Cad_produtos";
+            this.Text = "Cadastro2";
             this.Load += new System.EventHandler(this.Cad_produtos_Load);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabCadastro2.ResumeLayout(false);
+            this.tabCadastroClientes.ResumeLayout(false);
+            this.tabCadastroClientes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            this.tabCadastroProdutos.ResumeLayout(false);
+            this.tabCadastroProdutos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabCadastroComponentes.ResumeLayout(false);
+            this.tabCadastroComponentes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvComponentes)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.TabControl tabCadastro2;
+        private System.Windows.Forms.TabPage tabCadastroProdutos;
+        private System.Windows.Forms.TabPage tabCadastroClientes;
+        private System.Windows.Forms.Button btnExcluir2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Button btnSair2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Button btnEditar2;
+        private System.Windows.Forms.TextBox txtId2;
+        private System.Windows.Forms.TextBox txtNomeProduto;
+        private System.Windows.Forms.Button btnSalvar2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvProdutos;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TabPage tabCadastroComponentes;
+        private System.Windows.Forms.TextBox txtIdCliente;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox txtId1;
+        private System.Windows.Forms.TextBox txtNomeCliente;
+        private System.Windows.Forms.Button btnExcluir1;
+        private System.Windows.Forms.Button btnSair1;
+        private System.Windows.Forms.Button btnEditar1;
+        private System.Windows.Forms.Button btnSalvar1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvClientes;
+        private System.Windows.Forms.Button btnExcluir3;
+        private System.Windows.Forms.Button btnSair3;
+        private System.Windows.Forms.Button btnEditar3;
+        private System.Windows.Forms.Button btnSalvar3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvComponentes;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtId3;
+        private System.Windows.Forms.TextBox txtNomeComponente;
     }
 }

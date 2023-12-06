@@ -35,7 +35,7 @@ namespace inventoryControl
             if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "")
             {
 
-                MessageBox.Show("Todos os campos precisam ser preenchidos!");
+                MessageBox.Show("Todos os campos precisam ser preenchidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBox1.Text = "";
                 textBox4.Text = "";
                 textBox3.Text = "";
@@ -44,12 +44,12 @@ namespace inventoryControl
             }
             else
             {
-                MySqlConnection conectar = new MySqlConnection("server = localhost; database = assistencia; uid = root; pwd =etec");
+                MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
                 conectar.Open();
                 MySqlCommand cadastrar = new MySqlCommand("INSERT INTO tecnico (nome_tec, cargo, login, senha) values ('" + textBox1.Text + "','" + textBox4.Text + "','" + textBox3.Text + "','" + textBox2.Text + "');", conectar);
                 cadastrar.ExecuteNonQuery();
 
-                MessageBox.Show("Cadastro realizado com sucesso !!!");
+                MessageBox.Show("Cadastro realizado com sucesso!", "Sucesso", MessageBoxButtons.OK);
                 textBox1.Text = "";
                 textBox4.Text = "";
                 textBox3.Text = "";

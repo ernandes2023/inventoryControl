@@ -18,21 +18,6 @@ namespace inventoryControl
             InitializeComponent();
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtLogin_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSenha_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_registrar_Click(object sender, EventArgs e)
         {
             Cadastro cadastro = new Cadastro();
@@ -42,7 +27,7 @@ namespace inventoryControl
 
         private void btn_entrar_Click(object sender, EventArgs e)
         {
-            MySqlConnection conectar = new MySqlConnection("server = localhost; database = assistencia; uid = root; pwd =etec");
+            MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
             conectar.Open();
             try
             {
@@ -60,14 +45,18 @@ namespace inventoryControl
                      cadprodutos.Show();
                      this.Hide();
                 }
+                else if (txtLogin.Text == "" || txtSenha.Text == "")
+                {
+                    MessageBox.Show("Todos os campos devem ser preenchidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 else
                 {
-                    MessageBox.Show("Usuário ou Senha inválidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Usuário ou Senha inválidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (MySqlException er)
             {
-                MessageBox.Show("Erro do Banco de dados " + er, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Alguma coisa deu errado!" + er, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -75,16 +64,6 @@ namespace inventoryControl
                 conectar.ClearAllPoolsAsync();
             }
       
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
