@@ -42,7 +42,7 @@ namespace inventoryControl
 
         private void btn_entrar_Click(object sender, EventArgs e)
         {
-            MySqlConnection conectar = new MySqlConnection("server = localhost; database = assistencia; uid = root; pwd =");
+            MySqlConnection conectar = new MySqlConnection("server = localhost; database = assistencia; uid = root; pwd =etec");
             conectar.Open();
             try
             {
@@ -56,7 +56,7 @@ namespace inventoryControl
 
                 if (resultado != null)
                 {
-                     Cad_produtos cadprodutos = new Cad_produtos();
+                     Cadastro2 cadprodutos = new Cadastro2();
                      cadprodutos.Show();
                      this.Hide();
                 }
