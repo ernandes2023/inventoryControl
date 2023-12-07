@@ -58,11 +58,11 @@ namespace inventoryControl
             // btnSair
             // 
             this.btnSair.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(27, 401);
+            this.btnSair.Location = new System.Drawing.Point(12, 401);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(78, 25);
+            this.btnSair.Size = new System.Drawing.Size(154, 37);
             this.btnSair.TabIndex = 1;
-            this.btnSair.Text = "Sair";
+            this.btnSair.Text = "Voltar para login";
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.button2_Click);
             // 

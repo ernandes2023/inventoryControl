@@ -109,9 +109,9 @@ namespace inventoryControl
             this.btn_registrar.Location = new System.Drawing.Point(22, 396);
             this.btn_registrar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_registrar.Name = "btn_registrar";
-            this.btn_registrar.Size = new System.Drawing.Size(109, 34);
+            this.btn_registrar.Size = new System.Drawing.Size(119, 34);
             this.btn_registrar.TabIndex = 6;
-            this.btn_registrar.Text = "Registrar-se";
+            this.btn_registrar.Text = "Cadastrar-se";
             this.btn_registrar.UseVisualStyleBackColor = true;
             this.btn_registrar.Click += new System.EventHandler(this.btn_registrar_Click);
             // 
