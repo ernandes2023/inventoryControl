@@ -88,7 +88,7 @@ namespace inventoryControl
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Você não pode adicionar um produto sem antes adicionar um cliente a quem ele pertenca!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Você não pode adicionar um produto sem antes adicionar o cliente a quem ele pertenca! / O campo id do cliente deve ser igual ao id do cliente que é mostrado na linha em que se quer criar o produto!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }

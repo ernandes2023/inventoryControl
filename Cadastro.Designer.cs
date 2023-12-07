@@ -31,68 +31,70 @@ namespace inventoryControl
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro));
             this.btnCadastrar = new System.Windows.Forms.Button();
-            this.btnSair = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.btnVoltarLogin = new System.Windows.Forms.Button();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtSenha2 = new System.Windows.Forms.TextBox();
+            this.txtLogin2 = new System.Windows.Forms.TextBox();
+            this.txtCargo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnOlho2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCadastrar
             // 
             this.btnCadastrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(367, 309);
+            this.btnCadastrar.Location = new System.Drawing.Point(344, 401);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(98, 28);
+            this.btnCadastrar.Size = new System.Drawing.Size(98, 37);
             this.btnCadastrar.TabIndex = 0;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnSair
+            // btnVoltarLogin
             // 
-            this.btnSair.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(12, 401);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(154, 37);
-            this.btnSair.TabIndex = 1;
-            this.btnSair.Text = "Voltar para login";
-            this.btnSair.UseVisualStyleBackColor = true;
-            this.btnSair.Click += new System.EventHandler(this.button2_Click);
+            this.btnVoltarLogin.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltarLogin.Location = new System.Drawing.Point(12, 401);
+            this.btnVoltarLogin.Name = "btnVoltarLogin";
+            this.btnVoltarLogin.Size = new System.Drawing.Size(154, 37);
+            this.btnVoltarLogin.TabIndex = 1;
+            this.btnVoltarLogin.Text = "Voltar para login";
+            this.btnVoltarLogin.UseVisualStyleBackColor = true;
+            this.btnVoltarLogin.Click += new System.EventHandler(this.button2_Click);
             // 
-            // textBox1
+            // txtNome
             // 
-            this.textBox1.Location = new System.Drawing.Point(256, 72);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(186, 20);
-            this.textBox1.TabIndex = 2;
+            this.txtNome.Location = new System.Drawing.Point(256, 72);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(186, 20);
+            this.txtNome.TabIndex = 2;
             // 
-            // textBox2
+            // txtSenha2
             // 
-            this.textBox2.Location = new System.Drawing.Point(256, 247);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
+            this.txtSenha2.Location = new System.Drawing.Point(256, 247);
+            this.txtSenha2.Name = "txtSenha2";
+            this.txtSenha2.PasswordChar = '*';
+            this.txtSenha2.Size = new System.Drawing.Size(186, 20);
+            this.txtSenha2.TabIndex = 3;
             // 
-            // textBox3
+            // txtLogin2
             // 
-            this.textBox3.Location = new System.Drawing.Point(256, 191);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(186, 20);
-            this.textBox3.TabIndex = 4;
+            this.txtLogin2.Location = new System.Drawing.Point(256, 191);
+            this.txtLogin2.Name = "txtLogin2";
+            this.txtLogin2.Size = new System.Drawing.Size(186, 20);
+            this.txtLogin2.TabIndex = 4;
             // 
-            // textBox4
+            // txtCargo
             // 
-            this.textBox4.Location = new System.Drawing.Point(256, 130);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(186, 20);
-            this.textBox4.TabIndex = 5;
+            this.txtCargo.Location = new System.Drawing.Point(256, 130);
+            this.txtCargo.Name = "txtCargo";
+            this.txtCargo.Size = new System.Drawing.Size(186, 20);
+            this.txtCargo.TabIndex = 5;
             // 
             // label1
             // 
@@ -148,22 +150,33 @@ namespace inventoryControl
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
+            // btnOlho2
+            // 
+            this.btnOlho2.Location = new System.Drawing.Point(448, 238);
+            this.btnOlho2.Name = "btnOlho2";
+            this.btnOlho2.Size = new System.Drawing.Size(98, 37);
+            this.btnOlho2.TabIndex = 11;
+            this.btnOlho2.Text = "Mostrar senha";
+            this.btnOlho2.UseVisualStyleBackColor = true;
+            this.btnOlho2.Click += new System.EventHandler(this.btnOlho2_Click);
+            // 
             // Cadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnOlho2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.btnSair);
+            this.Controls.Add(this.txtCargo);
+            this.Controls.Add(this.txtLogin2);
+            this.Controls.Add(this.txtSenha2);
+            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.btnVoltarLogin);
             this.Controls.Add(this.btnCadastrar);
             this.Name = "Cadastro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -177,15 +190,16 @@ namespace inventoryControl
         #endregion
 
         private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.Button btnSair;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button btnVoltarLogin;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TextBox txtSenha2;
+        private System.Windows.Forms.TextBox txtLogin2;
+        private System.Windows.Forms.TextBox txtCargo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnOlho2;
     }
 }

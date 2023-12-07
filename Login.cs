@@ -33,7 +33,7 @@ namespace inventoryControl
             {
                 MySqlCommand comando = new MySqlCommand();
                 //Comando SQL
-                comando.CommandText = "select * from tecnico where login = '" + txtLogin.Text + "' and senha = '" + txtSenha.Text + "'";
+                comando.CommandText = "select * from tecnico where login = '" + txtLogin1.Text + "' and senha = '" + txtSenha1.Text + "'";
 
                 comando.Connection = conectar;
                 //Executar Comando
@@ -45,7 +45,7 @@ namespace inventoryControl
                      cadprodutos.Show();
                      this.Hide();
                 }
-                else if (txtLogin.Text == "" || txtSenha.Text == "")
+                else if (txtLogin1.Text == "" || txtSenha1.Text == "")
                 {
                     MessageBox.Show("Todos os campos devem ser preenchidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -64,6 +64,20 @@ namespace inventoryControl
                 conectar.ClearAllPoolsAsync();
             }
       
+        }
+
+        private void btnOlho_Click(object sender, EventArgs e)
+        {
+            if (txtSenha1.PasswordChar =='*')
+            {
+                txtSenha1.PasswordChar = default;
+                btnOlho1.Text = "Esconder senha";
+            }
+            else
+            {
+                txtSenha1.PasswordChar = '*';
+                btnOlho1.Text = "Mostrar senha";
+            }
         }
     }
 }

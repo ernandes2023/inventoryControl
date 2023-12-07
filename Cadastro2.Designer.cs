@@ -102,7 +102,7 @@
             // 
             // btnExcluir1
             // 
-            this.btnExcluir1.Location = new System.Drawing.Point(168, 371);
+            this.btnExcluir1.Location = new System.Drawing.Point(168, 345);
             this.btnExcluir1.Name = "btnExcluir1";
             this.btnExcluir1.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir1.TabIndex = 41;
@@ -112,7 +112,7 @@
             // 
             // btnSair1
             // 
-            this.btnSair1.Location = new System.Drawing.Point(249, 371);
+            this.btnSair1.Location = new System.Drawing.Point(249, 345);
             this.btnSair1.Name = "btnSair1";
             this.btnSair1.Size = new System.Drawing.Size(75, 23);
             this.btnSair1.TabIndex = 40;
@@ -122,7 +122,7 @@
             // 
             // btnEditar1
             // 
-            this.btnEditar1.Location = new System.Drawing.Point(87, 371);
+            this.btnEditar1.Location = new System.Drawing.Point(87, 345);
             this.btnEditar1.Name = "btnEditar1";
             this.btnEditar1.Size = new System.Drawing.Size(75, 23);
             this.btnEditar1.TabIndex = 39;
@@ -132,7 +132,7 @@
             // 
             // btnSalvar1
             // 
-            this.btnSalvar1.Location = new System.Drawing.Point(6, 371);
+            this.btnSalvar1.Location = new System.Drawing.Point(6, 345);
             this.btnSalvar1.Name = "btnSalvar1";
             this.btnSalvar1.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar1.TabIndex = 38;
@@ -143,7 +143,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 71);
+            this.label7.Location = new System.Drawing.Point(6, 45);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 13);
             this.label7.TabIndex = 37;
@@ -153,7 +153,7 @@
             // 
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvClientes.Location = new System.Drawing.Point(6, 87);
+            this.dgvClientes.Location = new System.Drawing.Point(6, 61);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.Size = new System.Drawing.Size(418, 278);
             this.dgvClientes.TabIndex = 36;
@@ -162,7 +162,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 29);
+            this.label6.Location = new System.Drawing.Point(6, 3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 13);
             this.label6.TabIndex = 30;
@@ -171,7 +171,7 @@
             // txtId1
             // 
             this.txtId1.Enabled = false;
-            this.txtId1.Location = new System.Drawing.Point(6, 6);
+            this.txtId1.Location = new System.Drawing.Point(376, 411);
             this.txtId1.Name = "txtId1";
             this.txtId1.Size = new System.Drawing.Size(49, 20);
             this.txtId1.TabIndex = 31;
@@ -179,7 +179,7 @@
             // 
             // txtNomeCliente
             // 
-            this.txtNomeCliente.Location = new System.Drawing.Point(6, 45);
+            this.txtNomeCliente.Location = new System.Drawing.Point(6, 19);
             this.txtNomeCliente.Name = "txtNomeCliente";
             this.txtNomeCliente.Size = new System.Drawing.Size(418, 20);
             this.txtNomeCliente.TabIndex = 32;
@@ -207,14 +207,14 @@
             // 
             // txtIdCliente
             // 
-            this.txtIdCliente.Location = new System.Drawing.Point(7, 84);
+            this.txtIdCliente.Location = new System.Drawing.Point(6, 58);
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.Size = new System.Drawing.Size(49, 20);
             this.txtIdCliente.TabIndex = 37;
             // 
             // btnExcluir2
             // 
-            this.btnExcluir2.Location = new System.Drawing.Point(169, 407);
+            this.btnExcluir2.Location = new System.Drawing.Point(168, 381);
             this.btnExcluir2.Name = "btnExcluir2";
             this.btnExcluir2.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir2.TabIndex = 35;
@@ -225,7 +225,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 29);
+            this.label2.Location = new System.Drawing.Point(6, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 25;
@@ -233,7 +233,7 @@
             // 
             // btnSair2
             // 
-            this.btnSair2.Location = new System.Drawing.Point(250, 407);
+            this.btnSair2.Location = new System.Drawing.Point(249, 381);
             this.btnSair2.Name = "btnSair2";
             this.btnSair2.Size = new System.Drawing.Size(75, 23);
             this.btnSair2.TabIndex = 34;
@@ -244,7 +244,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 68);
+            this.label3.Location = new System.Drawing.Point(6, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 13);
             this.label3.TabIndex = 26;
@@ -252,7 +252,7 @@
             // 
             // btnEditar2
             // 
-            this.btnEditar2.Location = new System.Drawing.Point(88, 407);
+            this.btnEditar2.Location = new System.Drawing.Point(87, 381);
             this.btnEditar2.Name = "btnEditar2";
             this.btnEditar2.Size = new System.Drawing.Size(75, 23);
             this.btnEditar2.TabIndex = 33;
@@ -263,7 +263,7 @@
             // txtId2
             // 
             this.txtId2.Enabled = false;
-            this.txtId2.Location = new System.Drawing.Point(7, 6);
+            this.txtId2.Location = new System.Drawing.Point(378, 411);
             this.txtId2.Name = "txtId2";
             this.txtId2.Size = new System.Drawing.Size(49, 20);
             this.txtId2.TabIndex = 27;
@@ -271,14 +271,14 @@
             // 
             // txtNomeProduto
             // 
-            this.txtNomeProduto.Location = new System.Drawing.Point(7, 45);
+            this.txtNomeProduto.Location = new System.Drawing.Point(6, 19);
             this.txtNomeProduto.Name = "txtNomeProduto";
             this.txtNomeProduto.Size = new System.Drawing.Size(418, 20);
             this.txtNomeProduto.TabIndex = 28;
             // 
             // btnSalvar2
             // 
-            this.btnSalvar2.Location = new System.Drawing.Point(7, 407);
+            this.btnSalvar2.Location = new System.Drawing.Point(6, 381);
             this.btnSalvar2.Name = "btnSalvar2";
             this.btnSalvar2.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar2.TabIndex = 32;
@@ -289,7 +289,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 107);
+            this.label4.Location = new System.Drawing.Point(6, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 13);
             this.label4.TabIndex = 31;
@@ -299,7 +299,7 @@
             // 
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdutos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvProdutos.Location = new System.Drawing.Point(7, 123);
+            this.dgvProdutos.Location = new System.Drawing.Point(6, 97);
             this.dgvProdutos.Name = "dgvProdutos";
             this.dgvProdutos.Size = new System.Drawing.Size(418, 278);
             this.dgvProdutos.TabIndex = 30;
@@ -326,7 +326,7 @@
             // 
             // btnExcluir3
             // 
-            this.btnExcluir3.Location = new System.Drawing.Point(168, 372);
+            this.btnExcluir3.Location = new System.Drawing.Point(168, 345);
             this.btnExcluir3.Name = "btnExcluir3";
             this.btnExcluir3.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir3.TabIndex = 50;
@@ -336,7 +336,7 @@
             // 
             // btnSair3
             // 
-            this.btnSair3.Location = new System.Drawing.Point(249, 372);
+            this.btnSair3.Location = new System.Drawing.Point(249, 345);
             this.btnSair3.Name = "btnSair3";
             this.btnSair3.Size = new System.Drawing.Size(75, 23);
             this.btnSair3.TabIndex = 49;
@@ -346,7 +346,7 @@
             // 
             // btnEditar3
             // 
-            this.btnEditar3.Location = new System.Drawing.Point(87, 372);
+            this.btnEditar3.Location = new System.Drawing.Point(87, 345);
             this.btnEditar3.Name = "btnEditar3";
             this.btnEditar3.Size = new System.Drawing.Size(75, 23);
             this.btnEditar3.TabIndex = 48;
@@ -356,7 +356,7 @@
             // 
             // btnSalvar3
             // 
-            this.btnSalvar3.Location = new System.Drawing.Point(6, 372);
+            this.btnSalvar3.Location = new System.Drawing.Point(6, 345);
             this.btnSalvar3.Name = "btnSalvar3";
             this.btnSalvar3.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar3.TabIndex = 47;
@@ -367,7 +367,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 72);
+            this.label1.Location = new System.Drawing.Point(6, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 13);
             this.label1.TabIndex = 46;
@@ -377,7 +377,7 @@
             // 
             this.dgvComponentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComponentes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvComponentes.Location = new System.Drawing.Point(6, 88);
+            this.dgvComponentes.Location = new System.Drawing.Point(6, 61);
             this.dgvComponentes.Name = "dgvComponentes";
             this.dgvComponentes.Size = new System.Drawing.Size(418, 278);
             this.dgvComponentes.TabIndex = 45;
@@ -386,7 +386,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 30);
+            this.label5.Location = new System.Drawing.Point(6, 3);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(115, 13);
             this.label5.TabIndex = 42;
@@ -395,7 +395,7 @@
             // txtId3
             // 
             this.txtId3.Enabled = false;
-            this.txtId3.Location = new System.Drawing.Point(6, 7);
+            this.txtId3.Location = new System.Drawing.Point(378, 411);
             this.txtId3.Name = "txtId3";
             this.txtId3.Size = new System.Drawing.Size(49, 20);
             this.txtId3.TabIndex = 43;
@@ -403,7 +403,7 @@
             // 
             // txtNomeComponente
             // 
-            this.txtNomeComponente.Location = new System.Drawing.Point(6, 46);
+            this.txtNomeComponente.Location = new System.Drawing.Point(6, 19);
             this.txtNomeComponente.Name = "txtNomeComponente";
             this.txtNomeComponente.Size = new System.Drawing.Size(418, 20);
             this.txtNomeComponente.TabIndex = 44;

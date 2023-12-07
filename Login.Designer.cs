@@ -33,10 +33,11 @@ namespace inventoryControl
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtLogin = new System.Windows.Forms.TextBox();
-            this.txtSenha = new System.Windows.Forms.TextBox();
-            this.btn_entrar = new System.Windows.Forms.Button();
-            this.btn_registrar = new System.Windows.Forms.Button();
+            this.txtLogin1 = new System.Windows.Forms.TextBox();
+            this.txtSenha1 = new System.Windows.Forms.TextBox();
+            this.btnEntrar = new System.Windows.Forms.Button();
+            this.btnCadastrarse = new System.Windows.Forms.Button();
+            this.btnOlho1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,45 +76,56 @@ namespace inventoryControl
             this.label2.TabIndex = 2;
             this.label2.Text = "Senha";
             // 
-            // txtLogin
+            // txtLogin1
             // 
-            this.txtLogin.Location = new System.Drawing.Point(302, 225);
-            this.txtLogin.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(173, 20);
-            this.txtLogin.TabIndex = 3;
+            this.txtLogin1.Location = new System.Drawing.Point(302, 225);
+            this.txtLogin1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtLogin1.Name = "txtLogin1";
+            this.txtLogin1.Size = new System.Drawing.Size(173, 20);
+            this.txtLogin1.TabIndex = 3;
             // 
-            // txtSenha
+            // txtSenha1
             // 
-            this.txtSenha.Location = new System.Drawing.Point(302, 290);
-            this.txtSenha.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(173, 20);
-            this.txtSenha.TabIndex = 4;
+            this.txtSenha1.Location = new System.Drawing.Point(302, 290);
+            this.txtSenha1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtSenha1.Name = "txtSenha1";
+            this.txtSenha1.PasswordChar = '*';
+            this.txtSenha1.Size = new System.Drawing.Size(173, 20);
+            this.txtSenha1.TabIndex = 4;
             // 
-            // btn_entrar
+            // btnEntrar
             // 
-            this.btn_entrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_entrar.Location = new System.Drawing.Point(357, 360);
-            this.btn_entrar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btn_entrar.Name = "btn_entrar";
-            this.btn_entrar.Size = new System.Drawing.Size(75, 34);
-            this.btn_entrar.TabIndex = 5;
-            this.btn_entrar.Text = "Entrar";
-            this.btn_entrar.UseVisualStyleBackColor = true;
-            this.btn_entrar.Click += new System.EventHandler(this.btn_entrar_Click);
+            this.btnEntrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrar.Location = new System.Drawing.Point(357, 360);
+            this.btnEntrar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnEntrar.Name = "btnEntrar";
+            this.btnEntrar.Size = new System.Drawing.Size(75, 34);
+            this.btnEntrar.TabIndex = 5;
+            this.btnEntrar.Text = "Entrar";
+            this.btnEntrar.UseVisualStyleBackColor = true;
+            this.btnEntrar.Click += new System.EventHandler(this.btn_entrar_Click);
             // 
-            // btn_registrar
+            // btnCadastrarse
             // 
-            this.btn_registrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_registrar.Location = new System.Drawing.Point(22, 396);
-            this.btn_registrar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btn_registrar.Name = "btn_registrar";
-            this.btn_registrar.Size = new System.Drawing.Size(119, 34);
-            this.btn_registrar.TabIndex = 6;
-            this.btn_registrar.Text = "Cadastrar-se";
-            this.btn_registrar.UseVisualStyleBackColor = true;
-            this.btn_registrar.Click += new System.EventHandler(this.btn_registrar_Click);
+            this.btnCadastrarse.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarse.Location = new System.Drawing.Point(22, 396);
+            this.btnCadastrarse.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnCadastrarse.Name = "btnCadastrarse";
+            this.btnCadastrarse.Size = new System.Drawing.Size(119, 34);
+            this.btnCadastrarse.TabIndex = 6;
+            this.btnCadastrarse.Text = "Cadastrar-se";
+            this.btnCadastrarse.UseVisualStyleBackColor = true;
+            this.btnCadastrarse.Click += new System.EventHandler(this.btn_registrar_Click);
+            // 
+            // btnOlho1
+            // 
+            this.btnOlho1.Location = new System.Drawing.Point(480, 282);
+            this.btnOlho1.Name = "btnOlho1";
+            this.btnOlho1.Size = new System.Drawing.Size(75, 34);
+            this.btnOlho1.TabIndex = 7;
+            this.btnOlho1.Text = "Mostrar senha";
+            this.btnOlho1.UseVisualStyleBackColor = true;
+            this.btnOlho1.Click += new System.EventHandler(this.btnOlho_Click);
             // 
             // Login
             // 
@@ -121,10 +133,11 @@ namespace inventoryControl
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(800, 451);
-            this.Controls.Add(this.btn_registrar);
-            this.Controls.Add(this.btn_entrar);
-            this.Controls.Add(this.txtSenha);
-            this.Controls.Add(this.txtLogin);
+            this.Controls.Add(this.btnOlho1);
+            this.Controls.Add(this.btnCadastrarse);
+            this.Controls.Add(this.btnEntrar);
+            this.Controls.Add(this.txtSenha1);
+            this.Controls.Add(this.txtLogin1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -143,9 +156,10 @@ namespace inventoryControl
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtLogin;
-        private System.Windows.Forms.TextBox txtSenha;
-        private System.Windows.Forms.Button btn_entrar;
-        private System.Windows.Forms.Button btn_registrar;
+        private System.Windows.Forms.TextBox txtLogin1;
+        private System.Windows.Forms.TextBox txtSenha1;
+        private System.Windows.Forms.Button btnEntrar;
+        private System.Windows.Forms.Button btnCadastrarse;
+        private System.Windows.Forms.Button btnOlho1;
     }
 }
