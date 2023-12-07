@@ -186,7 +186,7 @@ namespace inventoryControl
             {
                 MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
                 conexaoMYSQL.Open();
-                MySqlCommand comando = new MySqlCommand("update cliente set nome_cliente='" + txtNomeProduto.Text + "' where id_cliente=" + txtId1.Text, conexaoMYSQL);
+                MySqlCommand comando = new MySqlCommand("update cliente set nome_cliente='" + txtNomeCliente.Text + "' where id_cliente=" + txtId1.Text, conexaoMYSQL);
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Dados alterados!", "Sucesso", MessageBoxButtons.OK);
                 txtId1.Text = "";
