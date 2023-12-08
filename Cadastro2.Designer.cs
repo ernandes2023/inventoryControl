@@ -40,7 +40,6 @@
             this.txtId1 = new System.Windows.Forms.TextBox();
             this.txtNomeCliente = new System.Windows.Forms.TextBox();
             this.tabCadastroProdutos = new System.Windows.Forms.TabPage();
-            this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.btnExcluir2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSair2 = new System.Windows.Forms.Button();
@@ -61,6 +60,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtId3 = new System.Windows.Forms.TextBox();
             this.txtNomeComponente = new System.Windows.Forms.TextBox();
+            this.cbbNomeCliente = new System.Windows.Forms.ComboBox();
+            this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.tabCadastro2.SuspendLayout();
             this.tabCadastroClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -187,6 +188,7 @@
             // tabCadastroProdutos
             // 
             this.tabCadastroProdutos.Controls.Add(this.txtIdCliente);
+            this.tabCadastroProdutos.Controls.Add(this.cbbNomeCliente);
             this.tabCadastroProdutos.Controls.Add(this.btnExcluir2);
             this.tabCadastroProdutos.Controls.Add(this.label2);
             this.tabCadastroProdutos.Controls.Add(this.btnSair2);
@@ -204,13 +206,6 @@
             this.tabCadastroProdutos.TabIndex = 1;
             this.tabCadastroProdutos.Text = "Cadastro de produtos";
             this.tabCadastroProdutos.UseVisualStyleBackColor = true;
-            // 
-            // txtIdCliente
-            // 
-            this.txtIdCliente.Location = new System.Drawing.Point(6, 58);
-            this.txtIdCliente.Name = "txtIdCliente";
-            this.txtIdCliente.Size = new System.Drawing.Size(49, 20);
-            this.txtIdCliente.TabIndex = 37;
             // 
             // btnExcluir2
             // 
@@ -246,9 +241,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 42);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 13);
+            this.label3.Size = new System.Drawing.Size(87, 13);
             this.label3.TabIndex = 26;
-            this.label3.Text = "Id do cliente:";
+            this.label3.Text = "Nome do cliente:";
             // 
             // btnEditar2
             // 
@@ -265,7 +260,7 @@
             this.txtId2.Enabled = false;
             this.txtId2.Location = new System.Drawing.Point(378, 411);
             this.txtId2.Name = "txtId2";
-            this.txtId2.Size = new System.Drawing.Size(49, 20);
+            this.txtId2.Size = new System.Drawing.Size(46, 20);
             this.txtId2.TabIndex = 27;
             this.txtId2.Visible = false;
             // 
@@ -408,6 +403,22 @@
             this.txtNomeComponente.Size = new System.Drawing.Size(418, 20);
             this.txtNomeComponente.TabIndex = 44;
             // 
+            // cbbNomeCliente
+            // 
+            this.cbbNomeCliente.FormattingEnabled = true;
+            this.cbbNomeCliente.Location = new System.Drawing.Point(7, 58);
+            this.cbbNomeCliente.Name = "cbbNomeCliente";
+            this.cbbNomeCliente.Size = new System.Drawing.Size(121, 21);
+            this.cbbNomeCliente.TabIndex = 38;
+            this.cbbNomeCliente.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cbbNomeCliente_MouseClick);
+            // 
+            // txtIdCliente
+            // 
+            this.txtIdCliente.Location = new System.Drawing.Point(378, 385);
+            this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.Size = new System.Drawing.Size(46, 20);
+            this.txtIdCliente.TabIndex = 39;
+            // 
             // Cadastro2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -447,7 +458,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvProdutos;
         private System.Windows.Forms.TabPage tabCadastroComponentes;
-        private System.Windows.Forms.TextBox txtIdCliente;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtId1;
         private System.Windows.Forms.TextBox txtNomeCliente;
@@ -466,5 +476,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtId3;
         private System.Windows.Forms.TextBox txtNomeComponente;
+        private System.Windows.Forms.ComboBox cbbNomeCliente;
+        private System.Windows.Forms.TextBox txtIdCliente;
     }
 }

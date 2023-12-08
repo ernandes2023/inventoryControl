@@ -29,7 +29,7 @@ namespace inventoryControl
         {
             MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
             conexaoMYSQL.Open();
-            MySqlDataAdapter adapter = new MySqlDataAdapter("select id_prod as id_do_produto,nome_prod as nome_do_produto,cliente_id as id_do_cliente,id_cliente as id_do_cliente,nome_cliente as nome_do_cliente from produto right join cliente on cliente_id = id_cliente", conexaoMYSQL);
+            MySqlDataAdapter adapter = new MySqlDataAdapter("select id_prod as id_do_produto,nome_prod as nome_do_produto,nome_cliente as nome_do_cliente,cliente_id as id_do_cliente from produto right join cliente on cliente_id = id_cliente", conexaoMYSQL);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             dgvProdutos.DataSource = dt;
@@ -59,18 +59,15 @@ namespace inventoryControl
         {
             txtId2.Text = dgvProdutos.Rows[e.RowIndex].Cells[0].Value.ToString();
             txtNomeProduto.Text = dgvProdutos.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtIdCliente.Text = dgvProdutos.Rows[e.RowIndex].Cells[2].Value.ToString();
+            cbbNomeCliente.Text = dgvProdutos.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtIdCliente.Text = dgvProdutos.Rows[e.RowIndex].Cells[3].Value.ToString();
         }
 
         private void btnSalvar_Click_1(object sender, EventArgs e)
         {
-            if (txtNomeProduto.Text == "" || txtIdCliente.Text == "")
+            if (txtNomeProduto.Text == "" || cbbNomeCliente.Text == "")
             {
                 MessageBox.Show("Todos os campos devem ser preenchidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (int.TryParse(txtIdCliente.Text, out _) == false)
-            {
-                MessageBox.Show("Um ou mais campo estão incorretos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -78,13 +75,15 @@ namespace inventoryControl
                 {
                     MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
                     conexaoMYSQL.Open();
-                    MySqlCommand comando = new MySqlCommand("insert into produto(nome_prod,cliente_id)values('" + txtNomeProduto.Text + "'," + txtIdCliente.Text + ");", conexaoMYSQL);
+                    MySqlCommand comando = new MySqlCommand("insert into produto(nome_prod,cliente_id)values('" + txtNomeProduto.Text + "'," + cbbNomeCliente.Text + ");", conexaoMYSQL);
                     comando.ExecuteNonQuery();
                     MessageBox.Show("Dados criados!", "Sucesso", MessageBoxButtons.OK);
                     txtId2.Text = "";
                     txtNomeProduto.Text = "";
-                    txtIdCliente.Text = "";
+                    cbbNomeCliente.Text = "";
                     CarregarDadosBanco();
+                    CarregarDadosBanco2();
+                    CarregarDadosBanco3();
                 }
                 catch (Exception)
                 {
@@ -95,25 +94,23 @@ namespace inventoryControl
 
         private void btnEditar_Click_1(object sender, EventArgs e)
         {
-            if (txtNomeProduto.Text == "" || txtIdCliente.Text == "")
+            if (txtNomeProduto.Text == "" || cbbNomeCliente.Text == "")
             {
                 MessageBox.Show("Selecione um produto existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (int.TryParse(txtIdCliente.Text, out _) == false)
-            {
-                MessageBox.Show("Um ou mais campo estão incorretos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
                 MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
                 conexaoMYSQL.Open();
-                MySqlCommand comando = new MySqlCommand("update produto set nome_prod='" + txtNomeProduto.Text + "', cliente_id=" + txtIdCliente.Text + " where id_prod=" + txtId2.Text, conexaoMYSQL);
+                MySqlCommand comando = new MySqlCommand("update produto set nome_prod='" + txtNomeProduto.Text + "', cliente_id=" + cbbNomeCliente.Text + " where id_prod=" + txtId2.Text, conexaoMYSQL);
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Dados alterados!", "Sucesso", MessageBoxButtons.OK);
                 txtId2.Text = "";
                 txtNomeProduto.Text = "";
-                txtIdCliente.Text = "";
+                cbbNomeCliente.Text = "";
                 CarregarDadosBanco();
+                CarregarDadosBanco2();
+                CarregarDadosBanco3();
             }
         }
 
@@ -123,7 +120,7 @@ namespace inventoryControl
 
             if (caixaMensagem == DialogResult.Yes)
             {
-                if (txtNomeProduto.Text == "" || txtIdCliente.Text == "")
+                if (txtNomeProduto.Text == "" || cbbNomeCliente.Text == "")
                 {
                     MessageBox.Show("Selecione um componente existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -136,8 +133,10 @@ namespace inventoryControl
                     MessageBox.Show("Dados excluídos!", "Sucesso", MessageBoxButtons.OK);
                     txtId2.Text = "";
                     txtNomeProduto.Text = "";
-                    txtIdCliente.Text = "";
+                    cbbNomeCliente.Text = "";
                     CarregarDadosBanco();
+                    CarregarDadosBanco2();
+                    CarregarDadosBanco3();
                 }
             }
         }
@@ -168,7 +167,9 @@ namespace inventoryControl
                 MessageBox.Show("Dados criados!", "Sucesso", MessageBoxButtons.OK);
                 txtId1.Text = "";
                 txtNomeCliente.Text = "";
+                CarregarDadosBanco();
                 CarregarDadosBanco2();
+                CarregarDadosBanco3();
             }
         }
 
@@ -177,10 +178,6 @@ namespace inventoryControl
             if (txtNomeCliente.Text == "")
             {
                 MessageBox.Show("Selecione um cliente existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (int.TryParse(txtIdCliente.Text, out _) == true || float.TryParse(txtIdCliente.Text, out _) == true)
-            {
-                MessageBox.Show("Um ou mais campo estão incorretos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -191,7 +188,9 @@ namespace inventoryControl
                 MessageBox.Show("Dados alterados!", "Sucesso", MessageBoxButtons.OK);
                 txtId1.Text = "";
                 txtNomeCliente.Text = "";
+                CarregarDadosBanco();
                 CarregarDadosBanco2();
+                CarregarDadosBanco3();
             }
         }
 
@@ -214,7 +213,9 @@ namespace inventoryControl
                     MessageBox.Show("Dados excluídos!", "Sucesso", MessageBoxButtons.OK);
                     txtId1.Text = "";
                     txtNomeCliente.Text = "";
+                    CarregarDadosBanco();
                     CarregarDadosBanco2();
+                    CarregarDadosBanco3();
                 }
             }
         }
@@ -253,6 +254,8 @@ namespace inventoryControl
                 MessageBox.Show("Dados criados!", "Sucesso", MessageBoxButtons.OK);
                 txtId3.Text = "";
                 txtNomeComponente.Text = "";
+                CarregarDadosBanco();
+                CarregarDadosBanco2();
                 CarregarDadosBanco3();
             }
         }
@@ -272,6 +275,8 @@ namespace inventoryControl
                 MessageBox.Show("Dados alterados!", "Sucesso", MessageBoxButtons.OK);
                 txtId3.Text = "";
                 txtNomeComponente.Text = "";
+                CarregarDadosBanco();
+                CarregarDadosBanco2();
                 CarregarDadosBanco3();
             }
         }
@@ -295,6 +300,8 @@ namespace inventoryControl
                     MessageBox.Show("Dados excluídos!", "Sucesso", MessageBoxButtons.OK);
                     txtId3.Text = "";
                     txtNomeComponente.Text = "";
+                    CarregarDadosBanco();
+                    CarregarDadosBanco2();
                     CarregarDadosBanco3();
                 }
             }
@@ -305,6 +312,29 @@ namespace inventoryControl
             Login login = new Login();
             login.Show();
             this.Hide();
+        }
+
+        private void cbbNomeCliente_MouseClick(object sender, MouseEventArgs e)
+        {
+            cbbNomeCliente.Items.Clear();
+           
+            MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
+            conexaoMYSQL.Open();
+
+            List<string> nomesDosClientes = new List<string>();
+
+            using (MySqlCommand command = new MySqlCommand("SELECT nome_cliente FROM cliente", conexaoMYSQL))
+            {
+                
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    nomesDosClientes.Add(reader.GetString("nome_cliente"));
+                }
+
+            }
+            cbbNomeCliente.Items.AddRange(nomesDosClientes.ToArray());
         }
     }
 }
