@@ -70,6 +70,7 @@ namespace inventoryControl
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(256, 72);
+            this.txtNome.MaxLength = 55;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(186, 20);
             this.txtNome.TabIndex = 2;
@@ -77,6 +78,7 @@ namespace inventoryControl
             // txtSenha2
             // 
             this.txtSenha2.Location = new System.Drawing.Point(256, 247);
+            this.txtSenha2.MaxLength = 20;
             this.txtSenha2.Name = "txtSenha2";
             this.txtSenha2.PasswordChar = '*';
             this.txtSenha2.Size = new System.Drawing.Size(186, 20);
@@ -85,6 +87,7 @@ namespace inventoryControl
             // txtLogin2
             // 
             this.txtLogin2.Location = new System.Drawing.Point(256, 191);
+            this.txtLogin2.MaxLength = 20;
             this.txtLogin2.Name = "txtLogin2";
             this.txtLogin2.Size = new System.Drawing.Size(186, 20);
             this.txtLogin2.TabIndex = 4;
@@ -92,6 +95,7 @@ namespace inventoryControl
             // txtCargo
             // 
             this.txtCargo.Location = new System.Drawing.Point(256, 130);
+            this.txtCargo.MaxLength = 55;
             this.txtCargo.Name = "txtCargo";
             this.txtCargo.Size = new System.Drawing.Size(186, 20);
             this.txtCargo.TabIndex = 5;

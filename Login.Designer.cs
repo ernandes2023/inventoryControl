@@ -80,6 +80,7 @@ namespace inventoryControl
             // 
             this.txtLogin1.Location = new System.Drawing.Point(302, 225);
             this.txtLogin1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtLogin1.MaxLength = 20;
             this.txtLogin1.Name = "txtLogin1";
             this.txtLogin1.Size = new System.Drawing.Size(173, 20);
             this.txtLogin1.TabIndex = 3;
@@ -88,6 +89,7 @@ namespace inventoryControl
             // 
             this.txtSenha1.Location = new System.Drawing.Point(302, 290);
             this.txtSenha1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtSenha1.MaxLength = 20;
             this.txtSenha1.Name = "txtSenha1";
             this.txtSenha1.PasswordChar = '*';
             this.txtSenha1.Size = new System.Drawing.Size(173, 20);
