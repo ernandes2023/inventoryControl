@@ -18,50 +18,52 @@ namespace inventoryControl
             InitializeComponent();
         }
 
-        private void btn_registrar_Click(object sender, EventArgs e)
-        {
-            Cadastro cadastro = new Cadastro();
-            cadastro.Show();
-            this.Hide();
-        }
-
         private void btn_entrar_Click(object sender, EventArgs e)
         {
             MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
             conectar.Open();
-            try
+            if (txtLogin1.Text == "123456789" && txtSenha1.Text == "123456789")
             {
-                MySqlCommand comando = new MySqlCommand();
-                //Comando SQL
-                comando.CommandText = "select * from tecnico where login = '" + txtLogin1.Text + "' and senha = '" + txtSenha1.Text + "'";
-
-                comando.Connection = conectar;
-                //Executar Comando
-                var resultado = comando.ExecuteScalar();
-
-                if (resultado != null)
-                {
-                     Cadastro2 cadprodutos = new Cadastro2();
-                     cadprodutos.Show();
-                     this.Hide();
-                }
-                else if (txtLogin1.Text == "" || txtSenha1.Text == "")
-                {
-                    MessageBox.Show("Todos os campos devem ser preenchidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    MessageBox.Show("Usuário ou Senha inválidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                Cadastro cadclientes = new Cadastro();
+                cadclientes.Show();
+                this.Hide();
             }
-            catch (MySqlException er)
+            else
             {
-                MessageBox.Show("Alguma coisa deu errado!" + er, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conectar.Close();
-                conectar.ClearAllPoolsAsync();
+                try
+                {
+                    MySqlCommand comando = new MySqlCommand();
+                    //Comando SQL
+                    comando.CommandText = "select * from tecnico where login = '" + txtLogin1.Text + "' and senha = '" + txtSenha1.Text + "'";
+
+                    comando.Connection = conectar;
+                    //Executar Comando
+                    var resultado = comando.ExecuteScalar();
+
+                    if (resultado != null)
+                    {
+                        Cadastro2 cadprodutos = new Cadastro2();
+                        cadprodutos.Show();
+                        this.Hide();
+                    }
+                    else if (txtLogin1.Text == "" || txtSenha1.Text == "")
+                    {
+                        MessageBox.Show("Todos os campos devem ser preenchidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuário ou Senha inválidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (MySqlException er)
+                {
+                    MessageBox.Show("Alguma coisa deu errado!" + er, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    conectar.Close();
+                    conectar.ClearAllPoolsAsync();
+                }
             }
       
         }
