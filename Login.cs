@@ -22,7 +22,7 @@ namespace inventoryControl
         {
             MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
             conectar.Open();
-            if (txtLogin1.Text == "123456789" && txtSenha1.Text == "123456789")
+            if (txtLogin1.Text == "admin" && txtSenha1.Text == "admin")
             {
                 Cadastro cadclientes = new Cadastro();
                 cadclientes.Show();
@@ -73,13 +73,18 @@ namespace inventoryControl
             if (txtSenha1.PasswordChar =='*')
             {
                 txtSenha1.PasswordChar = default;
-                btnOlho1.Text = "Esconder senha";
+                btnOlho1.Text = "Ocultar";
             }
             else
             {
                 txtSenha1.PasswordChar = '*';
-                btnOlho1.Text = "Mostrar senha";
+                btnOlho1.Text = "Mostrar";
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

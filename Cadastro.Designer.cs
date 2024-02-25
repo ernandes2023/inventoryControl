@@ -367,6 +367,7 @@ namespace inventoryControl
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(704, 169);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
@@ -376,6 +377,7 @@ namespace inventoryControl
             // 
             // button3
             // 
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(785, 169);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
