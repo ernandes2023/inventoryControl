@@ -22,19 +22,13 @@ namespace inventoryControl
         {
             MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
             conectar.Open();
-            if (txtLogin1.Text == "admin" && txtSenha1.Text == "admin")
-            {
-                Cadastro cadclientes = new Cadastro();
-                cadclientes.Show();
-                this.Hide();
-            }
-            else
-            {
+
+
                 try
                 {
                     MySqlCommand comando = new MySqlCommand();
                     //Comando SQL
-                    comando.CommandText = "select * from tecnico where login = '" + txtLogin1.Text + "' and senha = '" + txtSenha1.Text + "'";
+                    comando.CommandText = "select * from tecnico where login_tec = '" + txtLogin1.Text + "' and senha_tec = '" + txtSenha1.Text + "'";
 
                     comando.Connection = conectar;
                     //Executar Comando
@@ -42,9 +36,18 @@ namespace inventoryControl
 
                     if (resultado != null)
                     {
+                    if (txtLogin1.Text == "admin" || txtSenha1.Text == "admin")
+                    {
+                        Cadastro cadproduto = new Cadastro();
+                        cadproduto.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
                         Cadastro2 cadprodutos = new Cadastro2();
                         cadprodutos.Show();
                         this.Hide();
+                    }
                     }
                     else if (txtLogin1.Text == "" || txtSenha1.Text == "")
                     {
@@ -64,7 +67,7 @@ namespace inventoryControl
                     conectar.Close();
                     conectar.ClearAllPoolsAsync();
                 }
-            }
+            
       
         }
 

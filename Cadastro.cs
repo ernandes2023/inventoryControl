@@ -83,7 +83,7 @@ namespace inventoryControl
             {
                 MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
                 conectar.Open();
-                MySqlCommand cadastrar = new MySqlCommand("INSERT INTO tecnico (nome_tec, cargo, login, senha) values ('" + txtNome.Text + "','" + txtCargo.Text + "','" + txtLogin2.Text + "','" + txtSenha2.Text + "');", conectar);
+                MySqlCommand cadastrar = new MySqlCommand("INSERT INTO tecnico (nome_tec, cargo_tec, login_tec, senha_tec, conf_senha_tec) values ('" + txtNome.Text + "','" + txtCargo.Text + "','" + txtLogin2.Text + "','" + txtSenha2.Text + "','" + txtSenhaConf.Text + "');", conectar);
                 cadastrar.ExecuteNonQuery();
 
                 MessageBox.Show("Cadastro realizado com sucesso!", "Sucesso", MessageBoxButtons.OK);
