@@ -72,7 +72,8 @@ namespace inventoryControl
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtName.Text == "" || txtPass.Text == "" || txtUser.Text == "" || txtCargo.Text == "")
+            /* Verifica se os campos estão vazios */
+            if (txtName.Text == "" || txtCPF.Text == "" || txtCargo.Text == "" || txtUser.Text == "" || txtPass.Text == "" || txtConfPass.Text == "")
             {
 
                 MessageBox.Show("Todos os campos precisam ser preenchidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -84,6 +85,14 @@ namespace inventoryControl
                 txtConfPass.Text = "";
                 txtName.Select();
 
+            }
+            /* Valida se as Senhas digitadas são iguais na textbox */
+            else if (txtPass.Text != txtConfPass.Text)
+            {
+                MessageBox.Show("As Senhas digitadas São diferente! \n Por Favor digite a senha novamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPass.Text = "";
+                txtConfPass.Text = "";
+                txtPass.Select();
             }
             else
             {
