@@ -28,7 +28,7 @@ namespace inventoryControl
                 {
                     MySqlCommand comando = new MySqlCommand();
                     //Comando SQL
-                    comando.CommandText = "select * from tecnico where login_tec = '" + txtLogin1.Text + "' and senha_tec = '" + txtSenha1.Text + "'";
+                    comando.CommandText = "select * from users where login = '" + txtLogin1.Text + "' and pass = '" + txtSenha1.Text + "'";
 
                     comando.Connection = conectar;
                     //Executar Comando

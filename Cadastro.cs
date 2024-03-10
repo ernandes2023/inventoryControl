@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace inventoryControl
 {
@@ -67,46 +68,48 @@ namespace inventoryControl
             this.Hide();
         }
 
+        /* Codigo abaixo realiza o Cadastro do Usuário */
+
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtNome.Text == "" || txtSenha2.Text == "" || txtLogin2.Text == "" || txtCargo.Text == "")
+            if (txtName.Text == "" || txtPass.Text == "" || txtUser.Text == "" || txtCargo.Text == "")
             {
 
                 MessageBox.Show("Todos os campos precisam ser preenchidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtNome.Text = "";
+                txtName.Text = "";
+                txtCPF.Text = "";
                 txtCargo.Text = "";
-                txtLogin2.Text = "";
-                txtSenha2.Text = "";
+                txtUser.Text = "";
+                txtPass.Text = "";
+                txtConfPass.Text = "";
+                txtName.Select();
 
             }
             else
             {
                 MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
                 conectar.Open();
-                MySqlCommand cadastrar = new MySqlCommand("INSERT INTO tecnico (nome_tec, cargo_tec, login_tec, senha_tec, conf_senha_tec) values ('" + txtNome.Text + "','" + txtCargo.Text + "','" + txtLogin2.Text + "','" + txtSenha2.Text + "','" + txtSenhaConf.Text + "');", conectar);
+                MySqlCommand cadastrar = new MySqlCommand("INSERT INTO users (name_user, cpf, office, login, pass, confirm_pass) values ('" + txtName.Text + "','" + txtCPF.Text + "','" + txtCargo.Text + "','" + txtUser.Text + "','" + txtPass.Text + "','" + txtConfPass.Text + "');", conectar);
                 cadastrar.ExecuteNonQuery();
 
                 MessageBox.Show("Cadastro realizado com sucesso!", "Sucesso", MessageBoxButtons.OK);
-                txtNome.Text = "";
+                txtName.Text = "";
+                txtCPF.Text = "";
                 txtCargo.Text = "";
-                txtLogin2.Text = "";
-                txtSenha2.Text = "";
+                txtUser.Text = "";
+                txtPass.Text = "";
+                txtConfPass.Text = "";
+                txtName.Select();
             }
 
         }
 
+        /* Fim do Código de cadastro de Usuario */
+
+
         private void btnOlho2_Click(object sender, EventArgs e)
         {
-            if (txtSenha2.PasswordChar == '*')
-            {
-                txtSenha2.PasswordChar = default;
-                btnOlho2.Text = "Esconder senha";
-            }
-            else
-            {
-                txtSenha2.PasswordChar = '*';
-                btnOlho2.Text = "Mostrar senha";
-            }
+
         }
 
         private void dgvClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -115,12 +118,12 @@ namespace inventoryControl
             txtNomeCliente.Text = dgvClientes.Rows[e.RowIndex].Cells[1].Value.ToString();
             txtTelefoneCliente.Text = dgvClientes.Rows[e.RowIndex].Cells[2].Value.ToString();
             txtEmailCliente.Text = dgvClientes.Rows[e.RowIndex].Cells[3].Value.ToString();
-            txtSenha2.Text = dgvClientes.Rows[e.RowIndex].Cells[4].Value.ToString();
+            txtPass.Text = dgvClientes.Rows[e.RowIndex].Cells[4].Value.ToString();
         }
 
         private void btnSalvar1_Click(object sender, EventArgs e)
         {
-            if (txtNomeCliente.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "" || txtSenha2.Text == "")
+            if (txtNomeCliente.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "" || txtPass.Text == "")
             {
                 MessageBox.Show("Todos os campos devem ser preenchidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -132,14 +135,14 @@ namespace inventoryControl
             {
                 MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
                 conexaoMYSQL.Open();
-                MySqlCommand comando = new MySqlCommand("insert into cliente(nome_cliente,telefone_cliente,email_cliente,senha)values('" + txtNomeCliente.Text + "','" + txtTelefoneCliente.Text + "','" + txtEmailCliente.Text + "','" + txtSenha2.Text + "');", conexaoMYSQL);
+                MySqlCommand comando = new MySqlCommand("insert into cliente(nome_cliente,telefone_cliente,email_cliente,senha)values('" + txtNomeCliente.Text + "','" + txtTelefoneCliente.Text + "','" + txtEmailCliente.Text + "','" + txtPass.Text + "');", conexaoMYSQL);
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Dados criados!", "Sucesso", MessageBoxButtons.OK);
                 txtId1.Text = "";
                 txtNomeCliente.Text = "";
                 txtTelefoneCliente.Text = "";
                 txtEmailCliente.Text = "";
-                txtSenha2.Text = "";
+                txtPass.Text = "";
                 CarregarDadosBanco();
                 CarregarDadosBanco2();
                 CarregarDadosBanco3();
@@ -149,7 +152,7 @@ namespace inventoryControl
 
         private void btnEditar1_Click(object sender, EventArgs e)
         {
-            if (txtNomeCliente.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "" || txtSenha2.Text == "")
+            if (txtNomeCliente.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "" || txtPass.Text == "")
             {
                 MessageBox.Show("Selecione um cliente existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -159,14 +162,14 @@ namespace inventoryControl
                 {
                     MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
                     conexaoMYSQL.Open();
-                    MySqlCommand comando = new MySqlCommand("update cliente set nome_cliente='" + txtNomeCliente.Text + "',telefone_cliente='" + txtTelefoneCliente.Text + "',email_cliente='" + txtEmailCliente.Text + "',senha='" + txtSenha2.Text + "' where id_cliente=" + txtId1.Text, conexaoMYSQL);
+                    MySqlCommand comando = new MySqlCommand("update cliente set nome_cliente='" + txtNomeCliente.Text + "',telefone_cliente='" + txtTelefoneCliente.Text + "',email_cliente='" + txtEmailCliente.Text + "',senha='" + txtPass.Text + "' where id_cliente=" + txtId1.Text, conexaoMYSQL);
                     comando.ExecuteNonQuery();
                     MessageBox.Show("Dados alterados!", "Sucesso", MessageBoxButtons.OK);
                     txtId1.Text = "";
                     txtNomeCliente.Text = "";
                     txtTelefoneCliente.Text = "";
                     txtEmailCliente.Text = "";
-                    txtSenha2.Text = "";
+                    txtPass.Text = "";
                     CarregarDadosBanco();
                     CarregarDadosBanco2();
                     CarregarDadosBanco3();
@@ -184,7 +187,7 @@ namespace inventoryControl
 
             if (caixaMensagem == DialogResult.Yes)
             {
-                if (txtNomeCliente.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "" || txtSenha2.Text == "")
+                if (txtNomeCliente.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "" || txtPass.Text == "")
                 {
                     MessageBox.Show("Selecione um cliente existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -199,7 +202,7 @@ namespace inventoryControl
                     txtNomeCliente.Text = "";
                     txtTelefoneCliente.Text = "";
                     txtEmailCliente.Text = "";
-                    txtSenha2.Text = "";
+                    txtPass.Text = "";
                     CarregarDadosBanco();
                     CarregarDadosBanco2();
                     CarregarDadosBanco3();
@@ -408,6 +411,39 @@ namespace inventoryControl
             Login login = new Login();
             login.Show();
             this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMostrar1_Click(object sender, EventArgs e)
+        {
+            if (txtPass.PasswordChar == '*')
+            {
+                txtPass.PasswordChar = default;
+                btnMostrar1.Text = "Ocultar";
+            }
+            else
+            {
+                txtPass.PasswordChar = '*';
+                btnMostrar1.Text = "Mostrar";
+            }
+        }
+
+        private void btnMostrar2_Click(object sender, EventArgs e)
+        {
+            if (txtConfPass.PasswordChar == '*')
+            {
+                txtConfPass.PasswordChar = default;
+                btnMostrar2.Text = "Ocultar";
+            }
+            else
+            {
+                txtConfPass.PasswordChar = '*';
+                btnMostrar2.Text = "Mostrar";
+            }
         }
     }
 

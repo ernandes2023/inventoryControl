@@ -32,28 +32,25 @@ namespace inventoryControl
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro));
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnVoltarLogin = new System.Windows.Forms.Button();
-            this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtSenha2 = new System.Windows.Forms.TextBox();
-            this.txtLogin2 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtPass = new System.Windows.Forms.TextBox();
+            this.txtUser = new System.Windows.Forms.TextBox();
             this.txtCargo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnOlho2 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtSenhaConf = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtConfPass = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label7 = new System.Windows.Forms.Label();
@@ -98,6 +95,17 @@ namespace inventoryControl
             this.txtId3 = new System.Windows.Forms.TextBox();
             this.txtNomeComponente = new System.Windows.Forms.TextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.txtCPF = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.btnMostrar1 = new System.Windows.Forms.Button();
+            this.btnMostrar2 = new System.Windows.Forms.Button();
+            this.cboxAdm = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -119,10 +127,10 @@ namespace inventoryControl
             // 
             this.btnCadastrar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCadastrar.Location = new System.Drawing.Point(623, 169);
+            this.btnCadastrar.Location = new System.Drawing.Point(703, 222);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
-            this.btnCadastrar.TabIndex = 0;
+            this.btnCadastrar.TabIndex = 8;
             this.btnCadastrar.Text = "Salvar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.button1_Click);
@@ -139,46 +147,46 @@ namespace inventoryControl
             this.btnVoltarLogin.UseVisualStyleBackColor = true;
             this.btnVoltarLogin.Click += new System.EventHandler(this.button2_Click);
             // 
-            // txtNome
+            // txtName
             // 
-            this.txtNome.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtNome.Location = new System.Drawing.Point(112, 48);
-            this.txtNome.MaxLength = 55;
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(422, 23);
-            this.txtNome.TabIndex = 2;
+            this.txtName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtName.Location = new System.Drawing.Point(112, 48);
+            this.txtName.MaxLength = 55;
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(422, 23);
+            this.txtName.TabIndex = 1;
             // 
-            // txtSenha2
+            // txtPass
             // 
-            this.txtSenha2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenha2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtSenha2.Location = new System.Drawing.Point(112, 135);
-            this.txtSenha2.MaxLength = 20;
-            this.txtSenha2.Name = "txtSenha2";
-            this.txtSenha2.PasswordChar = '*';
-            this.txtSenha2.Size = new System.Drawing.Size(186, 23);
-            this.txtSenha2.TabIndex = 3;
+            this.txtPass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPass.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtPass.Location = new System.Drawing.Point(112, 164);
+            this.txtPass.MaxLength = 20;
+            this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '*';
+            this.txtPass.Size = new System.Drawing.Size(186, 23);
+            this.txtPass.TabIndex = 6;
             // 
-            // txtLogin2
+            // txtUser
             // 
-            this.txtLogin2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLogin2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtLogin2.Location = new System.Drawing.Point(112, 106);
-            this.txtLogin2.MaxLength = 20;
-            this.txtLogin2.Name = "txtLogin2";
-            this.txtLogin2.Size = new System.Drawing.Size(186, 23);
-            this.txtLogin2.TabIndex = 4;
+            this.txtUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtUser.Location = new System.Drawing.Point(112, 135);
+            this.txtUser.MaxLength = 20;
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(186, 23);
+            this.txtUser.TabIndex = 4;
             // 
             // txtCargo
             // 
             this.txtCargo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCargo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtCargo.Location = new System.Drawing.Point(112, 77);
+            this.txtCargo.Location = new System.Drawing.Point(112, 106);
             this.txtCargo.MaxLength = 55;
             this.txtCargo.Name = "txtCargo";
             this.txtCargo.Size = new System.Drawing.Size(186, 23);
-            this.txtCargo.TabIndex = 5;
+            this.txtCargo.TabIndex = 3;
             // 
             // label1
             // 
@@ -196,7 +204,7 @@ namespace inventoryControl
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(52, 77);
+            this.label2.Location = new System.Drawing.Point(52, 106);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 17);
             this.label2.TabIndex = 7;
@@ -207,7 +215,7 @@ namespace inventoryControl
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(48, 106);
+            this.label3.Location = new System.Drawing.Point(48, 135);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 17);
             this.label3.TabIndex = 8;
@@ -218,7 +226,7 @@ namespace inventoryControl
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(55, 135);
+            this.label4.Location = new System.Drawing.Point(55, 164);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 17);
             this.label4.TabIndex = 9;
@@ -234,18 +242,6 @@ namespace inventoryControl
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // btnOlho2
-            // 
-            this.btnOlho2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOlho2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnOlho2.Location = new System.Drawing.Point(304, 135);
-            this.btnOlho2.Name = "btnOlho2";
-            this.btnOlho2.Size = new System.Drawing.Size(67, 24);
-            this.btnOlho2.TabIndex = 11;
-            this.btnOlho2.Text = "Mostrar senha";
-            this.btnOlho2.UseVisualStyleBackColor = true;
-            this.btnOlho2.Click += new System.EventHandler(this.btnOlho2_Click);
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -253,6 +249,7 @@ namespace inventoryControl
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -266,29 +263,37 @@ namespace inventoryControl
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.btnVoltarLogin);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1094, 592);
+            this.tabPage1.Size = new System.Drawing.Size(1094, 588);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Usuário";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(166, 549);
+            this.button4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(998, 549);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "button4";
+            this.button4.Size = new System.Drawing.Size(90, 37);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Sair";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(6, 210);
+            this.groupBox2.Location = new System.Drawing.Point(6, 263);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(866, 333);
+            this.groupBox2.Size = new System.Drawing.Size(866, 280);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
@@ -296,54 +301,46 @@ namespace inventoryControl
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
+            this.dataGridView1.Location = new System.Drawing.Point(112, 71);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(854, 308);
+            this.dataGridView1.Size = new System.Drawing.Size(748, 203);
             this.dataGridView1.TabIndex = 0;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.cboxAdm);
+            this.groupBox1.Controls.Add(this.btnMostrar2);
+            this.groupBox1.Controls.Add(this.btnMostrar1);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.txtCPF);
             this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.txtNome);
+            this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnCadastrar);
             this.groupBox1.Controls.Add(this.txtCargo);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtLogin2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.txtUser);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.btnOlho2);
-            this.groupBox1.Controls.Add(this.txtSenha2);
-            this.groupBox1.Controls.Add(this.txtSenhaConf);
+            this.groupBox1.Controls.Add(this.txtPass);
+            this.groupBox1.Controls.Add(this.txtConfPass);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(866, 198);
-            this.groupBox1.TabIndex = 12;
+            this.groupBox1.Size = new System.Drawing.Size(866, 251);
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(785, 169);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(704, 169);
+            this.button2.Location = new System.Drawing.Point(784, 222);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 12;
+            this.button2.TabIndex = 9;
             this.button2.Text = "Limpar";
             this.button2.UseVisualStyleBackColor = true;
             // 
@@ -358,45 +355,33 @@ namespace inventoryControl
             this.label5.TabIndex = 6;
             this.label5.Text = "Id:";
             // 
-            // button1
+            // txtConfPass
             // 
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(304, 164);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(67, 24);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Mostrar senha";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnOlho2_Click);
+            this.txtConfPass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfPass.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtConfPass.Location = new System.Drawing.Point(112, 193);
+            this.txtConfPass.MaxLength = 20;
+            this.txtConfPass.Name = "txtConfPass";
+            this.txtConfPass.PasswordChar = '*';
+            this.txtConfPass.Size = new System.Drawing.Size(186, 23);
+            this.txtConfPass.TabIndex = 7;
             // 
-            // txtSenhaConf
+            // txtId
             // 
-            this.txtSenhaConf.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenhaConf.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtSenhaConf.Location = new System.Drawing.Point(112, 164);
-            this.txtSenhaConf.MaxLength = 20;
-            this.txtSenhaConf.Name = "txtSenhaConf";
-            this.txtSenhaConf.PasswordChar = '*';
-            this.txtSenhaConf.Size = new System.Drawing.Size(186, 23);
-            this.txtSenhaConf.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBox1.Location = new System.Drawing.Point(112, 19);
-            this.textBox1.MaxLength = 55;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(61, 23);
-            this.textBox1.TabIndex = 2;
+            this.txtId.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtId.Location = new System.Drawing.Point(112, 19);
+            this.txtId.MaxLength = 55;
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(61, 23);
+            this.txtId.TabIndex = 0;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(15, 164);
+            this.label6.Location = new System.Drawing.Point(15, 193);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 17);
             this.label6.TabIndex = 9;
@@ -420,10 +405,10 @@ namespace inventoryControl
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.txtEmailCliente);
             this.tabPage2.Controls.Add(this.textBox3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1094, 592);
+            this.tabPage2.Size = new System.Drawing.Size(1094, 588);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Cliente:";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -453,7 +438,7 @@ namespace inventoryControl
             this.txtId1.Enabled = false;
             this.txtId1.Location = new System.Drawing.Point(817, 154);
             this.txtId1.Name = "txtId1";
-            this.txtId1.Size = new System.Drawing.Size(49, 20);
+            this.txtId1.Size = new System.Drawing.Size(49, 23);
             this.txtId1.TabIndex = 63;
             this.txtId1.Visible = false;
             // 
@@ -625,7 +610,7 @@ namespace inventoryControl
             this.txtIdCliente2.Enabled = false;
             this.txtIdCliente2.Location = new System.Drawing.Point(820, 76);
             this.txtIdCliente2.Name = "txtIdCliente2";
-            this.txtIdCliente2.Size = new System.Drawing.Size(46, 20);
+            this.txtIdCliente2.Size = new System.Drawing.Size(46, 23);
             this.txtIdCliente2.TabIndex = 52;
             this.txtIdCliente2.Visible = false;
             // 
@@ -695,7 +680,7 @@ namespace inventoryControl
             this.txtId2.Enabled = false;
             this.txtId2.Location = new System.Drawing.Point(820, 102);
             this.txtId2.Name = "txtId2";
-            this.txtId2.Size = new System.Drawing.Size(46, 20);
+            this.txtId2.Size = new System.Drawing.Size(46, 23);
             this.txtId2.TabIndex = 43;
             this.txtId2.Visible = false;
             // 
@@ -848,7 +833,7 @@ namespace inventoryControl
             this.txtId3.Enabled = false;
             this.txtId3.Location = new System.Drawing.Point(817, 102);
             this.txtId3.Name = "txtId3";
-            this.txtId3.Size = new System.Drawing.Size(49, 20);
+            this.txtId3.Size = new System.Drawing.Size(49, 23);
             this.txtId3.TabIndex = 52;
             this.txtId3.Visible = false;
             // 
@@ -871,6 +856,102 @@ namespace inventoryControl
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // txtCPF
+            // 
+            this.txtCPF.Location = new System.Drawing.Point(112, 77);
+            this.txtCPF.Name = "txtCPF";
+            this.txtCPF.Size = new System.Drawing.Size(186, 23);
+            this.txtCPF.TabIndex = 2;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(69, 77);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(37, 17);
+            this.label17.TabIndex = 11;
+            this.label17.Text = "CPF:";
+            // 
+            // btnMostrar1
+            // 
+            this.btnMostrar1.Location = new System.Drawing.Point(304, 164);
+            this.btnMostrar1.Name = "btnMostrar1";
+            this.btnMostrar1.Size = new System.Drawing.Size(75, 23);
+            this.btnMostrar1.TabIndex = 15;
+            this.btnMostrar1.Text = "Mostrar";
+            this.btnMostrar1.UseVisualStyleBackColor = true;
+            this.btnMostrar1.Click += new System.EventHandler(this.btnMostrar1_Click);
+            // 
+            // btnMostrar2
+            // 
+            this.btnMostrar2.Location = new System.Drawing.Point(304, 193);
+            this.btnMostrar2.Name = "btnMostrar2";
+            this.btnMostrar2.Size = new System.Drawing.Size(75, 23);
+            this.btnMostrar2.TabIndex = 16;
+            this.btnMostrar2.Text = "Mostrar";
+            this.btnMostrar2.UseVisualStyleBackColor = true;
+            this.btnMostrar2.Click += new System.EventHandler(this.btnMostrar2_Click);
+            // 
+            // cboxAdm
+            // 
+            this.cboxAdm.AutoSize = true;
+            this.cboxAdm.Location = new System.Drawing.Point(304, 137);
+            this.cboxAdm.Name = "cboxAdm";
+            this.cboxAdm.Size = new System.Drawing.Size(117, 21);
+            this.cboxAdm.TabIndex = 5;
+            this.cboxAdm.Text = "Administrador";
+            this.cboxAdm.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(304, 13);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Pesquisar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(112, 42);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(435, 23);
+            this.textBox1.TabIndex = 2;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(69, 13);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(37, 17);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "CPF:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(112, 13);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(186, 23);
+            this.textBox2.TabIndex = 3;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(54, 42);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(52, 17);
+            this.label19.TabIndex = 5;
+            this.label19.Text = "Nome:";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(553, 42);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Pesquisar";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // Cadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -885,6 +966,7 @@ namespace inventoryControl
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -908,32 +990,29 @@ namespace inventoryControl
 
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnVoltarLogin;
-        private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.TextBox txtSenha2;
-        private System.Windows.Forms.TextBox txtLogin2;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtPass;
+        private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.TextBox txtCargo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnOlho2;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtSenhaConf;
+        private System.Windows.Forms.TextBox txtConfPass;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dgvClientes;
@@ -974,5 +1053,16 @@ namespace inventoryControl
         private System.Windows.Forms.TextBox txtId3;
         private System.Windows.Forms.TextBox txtNomeComponente;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.TextBox txtCPF;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button btnMostrar2;
+        private System.Windows.Forms.Button btnMostrar1;
+        private System.Windows.Forms.CheckBox cboxAdm;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
