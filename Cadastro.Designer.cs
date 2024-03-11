@@ -45,8 +45,19 @@ namespace inventoryControl
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cboxAdm = new System.Windows.Forms.CheckBox();
+            this.btnMostrar2 = new System.Windows.Forms.Button();
+            this.btnMostrar1 = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtCPF = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtConfPass = new System.Windows.Forms.TextBox();
@@ -95,22 +106,11 @@ namespace inventoryControl
             this.txtId3 = new System.Windows.Forms.TextBox();
             this.txtNomeComponente = new System.Windows.Forms.TextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.txtCPF = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.btnMostrar1 = new System.Windows.Forms.Button();
-            this.btnMostrar2 = new System.Windows.Forms.Button();
-            this.cboxAdm = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -290,7 +290,7 @@ namespace inventoryControl
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.dgvUsers);
             this.groupBox2.Location = new System.Drawing.Point(6, 263);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(866, 280);
@@ -298,13 +298,66 @@ namespace inventoryControl
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             // 
-            // dataGridView1
+            // button3
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(112, 71);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(748, 203);
-            this.dataGridView1.TabIndex = 0;
+            this.button3.Location = new System.Drawing.Point(553, 42);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Pesquisar";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(54, 42);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(52, 17);
+            this.label19.TabIndex = 5;
+            this.label19.Text = "Nome:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(69, 13);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(37, 17);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "CPF:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(112, 13);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(186, 23);
+            this.textBox2.TabIndex = 3;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(112, 42);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(435, 23);
+            this.textBox1.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(304, 13);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Pesquisar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // dgvUsers
+            // 
+            this.dgvUsers.AllowUserToAddRows = false;
+            this.dgvUsers.AllowUserToDeleteRows = false;
+            this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsers.Location = new System.Drawing.Point(112, 71);
+            this.dgvUsers.Name = "dgvUsers";
+            this.dgvUsers.ReadOnly = true;
+            this.dgvUsers.Size = new System.Drawing.Size(748, 203);
+            this.dgvUsers.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -333,6 +386,52 @@ namespace inventoryControl
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // cboxAdm
+            // 
+            this.cboxAdm.AutoSize = true;
+            this.cboxAdm.Location = new System.Drawing.Point(304, 137);
+            this.cboxAdm.Name = "cboxAdm";
+            this.cboxAdm.Size = new System.Drawing.Size(117, 21);
+            this.cboxAdm.TabIndex = 5;
+            this.cboxAdm.Text = "Administrador";
+            this.cboxAdm.UseVisualStyleBackColor = true;
+            // 
+            // btnMostrar2
+            // 
+            this.btnMostrar2.Location = new System.Drawing.Point(304, 193);
+            this.btnMostrar2.Name = "btnMostrar2";
+            this.btnMostrar2.Size = new System.Drawing.Size(75, 23);
+            this.btnMostrar2.TabIndex = 16;
+            this.btnMostrar2.Text = "Mostrar";
+            this.btnMostrar2.UseVisualStyleBackColor = true;
+            this.btnMostrar2.Click += new System.EventHandler(this.btnMostrar2_Click);
+            // 
+            // btnMostrar1
+            // 
+            this.btnMostrar1.Location = new System.Drawing.Point(304, 164);
+            this.btnMostrar1.Name = "btnMostrar1";
+            this.btnMostrar1.Size = new System.Drawing.Size(75, 23);
+            this.btnMostrar1.TabIndex = 15;
+            this.btnMostrar1.Text = "Mostrar";
+            this.btnMostrar1.UseVisualStyleBackColor = true;
+            this.btnMostrar1.Click += new System.EventHandler(this.btnMostrar1_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(69, 77);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(37, 17);
+            this.label17.TabIndex = 11;
+            this.label17.Text = "CPF:";
+            // 
+            // txtCPF
+            // 
+            this.txtCPF.Location = new System.Drawing.Point(112, 77);
+            this.txtCPF.Name = "txtCPF";
+            this.txtCPF.Size = new System.Drawing.Size(186, 23);
+            this.txtCPF.TabIndex = 2;
             // 
             // button2
             // 
@@ -587,10 +686,10 @@ namespace inventoryControl
             this.tabPage3.Controls.Add(this.btnSalvar2);
             this.tabPage3.Controls.Add(this.label14);
             this.tabPage3.Controls.Add(this.dgvProdutos);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 26);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1094, 592);
+            this.tabPage3.Size = new System.Drawing.Size(1094, 588);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Produto";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -736,10 +835,10 @@ namespace inventoryControl
             this.tabPage4.Controls.Add(this.label16);
             this.tabPage4.Controls.Add(this.txtId3);
             this.tabPage4.Controls.Add(this.txtNomeComponente);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Location = new System.Drawing.Point(4, 26);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1094, 592);
+            this.tabPage4.Size = new System.Drawing.Size(1094, 588);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Componente";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -848,109 +947,13 @@ namespace inventoryControl
             // 
             // tabPage5
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Location = new System.Drawing.Point(4, 26);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1094, 592);
+            this.tabPage5.Size = new System.Drawing.Size(1094, 588);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // txtCPF
-            // 
-            this.txtCPF.Location = new System.Drawing.Point(112, 77);
-            this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(186, 23);
-            this.txtCPF.TabIndex = 2;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(69, 77);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(37, 17);
-            this.label17.TabIndex = 11;
-            this.label17.Text = "CPF:";
-            // 
-            // btnMostrar1
-            // 
-            this.btnMostrar1.Location = new System.Drawing.Point(304, 164);
-            this.btnMostrar1.Name = "btnMostrar1";
-            this.btnMostrar1.Size = new System.Drawing.Size(75, 23);
-            this.btnMostrar1.TabIndex = 15;
-            this.btnMostrar1.Text = "Mostrar";
-            this.btnMostrar1.UseVisualStyleBackColor = true;
-            this.btnMostrar1.Click += new System.EventHandler(this.btnMostrar1_Click);
-            // 
-            // btnMostrar2
-            // 
-            this.btnMostrar2.Location = new System.Drawing.Point(304, 193);
-            this.btnMostrar2.Name = "btnMostrar2";
-            this.btnMostrar2.Size = new System.Drawing.Size(75, 23);
-            this.btnMostrar2.TabIndex = 16;
-            this.btnMostrar2.Text = "Mostrar";
-            this.btnMostrar2.UseVisualStyleBackColor = true;
-            this.btnMostrar2.Click += new System.EventHandler(this.btnMostrar2_Click);
-            // 
-            // cboxAdm
-            // 
-            this.cboxAdm.AutoSize = true;
-            this.cboxAdm.Location = new System.Drawing.Point(304, 137);
-            this.cboxAdm.Name = "cboxAdm";
-            this.cboxAdm.Size = new System.Drawing.Size(117, 21);
-            this.cboxAdm.TabIndex = 5;
-            this.cboxAdm.Text = "Administrador";
-            this.cboxAdm.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(304, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Pesquisar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(112, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(435, 23);
-            this.textBox1.TabIndex = 2;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(69, 13);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(37, 17);
-            this.label18.TabIndex = 4;
-            this.label18.Text = "CPF:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(112, 13);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(186, 23);
-            this.textBox2.TabIndex = 3;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(54, 42);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(52, 17);
-            this.label19.TabIndex = 5;
-            this.label19.Text = "Nome:";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(553, 42);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Pesquisar";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // Cadastro
             // 
@@ -962,12 +965,13 @@ namespace inventoryControl
             this.Name = "Cadastro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro";
+            this.Load += new System.EventHandler(this.Cadastro_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -1011,7 +1015,7 @@ namespace inventoryControl
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label7;

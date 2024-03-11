@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Bcpg.OpenPgp;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace inventoryControl
@@ -69,6 +70,13 @@ namespace inventoryControl
         }
 
         /* Codigo abaixo realiza o Cadastro do Usuário */
+        /*
+         * 
+         * 
+         * 
+         * 
+         * 
+         */
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -113,7 +121,15 @@ namespace inventoryControl
 
         }
 
-        /* Fim do Código de cadastro de Usuario */
+        /* Fim do Código de cadastro de Usuario 
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         */
 
 
         private void btnOlho2_Click(object sender, EventArgs e)
@@ -452,6 +468,41 @@ namespace inventoryControl
             {
                 txtConfPass.PasswordChar = '*';
                 btnMostrar2.Text = "Mostrar";
+            }
+        }
+
+        private void Cadastro_Load_1(object sender, EventArgs e)
+        {
+            using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
+            {
+                conexaoMYSQL.Open();
+
+                string query = "SELECT * FROM users";
+
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dgvUsers.DataSource = dt;
+                    
+                    
+                    /* Configurações dataGridView "cadastro usuarios" - em testes
+                     * 
+                     * 
+                     * 
+                    if (dt.Rows.Count > 0)
+                    {
+                        dgvUsers.DataSource = dt;
+                        dgvUsers.Columns.Clear(); //Limpa as colunas existentes
+                        dgvUsers.Columns.Add("NomeUsers", "Nome do Usuário");// Adiciona uma coluna específica
+                        dgvUsers.Rows[0].Cells["NomeUsers"].Value = dt.Rows[0]["name_user".ToString()];
+                    }
+                    else
+                    {
+                        // Trate o caso em que não há dados para exibir
+                        MessageBox.Show("Nenhum dado encontrado.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }*/
+                }
             }
         }
     }
