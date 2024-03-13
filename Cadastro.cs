@@ -18,6 +18,7 @@ namespace inventoryControl
         public Cadastro()
         {
             InitializeComponent();
+            dgvUsers.CellFormatting += dgvUsers_CellFormatting;// referente ao codigo na linha 513 formatação das colunas "senha e conf senha" no dgvUsers
         }
 
         private void Cad_produtos_Load(object sender, EventArgs e)
@@ -473,38 +474,61 @@ namespace inventoryControl
 
         private void Cadastro_Load_1(object sender, EventArgs e)
         {
-            using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
+            try
             {
-                conexaoMYSQL.Open();
-
-                string query = "SELECT * FROM users";
-
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
+                using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
                 {
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-                    dgvUsers.DataSource = dt;
-                    
-                    
-                    /* Configurações dataGridView "cadastro usuarios" - em testes
-                     * 
-                     * 
-                     * 
-                    if (dt.Rows.Count > 0)
+                    conexaoMYSQL.Open();
+
+                    string query = "SELECT * FROM users";
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
                     {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+
+                        // Renomear as colunas conforme necessário
+                        dt.Columns["id_user"].ColumnName = "Id:";
+                        dt.Columns["name_user"].ColumnName = "Nome:";
+                        dt.Columns["cpf"].ColumnName = "CPF:";
+                        dt.Columns["office"].ColumnName = "Cargo";
+                        dt.Columns["login"].ColumnName = "Usuário";
+                        dt.Columns["pass"].ColumnName = "Senha:";
+                        dt.Columns["confirm_pass"].ColumnName = "Conf. Senha:";
+                        dt.Columns["st_adm"].ColumnName = "Status Adm";
+
                         dgvUsers.DataSource = dt;
-                        dgvUsers.Columns.Clear(); //Limpa as colunas existentes
-                        dgvUsers.Columns.Add("NomeUsers", "Nome do Usuário");// Adiciona uma coluna específica
-                        dgvUsers.Rows[0].Cells["NomeUsers"].Value = dt.Rows[0]["name_user".ToString()];
+
+
                     }
-                    else
-                    {
-                        // Trate o caso em que não há dados para exibir
-                        MessageBox.Show("Nenhum dado encontrado.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }*/
                 }
             }
+            catch (Exception ex)
+            {
+                // Tratar exceção, registrar em log, etc.
+                MessageBox.Show("Ocorreu um erro ao carregar os dados: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        private void dgvUsers_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Verifica se a célula atual pertence à coluna de senhas (substitua "Senha:" pelo nome da sua coluna)
+            if (dgvUsers.Columns[e.ColumnIndex].HeaderText == "Senha:" || dgvUsers.Columns[e.ColumnIndex].HeaderText == "Conf. Senha:")
+            {
+                // Obtém o valor atual da célula
+                string senhaOriginal = e.Value as string;
+
+                // Substitui todos os caracteres por asteriscos
+                string senhaAsteriscos = new string('*', senhaOriginal.Length);
+
+                // Define o valor formatado para exibição
+                e.Value = senhaAsteriscos;
+            }
+        }
+
+
+
+
     }
 
 }
