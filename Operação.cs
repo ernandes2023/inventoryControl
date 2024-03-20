@@ -28,5 +28,15 @@ namespace inventoryControl
             login.Show();
             this.Hide();
         }
+
+        private void GRM_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
