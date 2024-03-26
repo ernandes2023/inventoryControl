@@ -32,24 +32,26 @@ namespace inventoryControl
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.grmNumero = new System.Windows.Forms.ComboBox();
+            this.produto = new System.Windows.Forms.ComboBox();
+            this.defeito = new System.Windows.Forms.ComboBox();
+            this.componente = new System.Windows.Forms.ComboBox();
             this.GRM = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.gtdComp = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.garantia = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.status = new System.Windows.Forms.ComboBox();
+            this.addList = new System.Windows.Forms.Button();
+            this.finalizar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.serialNumber = new System.Windows.Forms.TextBox();
+            this.dataAtual = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +70,7 @@ namespace inventoryControl
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(925, 480);
+            this.button1.Location = new System.Drawing.Point(984, 143);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(78, 27);
             this.button1.TabIndex = 1;
@@ -81,40 +83,44 @@ namespace inventoryControl
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 189);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(907, 318);
+            this.dataGridView1.Size = new System.Drawing.Size(1050, 327);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // comboBox1
+            // grmNumero
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(18, 85);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(69, 21);
-            this.comboBox1.TabIndex = 3;
+            this.grmNumero.FormattingEnabled = true;
+            this.grmNumero.Location = new System.Drawing.Point(18, 85);
+            this.grmNumero.Name = "grmNumero";
+            this.grmNumero.Size = new System.Drawing.Size(69, 21);
+            this.grmNumero.TabIndex = 3;
+            this.grmNumero.SelectedIndexChanged += new System.EventHandler(this.grmNumero_SelectedIndexChanged);
             // 
-            // comboBox2
+            // produto
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(21, 151);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(99, 21);
-            this.comboBox2.TabIndex = 4;
+            this.produto.FormattingEnabled = true;
+            this.produto.Location = new System.Drawing.Point(21, 151);
+            this.produto.Name = "produto";
+            this.produto.Size = new System.Drawing.Size(99, 21);
+            this.produto.TabIndex = 4;
+            this.produto.SelectedIndexChanged += new System.EventHandler(this.produto_SelectedIndexChanged);
             // 
-            // comboBox3
+            // defeito
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(293, 151);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 5;
+            this.defeito.FormattingEnabled = true;
+            this.defeito.Location = new System.Drawing.Point(455, 149);
+            this.defeito.Name = "defeito";
+            this.defeito.Size = new System.Drawing.Size(121, 21);
+            this.defeito.TabIndex = 5;
             // 
-            // comboBox4
+            // componente
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(464, 85);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
-            this.comboBox4.TabIndex = 6;
+            this.componente.FormattingEnabled = true;
+            this.componente.Location = new System.Drawing.Point(421, 85);
+            this.componente.Name = "componente";
+            this.componente.Size = new System.Drawing.Size(121, 21);
+            this.componente.TabIndex = 6;
+            this.componente.SelectedIndexChanged += new System.EventHandler(this.componente_SelectedIndexChanged);
             // 
             // GRM
             // 
@@ -141,7 +147,7 @@ namespace inventoryControl
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(290, 123);
+            this.label3.Location = new System.Drawing.Point(452, 124);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 9;
@@ -151,42 +157,42 @@ namespace inventoryControl
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(461, 57);
+            this.label4.Location = new System.Drawing.Point(418, 60);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 13);
             this.label4.TabIndex = 10;
             this.label4.Text = "Componente";
             // 
-            // textBox1
+            // gtdComp
             // 
-            this.textBox1.Location = new System.Drawing.Point(464, 151);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(43, 20);
-            this.textBox1.TabIndex = 11;
+            this.gtdComp.Location = new System.Drawing.Point(567, 85);
+            this.gtdComp.Name = "gtdComp";
+            this.gtdComp.Size = new System.Drawing.Size(43, 20);
+            this.gtdComp.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(461, 123);
+            this.label5.Location = new System.Drawing.Point(564, 60);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(30, 13);
             this.label5.TabIndex = 12;
             this.label5.Text = "QTD";
             // 
-            // comboBox5
+            // garantia
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(293, 85);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 21);
-            this.comboBox5.TabIndex = 13;
+            this.garantia.FormattingEnabled = true;
+            this.garantia.Location = new System.Drawing.Point(273, 85);
+            this.garantia.Name = "garantia";
+            this.garantia.Size = new System.Drawing.Size(121, 21);
+            this.garantia.TabIndex = 13;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(290, 57);
+            this.label6.Location = new System.Drawing.Point(270, 57);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 13);
             this.label6.TabIndex = 14;
@@ -196,80 +202,101 @@ namespace inventoryControl
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(147, 123);
+            this.label7.Location = new System.Drawing.Point(312, 125);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(37, 13);
             this.label7.TabIndex = 16;
             this.label7.Text = "Status";
             // 
-            // comboBox6
+            // status
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(150, 151);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(121, 21);
-            this.comboBox6.TabIndex = 15;
+            this.status.FormattingEnabled = true;
+            this.status.Location = new System.Drawing.Point(315, 150);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(121, 21);
+            this.status.TabIndex = 15;
             // 
-            // button2
+            // addList
             // 
-            this.button2.Location = new System.Drawing.Point(844, 148);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "Add list";
-            this.button2.UseVisualStyleBackColor = true;
+            this.addList.Location = new System.Drawing.Point(764, 147);
+            this.addList.Name = "addList";
+            this.addList.Size = new System.Drawing.Size(75, 23);
+            this.addList.TabIndex = 17;
+            this.addList.Text = "Add list";
+            this.addList.UseVisualStyleBackColor = true;
+            this.addList.Click += new System.EventHandler(this.addList_Click);
             // 
-            // button3
+            // finalizar
             // 
-            this.button3.Location = new System.Drawing.Point(928, 420);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "Finalizar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.finalizar.Location = new System.Drawing.Point(876, 147);
+            this.finalizar.Name = "finalizar";
+            this.finalizar.Size = new System.Drawing.Size(75, 23);
+            this.finalizar.TabIndex = 18;
+            this.finalizar.Text = "Finalizar";
+            this.finalizar.UseVisualStyleBackColor = true;
+            this.finalizar.Click += new System.EventHandler(this.finalizar_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(147, 57);
+            this.label8.Location = new System.Drawing.Point(136, 57);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(30, 13);
             this.label8.TabIndex = 20;
             this.label8.Text = "Data";
             // 
-            // comboBox7
+            // label9
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(150, 85);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(99, 21);
-            this.comboBox7.TabIndex = 19;
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label9.Location = new System.Drawing.Point(136, 123);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(73, 13);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Serial Number";
+            // 
+            // serialNumber
+            // 
+            this.serialNumber.Location = new System.Drawing.Point(139, 151);
+            this.serialNumber.Name = "serialNumber";
+            this.serialNumber.Size = new System.Drawing.Size(154, 20);
+            this.serialNumber.TabIndex = 23;
+            // 
+            // dataAtual
+            // 
+            this.dataAtual.Location = new System.Drawing.Point(139, 85);
+            this.dataAtual.Name = "dataAtual";
+            this.dataAtual.Size = new System.Drawing.Size(70, 20);
+            this.dataAtual.TabIndex = 24;
+            this.dataAtual.TextChanged += new System.EventHandler(this.dataAtual_TextChanged);
             // 
             // Operação
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1015, 519);
+            this.ClientSize = new System.Drawing.Size(1074, 528);
+            this.Controls.Add(this.dataAtual);
+            this.Controls.Add(this.serialNumber);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.comboBox7);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.finalizar);
+            this.Controls.Add(this.addList);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBox6);
+            this.Controls.Add(this.status);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox5);
+            this.Controls.Add(this.garantia);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.gtdComp);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.GRM);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.componente);
+            this.Controls.Add(this.defeito);
+            this.Controls.Add(this.produto);
+            this.Controls.Add(this.grmNumero);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -288,23 +315,25 @@ namespace inventoryControl
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox grmNumero;
+        private System.Windows.Forms.ComboBox produto;
+        private System.Windows.Forms.ComboBox defeito;
+        private System.Windows.Forms.ComboBox componente;
         private System.Windows.Forms.Label GRM;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox gtdComp;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox garantia;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox status;
+        private System.Windows.Forms.Button addList;
+        private System.Windows.Forms.Button finalizar;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox serialNumber;
+        private System.Windows.Forms.TextBox dataAtual;
     }
 }

@@ -110,6 +110,8 @@
     <Compile Include="Cadastro2.Designer.cs">
       <DependentUpon>Cadastro2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Operacao.cs" />
+    <Compile Include="Componente.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
