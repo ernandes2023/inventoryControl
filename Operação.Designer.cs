@@ -83,7 +83,7 @@ namespace inventoryControl
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 189);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1050, 327);
+            this.dataGridView1.Size = new System.Drawing.Size(1077, 327);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -112,6 +112,7 @@ namespace inventoryControl
             this.defeito.Name = "defeito";
             this.defeito.Size = new System.Drawing.Size(121, 21);
             this.defeito.TabIndex = 5;
+            this.defeito.SelectedIndexChanged += new System.EventHandler(this.defeito_SelectedIndexChanged);
             // 
             // componente
             // 
@@ -169,6 +170,7 @@ namespace inventoryControl
             this.gtdComp.Name = "gtdComp";
             this.gtdComp.Size = new System.Drawing.Size(43, 20);
             this.gtdComp.TabIndex = 11;
+            this.gtdComp.TextChanged += new System.EventHandler(this.gtdComp_TextChanged);
             // 
             // label5
             // 
@@ -187,6 +189,7 @@ namespace inventoryControl
             this.garantia.Name = "garantia";
             this.garantia.Size = new System.Drawing.Size(121, 21);
             this.garantia.TabIndex = 13;
+            this.garantia.SelectedIndexChanged += new System.EventHandler(this.garantia_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -215,6 +218,7 @@ namespace inventoryControl
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(121, 21);
             this.status.TabIndex = 15;
+            this.status.SelectedIndexChanged += new System.EventHandler(this.status_SelectedIndexChanged);
             // 
             // addList
             // 
@@ -262,6 +266,7 @@ namespace inventoryControl
             this.serialNumber.Name = "serialNumber";
             this.serialNumber.Size = new System.Drawing.Size(154, 20);
             this.serialNumber.TabIndex = 23;
+            this.serialNumber.TextChanged += new System.EventHandler(this.serialNumber_TextChanged);
             // 
             // dataAtual
             // 
@@ -276,7 +281,7 @@ namespace inventoryControl
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1074, 528);
+            this.ClientSize = new System.Drawing.Size(1101, 528);
             this.Controls.Add(this.dataAtual);
             this.Controls.Add(this.serialNumber);
             this.Controls.Add(this.label9);

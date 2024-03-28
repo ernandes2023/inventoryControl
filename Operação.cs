@@ -34,7 +34,8 @@ namespace inventoryControl
             operacao = new Operacao();
         }
 
-        
+       
+
         private void Operação_Load(object sender, EventArgs e)
         {
             DateTime Hoje = DateTime.Now;
@@ -42,7 +43,9 @@ namespace inventoryControl
             // Atribuir a data atual ao texto da TextBox
             dataAtual.Text = Hoje.ToString("yyyy-MM-dd");
 
-          
+            
+
+
         }
         private void carregDadosStatus()
         {
@@ -163,8 +166,11 @@ namespace inventoryControl
             dataGridView1.Columns.Add("Column8", "QTD");            
             dataGridView1.Columns.Add("Column9", "Tecnico");
             dataGridView1.Columns.Add("Column10", "Data");
-           
-            
+            dataGridView1.Columns[2].Width = 150;
+            dataGridView1.Columns[7].Width = 50;
+            dataGridView1.Columns[9].Width = 150;
+
+
             // Populando a DataGridView com dados
             //dataGridView1.Rows.Add("João", 25, "São Paulo");
             //dataGridView1.Rows.Add("Maria", 30, "Rio de Janeiro");
@@ -195,13 +201,22 @@ namespace inventoryControl
 
         private void dataAtual_TextChanged(object sender, EventArgs e)
         {
-            // Captura o valor da TextBox
-            
+            DateTime Hoje = DateTime.Now;
+
+            // Atribuir a data atual ao texto da TextBox
+            dataAtual.Text = Hoje.ToString("yyyy-MM-dd");
+
+            operacao.dataAtual = Hoje;
+
+
+
         }
 
         private void grmNumero_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string grmSelecionado = grmNumero.SelectedItem.ToString();
 
+            operacao.module = grmSelecionado;
         }
 
         private void produto_SelectedIndexChanged(object sender, EventArgs e)
@@ -217,10 +232,17 @@ namespace inventoryControl
         {
 
             int rowIndex = dataGridView1.Rows.Add();
-            
+
+            dataGridView1.Rows[rowIndex].Cells[0].Value = operacao.grm;
             dataGridView1.Rows[rowIndex].Cells[1].Value = operacao.module;
+            dataGridView1.Rows[rowIndex].Cells[2].Value = operacao.serialNumber;
+            dataGridView1.Rows[rowIndex].Cells[3].Value = operacao.status;
+            dataGridView1.Rows[rowIndex].Cells[4].Value = operacao.garantia;
+            dataGridView1.Rows[rowIndex].Cells[5].Value = operacao.defeito;
             dataGridView1.Rows[rowIndex].Cells[6].Value = operacao.componente;
-            dataGridView1.Rows[rowIndex].Cells[9].Value = DateTime.Now;
+            dataGridView1.Rows[rowIndex].Cells[7].Value = operacao.gtdComp;
+            dataGridView1.Rows[rowIndex].Cells[8].Value = operacao.tecnico;
+            dataGridView1.Rows[rowIndex].Cells[9].Value = operacao.dataAtual;
 
             operacoes.Add(operacao);
             operacao = new Operacao();
@@ -253,6 +275,41 @@ namespace inventoryControl
                 comando.ExecuteNonQuery();
 
             }*/
+        }
+
+        private void serialNumber_TextChanged(object sender, EventArgs e)
+        {
+            string serial = serialNumber.Text.ToString();
+
+            operacao.serialNumber = serial;
+        }
+
+        private void garantia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string gar = garantia.SelectedItem.ToString();
+
+            operacao.garantia = gar;
+        }
+
+        private void status_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string state = status.SelectedItem.ToString();
+
+            operacao.status = state;
+        }
+
+        private void defeito_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string def = defeito.SelectedItem.ToString();
+
+            operacao.defeito = def;
+        }
+
+        private void gtdComp_TextChanged(object sender, EventArgs e)
+        {
+            string qtd = gtdComp.Text.ToString();
+
+            operacao.gtdComp = qtd;
         }
     }
 }
