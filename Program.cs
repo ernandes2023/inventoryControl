@@ -17,7 +17,7 @@ namespace inventoryControl
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Operação());
+            Application.Run(new Login());
         }
     }
 }

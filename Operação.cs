@@ -16,11 +16,16 @@ namespace inventoryControl
         private Operacao operacao;
         private List<Operacao> operacoes;
         private List<Componente> componentes;
+        private UserTecnico userTecnico;
+        private Timer timer;
+
+
 
         public Operação()
         {
             operacoes = new List<Operacao>();
             componentes = new List<Componente>();
+            userTecnico = new UserTecnico();
 
             InitializeComponent();
             carregDadoProd();
@@ -31,22 +36,37 @@ namespace inventoryControl
             carregDadosStatus();
             carregDgv();
 
+            
+            tecnico.Text = Login.UltimoValorTextBox;
             operacao = new Operacao();
+
+            timer = new Timer();
+            timer.Interval = 1000; // Intervalo de 1 segundo (1000 milissegundos)
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
         }
 
-       
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            // Atualiza o texto da TextBox com a data e hora atual
+            dataAtual.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        }
+
+
+
 
         private void Operação_Load(object sender, EventArgs e)
         {
             DateTime Hoje = DateTime.Now;
 
             // Atribuir a data atual ao texto da TextBox
-            dataAtual.Text = Hoje.ToString("yyyy-MM-dd");
-
-            
-
+            dataAtual.Text = Hoje.ToString("yyyy-MM-dd HH:mm:ss");
 
         }
+
+      
+
         private void carregDadosStatus()
         {
             string query = "Select * from status_";
@@ -119,6 +139,10 @@ namespace inventoryControl
         private void carregDadoComp()
         {
             string query = "Select * from componente";
+
+            componente.AutoCompleteMode = AutoCompleteMode.Suggest;
+            componente.AutoCompleteSource = AutoCompleteSource.ListItems;
+
 
             using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
             {
@@ -204,10 +228,9 @@ namespace inventoryControl
             DateTime Hoje = DateTime.Now;
 
             // Atribuir a data atual ao texto da TextBox
-            dataAtual.Text = Hoje.ToString("yyyy-MM-dd");
+            dataAtual.Text = Hoje.ToString("yyyy-MM-dd HH:mm:ss");
 
             operacao.dataAtual = Hoje;
-
 
 
         }
@@ -216,7 +239,7 @@ namespace inventoryControl
         {
             string grmSelecionado = grmNumero.SelectedItem.ToString();
 
-            operacao.module = grmSelecionado;
+            operacao.grm = grmSelecionado;
         }
 
         private void produto_SelectedIndexChanged(object sender, EventArgs e)
@@ -241,11 +264,18 @@ namespace inventoryControl
             dataGridView1.Rows[rowIndex].Cells[5].Value = operacao.defeito;
             dataGridView1.Rows[rowIndex].Cells[6].Value = operacao.componente;
             dataGridView1.Rows[rowIndex].Cells[7].Value = operacao.gtdComp;
-            dataGridView1.Rows[rowIndex].Cells[8].Value = operacao.tecnico;
+            dataGridView1.Rows[rowIndex].Cells[8].Value = userTecnico.tecnico;
             dataGridView1.Rows[rowIndex].Cells[9].Value = operacao.dataAtual;
 
             operacoes.Add(operacao);
             operacao = new Operacao();
+
+            DateTime Hoje = DateTime.Now;
+
+            // Atribuir a data atual ao texto da TextBox
+            dataAtual.Text = Hoje.ToString("yyyy-MM-dd HH:mm:ss");
+
+            operacao.dataAtual = Hoje;
         }
 
         private void componente_SelectedIndexChanged(object sender, EventArgs e)
@@ -310,6 +340,13 @@ namespace inventoryControl
             string qtd = gtdComp.Text.ToString();
 
             operacao.gtdComp = qtd;
+        }
+
+        private void tecnico_TextChanged(object sender, EventArgs e)
+        {
+            string tec = tecnico.Text.ToString();
+
+            userTecnico.tecnico = tec;
         }
     }
 }

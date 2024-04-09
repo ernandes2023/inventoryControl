@@ -13,9 +13,13 @@ namespace inventoryControl
 {
     public partial class Login : Form
     {
+        public static string UltimoValorTextBox { get; set; }
         public Login()
         {
             InitializeComponent();
+            
+
+
         }
 
         private void btn_entrar_Click(object sender, EventArgs e)
@@ -28,7 +32,7 @@ namespace inventoryControl
                 {
                     MySqlCommand comando = new MySqlCommand();
                     //Comando SQL
-                    comando.CommandText = "select * from users where login = '" + txtLogin1.Text + "' and pass = '" + txtSenha1.Text + "'";
+                    comando.CommandText = "select * from usuario where login = '" + txtLogin1.Text + "' and senha = '" + txtSenha1.Text + "'";
 
                     comando.Connection = conectar;
                     //Executar Comando
@@ -44,9 +48,10 @@ namespace inventoryControl
                     }
                     else
                     {
-                        Cadastro2 cadprodutos = new Cadastro2();
+                        UltimoValorTextBox = txtLogin1.Text;
+                        Operação cadprodutos = new Operação();
                         cadprodutos.Show();
-                        this.Hide();
+                        Hide();
                     }
                     }
                     else if (txtLogin1.Text == "" || txtSenha1.Text == "")
@@ -67,9 +72,12 @@ namespace inventoryControl
                     conectar.Close();
                     conectar.ClearAllPoolsAsync();
                 }
+
             
-      
+
         }
+
+
 
         private void btnOlho_Click(object sender, EventArgs e)
         {
@@ -94,5 +102,11 @@ namespace inventoryControl
         {
 
         }
+
+        public void txtLogin1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+     
     }
 }

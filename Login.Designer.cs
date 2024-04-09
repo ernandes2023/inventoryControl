@@ -68,6 +68,7 @@ namespace inventoryControl
             this.txtLogin1.Name = "txtLogin1";
             this.txtLogin1.Size = new System.Drawing.Size(121, 23);
             this.txtLogin1.TabIndex = 3;
+            this.txtLogin1.TextChanged += new System.EventHandler(this.txtLogin1_TextChanged);
             // 
             // txtSenha1
             // 
@@ -181,7 +182,6 @@ namespace inventoryControl
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtLogin1;
         private System.Windows.Forms.TextBox txtSenha1;
         private System.Windows.Forms.Button btnEntrar;
         private System.Windows.Forms.Button btnOlho1;
@@ -189,5 +189,6 @@ namespace inventoryControl
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.TextBox txtLogin1;
     }
 }

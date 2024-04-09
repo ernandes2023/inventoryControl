@@ -110,6 +110,7 @@
     <Compile Include="Cadastro2.Designer.cs">
       <DependentUpon>Cadastro2.cs</DependentUpon>
     </Compile>
+    <Compile Include="grmProdutos.cs" />
     <Compile Include="Materiais.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +133,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserTecnico.cs" />
     <EmbeddedResource Include="Cadastro.resx">
       <DependentUpon>Cadastro.cs</DependentUpon>
     </EmbeddedResource>

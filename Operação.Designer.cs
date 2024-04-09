@@ -52,6 +52,8 @@ namespace inventoryControl
             this.label9 = new System.Windows.Forms.Label();
             this.serialNumber = new System.Windows.Forms.TextBox();
             this.dataAtual = new System.Windows.Forms.TextBox();
+            this.tecnico = new System.Windows.Forms.TextBox();
+            this.Olá = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -272,9 +274,28 @@ namespace inventoryControl
             // 
             this.dataAtual.Location = new System.Drawing.Point(139, 85);
             this.dataAtual.Name = "dataAtual";
-            this.dataAtual.Size = new System.Drawing.Size(70, 20);
+            this.dataAtual.Size = new System.Drawing.Size(106, 20);
             this.dataAtual.TabIndex = 24;
             this.dataAtual.TextChanged += new System.EventHandler(this.dataAtual_TextChanged);
+            // 
+            // tecnico
+            // 
+            this.tecnico.Location = new System.Drawing.Point(753, 85);
+            this.tecnico.Name = "tecnico";
+            this.tecnico.Size = new System.Drawing.Size(100, 20);
+            this.tecnico.TabIndex = 25;
+            this.tecnico.TextChanged += new System.EventHandler(this.tecnico_TextChanged);
+            // 
+            // Olá
+            // 
+            this.Olá.AutoSize = true;
+            this.Olá.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Olá.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Olá.Location = new System.Drawing.Point(723, 92);
+            this.Olá.Name = "Olá";
+            this.Olá.Size = new System.Drawing.Size(24, 14);
+            this.Olá.TabIndex = 26;
+            this.Olá.Text = "Olá";
             // 
             // Operação
             // 
@@ -282,6 +303,8 @@ namespace inventoryControl
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1101, 528);
+            this.Controls.Add(this.Olá);
+            this.Controls.Add(this.tecnico);
             this.Controls.Add(this.dataAtual);
             this.Controls.Add(this.serialNumber);
             this.Controls.Add(this.label9);
@@ -340,5 +363,7 @@ namespace inventoryControl
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox serialNumber;
         private System.Windows.Forms.TextBox dataAtual;
+        private System.Windows.Forms.TextBox tecnico;
+        private System.Windows.Forms.Label Olá;
     }
 }
