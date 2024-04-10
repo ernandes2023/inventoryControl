@@ -45,20 +45,19 @@ namespace inventoryControl
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPescCPF = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.BtnEditar = new System.Windows.Forms.Button();
             this.cboxAdm = new System.Windows.Forms.CheckBox();
             this.btnMostrar2 = new System.Windows.Forms.Button();
             this.btnMostrar1 = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.txtCPF = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtConfPass = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
@@ -127,7 +126,7 @@ namespace inventoryControl
             // 
             this.btnCadastrar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCadastrar.Location = new System.Drawing.Point(703, 222);
+            this.btnCadastrar.Location = new System.Drawing.Point(541, 222);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(75, 23);
             this.btnCadastrar.TabIndex = 8;
@@ -284,11 +283,8 @@ namespace inventoryControl
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txtPescCPF);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.dgvUsers);
             this.groupBox2.Location = new System.Drawing.Point(6, 263);
@@ -296,25 +292,7 @@ namespace inventoryControl
             this.groupBox2.Size = new System.Drawing.Size(866, 280);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(553, 42);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Pesquisar";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(54, 42);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(52, 17);
-            this.label19.TabIndex = 5;
-            this.label19.Text = "Nome:";
+            this.groupBox2.Text = "Pesquisa";
             // 
             // label18
             // 
@@ -325,19 +303,12 @@ namespace inventoryControl
             this.label18.TabIndex = 4;
             this.label18.Text = "CPF:";
             // 
-            // textBox2
+            // txtPescCPF
             // 
-            this.textBox2.Location = new System.Drawing.Point(112, 13);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(186, 23);
-            this.textBox2.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(112, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(435, 23);
-            this.textBox1.TabIndex = 2;
+            this.txtPescCPF.Location = new System.Drawing.Point(112, 13);
+            this.txtPescCPF.Name = "txtPescCPF";
+            this.txtPescCPF.Size = new System.Drawing.Size(186, 23);
+            this.txtPescCPF.TabIndex = 3;
             // 
             // button1
             // 
@@ -353,20 +324,23 @@ namespace inventoryControl
             this.dgvUsers.AllowUserToAddRows = false;
             this.dgvUsers.AllowUserToDeleteRows = false;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Location = new System.Drawing.Point(112, 71);
+            this.dgvUsers.Location = new System.Drawing.Point(112, 42);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.ReadOnly = true;
-            this.dgvUsers.Size = new System.Drawing.Size(748, 203);
+            this.dgvUsers.Size = new System.Drawing.Size(748, 232);
             this.dgvUsers.TabIndex = 0;
+            this.dgvUsers.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellContentDoubleClick);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnExcluir);
+            this.groupBox1.Controls.Add(this.BtnEditar);
             this.groupBox1.Controls.Add(this.cboxAdm);
             this.groupBox1.Controls.Add(this.btnMostrar2);
             this.groupBox1.Controls.Add(this.btnMostrar1);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.txtCPF);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btnLimpar);
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnCadastrar);
@@ -385,7 +359,27 @@ namespace inventoryControl
             this.groupBox1.Size = new System.Drawing.Size(866, 251);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Cadastro";
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(703, 222);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.TabIndex = 18;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // BtnEditar
+            // 
+            this.BtnEditar.Location = new System.Drawing.Point(622, 222);
+            this.BtnEditar.Name = "BtnEditar";
+            this.BtnEditar.Size = new System.Drawing.Size(75, 23);
+            this.BtnEditar.TabIndex = 17;
+            this.BtnEditar.Text = "Editar";
+            this.BtnEditar.UseVisualStyleBackColor = true;
+            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click_1);
             // 
             // cboxAdm
             // 
@@ -433,15 +427,16 @@ namespace inventoryControl
             this.txtCPF.Size = new System.Drawing.Size(186, 23);
             this.txtCPF.TabIndex = 2;
             // 
-            // button2
+            // btnLimpar
             // 
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(784, 222);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Limpar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnLimpar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpar.Location = new System.Drawing.Point(784, 222);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpar.TabIndex = 9;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // label5
             // 
@@ -1017,7 +1012,7 @@ namespace inventoryControl
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.TextBox txtId1;
@@ -1062,11 +1057,10 @@ namespace inventoryControl
         private System.Windows.Forms.Button btnMostrar2;
         private System.Windows.Forms.Button btnMostrar1;
         private System.Windows.Forms.CheckBox cboxAdm;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPescCPF;
+        private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.Button BtnEditar;
     }
 }
