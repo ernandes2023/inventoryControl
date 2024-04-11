@@ -74,6 +74,230 @@ namespace inventoryControl
             this.Hide();
         }
 
+        private void Cadastro_Load_1(object sender, EventArgs e)
+        {
+
+            try
+            {
+                using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
+                {
+                    conexaoMYSQL.Open();
+
+                    string query = "SELECT * FROM usuario";
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+
+                        // Renomear as colunas conforme necessário
+                        dt.Columns["id_usuario"].ColumnName = "Id:";
+                        dt.Columns["nome_usuario"].ColumnName = "Nome:";
+                        dt.Columns["cpf_usuario"].ColumnName = "CPF:";
+                        dt.Columns["cargo"].ColumnName = "Cargo";
+                        dt.Columns["login"].ColumnName = "Usuário";
+                        dt.Columns["senha"].ColumnName = "Senha:";
+                        dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
+
+                        dgvUsers.DataSource = dt;
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Tratar exceção, registrar em log, etc.
+                MessageBox.Show("Ocorreu um erro ao carregar os dados: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            CarregarDados();//chama a instrunção abaixo.
+
+        }
+
+        // O Código abaixo trata-se de um filtro dentro do dgbUser ao digitar no text txtPescCPF irá realizar um filtro na coluna cpf
+        private void CarregarDados()
+        {
+            string query = "SELECT * FROM usuario";
+            MySqlCommand comando = new MySqlCommand(query, conexao1);
+
+            try
+            {
+                conexao1.Open();
+                MySqlDataAdapter adaptador = new MySqlDataAdapter(comando);
+                tabela1.Clear();
+                adaptador.Fill(tabela1);
+                dgvUsers.DataSource = tabela1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar dados: " + ex.Message);
+            }
+            finally
+            {
+                conexao1.Close();
+            }
+        }
+
+        //
+        private void txtPescCPF_TextChanged(object sender, EventArgs e)
+        {
+            DataView view = tabela1.DefaultView;
+            view.RowFilter = string.Format("cpf_usuario LIKE '%{0}%'", txtPescCPF.Text);
+            dgvUsers.DataSource = view;
+        }
+
+        private void dgvUsers_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Verifica se a célula atual pertence à coluna de senhas
+            if (dgvUsers.Columns[e.ColumnIndex].HeaderText == "Senha:" || dgvUsers.Columns[e.ColumnIndex].HeaderText == "Conf. Senha:")
+            {
+                // Obtém o valor atual da célula
+                string senhaOriginal = e.Value as string;
+
+                // Substitui todos os caracteres por asteriscos
+                string senhaAsteriscos = new string('*', senhaOriginal.Length);
+
+                // Define o valor formatado para exibição
+                e.Value = senhaAsteriscos;
+            }
+        }
+
+        private void dgvUsers_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Ao clicar duas vezes na info da lista irá subir as informações  para as textBox.
+            txtId.Text = dgvUsers.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtName.Text = dgvUsers.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtCPF.Text = dgvUsers.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtCargo.Text = dgvUsers.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txtUser.Text = dgvUsers.Rows[e.RowIndex].Cells[4].Value.ToString();
+            txtPass.Text = dgvUsers.Rows[e.RowIndex].Cells[5].Value.ToString();
+            txtConfPass.Text = dgvUsers.Rows[e.RowIndex].Cells[6].Value.ToString();
+            btnCadastrar.Enabled = false;
+        }
+
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            txtId.Text = "";
+            txtName.Text = "";
+            txtCPF.Text = "";
+            txtCargo.Text = "";
+            txtUser.Text = "";
+            txtPass.Text = "";
+            txtConfPass.Text = "";
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (txtId.Text != "")
+            {
+                DialogResult caixaMensagem = MessageBox.Show("Deseja realmente exluir esse usuário?", "Aviso", MessageBoxButtons.YesNo);
+
+                if (caixaMensagem == DialogResult.Yes)
+                {
+                    try
+                    {
+                        MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
+                        conectar.Open();
+
+                        MySqlCommand cadastrar = new MySqlCommand("DELETE FROM usuario WHERE id_usuario = " + txtId.Text, conectar);
+                        cadastrar.ExecuteNonQuery();
+
+                        MessageBox.Show("Dados excluidos com sucesso!");
+                        txtId.Text = "";
+                        txtName.Text = "";
+                        txtCPF.Text = "";
+                        txtCargo.Text = "";
+                        txtUser.Text = "";
+                        txtPass.Text = "";
+                        txtConfPass.Text = "";
+
+                        conectar.Close();
+
+                        using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
+                        {
+                            conexaoMYSQL.Open();
+
+                            string query = "SELECT * FROM usuario";
+
+                            using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
+                            {
+                                DataTable dt = new DataTable();
+                                adapter.Fill(dt);
+
+                                // Renomear as colunas conforme necessário
+                                dt.Columns["id_usuario"].ColumnName = "Id:";
+                                dt.Columns["nome_usuario"].ColumnName = "Nome:";
+                                dt.Columns["cpf_usuario"].ColumnName = "CPF:";
+                                dt.Columns["cargo"].ColumnName = "Cargo";
+                                dt.Columns["login"].ColumnName = "Usuário";
+                                dt.Columns["senha"].ColumnName = "Senha:";
+                                dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
+
+                                dgvUsers.DataSource = dt;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao Excluir os dados: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Você deve Selecionar um Usuário antes.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void BtnEditar_Click_1(object sender, EventArgs e)
+        {
+            MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
+            conectar.Open();
+
+            MySqlCommand cadastrar = new MySqlCommand("update usuario set nome_usuario='" + txtName.Text + "', cpf_usuario='" + txtCPF.Text +
+                "', cargo='" + txtCargo.Text + "', login='" + txtUser.Text + "', senha='" + txtPass.Text + "', confirm_senha='" + txtConfPass.Text +
+                "' WHERE id_usuario=" + txtId.Text, conectar);
+            cadastrar.ExecuteNonQuery();
+
+
+            MessageBox.Show("Dados alterados!!!");
+            txtId.Text = "";
+            txtName.Text = "";
+            txtCPF.Text = "";
+            txtCargo.Text = "";
+            txtUser.Text = "";
+            txtPass.Text = "";
+            txtConfPass.Text = "";
+            btnCadastrar.Enabled = true;
+
+            using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
+            {
+                conexaoMYSQL.Open();
+
+                string query = "SELECT * FROM usuario";
+
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    // Renomear as colunas conforme necessário
+                    dt.Columns["id_usuario"].ColumnName = "Id:";
+                    dt.Columns["nome_usuario"].ColumnName = "Nome:";
+                    dt.Columns["cpf_usuario"].ColumnName = "CPF:";
+                    dt.Columns["cargo"].ColumnName = "Cargo";
+                    dt.Columns["login"].ColumnName = "Usuário";
+                    dt.Columns["senha"].ColumnName = "Senha:";
+                    dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
+
+                    dgvUsers.DataSource = dt;
+
+                }
+
+            }
+        }
+
         /* Codigo abaixo realiza o Cadastro do Usuário */
         /*
          * 
@@ -170,7 +394,7 @@ namespace inventoryControl
 
         private void btnSalvar1_Click(object sender, EventArgs e)
         {
-            if (txtNomeCliente.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "" || txtPass.Text == "")
+            if (txtNomeCliente.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "")
             {
                 MessageBox.Show("Todos os campos devem ser preenchidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -182,7 +406,7 @@ namespace inventoryControl
             {
                 MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
                 conexaoMYSQL.Open();
-                MySqlCommand comando = new MySqlCommand("insert into cliente(nome_cliente,telefone_cliente,email_cliente,senha)values('" + txtNomeCliente.Text + "','" + txtTelefoneCliente.Text + "','" + txtEmailCliente.Text + "','" + txtPass.Text + "');", conexaoMYSQL);
+                MySqlCommand comando = new MySqlCommand("insert into cliente(nome_cliente,telefone_cliente,email_cliente)values('" + txtNomeCliente.Text + "','" + txtTelefoneCliente.Text + "','" + txtEmailCliente.Text + "');", conexaoMYSQL);
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Dados criados!", "Sucesso", MessageBoxButtons.OK);
                 txtId1.Text = "";
@@ -199,7 +423,7 @@ namespace inventoryControl
 
         private void btnEditar1_Click(object sender, EventArgs e)
         {
-            if (txtNomeCliente.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "" || txtPass.Text == "")
+            if (txtNomeCliente.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "")
             {
                 MessageBox.Show("Selecione um cliente existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -209,7 +433,7 @@ namespace inventoryControl
                 {
                     MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
                     conexaoMYSQL.Open();
-                    MySqlCommand comando = new MySqlCommand("update cliente set nome_cliente='" + txtNomeCliente.Text + "',telefone_cliente='" + txtTelefoneCliente.Text + "',email_cliente='" + txtEmailCliente.Text + "',senha='" + txtPass.Text + "' where id_cliente=" + txtId1.Text, conexaoMYSQL);
+                    MySqlCommand comando = new MySqlCommand("update cliente set nome_cliente='" + txtNomeCliente.Text + "',telefone_cliente='" + txtTelefoneCliente.Text + "',email_cliente='" + txtEmailCliente.Text + "' where id_cliente=" + txtId1.Text, conexaoMYSQL);
                     comando.ExecuteNonQuery();
                     MessageBox.Show("Dados alterados!", "Sucesso", MessageBoxButtons.OK);
                     txtId1.Text = "";
@@ -234,7 +458,7 @@ namespace inventoryControl
 
             if (caixaMensagem == DialogResult.Yes)
             {
-                if (txtNomeCliente.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "" || txtPass.Text == "")
+                if (txtNomeCliente.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "")
                 {
                     MessageBox.Show("Selecione um cliente existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -493,229 +717,6 @@ namespace inventoryControl
             }
         }
 
-        private void Cadastro_Load_1(object sender, EventArgs e)
-        {
-
-            try
-            {
-                using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
-                {
-                    conexaoMYSQL.Open();
-
-                    string query = "SELECT * FROM usuario";
-
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
-                    {
-                        DataTable dt = new DataTable();
-                        adapter.Fill(dt);
-
-                        // Renomear as colunas conforme necessário
-                        dt.Columns["id_usuario"].ColumnName = "Id:";
-                        dt.Columns["nome_usuario"].ColumnName = "Nome:";
-                        dt.Columns["cpf_usuario"].ColumnName = "CPF:";
-                        dt.Columns["cargo"].ColumnName = "Cargo";
-                        dt.Columns["login"].ColumnName = "Usuário";
-                        dt.Columns["senha"].ColumnName = "Senha:";
-                        dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
-
-                        dgvUsers.DataSource = dt;
-
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                // Tratar exceção, registrar em log, etc.
-                MessageBox.Show("Ocorreu um erro ao carregar os dados: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            CarregarDados();//chama a instrunção abaixo.
-
-        }
-
-        // O Código abaixo trata-se de um filtro dentro do dgbUser ao digitar no text txtPescCPF irá realizar um filtro na coluna cpf
-        private void CarregarDados()
-        {
-            string query = "SELECT * FROM usuario";
-            MySqlCommand comando = new MySqlCommand(query, conexao1);
-
-            try
-            {
-                conexao1.Open();
-                MySqlDataAdapter adaptador = new MySqlDataAdapter(comando);
-                tabela1.Clear();
-                adaptador.Fill(tabela1);
-                dgvUsers.DataSource = tabela1;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao carregar dados: " + ex.Message);
-            }
-            finally
-            {
-                conexao1.Close();
-            }
-        }
-
-        //
-        private void txtPescCPF_TextChanged(object sender, EventArgs e)
-        {
-            DataView view = tabela1.DefaultView;
-            view.RowFilter = string.Format("cpf_usuario LIKE '%{0}%'", txtPescCPF.Text);
-            dgvUsers.DataSource = view;
-        }
-
-        private void dgvUsers_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            // Verifica se a célula atual pertence à coluna de senhas
-            if (dgvUsers.Columns[e.ColumnIndex].HeaderText == "Senha:" || dgvUsers.Columns[e.ColumnIndex].HeaderText == "Conf. Senha:")
-            {
-                // Obtém o valor atual da célula
-                string senhaOriginal = e.Value as string;
-
-                // Substitui todos os caracteres por asteriscos
-                string senhaAsteriscos = new string('*', senhaOriginal.Length);
-
-                // Define o valor formatado para exibição
-                e.Value = senhaAsteriscos;
-            }
-        }
-
-        private void dgvUsers_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //Ao clicar duas vezes na info da lista irá subir as informações  para as textBox.
-            txtId.Text = dgvUsers.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtName.Text = dgvUsers.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtCPF.Text = dgvUsers.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txtCargo.Text = dgvUsers.Rows[e.RowIndex].Cells[3].Value.ToString();
-            txtUser.Text = dgvUsers.Rows[e.RowIndex].Cells[4].Value.ToString();
-            txtPass.Text = dgvUsers.Rows[e.RowIndex].Cells[5].Value.ToString();
-            txtConfPass.Text = dgvUsers.Rows[e.RowIndex].Cells[6].Value.ToString();
-            btnCadastrar.Enabled = false;
-        }
-
-
-        private void btnLimpar_Click(object sender, EventArgs e)
-        {
-            txtId.Text = "";
-            txtName.Text = "";
-            txtCPF.Text = "";
-            txtCargo.Text = "";
-            txtUser.Text = "";
-            txtPass.Text = "";
-            txtConfPass.Text = "";
-        }
-
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            if (txtId.Text != "")
-            {
-                DialogResult caixaMensagem = MessageBox.Show("Deseja realmente exluir esse usuário?", "Aviso", MessageBoxButtons.YesNo);
-
-                if (caixaMensagem == DialogResult.Yes)
-                {
-                    try
-                    {
-                        MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
-                        conectar.Open();
-
-                        MySqlCommand cadastrar = new MySqlCommand("DELETE FROM usuario WHERE id_usuario = " + txtId.Text, conectar);
-                        cadastrar.ExecuteNonQuery();
-
-                        MessageBox.Show("Dados excluidos com sucesso!");
-                        txtId.Text = "";
-                        txtName.Text = "";
-                        txtCPF.Text = "";
-                        txtCargo.Text = "";
-                        txtUser.Text = "";
-                        txtPass.Text = "";
-                        txtConfPass.Text = "";
-
-                        conectar.Close();
-
-                        using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
-                        {
-                            conexaoMYSQL.Open();
-
-                            string query = "SELECT * FROM usuario";
-
-                            using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
-                            {
-                                DataTable dt = new DataTable();
-                                adapter.Fill(dt);
-
-                                // Renomear as colunas conforme necessário
-                                dt.Columns["id_usuario"].ColumnName = "Id:";
-                                dt.Columns["nome_usuario"].ColumnName = "Nome:";
-                                dt.Columns["cpf_usuario"].ColumnName = "CPF:";
-                                dt.Columns["cargo"].ColumnName = "Cargo";
-                                dt.Columns["login"].ColumnName = "Usuário";
-                                dt.Columns["senha"].ColumnName = "Senha:";
-                                dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
-
-                                dgvUsers.DataSource = dt;
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Erro ao Excluir os dados: " + ex.Message);
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Você deve Selecionar um Usuário antes.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void BtnEditar_Click_1(object sender, EventArgs e)
-        {
-            MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
-            conectar.Open();
-
-            MySqlCommand cadastrar = new MySqlCommand("update usuario set nome_usuario='" + txtName.Text + "', cpf_usuario='" + txtCPF.Text +
-                "', cargo='" + txtCargo.Text + "', login='" + txtUser.Text + "', senha='" + txtPass.Text + "', confirm_senha='" + txtConfPass.Text +
-                "' WHERE id_usuario=" + txtId.Text, conectar);
-            cadastrar.ExecuteNonQuery();
-
-
-            MessageBox.Show("Dados alterados!!!");
-            txtId.Text = "";
-            txtName.Text = "";
-            txtCPF.Text = "";
-            txtCargo.Text = "";
-            txtUser.Text = "";
-            txtPass.Text = "";
-            txtConfPass.Text = "";
-            btnCadastrar.Enabled = true;
-
-            using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
-            {
-                conexaoMYSQL.Open();
-
-                string query = "SELECT * FROM usuario";
-
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
-                {
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-
-                    // Renomear as colunas conforme necessário
-                    dt.Columns["id_usuario"].ColumnName = "Id:";
-                    dt.Columns["nome_usuario"].ColumnName = "Nome:";
-                    dt.Columns["cpf_usuario"].ColumnName = "CPF:";
-                    dt.Columns["cargo"].ColumnName = "Cargo";
-                    dt.Columns["login"].ColumnName = "Usuário";
-                    dt.Columns["senha"].ColumnName = "Senha:";
-                    dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
-
-                    dgvUsers.DataSource = dt;
-
-                }
-
-            }
-        }
     }
 }
 

@@ -76,9 +76,7 @@ namespace inventoryControl
             this.txtTelefoneCliente = new System.Windows.Forms.TextBox();
             this.btnSair1 = new System.Windows.Forms.Button();
             this.btnExcluir1 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
             this.txtEmailCliente = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.txtIdCliente2 = new System.Windows.Forms.TextBox();
@@ -105,6 +103,11 @@ namespace inventoryControl
             this.txtId3 = new System.Windows.Forms.TextBox();
             this.txtNomeComponente = new System.Windows.Forms.TextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -120,6 +123,8 @@ namespace inventoryControl
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComponentes)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCadastrar
@@ -138,7 +143,7 @@ namespace inventoryControl
             // 
             this.btnVoltarLogin.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltarLogin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnVoltarLogin.Location = new System.Drawing.Point(6, 549);
+            this.btnVoltarLogin.Location = new System.Drawing.Point(12, 596);
             this.btnVoltarLogin.Name = "btnVoltarLogin";
             this.btnVoltarLogin.Size = new System.Drawing.Size(154, 37);
             this.btnVoltarLogin.TabIndex = 1;
@@ -252,20 +257,18 @@ namespace inventoryControl
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1102, 618);
+            this.tabControl1.Size = new System.Drawing.Size(1102, 578);
             this.tabControl1.TabIndex = 12;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.pictureBox1);
-            this.tabPage1.Controls.Add(this.btnVoltarLogin);
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1094, 588);
+            this.tabPage1.Size = new System.Drawing.Size(1094, 548);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Usuário";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -273,7 +276,7 @@ namespace inventoryControl
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(998, 549);
+            this.button4.Location = new System.Drawing.Point(1020, 596);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(90, 37);
             this.button4.TabIndex = 0;
@@ -483,26 +486,13 @@ namespace inventoryControl
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.dgvClientes);
-            this.tabPage2.Controls.Add(this.txtId1);
-            this.tabPage2.Controls.Add(this.label11);
-            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.groupBox4);
+            this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Controls.Add(this.pictureBox2);
-            this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.btnEditar1);
-            this.tabPage2.Controls.Add(this.txtNomeCliente);
-            this.tabPage2.Controls.Add(this.btnSalvar1);
-            this.tabPage2.Controls.Add(this.txtTelefoneCliente);
-            this.tabPage2.Controls.Add(this.btnSair1);
-            this.tabPage2.Controls.Add(this.btnExcluir1);
-            this.tabPage2.Controls.Add(this.label10);
-            this.tabPage2.Controls.Add(this.txtEmailCliente);
-            this.tabPage2.Controls.Add(this.textBox3);
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1094, 588);
+            this.tabPage2.Size = new System.Drawing.Size(1094, 548);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Cliente:";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -510,10 +500,10 @@ namespace inventoryControl
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 230);
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(38, 248);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(125, 18);
+            this.label7.Size = new System.Drawing.Size(113, 17);
             this.label7.TabIndex = 51;
             this.label7.Text = "Lista de clientes:";
             // 
@@ -521,16 +511,17 @@ namespace inventoryControl
             // 
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvClientes.Location = new System.Drawing.Point(6, 251);
+            this.dgvClientes.Location = new System.Drawing.Point(112, 42);
             this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.Size = new System.Drawing.Size(1082, 335);
+            this.dgvClientes.Size = new System.Drawing.Size(748, 232);
             this.dgvClientes.TabIndex = 50;
             this.dgvClientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvClientes_CellMouseDoubleClick);
             // 
             // txtId1
             // 
             this.txtId1.Enabled = false;
-            this.txtId1.Location = new System.Drawing.Point(817, 154);
+            this.txtId1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId1.Location = new System.Drawing.Point(112, 19);
             this.txtId1.Name = "txtId1";
             this.txtId1.Size = new System.Drawing.Size(49, 23);
             this.txtId1.TabIndex = 63;
@@ -539,29 +530,29 @@ namespace inventoryControl
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(6, 9);
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(54, 48);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(125, 18);
+            this.label11.Size = new System.Drawing.Size(52, 17);
             this.label11.TabIndex = 48;
-            this.label11.Text = "Nome do cliente:";
+            this.label11.Text = "Nome:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 44);
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(41, 77);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(141, 18);
+            this.label8.Size = new System.Drawing.Size(65, 17);
             this.label8.TabIndex = 56;
-            this.label8.Text = "Telefone do cliente:";
+            this.label8.Text = "Telefone:";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(872, 6);
+            this.pictureBox2.Location = new System.Drawing.Point(878, 6);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(216, 176);
+            this.pictureBox2.Size = new System.Drawing.Size(210, 123);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 62;
             this.pictureBox2.TabStop = false;
@@ -569,19 +560,19 @@ namespace inventoryControl
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 80);
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(55, 106);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(123, 18);
+            this.label9.Size = new System.Drawing.Size(51, 17);
             this.label9.TabIndex = 57;
-            this.label9.Text = "Email do cliente:";
+            this.label9.Text = "E-mail:";
             // 
             // btnEditar1
             // 
-            this.btnEditar1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar1.Location = new System.Drawing.Point(73, 154);
+            this.btnEditar1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar1.Location = new System.Drawing.Point(622, 222);
             this.btnEditar1.Name = "btnEditar1";
-            this.btnEditar1.Size = new System.Drawing.Size(60, 28);
+            this.btnEditar1.Size = new System.Drawing.Size(75, 23);
             this.btnEditar1.TabIndex = 53;
             this.btnEditar1.Text = "Editar";
             this.btnEditar1.UseVisualStyleBackColor = true;
@@ -589,19 +580,19 @@ namespace inventoryControl
             // 
             // txtNomeCliente
             // 
-            this.txtNomeCliente.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeCliente.Location = new System.Drawing.Point(137, 6);
+            this.txtNomeCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeCliente.Location = new System.Drawing.Point(112, 48);
             this.txtNomeCliente.MaxLength = 55;
             this.txtNomeCliente.Name = "txtNomeCliente";
-            this.txtNomeCliente.Size = new System.Drawing.Size(729, 26);
+            this.txtNomeCliente.Size = new System.Drawing.Size(422, 23);
             this.txtNomeCliente.TabIndex = 49;
             // 
             // btnSalvar1
             // 
-            this.btnSalvar1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar1.Location = new System.Drawing.Point(5, 154);
+            this.btnSalvar1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvar1.Location = new System.Drawing.Point(541, 222);
             this.btnSalvar1.Name = "btnSalvar1";
-            this.btnSalvar1.Size = new System.Drawing.Size(62, 28);
+            this.btnSalvar1.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar1.TabIndex = 52;
             this.btnSalvar1.Text = "Salvar";
             this.btnSalvar1.UseVisualStyleBackColor = true;
@@ -609,19 +600,19 @@ namespace inventoryControl
             // 
             // txtTelefoneCliente
             // 
-            this.txtTelefoneCliente.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefoneCliente.Location = new System.Drawing.Point(153, 41);
+            this.txtTelefoneCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefoneCliente.Location = new System.Drawing.Point(112, 77);
             this.txtTelefoneCliente.MaxLength = 14;
             this.txtTelefoneCliente.Name = "txtTelefoneCliente";
-            this.txtTelefoneCliente.Size = new System.Drawing.Size(713, 26);
+            this.txtTelefoneCliente.Size = new System.Drawing.Size(123, 23);
             this.txtTelefoneCliente.TabIndex = 59;
             // 
             // btnSair1
             // 
-            this.btnSair1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair1.Location = new System.Drawing.Point(208, 154);
+            this.btnSair1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSair1.Location = new System.Drawing.Point(784, 222);
             this.btnSair1.Name = "btnSair1";
-            this.btnSair1.Size = new System.Drawing.Size(56, 28);
+            this.btnSair1.Size = new System.Drawing.Size(75, 23);
             this.btnSair1.TabIndex = 54;
             this.btnSair1.Text = "Sair";
             this.btnSair1.UseVisualStyleBackColor = true;
@@ -629,42 +620,23 @@ namespace inventoryControl
             // 
             // btnExcluir1
             // 
-            this.btnExcluir1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir1.Location = new System.Drawing.Point(139, 154);
+            this.btnExcluir1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir1.Location = new System.Drawing.Point(703, 222);
             this.btnExcluir1.Name = "btnExcluir1";
-            this.btnExcluir1.Size = new System.Drawing.Size(63, 28);
+            this.btnExcluir1.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir1.TabIndex = 55;
             this.btnExcluir1.Text = "Excluir";
             this.btnExcluir1.UseVisualStyleBackColor = true;
             this.btnExcluir1.Click += new System.EventHandler(this.btnExcluir1_Click);
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(6, 114);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(128, 18);
-            this.label10.TabIndex = 58;
-            this.label10.Text = "Senha do cliente:";
-            // 
             // txtEmailCliente
             // 
-            this.txtEmailCliente.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmailCliente.Location = new System.Drawing.Point(135, 77);
+            this.txtEmailCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmailCliente.Location = new System.Drawing.Point(112, 106);
             this.txtEmailCliente.MaxLength = 55;
             this.txtEmailCliente.Name = "txtEmailCliente";
-            this.txtEmailCliente.Size = new System.Drawing.Size(731, 26);
+            this.txtEmailCliente.Size = new System.Drawing.Size(422, 23);
             this.txtEmailCliente.TabIndex = 60;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(140, 111);
-            this.textBox3.MaxLength = 20;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(726, 26);
-            this.textBox3.TabIndex = 61;
             // 
             // tabPage3
             // 
@@ -684,7 +656,7 @@ namespace inventoryControl
             this.tabPage3.Location = new System.Drawing.Point(4, 26);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1094, 588);
+            this.tabPage3.Size = new System.Drawing.Size(1094, 548);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Produto";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -950,13 +922,74 @@ namespace inventoryControl
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.btnSair1);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.txtEmailCliente);
+            this.groupBox3.Controls.Add(this.btnExcluir1);
+            this.groupBox3.Controls.Add(this.txtId1);
+            this.groupBox3.Controls.Add(this.txtTelefoneCliente);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.btnSalvar1);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.txtNomeCliente);
+            this.groupBox3.Controls.Add(this.btnEditar1);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Location = new System.Drawing.Point(6, 6);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(866, 251);
+            this.groupBox3.TabIndex = 64;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Cadastro";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(82, 19);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(24, 17);
+            this.label10.TabIndex = 64;
+            this.label10.Text = "Id:";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.textBox1);
+            this.groupBox4.Controls.Add(this.label19);
+            this.groupBox4.Controls.Add(this.dgvClientes);
+            this.groupBox4.Location = new System.Drawing.Point(6, 263);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(866, 280);
+            this.groupBox4.TabIndex = 65;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Pesquisa";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(52, 13);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(54, 17);
+            this.label19.TabIndex = 51;
+            this.label19.Text = "label19";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(112, 13);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(161, 23);
+            this.textBox1.TabIndex = 52;
+            // 
             // Cadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
-            this.ClientSize = new System.Drawing.Size(1126, 642);
+            this.ClientSize = new System.Drawing.Size(1119, 642);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.btnVoltarLogin);
             this.Name = "Cadastro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro";
@@ -970,7 +1003,6 @@ namespace inventoryControl
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage3.ResumeLayout(false);
@@ -981,6 +1013,10 @@ namespace inventoryControl
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComponentes)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1020,12 +1056,10 @@ namespace inventoryControl
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtNomeCliente;
         private System.Windows.Forms.Button btnExcluir1;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button btnSair1;
         private System.Windows.Forms.Button btnEditar1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnSalvar1;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtEmailCliente;
         private System.Windows.Forms.TextBox txtTelefoneCliente;
         private System.Windows.Forms.Label label9;
@@ -1062,5 +1096,10 @@ namespace inventoryControl
         private System.Windows.Forms.TextBox txtPescCPF;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button BtnEditar;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label19;
     }
 }
