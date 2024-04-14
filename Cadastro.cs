@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Bcpg.OpenPgp;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace inventoryControl
@@ -22,14 +23,7 @@ namespace inventoryControl
         public Cadastro()
         {
             InitializeComponent();
-            dgvUsers.CellFormatting += dgvUsers_CellFormatting;// referente ao codigo na linha 513 formatação das colunas "senha e conf senha" no dgvUsers
-        }
-
-        private void Cad_produtos_Load(object sender, EventArgs e)
-        {
-            CarregarDadosBanco();
-            CarregarDadosBanco2();
-            CarregarDadosBanco3();
+            dgvUsers.CellFormatting += dgvUsers_CellFormatting;// referente ao codigo na linha 138 formatação das colunas "senha e conf senha" no dgvUsers
         }
 
         private void CarregarDadosBanco()
@@ -42,13 +36,25 @@ namespace inventoryControl
             dgvProdutos.DataSource = dt;
         }
 
-        private void CarregarDadosBanco2()
+        private void LoadTableClient() // Metodo privado que carrega dados da tabela Cliente.
         {
+
+            // Cria uma nova conexão MySqlConnection utilizando a string de conexão definida em Program.conexaoBD
             MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
+
+            // Abre a conexão com o banco de dados
             conexaoMYSQL.Open();
+
+            // Cria um objeto MySqlDataAdapter para executar a consulta SQL e preencher o DataTable
             MySqlDataAdapter adapter = new MySqlDataAdapter("select * from cliente", conexaoMYSQL);
+
+            // Cria um novo DataTable para armazenar os dados retornados pela consulta
             DataTable dt = new DataTable();
+
+            // Preenche o DataTable com os dados retornados pela consulta SQL usando o MySqlDataAdapter
             adapter.Fill(dt);
+
+            // Define o DataGridView dgvClientes como a fonte de dados para exibir os dados do DataTable
             dgvClientes.DataSource = dt;
         }
 
@@ -62,11 +68,6 @@ namespace inventoryControl
             dgvComponentes.DataSource = dt;
         }
 
-        private void Cadastro_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Login login = new Login();
@@ -76,20 +77,24 @@ namespace inventoryControl
 
         private void Cadastro_Load_1(object sender, EventArgs e)
         {
+            /* Inicialização da tela de cadastro */
 
+            txtId.Enabled = false;
+            txtId1.Enabled = false;
+            dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+
+            /* Fim da inicialização tela Cadastro */
             try
             {
                 using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
                 {
                     conexaoMYSQL.Open();
-
                     string query = "SELECT * FROM usuario";
-
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
                     {
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
-
                         // Renomear as colunas conforme necessário
                         dt.Columns["id_usuario"].ColumnName = "Id:";
                         dt.Columns["nome_usuario"].ColumnName = "Nome:";
@@ -98,9 +103,8 @@ namespace inventoryControl
                         dt.Columns["login"].ColumnName = "Usuário";
                         dt.Columns["senha"].ColumnName = "Senha:";
                         dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
-
                         dgvUsers.DataSource = dt;
-
+                        
                     }
                 }
             }
@@ -109,41 +113,6 @@ namespace inventoryControl
                 // Tratar exceção, registrar em log, etc.
                 MessageBox.Show("Ocorreu um erro ao carregar os dados: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            CarregarDados();//chama a instrunção abaixo.
-
-        }
-
-        // O Código abaixo trata-se de um filtro dentro do dgbUser ao digitar no text txtPescCPF irá realizar um filtro na coluna cpf
-        private void CarregarDados()
-        {
-            string query = "SELECT * FROM usuario";
-            MySqlCommand comando = new MySqlCommand(query, conexao1);
-
-            try
-            {
-                conexao1.Open();
-                MySqlDataAdapter adaptador = new MySqlDataAdapter(comando);
-                tabela1.Clear();
-                adaptador.Fill(tabela1);
-                dgvUsers.DataSource = tabela1;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao carregar dados: " + ex.Message);
-            }
-            finally
-            {
-                conexao1.Close();
-            }
-        }
-
-        //
-        private void txtPescCPF_TextChanged(object sender, EventArgs e)
-        {
-            DataView view = tabela1.DefaultView;
-            view.RowFilter = string.Format("cpf_usuario LIKE '%{0}%'", txtPescCPF.Text);
-            dgvUsers.DataSource = view;
         }
 
         private void dgvUsers_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -172,11 +141,11 @@ namespace inventoryControl
             txtUser.Text = dgvUsers.Rows[e.RowIndex].Cells[4].Value.ToString();
             txtPass.Text = dgvUsers.Rows[e.RowIndex].Cells[5].Value.ToString();
             txtConfPass.Text = dgvUsers.Rows[e.RowIndex].Cells[6].Value.ToString();
-            btnCadastrar.Enabled = false;
+            BtnSalvar.Enabled = false;
         }
 
 
-        private void btnLimpar_Click(object sender, EventArgs e)
+        private void BtnLimpar_Click(object sender, EventArgs e)
         {
             txtId.Text = "";
             txtName.Text = "";
@@ -185,6 +154,7 @@ namespace inventoryControl
             txtUser.Text = "";
             txtPass.Text = "";
             txtConfPass.Text = "";
+            BtnSalvar.Enabled = true;
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -269,7 +239,7 @@ namespace inventoryControl
             txtUser.Text = "";
             txtPass.Text = "";
             txtConfPass.Text = "";
-            btnCadastrar.Enabled = true;
+            BtnSalvar.Enabled = true;
 
             using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
             {
@@ -292,55 +262,65 @@ namespace inventoryControl
                     dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
 
                     dgvUsers.DataSource = dt;
-
                 }
-
             }
         }
 
-        /* Codigo abaixo realiza o Cadastro do Usuário */
-        /*
-         * 
-         * 
-         * 
-         * 
-         * 
-         */
 
-        private void button1_Click(object sender, EventArgs e)
+        /* Codigo abaixo realiza o Cadastro do Usuário */
+        private void BtnSalvar_Click(object sender, EventArgs e)
         {
-            /* Verifica se os campos estão vazios */
+            // Verifica se todos os campos obrigatórios estão preenchidos
             if (txtName.Text == "" || txtCPF.Text == "" || txtCargo.Text == "" || txtUser.Text == "" || txtPass.Text == "" || txtConfPass.Text == "")
             {
-
                 MessageBox.Show("Todos os campos precisam ser preenchidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtName.Select();
-
+                txtName.Select(); // Coloca o foco no campo de nome caso esteja vazio
             }
-            /* Valida se as Senhas digitadas são iguais na textbox */
+            //Verifica se as senhas digitadas são iguais
             else if (txtPass.Text != txtConfPass.Text)
             {
-                MessageBox.Show("As Senhas digitadas São diferente! \n Por Favor digite a senha novamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("As Senhas digitadas São diferentes! \n Por Favor digite a senha novamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtPass.Text = "";
                 txtConfPass.Text = "";
-                txtPass.Select();
+                txtPass.Select(); // Coloca o foco no campo de senha caso as senhas sejam diferentes
             }
             else
             {
+                // Cria uma nova conexão MySqlConnection utilizando a string de conexão definida em Program.conexaoBD
                 MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
+
+                // Abre a conexão com o banco de dados
                 conectar.Open();
-                MySqlCommand cadastrar = new MySqlCommand("INSERT INTO usuario (nome_usuario, cpf_usuario, cargo, login, senha, confirm_senha) values ('" + txtName.Text + "','" + txtCPF.Text + "','" + txtCargo.Text + "','" + txtUser.Text + "','" + txtPass.Text + "','" + txtConfPass.Text + "');", conectar);
-                cadastrar.ExecuteNonQuery();
+                try
+                {
+                    // Cria um novo comando MySqlCommand para inserir os dados na tabela usuario
+                    MySqlCommand cadastrar = new MySqlCommand("INSERT INTO usuario (nome_usuario, cpf_usuario, cargo, login, senha, confirm_senha) values ('" + txtName.Text + "','" + txtCPF.Text + "','" + txtCargo.Text + "','" + txtUser.Text + "','" + txtPass.Text + "','" + txtConfPass.Text + "');", conectar);
 
-                MessageBox.Show("Cadastro realizado com sucesso!", "Sucesso", MessageBoxButtons.OK);
-                txtName.Text = "";
-                txtCPF.Text = "";
-                txtCargo.Text = "";
-                txtUser.Text = "";
-                txtPass.Text = "";
-                txtConfPass.Text = "";
-                txtName.Select();
+                    // Executa o comando de inserção
+                    cadastrar.ExecuteNonQuery();
 
+                    // Exibe uma mensagem de sucesso
+                    MessageBox.Show("Cadastro realizado com sucesso!", "Sucesso", MessageBoxButtons.OK);
+
+                    // Limpa os campos de entrada de dados
+                    txtName.Text = "";
+                    txtCPF.Text = "";
+                    txtCargo.Text = "";
+                    txtUser.Text = "";
+                    txtPass.Text = "";
+                    txtConfPass.Text = "";
+                    txtName.Select(); // Coloca o foco no campo de nome
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro não foi possivel Salvar informações: " + ex.Message);
+                }
+                finally
+                {
+                    conectar.Close();
+                }
+
+                // Carrega os dados da tabela usuario no DataGridView dgvUsers
                 using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
                 {
                     conexaoMYSQL.Open();
@@ -351,7 +331,6 @@ namespace inventoryControl
                     {
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
-
                         // Renomear as colunas conforme necessário
                         dt.Columns["id_usuario"].ColumnName = "Id:";
                         dt.Columns["nome_usuario"].ColumnName = "Nome:";
@@ -360,28 +339,13 @@ namespace inventoryControl
                         dt.Columns["login"].ColumnName = "Usuário";
                         dt.Columns["senha"].ColumnName = "Senha:";
                         dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
-                        //dt.Columns["st_adm"].ColumnName = "Status Adm";
-
                         dgvUsers.DataSource = dt;
-
                     }
                 }
-
             }
-
         }
 
-
-        /* Fim do Código de cadastro de Usuario 
-         *
-         *
-         *
-         *
-         *
-         *
-         *
-         *
-         */
+        /* Fim do Código de cadastro de Usuario */
 
         private void dgvClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -392,33 +356,58 @@ namespace inventoryControl
             txtPass.Text = dgvClientes.Rows[e.RowIndex].Cells[4].Value.ToString();
         }
 
-        private void btnSalvar1_Click(object sender, EventArgs e)
+        private void BtnSaveClient_Click(object sender, EventArgs e)
         {
-            if (txtNomeCliente.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "")
+            // Verifica se todos os campos obrigatórios estão preenchidos
+            if (txtNomeCliente.Text == "" || TxtCnpjClient.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "")
             {
                 MessageBox.Show("Todos os campos devem ser preenchidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            // Verifica se os campos nome do cliente e CNPJ são números
             else if (int.TryParse(txtNomeCliente.Text, out _) == true || float.TryParse(txtNomeCliente.Text, out _) == true)
             {
                 MessageBox.Show("Um ou mais campo estão incorretos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
+                // Cria uma nova conexão MySqlConnection utilizando a string de conexão definida em Program.conexaoBD
                 MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
-                conexaoMYSQL.Open();
-                MySqlCommand comando = new MySqlCommand("insert into cliente(nome_cliente,telefone_cliente,email_cliente)values('" + txtNomeCliente.Text + "','" + txtTelefoneCliente.Text + "','" + txtEmailCliente.Text + "');", conexaoMYSQL);
-                comando.ExecuteNonQuery();
-                MessageBox.Show("Dados criados!", "Sucesso", MessageBoxButtons.OK);
-                txtId1.Text = "";
-                txtNomeCliente.Text = "";
-                txtTelefoneCliente.Text = "";
-                txtEmailCliente.Text = "";
-                txtPass.Text = "";
-                CarregarDadosBanco();
-                CarregarDadosBanco2();
-                CarregarDadosBanco3();
-            }
 
+                // Abre a conexão com o banco de dados
+                conexaoMYSQL.Open();
+                try
+                {
+                    // Cria um novo comando MySqlCommand para inserir os dados na tabela cliente
+                    MySqlCommand comando = new MySqlCommand("INSERT INTO cliente (nome_cliente, cnpj, telefone_cliente, email_cliente) VALUES ('" + txtNomeCliente.Text + "','" + TxtCnpjClient.Text + "','" + txtTelefoneCliente.Text + "','" + txtEmailCliente.Text + "');", conexaoMYSQL);
+
+                    // Executa o comando de inserção
+                    comando.ExecuteNonQuery();
+
+                    // Exibe uma mensagem de sucesso
+                    MessageBox.Show("Cliente cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK);
+
+                    // Limpa os campos de entrada de dados
+                    txtId1.Text = "";
+                    txtNomeCliente.Text = "";
+                    TxtCnpjClient.Text = "";
+                    txtTelefoneCliente.Text = "";
+                    txtEmailCliente.Text = "";
+                    txtPass.Text = "";
+
+                    // Chama o método que carrega as informações dentro do dgvClientes
+                    LoadTableClient();
+                }
+                catch (Exception ex)
+                {
+                    // Exibe uma mensagem de erro caso ocorra uma exceção
+                    MessageBox.Show("Erro ao carregar dados: " + ex.Message);
+                }
+                finally
+                {
+                    // Fecha a conexão com o banco de dados, independentemente de ocorrer uma exceção ou não
+                    conexaoMYSQL.Close();
+                }
+            }
         }
 
         private void btnEditar1_Click(object sender, EventArgs e)
@@ -442,13 +431,14 @@ namespace inventoryControl
                     txtEmailCliente.Text = "";
                     txtPass.Text = "";
                     CarregarDadosBanco();
-                    CarregarDadosBanco2();
+                    LoadTableClient(); // chama o Método que irá carregar as informações dentro do dgvClientes
                     CarregarDadosBanco3();
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("Você não pode criar um produto com o botão Editar!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
             }
         }
 
@@ -475,7 +465,7 @@ namespace inventoryControl
                     txtEmailCliente.Text = "";
                     txtPass.Text = "";
                     CarregarDadosBanco();
-                    CarregarDadosBanco2();
+                    LoadTableClient(); // chama o Método que irá carregar as informações dentro do dgvClientes
                     CarregarDadosBanco3();
                 }
             }
@@ -519,7 +509,7 @@ namespace inventoryControl
                     txtNomeProduto.Text = "";
                     txtIdCliente1.Text = "";
                     CarregarDadosBanco();
-                    CarregarDadosBanco2();
+                    LoadTableClient(); // chama o Método que irá carregar as informações dentro do dgvClientes
                     CarregarDadosBanco3();
                 }
                 catch (Exception)
@@ -552,7 +542,7 @@ namespace inventoryControl
                     txtNomeProduto.Text = "";
                     txtIdCliente1.Text = "";
                     CarregarDadosBanco();
-                    CarregarDadosBanco2();
+                    LoadTableClient(); // chama o Método que irá carregar as informações dentro do dgvClientes
                     CarregarDadosBanco3();
                 }
                 catch (Exception)
@@ -583,7 +573,7 @@ namespace inventoryControl
                     txtNomeProduto.Text = "";
                     txtIdCliente1.Text = "";
                     CarregarDadosBanco();
-                    CarregarDadosBanco2();
+                    LoadTableClient(); // chama o Método que irá carregar as informações dentro do dgvClientes
                     CarregarDadosBanco3();
                 }
             }
@@ -618,7 +608,7 @@ namespace inventoryControl
                 txtId3.Text = "";
                 txtNomeComponente.Text = "";
                 CarregarDadosBanco();
-                CarregarDadosBanco2();
+                LoadTableClient(); // chama o Método que irá carregar as informações dentro do dgvClientes
                 CarregarDadosBanco3();
             }
         }
@@ -641,7 +631,7 @@ namespace inventoryControl
                     txtId3.Text = "";
                     txtNomeComponente.Text = "";
                     CarregarDadosBanco();
-                    CarregarDadosBanco2();
+                    LoadTableClient(); // chama o Método que irá carregar as informações dentro do dgvClientes
                     CarregarDadosBanco3();
                 }
                 catch (Exception)
@@ -671,7 +661,7 @@ namespace inventoryControl
                     txtId3.Text = "";
                     txtNomeComponente.Text = "";
                     CarregarDadosBanco();
-                    CarregarDadosBanco2();
+                    LoadTableClient(); // chama o Método que irá carregar as informações dentro do dgvClientes
                     CarregarDadosBanco3();
                 }
             }
@@ -717,6 +707,32 @@ namespace inventoryControl
             }
         }
 
+        private void txtPescCPF_TextChanged(object sender, EventArgs e)
+        {
+            // Construa a consulta SQL dinâmica com base no texto no TextBox
+            string filtro = txtPescCPF.Text;
+            string query = "SELECT * FROM usuario WHERE cpf_usuario LIKE @filtro";
+
+            // Abra a conexão com o banco de dados
+            conexao1.Open();
+
+            // Prepare o comando SQL
+            MySqlCommand comando = new MySqlCommand(query, conexao1);
+            comando.Parameters.AddWithValue("@filtro", "%" + filtro + "%");
+
+            // Crie um adaptador de dados e um DataTable para armazenar os resultados
+            MySqlDataAdapter adapter = new MySqlDataAdapter(comando);
+            DataTable dt = new DataTable();
+
+            // Preencha o DataTable com os resultados da consulta
+            adapter.Fill(dt);
+
+            // Feche a conexão com o banco de dados
+            conexao1.Close();
+
+            // Atualize o DataSource do DataGridView com os resultados filtrados
+            dgvUsers.DataSource = dt;
+        }
     }
 }
 
