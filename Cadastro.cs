@@ -23,22 +23,17 @@ namespace inventoryControl
         public Cadastro()
         {
             InitializeComponent();
-            dgvUsers.CellFormatting += dgvUsers_CellFormatting;// referente ao codigo na linha 138 formatação das colunas "senha e conf senha" no dgvUsers
-        }
+            dgvUsers.CellFormatting += dgvUsers_CellFormatting;// referente ao codigo de formatação das colunas "senha e conf senha" no dgvUsers
+            
+            // Chama o método que carrega as informações dentro do dgvClientes e dgvProdutos
+            LoadTableClient();
+            LoadTableProd();
 
-        private void CarregarDadosBanco()
-        {
-            MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
-            conexaoMYSQL.Open();
-            MySqlDataAdapter adapter = new MySqlDataAdapter("select id_prod as id_do_produto,nome_prod as nome_do_produto,cliente_id as id_do_cliente,id_cliente as id_do_cliente,nome_cliente as nome_do_cliente from produto right join cliente on cliente_id = id_cliente", conexaoMYSQL);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dgvProdutos.DataSource = dt;
+           
         }
 
         private void LoadTableClient() // Metodo privado que carrega dados da tabela Cliente.
         {
-
             // Cria uma nova conexão MySqlConnection utilizando a string de conexão definida em Program.conexaoBD
             MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
 
@@ -46,7 +41,7 @@ namespace inventoryControl
             conexaoMYSQL.Open();
 
             // Cria um objeto MySqlDataAdapter para executar a consulta SQL e preencher o DataTable
-            MySqlDataAdapter adapter = new MySqlDataAdapter("select * from cliente", conexaoMYSQL);
+            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM cliente", conexaoMYSQL);
 
             // Cria um novo DataTable para armazenar os dados retornados pela consulta
             DataTable dt = new DataTable();
@@ -54,8 +49,54 @@ namespace inventoryControl
             // Preenche o DataTable com os dados retornados pela consulta SQL usando o MySqlDataAdapter
             adapter.Fill(dt);
 
+            // Renomear as colunas conforme necessário
+            dt.Columns["id_cliente"].ColumnName = "Id:";
+            dt.Columns["nome_cliente"].ColumnName = "Nome:";
+            dt.Columns["cnpj"].ColumnName = "CNPJ:";
+            dt.Columns["telefone_cliente"].ColumnName = "Telefone:";
+            dt.Columns["email_cliente"].ColumnName = "Email";
+
             // Define o DataGridView dgvClientes como a fonte de dados para exibir os dados do DataTable
             dgvClientes.DataSource = dt;
+
+            // Fecha a conexão com o banco de dados
+            conexaoMYSQL.Close();
+
+            // Formata as colunas do DataGridView para o tanho auto ajustavel
+            dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        }
+
+        private void LoadTableProd() // Metodo privado que carrega dados da tabela Produto.
+        {
+            // Cria uma nova conexão MySqlConnection utilizando a string de conexão definida em Program.conexaoBD
+            MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
+
+            // Abre a conexão com o banco de dados
+            conexaoMYSQL.Open();
+
+            // Cria um objeto MySqlDataAdapter para executar a consulta SQL e preencher o DataTable
+            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM produto", conexaoMYSQL);
+
+            // Cria um novo DataTable para armazenar os dados retornados pela consulta
+            DataTable dt = new DataTable();
+
+            // Preenche o DataTable com os dados retornados pela consulta SQL usando o MySqlDataAdapter
+            adapter.Fill(dt);
+
+            // Renomear as colunas conforme necessário
+            dt.Columns["id_produto"].ColumnName = "Id:";
+            dt.Columns["cod_produto"].ColumnName = "Código:";
+            dt.Columns["nome_produto"].ColumnName = "Descrição:";
+            dt.Columns["serial_produto"].ColumnName = "Nº Série:";
+
+            // Define o DataGridView dgvClientes como a fonte de dados para exibir os dados do DataTable
+            dgvProdutos.DataSource = dt;
+
+            // Fecha a conexão com o banco de dados
+            conexaoMYSQL.Close();
+
+            // Formata as colunas do DataGridView para o tanho auto ajustavel
+            dgvProdutos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void CarregarDadosBanco3()
@@ -81,8 +122,8 @@ namespace inventoryControl
 
             txtId.Enabled = false;
             txtId1.Enabled = false;
+            TxtIdProd.Enabled = false;
             dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
 
             /* Fim da inicialização tela Cadastro */
             try
@@ -104,7 +145,7 @@ namespace inventoryControl
                         dt.Columns["senha"].ColumnName = "Senha:";
                         dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
                         dgvUsers.DataSource = dt;
-                        
+                        conexaoMYSQL.Close();
                     }
                 }
             }
@@ -134,14 +175,14 @@ namespace inventoryControl
         private void dgvUsers_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //Ao clicar duas vezes na info da lista irá subir as informações  para as textBox.
-            txtId.Text = dgvUsers.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtName.Text = dgvUsers.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtCPF.Text = dgvUsers.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txtCargo.Text = dgvUsers.Rows[e.RowIndex].Cells[3].Value.ToString();
-            txtUser.Text = dgvUsers.Rows[e.RowIndex].Cells[4].Value.ToString();
-            txtPass.Text = dgvUsers.Rows[e.RowIndex].Cells[5].Value.ToString();
-            txtConfPass.Text = dgvUsers.Rows[e.RowIndex].Cells[6].Value.ToString();
-            BtnSalvar.Enabled = false;
+            txtId.Text          = dgvUsers.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtName.Text        = dgvUsers.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtCPF.Text         = dgvUsers.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtCargo.Text       = dgvUsers.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txtUser.Text        = dgvUsers.Rows[e.RowIndex].Cells[4].Value.ToString();
+            txtPass.Text        = dgvUsers.Rows[e.RowIndex].Cells[5].Value.ToString();
+            txtConfPass.Text    = dgvUsers.Rows[e.RowIndex].Cells[6].Value.ToString();
+            BtnSalvar.Enabled   = false;
         }
 
 
@@ -181,6 +222,7 @@ namespace inventoryControl
                         txtUser.Text = "";
                         txtPass.Text = "";
                         txtConfPass.Text = "";
+                        BtnSalvar.Enabled = true;
 
                         conectar.Close();
 
@@ -225,7 +267,7 @@ namespace inventoryControl
             MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
             conectar.Open();
 
-            MySqlCommand cadastrar = new MySqlCommand("update usuario set nome_usuario='" + txtName.Text + "', cpf_usuario='" + txtCPF.Text +
+            MySqlCommand cadastrar = new MySqlCommand("UPDATE usuario SET nome_usuario='" + txtName.Text + "', cpf_usuario='" + txtCPF.Text +
                 "', cargo='" + txtCargo.Text + "', login='" + txtUser.Text + "', senha='" + txtPass.Text + "', confirm_senha='" + txtConfPass.Text +
                 "' WHERE id_usuario=" + txtId.Text, conectar);
             cadastrar.ExecuteNonQuery();
@@ -265,7 +307,6 @@ namespace inventoryControl
                 }
             }
         }
-
 
         /* Codigo abaixo realiza o Cadastro do Usuário */
         private void BtnSalvar_Click(object sender, EventArgs e)
@@ -349,17 +390,18 @@ namespace inventoryControl
 
         private void dgvClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            txtId1.Text = dgvClientes.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtNomeCliente.Text = dgvClientes.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtTelefoneCliente.Text = dgvClientes.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txtEmailCliente.Text = dgvClientes.Rows[e.RowIndex].Cells[3].Value.ToString();
-            txtPass.Text = dgvClientes.Rows[e.RowIndex].Cells[4].Value.ToString();
+            txtId1.Text             = dgvClientes.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtNomeCliente.Text     = dgvClientes.Rows[e.RowIndex].Cells[1].Value.ToString();
+            MskCnpjClient.Text      = dgvClientes.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtTelefoneCliente.Text = dgvClientes.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txtEmailCliente.Text    = dgvClientes.Rows[e.RowIndex].Cells[4].Value.ToString();
+            BtnSaveClient.Enabled   = false;
         }
 
         private void BtnSaveClient_Click(object sender, EventArgs e)
         {
             // Verifica se todos os campos obrigatórios estão preenchidos
-            if (txtNomeCliente.Text == "" || TxtCnpjClient.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "")
+            if (txtNomeCliente.Text == "" || MskCnpjClient.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "")
             {
                 MessageBox.Show("Todos os campos devem ser preenchidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -377,8 +419,11 @@ namespace inventoryControl
                 conexaoMYSQL.Open();
                 try
                 {
+                    // Remover os caracteres não numéricos do MaskedTextBox
+                    string numeros = new string(MskCnpjClient.Text.Where(char.IsDigit).ToArray());
+
                     // Cria um novo comando MySqlCommand para inserir os dados na tabela cliente
-                    MySqlCommand comando = new MySqlCommand("INSERT INTO cliente (nome_cliente, cnpj, telefone_cliente, email_cliente) VALUES ('" + txtNomeCliente.Text + "','" + TxtCnpjClient.Text + "','" + txtTelefoneCliente.Text + "','" + txtEmailCliente.Text + "');", conexaoMYSQL);
+                    MySqlCommand comando = new MySqlCommand("INSERT INTO cliente (nome_cliente, cnpj, telefone_cliente, email_cliente) VALUES ('" + txtNomeCliente.Text + "','" + numeros + "','" + txtTelefoneCliente.Text + "','" + txtEmailCliente.Text + "');", conexaoMYSQL);
 
                     // Executa o comando de inserção
                     comando.ExecuteNonQuery();
@@ -389,10 +434,9 @@ namespace inventoryControl
                     // Limpa os campos de entrada de dados
                     txtId1.Text = "";
                     txtNomeCliente.Text = "";
-                    TxtCnpjClient.Text = "";
+                    MskCnpjClient.Text = "";
                     txtTelefoneCliente.Text = "";
                     txtEmailCliente.Text = "";
-                    txtPass.Text = "";
 
                     // Chama o método que carrega as informações dentro do dgvClientes
                     LoadTableClient();
@@ -410,39 +454,60 @@ namespace inventoryControl
             }
         }
 
-        private void btnEditar1_Click(object sender, EventArgs e)
+        private void BtnEditClient_Click(object sender, EventArgs e)
         {
-            if (txtNomeCliente.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "")
+            // Verifica se todos os campos obrigatórios estão preenchidos
+            if (txtNomeCliente.Text == "" || MskCnpjClient.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "")
             {
                 MessageBox.Show("Selecione um cliente existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
+                // Cria uma nova conexão MySqlConnection utilizando a string de conexão definida em Program.conexaoBD
+                MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
+
+                // Abre a conexão com o banco de dados
+                conexaoMYSQL.Open();
+
                 try
                 {
-                    MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
-                    conexaoMYSQL.Open();
-                    MySqlCommand comando = new MySqlCommand("update cliente set nome_cliente='" + txtNomeCliente.Text + "',telefone_cliente='" + txtTelefoneCliente.Text + "',email_cliente='" + txtEmailCliente.Text + "' where id_cliente=" + txtId1.Text, conexaoMYSQL);
+                    // Remover os caracteres não numéricos do MaskedTextBox
+                    string numeros = new string(MskCnpjClient.Text.Where(char.IsDigit).ToArray());
+
+                    // Cria um novo comando MySqlCommand para alterar os dados na tabela cliente
+                    MySqlCommand comando = new MySqlCommand("UPDATE cliente SET nome_cliente='" + txtNomeCliente.Text + "',cnpj='" + numeros + "',telefone_cliente='" + txtTelefoneCliente.Text + "',email_cliente='" + txtEmailCliente.Text + "' where id_cliente=" + txtId1.Text, conexaoMYSQL);
+
+                    // Executa o comando de alteração
                     comando.ExecuteNonQuery();
+
+                    // Exibe uma mensagem de sucesso
                     MessageBox.Show("Dados alterados!", "Sucesso", MessageBoxButtons.OK);
+
+                    // Limpa os campos de entrada de dados
                     txtId1.Text = "";
                     txtNomeCliente.Text = "";
+                    MskCnpjClient.Text = "";
                     txtTelefoneCliente.Text = "";
                     txtEmailCliente.Text = "";
-                    txtPass.Text = "";
-                    CarregarDadosBanco();
-                    LoadTableClient(); // chama o Método que irá carregar as informações dentro do dgvClientes
-                    CarregarDadosBanco3();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Você não pode criar um produto com o botão Editar!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                    BtnSaveClient.Enabled = true;
 
+                    // Chama o Método que irá carregar as informações dentro do dgvClientes
+                    LoadTableClient();
+                }
+                catch (Exception ex)
+                {
+                    // Exibe uma mensagem de erro caso ocorra uma exceção
+                    MessageBox.Show("Erro ao carregar dados: " + ex.Message);
+                }
+                finally
+                {
+                    // Fecha a conexão com o banco de dados, independentemente de ocorrer uma exceção ou não
+                    conexaoMYSQL.Close(); 
+                }
             }
         }
 
-        private void btnExcluir1_Click(object sender, EventArgs e)
+        private void BtnDelClient_Click(object sender, EventArgs e)
         {
             DialogResult caixaMensagem = MessageBox.Show("Deseja realmente exluir esse cliente?", "Aviso", MessageBoxButtons.YesNo);
 
@@ -454,111 +519,139 @@ namespace inventoryControl
                 }
                 else
                 {
+                    // Cria uma nova conexão MySqlConnection utilizando a string de conexão definida em Program.conexaoBD
                     MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
+
+                    // Abre a conexão com o banco de dados
                     conexaoMYSQL.Open();
-                    MySqlCommand comando = new MySqlCommand("delete from cliente where id_cliente=" + txtId1.Text + ";", conexaoMYSQL);
-                    comando.ExecuteNonQuery();
-                    MessageBox.Show("Dados excluídos!", "Sucesso", MessageBoxButtons.OK);
-                    txtId1.Text = "";
-                    txtNomeCliente.Text = "";
-                    txtTelefoneCliente.Text = "";
-                    txtEmailCliente.Text = "";
-                    txtPass.Text = "";
-                    CarregarDadosBanco();
-                    LoadTableClient(); // chama o Método que irá carregar as informações dentro do dgvClientes
-                    CarregarDadosBanco3();
+
+                    try
+                    {
+                        // Cria um novo comando MySqlCommand para deletar os dados na tabela cliente
+                        MySqlCommand comando = new MySqlCommand("DELETE FROM cliente  WHERE id_cliente=" + txtId1.Text + ";", conexaoMYSQL);
+
+                        // Executa o comando de delete
+                        comando.ExecuteNonQuery();
+
+                        // Exibe uma mensagem de sucesso
+                        MessageBox.Show("Dados excluídos!", "Sucesso", MessageBoxButtons.OK);
+
+                        // Limpa os campos de entrada de dados
+                        txtId1.Text = "";
+                        txtNomeCliente.Text = "";
+                        MskCnpjClient.Text = "";
+                        txtTelefoneCliente.Text = "";
+                        txtEmailCliente.Text = "";
+                        BtnSaveClient.Enabled = true;
+
+                        // Chama o Método que irá carregar as informações dentro do dgvClientes
+                        LoadTableClient();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Exibe uma mensagem de erro caso ocorra uma exceção
+                        MessageBox.Show("Erro ao carregar dados: " + ex.Message);
+                    }
+                    finally
+                    {
+                        // Fecha a conexão com o banco de dados, independentemente de ocorrer uma exceção ou não
+                        conexaoMYSQL.Close();
+                    }
                 }
             }
         }
 
-        private void btnSair1_Click(object sender, EventArgs e)
+        private void BtnClearClient_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            login.Show();
-            this.Hide();
+            txtId1.Text = "";
+            txtNomeCliente.Text = "";
+            MskCnpjClient.Text = "";
+            txtTelefoneCliente.Text = "";
+            txtEmailCliente.Text = "";
+            BtnSaveClient.Enabled = true;
         }
 
         private void dgvProdutos_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            txtId2.Text = dgvProdutos.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtNomeProduto.Text = dgvProdutos.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtIdCliente1.Text = dgvProdutos.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txtIdCliente2.Text = dgvProdutos.Rows[e.RowIndex].Cells[3].Value.ToString();
+            TxtIdProd.Text          = dgvProdutos.Rows[e.RowIndex].Cells[0].Value.ToString();
+            TxtCodProd.Text         = dgvProdutos.Rows[e.RowIndex].Cells[1].Value.ToString();
+            TxtNomeProd.Text        = dgvProdutos.Rows[e.RowIndex].Cells[2].Value.ToString();
+            TxtSerialProd.Text      = dgvProdutos.Rows[e.RowIndex].Cells[3].Value.ToString();
+            BtnSaveProd.Enabled = false;
         }
 
-        private void btnSalvar2_Click(object sender, EventArgs e)
+        private void BtnSaveProd_Click(object sender, EventArgs e)
         {
-            if (txtNomeProduto.Text == "" || txtIdCliente1.Text == "")
+            if (TxtCodProd.Text == "" || TxtNomeProd.Text == "" || TxtSerialProd.Text == "")
             {
                 MessageBox.Show("Todos os campos devem ser preenchidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (int.TryParse(txtIdCliente1.Text, out _) == false)
-            {
-                MessageBox.Show("Um ou mais campo estão incorretos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
             else
             {
+                MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
+                conexaoMYSQL.Open();
                 try
                 {
-                    MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
-                    conexaoMYSQL.Open();
-                    MySqlCommand comando = new MySqlCommand("insert into produto(nome_prod,cliente_id)values('" + txtNomeProduto.Text + "'," + txtIdCliente1.Text + ");", conexaoMYSQL);
+                    MySqlCommand comando = new MySqlCommand("INSERT INTO produto(cod_produto,nome_produto,serial_produto)VALUES('" + TxtCodProd.Text + "','" + TxtNomeProd.Text + "','" + TxtSerialProd.Text + "');", conexaoMYSQL);
                     comando.ExecuteNonQuery();
                     MessageBox.Show("Dados criados!", "Sucesso", MessageBoxButtons.OK);
-                    txtId2.Text = "";
-                    txtNomeProduto.Text = "";
-                    txtIdCliente1.Text = "";
-                    CarregarDadosBanco();
-                    LoadTableClient(); // chama o Método que irá carregar as informações dentro do dgvClientes
-                    CarregarDadosBanco3();
+                    TxtIdProd.Text = "";
+                    TxtCodProd.Text = "";
+                    TxtNomeProd.Text = "";
+                    TxtSerialProd.Text = "";
+                    LoadTableProd();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Você não pode adicionar um produto sem antes adicionar o cliente a quem ele pertence! / O primeiro campo id do cliente deve ser igual ao segundo campo id do cliente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Erro ao carregar dados: " + ex.Message);
+                }
+                finally
+                {
+                    conexaoMYSQL.Close();
                 }
             }
         }
 
-        private void btnEditar2_Click(object sender, EventArgs e)
+        private void BtnEditProd_Click(object sender, EventArgs e)
         {
-            if (txtNomeProduto.Text == "" || txtIdCliente1.Text == "")
+            if (TxtNomeProd.Text == "")
             {
                 MessageBox.Show("Selecione um produto existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (int.TryParse(txtIdCliente1.Text, out _) == false)
-            {
-                MessageBox.Show("Um ou mais campo estão incorretos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
             else
             {
+                MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
+                conexaoMYSQL.Open();
                 try
                 {
-                    MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
-                    conexaoMYSQL.Open();
-                    MySqlCommand comando = new MySqlCommand("update produto set nome_prod='" + txtNomeProduto.Text + "', cliente_id=" + txtIdCliente1.Text + " where id_prod=" + txtId2.Text, conexaoMYSQL);
+                    MySqlCommand comando = new MySqlCommand("UPDATE produto SET cod_produto='"+ TxtCodProd.Text + "',nome_produto='" + TxtNomeProd.Text + "', serial_produto='" + TxtSerialProd.Text + "' WHERE id_produto=" + TxtIdProd.Text, conexaoMYSQL);
                     comando.ExecuteNonQuery();
                     MessageBox.Show("Dados alterados!", "Sucesso", MessageBoxButtons.OK);
-                    txtId2.Text = "";
-                    txtNomeProduto.Text = "";
-                    txtIdCliente1.Text = "";
-                    CarregarDadosBanco();
-                    LoadTableClient(); // chama o Método que irá carregar as informações dentro do dgvClientes
-                    CarregarDadosBanco3();
+                    TxtIdProd.Text = "";
+                    TxtCodProd.Text = "";
+                    TxtNomeProd.Text = "";
+                    TxtSerialProd.Text = "";
+                    LoadTableProd();
+                    BtnSaveProd.Enabled = true;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("O primeiro campo id do cliente deve ser igual ao segundo campo id do cliente! / Você não pode criar um produto com o botão Editar!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Erro ao carregar dados: " + ex.Message);
+                }
+                finally
+                {
+                    conexaoMYSQL.Close();
                 }
             }
         }
 
-        private void btnExcluir2_Click(object sender, EventArgs e)
+        private void BtnDelProd_Click(object sender, EventArgs e)
         {
             DialogResult caixaMensagem = MessageBox.Show("Deseja realmente exluir esse produto?", "Aviso", MessageBoxButtons.YesNo);
 
             if (caixaMensagem == DialogResult.Yes)
             {
-                if (txtNomeProduto.Text == "" || txtIdCliente1.Text == "")
+                if (TxtNomeProd.Text == "")
                 {
                     MessageBox.Show("Selecione um componente existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -566,24 +659,37 @@ namespace inventoryControl
                 {
                     MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
                     conexaoMYSQL.Open();
-                    MySqlCommand comando = new MySqlCommand("delete from produto where id_prod=" + txtId2.Text + ";", conexaoMYSQL);
-                    comando.ExecuteNonQuery();
-                    MessageBox.Show("Dados excluídos!", "Sucesso", MessageBoxButtons.OK);
-                    txtId2.Text = "";
-                    txtNomeProduto.Text = "";
-                    txtIdCliente1.Text = "";
-                    CarregarDadosBanco();
-                    LoadTableClient(); // chama o Método que irá carregar as informações dentro do dgvClientes
-                    CarregarDadosBanco3();
+                    try
+                    {
+                        MySqlCommand comando = new MySqlCommand("DELETE FROM produto WHERE id_produto=" + TxtIdProd.Text + ";", conexaoMYSQL);
+                        comando.ExecuteNonQuery();
+                        MessageBox.Show("Dados excluídos com sucesso!", "Sucesso", MessageBoxButtons.OK);
+                        TxtIdProd.Text = "";
+                        TxtCodProd.Text = "";
+                        TxtNomeProd.Text = "";
+                        TxtSerialProd.Text = "";
+                        LoadTableProd();
+                        BtnSaveProd.Enabled = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao carregar dados: " + ex.Message);
+                    }
+                    finally
+                    {
+                        conexaoMYSQL.Close();
+                    }
                 }
             }
         }
 
-        private void btnSair2_Click(object sender, EventArgs e)
+        private void BtnClearProd_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            login.Show();
-            this.Hide();
+            TxtIdProd.Text = "";
+            TxtCodProd.Text = "";
+            TxtNomeProd.Text = "";
+            TxtSerialProd.Text = "";
+            BtnSaveProd.Enabled = true;
         }
 
         private void dgvComponentes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -607,9 +713,6 @@ namespace inventoryControl
                 MessageBox.Show("Dados criados!", "Sucesso", MessageBoxButtons.OK);
                 txtId3.Text = "";
                 txtNomeComponente.Text = "";
-                CarregarDadosBanco();
-                LoadTableClient(); // chama o Método que irá carregar as informações dentro do dgvClientes
-                CarregarDadosBanco3();
             }
         }
 
@@ -630,9 +733,6 @@ namespace inventoryControl
                     MessageBox.Show("Dados alterados!", "Sucesso", MessageBoxButtons.OK);
                     txtId3.Text = "";
                     txtNomeComponente.Text = "";
-                    CarregarDadosBanco();
-                    LoadTableClient(); // chama o Método que irá carregar as informações dentro do dgvClientes
-                    CarregarDadosBanco3();
                 }
                 catch (Exception)
                 {
@@ -660,9 +760,6 @@ namespace inventoryControl
                     MessageBox.Show("Dados excluídos!", "Sucesso", MessageBoxButtons.OK);
                     txtId3.Text = "";
                     txtNomeComponente.Text = "";
-                    CarregarDadosBanco();
-                    LoadTableClient(); // chama o Método que irá carregar as informações dentro do dgvClientes
-                    CarregarDadosBanco3();
                 }
             }
         }
@@ -732,6 +829,21 @@ namespace inventoryControl
 
             // Atualize o DataSource do DataGridView com os resultados filtrados
             dgvUsers.DataSource = dt;
+        }
+
+        private void txtNomeCliente_TextChanged(object sender, EventArgs e)
+        {
+            // Desabilita o evento TextChanged para evitar recursão infinita
+            txtNomeCliente.TextChanged -= txtNomeCliente_TextChanged;
+
+            // Converte o texto para maiúsculas
+            txtNomeCliente.Text = txtNomeCliente.Text.ToUpper();
+
+            // Reabilita o evento TextChanged
+            txtNomeCliente.TextChanged += txtNomeCliente_TextChanged;
+
+            // Define a posição do cursor no final do texto
+            txtNomeCliente.SelectionStart = txtNomeCliente.Text.Length;
         }
     }
 }

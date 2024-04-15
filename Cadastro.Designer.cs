@@ -66,35 +66,39 @@ namespace inventoryControl
             this.label19 = new System.Windows.Forms.Label();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.TxtCnpjClient = new System.Windows.Forms.TextBox();
+            this.BtnClearClient = new System.Windows.Forms.Button();
+            this.MskCnpjClient = new System.Windows.Forms.MaskedTextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnSair1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtEmailCliente = new System.Windows.Forms.TextBox();
-            this.btnExcluir1 = new System.Windows.Forms.Button();
+            this.BtnDelClient = new System.Windows.Forms.Button();
             this.txtId1 = new System.Windows.Forms.TextBox();
             this.txtTelefoneCliente = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.BtnSaveClient = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtNomeCliente = new System.Windows.Forms.TextBox();
-            this.btnEditar1 = new System.Windows.Forms.Button();
+            this.BtnEditClient = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.txtIdCliente2 = new System.Windows.Forms.TextBox();
-            this.txtIdCliente1 = new System.Windows.Forms.TextBox();
-            this.btnExcluir2 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.btnSair2 = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.btnEditar2 = new System.Windows.Forms.Button();
-            this.txtId2 = new System.Windows.Forms.TextBox();
-            this.txtNomeProduto = new System.Windows.Forms.TextBox();
-            this.btnSalvar2 = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.TxtSerialProd = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.BtnClearProd = new System.Windows.Forms.Button();
+            this.TxtCodProd = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.TxtNomeProd = new System.Windows.Forms.TextBox();
+            this.BtnSaveProd = new System.Windows.Forms.Button();
+            this.TxtIdProd = new System.Windows.Forms.TextBox();
+            this.BtnEditProd = new System.Windows.Forms.Button();
+            this.BtnDelProd = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnExcluir3 = new System.Windows.Forms.Button();
@@ -119,8 +123,10 @@ namespace inventoryControl
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComponentes)).BeginInit();
@@ -268,7 +274,7 @@ namespace inventoryControl
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1094, 548);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Usuário";
+            this.tabPage1.Text = "Usuários";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // groupBox2
@@ -461,7 +467,7 @@ namespace inventoryControl
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1094, 548);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Cliente:";
+            this.tabPage2.Text = "Clientes";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // pictureBox5
@@ -514,20 +520,20 @@ namespace inventoryControl
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.TxtCnpjClient);
+            this.groupBox3.Controls.Add(this.BtnClearClient);
+            this.groupBox3.Controls.Add(this.MskCnpjClient);
             this.groupBox3.Controls.Add(this.label20);
             this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.btnSair1);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.txtEmailCliente);
-            this.groupBox3.Controls.Add(this.btnExcluir1);
+            this.groupBox3.Controls.Add(this.BtnDelClient);
             this.groupBox3.Controls.Add(this.txtId1);
             this.groupBox3.Controls.Add(this.txtTelefoneCliente);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.BtnSaveClient);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.txtNomeCliente);
-            this.groupBox3.Controls.Add(this.btnEditar1);
+            this.groupBox3.Controls.Add(this.BtnEditClient);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Location = new System.Drawing.Point(6, 6);
             this.groupBox3.Name = "groupBox3";
@@ -536,12 +542,23 @@ namespace inventoryControl
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cadastro";
             // 
-            // TxtCnpjClient
+            // BtnClearClient
             // 
-            this.TxtCnpjClient.Location = new System.Drawing.Point(112, 77);
-            this.TxtCnpjClient.Name = "TxtCnpjClient";
-            this.TxtCnpjClient.Size = new System.Drawing.Size(142, 23);
-            this.TxtCnpjClient.TabIndex = 66;
+            this.BtnClearClient.Location = new System.Drawing.Point(784, 222);
+            this.BtnClearClient.Name = "BtnClearClient";
+            this.BtnClearClient.Size = new System.Drawing.Size(75, 23);
+            this.BtnClearClient.TabIndex = 68;
+            this.BtnClearClient.Text = "Limpar";
+            this.BtnClearClient.UseVisualStyleBackColor = true;
+            this.BtnClearClient.Click += new System.EventHandler(this.BtnClearClient_Click);
+            // 
+            // MskCnpjClient
+            // 
+            this.MskCnpjClient.Location = new System.Drawing.Point(112, 77);
+            this.MskCnpjClient.Mask = "00.000.000/0000-00";
+            this.MskCnpjClient.Name = "MskCnpjClient";
+            this.MskCnpjClient.Size = new System.Drawing.Size(136, 23);
+            this.MskCnpjClient.TabIndex = 67;
             // 
             // label20
             // 
@@ -560,17 +577,6 @@ namespace inventoryControl
             this.label10.Size = new System.Drawing.Size(24, 17);
             this.label10.TabIndex = 64;
             this.label10.Text = "Id:";
-            // 
-            // btnSair1
-            // 
-            this.btnSair1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair1.Location = new System.Drawing.Point(784, 222);
-            this.btnSair1.Name = "btnSair1";
-            this.btnSair1.Size = new System.Drawing.Size(75, 23);
-            this.btnSair1.TabIndex = 54;
-            this.btnSair1.Text = "Sair";
-            this.btnSair1.UseVisualStyleBackColor = true;
-            this.btnSair1.Click += new System.EventHandler(this.btnSair1_Click);
             // 
             // label7
             // 
@@ -591,23 +597,23 @@ namespace inventoryControl
             this.txtEmailCliente.Size = new System.Drawing.Size(422, 23);
             this.txtEmailCliente.TabIndex = 60;
             // 
-            // btnExcluir1
+            // BtnDelClient
             // 
-            this.btnExcluir1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir1.Location = new System.Drawing.Point(703, 222);
-            this.btnExcluir1.Name = "btnExcluir1";
-            this.btnExcluir1.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir1.TabIndex = 55;
-            this.btnExcluir1.Text = "Excluir";
-            this.btnExcluir1.UseVisualStyleBackColor = true;
-            this.btnExcluir1.Click += new System.EventHandler(this.btnExcluir1_Click);
+            this.BtnDelClient.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDelClient.Location = new System.Drawing.Point(704, 222);
+            this.BtnDelClient.Name = "BtnDelClient";
+            this.BtnDelClient.Size = new System.Drawing.Size(75, 23);
+            this.BtnDelClient.TabIndex = 55;
+            this.BtnDelClient.Text = "Excluir";
+            this.BtnDelClient.UseVisualStyleBackColor = true;
+            this.BtnDelClient.Click += new System.EventHandler(this.BtnDelClient_Click);
             // 
             // txtId1
             // 
             this.txtId1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId1.Location = new System.Drawing.Point(112, 19);
             this.txtId1.Name = "txtId1";
-            this.txtId1.Size = new System.Drawing.Size(49, 23);
+            this.txtId1.Size = new System.Drawing.Size(61, 23);
             this.txtId1.TabIndex = 63;
             // 
             // txtTelefoneCliente
@@ -616,7 +622,7 @@ namespace inventoryControl
             this.txtTelefoneCliente.Location = new System.Drawing.Point(112, 106);
             this.txtTelefoneCliente.MaxLength = 14;
             this.txtTelefoneCliente.Name = "txtTelefoneCliente";
-            this.txtTelefoneCliente.Size = new System.Drawing.Size(142, 23);
+            this.txtTelefoneCliente.Size = new System.Drawing.Size(136, 23);
             this.txtTelefoneCliente.TabIndex = 59;
             // 
             // label11
@@ -658,17 +664,18 @@ namespace inventoryControl
             this.txtNomeCliente.Name = "txtNomeCliente";
             this.txtNomeCliente.Size = new System.Drawing.Size(422, 23);
             this.txtNomeCliente.TabIndex = 49;
+            this.txtNomeCliente.TextChanged += new System.EventHandler(this.txtNomeCliente_TextChanged);
             // 
-            // btnEditar1
+            // BtnEditClient
             // 
-            this.btnEditar1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar1.Location = new System.Drawing.Point(622, 222);
-            this.btnEditar1.Name = "btnEditar1";
-            this.btnEditar1.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar1.TabIndex = 53;
-            this.btnEditar1.Text = "Editar";
-            this.btnEditar1.UseVisualStyleBackColor = true;
-            this.btnEditar1.Click += new System.EventHandler(this.btnEditar1_Click);
+            this.BtnEditClient.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEditClient.Location = new System.Drawing.Point(622, 222);
+            this.BtnEditClient.Name = "BtnEditClient";
+            this.BtnEditClient.Size = new System.Drawing.Size(75, 23);
+            this.BtnEditClient.TabIndex = 53;
+            this.BtnEditClient.Text = "Editar";
+            this.BtnEditClient.UseVisualStyleBackColor = true;
+            this.BtnEditClient.Click += new System.EventHandler(this.BtnEditClient_Click);
             // 
             // label9
             // 
@@ -682,26 +689,170 @@ namespace inventoryControl
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.groupBox6);
+            this.tabPage3.Controls.Add(this.groupBox5);
             this.tabPage3.Controls.Add(this.pictureBox2);
-            this.tabPage3.Controls.Add(this.txtIdCliente2);
-            this.tabPage3.Controls.Add(this.txtIdCliente1);
-            this.tabPage3.Controls.Add(this.btnExcluir2);
-            this.tabPage3.Controls.Add(this.label12);
-            this.tabPage3.Controls.Add(this.btnSair2);
-            this.tabPage3.Controls.Add(this.label13);
-            this.tabPage3.Controls.Add(this.btnEditar2);
-            this.tabPage3.Controls.Add(this.txtId2);
-            this.tabPage3.Controls.Add(this.txtNomeProduto);
-            this.tabPage3.Controls.Add(this.btnSalvar2);
             this.tabPage3.Controls.Add(this.label14);
-            this.tabPage3.Controls.Add(this.dgvProdutos);
             this.tabPage3.Location = new System.Drawing.Point(4, 26);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1094, 548);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Produto";
+            this.tabPage3.Text = "Produtos";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.dgvProdutos);
+            this.groupBox6.Location = new System.Drawing.Point(6, 263);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(866, 280);
+            this.groupBox6.TabIndex = 55;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "groupBox6";
+            // 
+            // dgvProdutos
+            // 
+            this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProdutos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvProdutos.Location = new System.Drawing.Point(6, 42);
+            this.dgvProdutos.Name = "dgvProdutos";
+            this.dgvProdutos.Size = new System.Drawing.Size(853, 232);
+            this.dgvProdutos.TabIndex = 45;
+            this.dgvProdutos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProdutos_CellMouseDoubleClick);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.TxtSerialProd);
+            this.groupBox5.Controls.Add(this.label23);
+            this.groupBox5.Controls.Add(this.BtnClearProd);
+            this.groupBox5.Controls.Add(this.TxtCodProd);
+            this.groupBox5.Controls.Add(this.label22);
+            this.groupBox5.Controls.Add(this.label21);
+            this.groupBox5.Controls.Add(this.TxtNomeProd);
+            this.groupBox5.Controls.Add(this.BtnSaveProd);
+            this.groupBox5.Controls.Add(this.TxtIdProd);
+            this.groupBox5.Controls.Add(this.BtnEditProd);
+            this.groupBox5.Controls.Add(this.BtnDelProd);
+            this.groupBox5.Controls.Add(this.label12);
+            this.groupBox5.Location = new System.Drawing.Point(6, 6);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(866, 251);
+            this.groupBox5.TabIndex = 54;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Cadastro";
+            // 
+            // TxtSerialProd
+            // 
+            this.TxtSerialProd.Location = new System.Drawing.Point(112, 106);
+            this.TxtSerialProd.Name = "TxtSerialProd";
+            this.TxtSerialProd.Size = new System.Drawing.Size(186, 23);
+            this.TxtSerialProd.TabIndex = 58;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(46, 109);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(60, 17);
+            this.label23.TabIndex = 57;
+            this.label23.Text = "Nº Série:";
+            // 
+            // BtnClearProd
+            // 
+            this.BtnClearProd.Location = new System.Drawing.Point(784, 222);
+            this.BtnClearProd.Name = "BtnClearProd";
+            this.BtnClearProd.Size = new System.Drawing.Size(75, 23);
+            this.BtnClearProd.TabIndex = 56;
+            this.BtnClearProd.Text = "Limpar";
+            this.BtnClearProd.UseVisualStyleBackColor = true;
+            this.BtnClearProd.Click += new System.EventHandler(this.BtnClearProd_Click);
+            // 
+            // TxtCodProd
+            // 
+            this.TxtCodProd.Location = new System.Drawing.Point(112, 48);
+            this.TxtCodProd.Name = "TxtCodProd";
+            this.TxtCodProd.Size = new System.Drawing.Size(61, 23);
+            this.TxtCodProd.TabIndex = 55;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(44, 51);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(62, 17);
+            this.label22.TabIndex = 54;
+            this.label22.Text = "Código:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(82, 22);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(24, 17);
+            this.label21.TabIndex = 53;
+            this.label21.Text = "Id:";
+            // 
+            // TxtNomeProd
+            // 
+            this.TxtNomeProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNomeProd.Location = new System.Drawing.Point(112, 77);
+            this.TxtNomeProd.MaxLength = 55;
+            this.TxtNomeProd.Name = "TxtNomeProd";
+            this.TxtNomeProd.Size = new System.Drawing.Size(422, 23);
+            this.TxtNomeProd.TabIndex = 44;
+            // 
+            // BtnSaveProd
+            // 
+            this.BtnSaveProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSaveProd.Location = new System.Drawing.Point(542, 222);
+            this.BtnSaveProd.Name = "BtnSaveProd";
+            this.BtnSaveProd.Size = new System.Drawing.Size(75, 23);
+            this.BtnSaveProd.TabIndex = 47;
+            this.BtnSaveProd.Text = "Salvar";
+            this.BtnSaveProd.UseVisualStyleBackColor = true;
+            this.BtnSaveProd.Click += new System.EventHandler(this.BtnSaveProd_Click);
+            // 
+            // TxtIdProd
+            // 
+            this.TxtIdProd.Enabled = false;
+            this.TxtIdProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtIdProd.Location = new System.Drawing.Point(112, 19);
+            this.TxtIdProd.Name = "TxtIdProd";
+            this.TxtIdProd.Size = new System.Drawing.Size(61, 23);
+            this.TxtIdProd.TabIndex = 43;
+            // 
+            // BtnEditProd
+            // 
+            this.BtnEditProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEditProd.Location = new System.Drawing.Point(623, 222);
+            this.BtnEditProd.Name = "BtnEditProd";
+            this.BtnEditProd.Size = new System.Drawing.Size(75, 23);
+            this.BtnEditProd.TabIndex = 48;
+            this.BtnEditProd.Text = "Editar";
+            this.BtnEditProd.UseVisualStyleBackColor = true;
+            this.BtnEditProd.Click += new System.EventHandler(this.BtnEditProd_Click);
+            // 
+            // BtnDelProd
+            // 
+            this.BtnDelProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDelProd.Location = new System.Drawing.Point(704, 222);
+            this.BtnDelProd.Name = "BtnDelProd";
+            this.BtnDelProd.Size = new System.Drawing.Size(75, 23);
+            this.BtnDelProd.TabIndex = 50;
+            this.BtnDelProd.Text = "Excluir";
+            this.BtnDelProd.UseVisualStyleBackColor = true;
+            this.BtnDelProd.Click += new System.EventHandler(this.BtnDelProd_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(54, 80);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(52, 17);
+            this.label12.TabIndex = 41;
+            this.label12.Text = "Nome:";
             // 
             // pictureBox2
             // 
@@ -713,124 +864,15 @@ namespace inventoryControl
             this.pictureBox2.TabIndex = 53;
             this.pictureBox2.TabStop = false;
             // 
-            // txtIdCliente2
-            // 
-            this.txtIdCliente2.Enabled = false;
-            this.txtIdCliente2.Location = new System.Drawing.Point(820, 76);
-            this.txtIdCliente2.Name = "txtIdCliente2";
-            this.txtIdCliente2.Size = new System.Drawing.Size(46, 23);
-            this.txtIdCliente2.TabIndex = 52;
-            this.txtIdCliente2.Visible = false;
-            // 
-            // txtIdCliente1
-            // 
-            this.txtIdCliente1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdCliente1.Location = new System.Drawing.Point(107, 44);
-            this.txtIdCliente1.Name = "txtIdCliente1";
-            this.txtIdCliente1.Size = new System.Drawing.Size(759, 26);
-            this.txtIdCliente1.TabIndex = 51;
-            // 
-            // btnExcluir2
-            // 
-            this.btnExcluir2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir2.Location = new System.Drawing.Point(142, 93);
-            this.btnExcluir2.Name = "btnExcluir2";
-            this.btnExcluir2.Size = new System.Drawing.Size(63, 29);
-            this.btnExcluir2.TabIndex = 50;
-            this.btnExcluir2.Text = "Excluir";
-            this.btnExcluir2.UseVisualStyleBackColor = true;
-            this.btnExcluir2.Click += new System.EventHandler(this.btnExcluir2_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(6, 15);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(133, 18);
-            this.label12.TabIndex = 41;
-            this.label12.Text = "Nome do produto:";
-            // 
-            // btnSair2
-            // 
-            this.btnSair2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair2.Location = new System.Drawing.Point(211, 92);
-            this.btnSair2.Name = "btnSair2";
-            this.btnSair2.Size = new System.Drawing.Size(49, 30);
-            this.btnSair2.TabIndex = 49;
-            this.btnSair2.Text = "Sair";
-            this.btnSair2.UseVisualStyleBackColor = true;
-            this.btnSair2.Click += new System.EventHandler(this.btnSair2_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(6, 47);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(95, 18);
-            this.label13.TabIndex = 42;
-            this.label13.Text = "Id do cliente:";
-            // 
-            // btnEditar2
-            // 
-            this.btnEditar2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar2.Location = new System.Drawing.Point(76, 93);
-            this.btnEditar2.Name = "btnEditar2";
-            this.btnEditar2.Size = new System.Drawing.Size(60, 29);
-            this.btnEditar2.TabIndex = 48;
-            this.btnEditar2.Text = "Editar";
-            this.btnEditar2.UseVisualStyleBackColor = true;
-            this.btnEditar2.Click += new System.EventHandler(this.btnEditar2_Click);
-            // 
-            // txtId2
-            // 
-            this.txtId2.Enabled = false;
-            this.txtId2.Location = new System.Drawing.Point(820, 102);
-            this.txtId2.Name = "txtId2";
-            this.txtId2.Size = new System.Drawing.Size(46, 23);
-            this.txtId2.TabIndex = 43;
-            this.txtId2.Visible = false;
-            // 
-            // txtNomeProduto
-            // 
-            this.txtNomeProduto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeProduto.Location = new System.Drawing.Point(145, 12);
-            this.txtNomeProduto.MaxLength = 55;
-            this.txtNomeProduto.Name = "txtNomeProduto";
-            this.txtNomeProduto.Size = new System.Drawing.Size(721, 26);
-            this.txtNomeProduto.TabIndex = 44;
-            // 
-            // btnSalvar2
-            // 
-            this.btnSalvar2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar2.Location = new System.Drawing.Point(6, 93);
-            this.btnSalvar2.Name = "btnSalvar2";
-            this.btnSalvar2.Size = new System.Drawing.Size(64, 29);
-            this.btnSalvar2.TabIndex = 47;
-            this.btnSalvar2.Text = "Salvar";
-            this.btnSalvar2.UseVisualStyleBackColor = true;
-            this.btnSalvar2.Click += new System.EventHandler(this.btnSalvar2_Click);
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(6, 165);
+            this.label14.Location = new System.Drawing.Point(572, 230);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(133, 18);
             this.label14.TabIndex = 46;
             this.label14.Text = "Lista de produtos:";
-            // 
-            // dgvProdutos
-            // 
-            this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProdutos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvProdutos.Location = new System.Drawing.Point(6, 186);
-            this.dgvProdutos.Name = "dgvProdutos";
-            this.dgvProdutos.Size = new System.Drawing.Size(1082, 400);
-            this.dgvProdutos.TabIndex = 45;
-            this.dgvProdutos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProdutos_CellMouseDoubleClick);
             // 
             // tabPage4
             // 
@@ -849,7 +891,7 @@ namespace inventoryControl
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(1094, 548);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Componente";
+            this.tabPage4.Text = "Componentes";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // pictureBox3
@@ -995,8 +1037,11 @@ namespace inventoryControl
             this.groupBox3.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -1037,24 +1082,19 @@ namespace inventoryControl
         private System.Windows.Forms.TextBox txtId1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtNomeCliente;
-        private System.Windows.Forms.Button btnExcluir1;
-        private System.Windows.Forms.Button btnSair1;
-        private System.Windows.Forms.Button btnEditar1;
+        private System.Windows.Forms.Button BtnDelClient;
+        private System.Windows.Forms.Button BtnEditClient;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button BtnSaveClient;
         private System.Windows.Forms.TextBox txtEmailCliente;
         private System.Windows.Forms.TextBox txtTelefoneCliente;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtIdCliente2;
-        private System.Windows.Forms.TextBox txtIdCliente1;
-        private System.Windows.Forms.Button btnExcluir2;
+        private System.Windows.Forms.Button BtnDelProd;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button btnSair2;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button btnEditar2;
-        private System.Windows.Forms.TextBox txtId2;
-        private System.Windows.Forms.TextBox txtNomeProduto;
-        private System.Windows.Forms.Button btnSalvar2;
+        private System.Windows.Forms.Button BtnEditProd;
+        private System.Windows.Forms.TextBox TxtIdProd;
+        private System.Windows.Forms.TextBox TxtNomeProd;
+        private System.Windows.Forms.Button BtnSaveProd;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridView dgvProdutos;
         private System.Windows.Forms.Button btnExcluir3;
@@ -1082,7 +1122,16 @@ namespace inventoryControl
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.TextBox TxtCnpjClient;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.MaskedTextBox MskCnpjClient;
+        private System.Windows.Forms.Button BtnClearClient;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox TxtCodProd;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Button BtnClearProd;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.TextBox TxtSerialProd;
+        private System.Windows.Forms.Label label23;
     }
 }
