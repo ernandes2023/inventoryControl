@@ -28,8 +28,6 @@ namespace inventoryControl
             // Chama o método que carrega as informações dentro do dgvClientes e dgvProdutos
             LoadTableClient();
             LoadTableProd();
-
-           
         }
 
         private void LoadTableClient() // Metodo privado que carrega dados da tabela Cliente.
@@ -844,6 +842,23 @@ namespace inventoryControl
 
             // Define a posição do cursor no final do texto
             txtNomeCliente.SelectionStart = txtNomeCliente.Text.Length;
+        }
+
+        private void BtnDark_Click(object sender, EventArgs e)
+        {
+            // Exibe a caixa de diálogo de seleção de cor
+            ColorDialog colorDialog = new ColorDialog();
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Define a cor de fundo do formulário para a cor selecionada
+                this.BackColor = colorDialog.Color;
+                tabPage1.BackColor = colorDialog.Color;
+                tabPage2.BackColor = colorDialog.Color;
+                tabPage3.BackColor = colorDialog.Color;
+                tabPage4.BackColor = colorDialog.Color;
+                tabPage5.BackColor = colorDialog.Color;
+                tabControl1.BackColor = colorDialog.Color;
+            }
         }
     }
 }

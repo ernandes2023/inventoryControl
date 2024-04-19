@@ -111,6 +111,9 @@ namespace inventoryControl
             this.txtId3 = new System.Windows.Forms.TextBox();
             this.txtNomeComponente = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.BtnDark = new System.Windows.Forms.Button();
+            this.BtnClean = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -130,6 +133,7 @@ namespace inventoryControl
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComponentes)).BeginInit();
+            this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnSalvar
@@ -257,6 +261,7 @@ namespace inventoryControl
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
@@ -1007,6 +1012,37 @@ namespace inventoryControl
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.BtnClean);
+            this.tabPage5.Controls.Add(this.BtnDark);
+            this.tabPage5.Location = new System.Drawing.Point(4, 26);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1094, 548);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Teste de Cores";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // BtnDark
+            // 
+            this.BtnDark.Location = new System.Drawing.Point(256, 131);
+            this.BtnDark.Name = "BtnDark";
+            this.BtnDark.Size = new System.Drawing.Size(205, 23);
+            this.BtnDark.TabIndex = 0;
+            this.BtnDark.Text = "Tema Escuro";
+            this.BtnDark.UseVisualStyleBackColor = true;
+            this.BtnDark.Click += new System.EventHandler(this.BtnDark_Click);
+            // 
+            // BtnClean
+            // 
+            this.BtnClean.Location = new System.Drawing.Point(256, 160);
+            this.BtnClean.Name = "BtnClean";
+            this.BtnClean.Size = new System.Drawing.Size(205, 23);
+            this.BtnClean.TabIndex = 1;
+            this.BtnClean.Text = "Tema Claro";
+            this.BtnClean.UseVisualStyleBackColor = true;
+            // 
             // Cadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1046,6 +1082,7 @@ namespace inventoryControl
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComponentes)).EndInit();
+            this.tabPage5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1133,5 +1170,8 @@ namespace inventoryControl
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TextBox TxtSerialProd;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Button BtnClean;
+        private System.Windows.Forms.Button BtnDark;
     }
 }
