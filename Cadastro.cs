@@ -97,16 +97,6 @@ namespace inventoryControl
             dgvProdutos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
-        private void CarregarDadosBanco3()
-        {
-            MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
-            conexaoMYSQL.Open();
-            MySqlDataAdapter adapter = new MySqlDataAdapter("select * from componente", conexaoMYSQL);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dgvComponentes.DataSource = dt;
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Login login = new Login();

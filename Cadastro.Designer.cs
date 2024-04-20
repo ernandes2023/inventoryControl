@@ -100,20 +100,26 @@ namespace inventoryControl
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label14 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.btnExcluir3 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnSair3 = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
             this.btnEditar3 = new System.Windows.Forms.Button();
+            this.txtNomeComponente = new System.Windows.Forms.TextBox();
             this.btnSalvar3 = new System.Windows.Forms.Button();
+            this.txtId3 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
             this.dgvComponentes = new System.Windows.Forms.DataGridView();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtId3 = new System.Windows.Forms.TextBox();
-            this.txtNomeComponente = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.BtnDark = new System.Windows.Forms.Button();
             this.BtnClean = new System.Windows.Forms.Button();
+            this.BtnDark = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -131,9 +137,11 @@ namespace inventoryControl
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage4.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComponentes)).BeginInit();
             this.tabPage5.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnSalvar
@@ -881,16 +889,10 @@ namespace inventoryControl
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.groupBox8);
+            this.tabPage4.Controls.Add(this.groupBox7);
             this.tabPage4.Controls.Add(this.pictureBox3);
-            this.tabPage4.Controls.Add(this.btnExcluir3);
-            this.tabPage4.Controls.Add(this.btnSair3);
-            this.tabPage4.Controls.Add(this.btnEditar3);
-            this.tabPage4.Controls.Add(this.btnSalvar3);
             this.tabPage4.Controls.Add(this.label15);
-            this.tabPage4.Controls.Add(this.dgvComponentes);
-            this.tabPage4.Controls.Add(this.label16);
-            this.tabPage4.Controls.Add(this.txtId3);
-            this.tabPage4.Controls.Add(this.txtNomeComponente);
             this.tabPage4.Location = new System.Drawing.Point(4, 26);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -898,6 +900,133 @@ namespace inventoryControl
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Componentes";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.comboBox2);
+            this.groupBox7.Controls.Add(this.label24);
+            this.groupBox7.Controls.Add(this.btnExcluir3);
+            this.groupBox7.Controls.Add(this.comboBox1);
+            this.groupBox7.Controls.Add(this.btnSair3);
+            this.groupBox7.Controls.Add(this.label13);
+            this.groupBox7.Controls.Add(this.btnEditar3);
+            this.groupBox7.Controls.Add(this.txtNomeComponente);
+            this.groupBox7.Controls.Add(this.btnSalvar3);
+            this.groupBox7.Controls.Add(this.txtId3);
+            this.groupBox7.Controls.Add(this.label16);
+            this.groupBox7.Location = new System.Drawing.Point(6, 6);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(866, 251);
+            this.groupBox7.TabIndex = 61;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "groupBox7";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(112, 82);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 25);
+            this.comboBox2.TabIndex = 57;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(60, 85);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(46, 17);
+            this.label24.TabIndex = 56;
+            this.label24.Text = "Valor:";
+            // 
+            // btnExcluir3
+            // 
+            this.btnExcluir3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir3.Location = new System.Drawing.Point(704, 222);
+            this.btnExcluir3.Name = "btnExcluir3";
+            this.btnExcluir3.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir3.TabIndex = 59;
+            this.btnExcluir3.Text = "Excluir";
+            this.btnExcluir3.UseVisualStyleBackColor = true;
+            this.btnExcluir3.Click += new System.EventHandler(this.btnExcluir3_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(112, 48);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(183, 25);
+            this.comboBox1.TabIndex = 55;
+            // 
+            // btnSair3
+            // 
+            this.btnSair3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSair3.Location = new System.Drawing.Point(785, 222);
+            this.btnSair3.Name = "btnSair3";
+            this.btnSair3.Size = new System.Drawing.Size(75, 23);
+            this.btnSair3.TabIndex = 58;
+            this.btnSair3.Text = "Sair";
+            this.btnSair3.UseVisualStyleBackColor = true;
+            this.btnSair3.Click += new System.EventHandler(this.btnSair3_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(82, 22);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(24, 17);
+            this.label13.TabIndex = 54;
+            this.label13.Text = "Id:";
+            // 
+            // btnEditar3
+            // 
+            this.btnEditar3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar3.Location = new System.Drawing.Point(623, 222);
+            this.btnEditar3.Name = "btnEditar3";
+            this.btnEditar3.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar3.TabIndex = 57;
+            this.btnEditar3.Text = "Editar";
+            this.btnEditar3.UseVisualStyleBackColor = true;
+            this.btnEditar3.Click += new System.EventHandler(this.btnEditar3_Click);
+            // 
+            // txtNomeComponente
+            // 
+            this.txtNomeComponente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeComponente.Location = new System.Drawing.Point(112, 113);
+            this.txtNomeComponente.MaxLength = 55;
+            this.txtNomeComponente.Name = "txtNomeComponente";
+            this.txtNomeComponente.Size = new System.Drawing.Size(172, 23);
+            this.txtNomeComponente.TabIndex = 53;
+            // 
+            // btnSalvar3
+            // 
+            this.btnSalvar3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvar3.Location = new System.Drawing.Point(542, 222);
+            this.btnSalvar3.Name = "btnSalvar3";
+            this.btnSalvar3.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar3.TabIndex = 56;
+            this.btnSalvar3.Text = "Salvar";
+            this.btnSalvar3.UseVisualStyleBackColor = true;
+            this.btnSalvar3.Click += new System.EventHandler(this.btnSalvar3_Click);
+            // 
+            // txtId3
+            // 
+            this.txtId3.Enabled = false;
+            this.txtId3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId3.Location = new System.Drawing.Point(112, 19);
+            this.txtId3.Name = "txtId3";
+            this.txtId3.Size = new System.Drawing.Size(49, 23);
+            this.txtId3.TabIndex = 52;
+            this.txtId3.Visible = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(54, 51);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(52, 17);
+            this.label16.TabIndex = 51;
+            this.label16.Text = "Nome:";
             // 
             // pictureBox3
             // 
@@ -909,55 +1038,11 @@ namespace inventoryControl
             this.pictureBox3.TabIndex = 60;
             this.pictureBox3.TabStop = false;
             // 
-            // btnExcluir3
-            // 
-            this.btnExcluir3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir3.Location = new System.Drawing.Point(141, 55);
-            this.btnExcluir3.Name = "btnExcluir3";
-            this.btnExcluir3.Size = new System.Drawing.Size(64, 29);
-            this.btnExcluir3.TabIndex = 59;
-            this.btnExcluir3.Text = "Excluir";
-            this.btnExcluir3.UseVisualStyleBackColor = true;
-            this.btnExcluir3.Click += new System.EventHandler(this.btnExcluir3_Click);
-            // 
-            // btnSair3
-            // 
-            this.btnSair3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair3.Location = new System.Drawing.Point(211, 55);
-            this.btnSair3.Name = "btnSair3";
-            this.btnSair3.Size = new System.Drawing.Size(50, 29);
-            this.btnSair3.TabIndex = 58;
-            this.btnSair3.Text = "Sair";
-            this.btnSair3.UseVisualStyleBackColor = true;
-            this.btnSair3.Click += new System.EventHandler(this.btnSair3_Click);
-            // 
-            // btnEditar3
-            // 
-            this.btnEditar3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar3.Location = new System.Drawing.Point(76, 55);
-            this.btnEditar3.Name = "btnEditar3";
-            this.btnEditar3.Size = new System.Drawing.Size(59, 29);
-            this.btnEditar3.TabIndex = 57;
-            this.btnEditar3.Text = "Editar";
-            this.btnEditar3.UseVisualStyleBackColor = true;
-            this.btnEditar3.Click += new System.EventHandler(this.btnEditar3_Click);
-            // 
-            // btnSalvar3
-            // 
-            this.btnSalvar3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar3.Location = new System.Drawing.Point(6, 55);
-            this.btnSalvar3.Name = "btnSalvar3";
-            this.btnSalvar3.Size = new System.Drawing.Size(64, 29);
-            this.btnSalvar3.TabIndex = 56;
-            this.btnSalvar3.Text = "Salvar";
-            this.btnSalvar3.UseVisualStyleBackColor = true;
-            this.btnSalvar3.Click += new System.EventHandler(this.btnSalvar3_Click);
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(6, 169);
+            this.label15.Location = new System.Drawing.Point(549, 507);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(166, 18);
             this.label15.TabIndex = 55;
@@ -967,50 +1052,11 @@ namespace inventoryControl
             // 
             this.dgvComponentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComponentes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvComponentes.Location = new System.Drawing.Point(6, 190);
+            this.dgvComponentes.Location = new System.Drawing.Point(6, 42);
             this.dgvComponentes.Name = "dgvComponentes";
-            this.dgvComponentes.Size = new System.Drawing.Size(1082, 396);
+            this.dgvComponentes.Size = new System.Drawing.Size(853, 232);
             this.dgvComponentes.TabIndex = 54;
             this.dgvComponentes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvComponentes_CellMouseDoubleClick);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(6, 14);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(166, 18);
-            this.label16.TabIndex = 51;
-            this.label16.Text = "Nome do componente:";
-            // 
-            // txtId3
-            // 
-            this.txtId3.Enabled = false;
-            this.txtId3.Location = new System.Drawing.Point(817, 102);
-            this.txtId3.Name = "txtId3";
-            this.txtId3.Size = new System.Drawing.Size(49, 23);
-            this.txtId3.TabIndex = 52;
-            this.txtId3.Visible = false;
-            // 
-            // txtNomeComponente
-            // 
-            this.txtNomeComponente.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeComponente.Location = new System.Drawing.Point(178, 11);
-            this.txtNomeComponente.MaxLength = 55;
-            this.txtNomeComponente.Name = "txtNomeComponente";
-            this.txtNomeComponente.Size = new System.Drawing.Size(688, 26);
-            this.txtNomeComponente.TabIndex = 53;
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(1020, 596);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(90, 37);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Sair";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // tabPage5
             // 
@@ -1024,6 +1070,15 @@ namespace inventoryControl
             this.tabPage5.Text = "Teste de Cores";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // BtnClean
+            // 
+            this.BtnClean.Location = new System.Drawing.Point(256, 160);
+            this.BtnClean.Name = "BtnClean";
+            this.BtnClean.Size = new System.Drawing.Size(205, 23);
+            this.BtnClean.TabIndex = 1;
+            this.BtnClean.Text = "Tema Claro";
+            this.BtnClean.UseVisualStyleBackColor = true;
+            // 
             // BtnDark
             // 
             this.BtnDark.Location = new System.Drawing.Point(256, 131);
@@ -1034,14 +1089,27 @@ namespace inventoryControl
             this.BtnDark.UseVisualStyleBackColor = true;
             this.BtnDark.Click += new System.EventHandler(this.BtnDark_Click);
             // 
-            // BtnClean
+            // button4
             // 
-            this.BtnClean.Location = new System.Drawing.Point(256, 160);
-            this.BtnClean.Name = "BtnClean";
-            this.BtnClean.Size = new System.Drawing.Size(205, 23);
-            this.BtnClean.TabIndex = 1;
-            this.BtnClean.Text = "Tema Claro";
-            this.BtnClean.UseVisualStyleBackColor = true;
+            this.button4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(1020, 596);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(90, 37);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Sair";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.dgvComponentes);
+            this.groupBox8.Location = new System.Drawing.Point(6, 263);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.groupBox8.Size = new System.Drawing.Size(866, 280);
+            this.groupBox8.TabIndex = 62;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "groupBox8";
             // 
             // Cadastro
             // 
@@ -1080,9 +1148,12 @@ namespace inventoryControl
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComponentes)).EndInit();
             this.tabPage5.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1173,5 +1244,11 @@ namespace inventoryControl
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Button BtnClean;
         private System.Windows.Forms.Button BtnDark;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.GroupBox groupBox8;
     }
 }
