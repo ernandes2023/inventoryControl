@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Mysqlx.Cursor;
+using MySqlX.XDevAPI;
 using Org.BouncyCastle.Bcpg.OpenPgp;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
@@ -17,8 +19,6 @@ namespace inventoryControl
 {
     public partial class Cadastro : Form
     {
-        MySqlConnection conexao1 = new MySqlConnection(Program.conexaoBD);
-        DataTable tabela1 = new DataTable();
 
         public Cadastro()
         {
@@ -28,6 +28,7 @@ namespace inventoryControl
             // Chama o método que carrega as informações dentro do dgvClientes e dgvProdutos
             LoadTableClient();
             LoadTableProd();
+            LoadTableComp();
         }
 
         private void LoadTableClient() // Metodo privado que carrega dados da tabela Cliente.
@@ -96,8 +97,39 @@ namespace inventoryControl
             // Formata as colunas do DataGridView para o tanho auto ajustavel
             dgvProdutos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
+        private void LoadTableComp() // Metodo privado que carrega dados da tabela Produto.
+        {
+            // Cria uma nova conexão MySqlConnection utilizando a string de conexão definida em Program.conexaoBD
+            MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
 
-        private void button2_Click(object sender, EventArgs e)
+            // Abre a conexão com o banco de dados
+            conexaoMYSQL.Open();
+
+            // Cria um objeto MySqlDataAdapter para executar a consulta SQL e preencher o DataTable
+            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM componente", conexaoMYSQL);
+
+            // Cria um novo DataTable para armazenar os dados retornados pela consulta
+            DataTable dt = new DataTable();
+
+            // Preenche o DataTable com os dados retornados pela consulta SQL usando o MySqlDataAdapter
+            adapter.Fill(dt);
+
+            // Renomear as colunas conforme necessário
+            dt.Columns["id_componente"].ColumnName = "Id:";
+            dt.Columns["nome_comp"].ColumnName = "Nome:";
+            dt.Columns["valor_comp"].ColumnName = "Valor:";
+
+            // Define o DataGridView dgvClientes como a fonte de dados para exibir os dados do DataTable
+            dgvComponentes.DataSource = dt;
+
+            // Fecha a conexão com o banco de dados
+            conexaoMYSQL.Close();
+
+            // Formata as colunas do DataGridView para o tanho auto ajustavel
+            dgvComponentes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        }
+
+        private void BtnBackLogin_Click(object sender, EventArgs e)
         {
             Login login = new Login();
             login.Show();
@@ -108,9 +140,11 @@ namespace inventoryControl
         {
             /* Inicialização da tela de cadastro */
 
-            txtId.Enabled = false;
+            TxtIdUser.Enabled = false;
             txtId1.Enabled = false;
             TxtIdProd.Enabled = false;
+            TxtIdComp.Enabled = false;
+
             dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
             /* Fim da inicialização tela Cadastro */
@@ -163,32 +197,32 @@ namespace inventoryControl
         private void dgvUsers_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //Ao clicar duas vezes na info da lista irá subir as informações  para as textBox.
-            txtId.Text          = dgvUsers.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtName.Text        = dgvUsers.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtCPF.Text         = dgvUsers.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txtCargo.Text       = dgvUsers.Rows[e.RowIndex].Cells[3].Value.ToString();
-            txtUser.Text        = dgvUsers.Rows[e.RowIndex].Cells[4].Value.ToString();
-            txtPass.Text        = dgvUsers.Rows[e.RowIndex].Cells[5].Value.ToString();
-            txtConfPass.Text    = dgvUsers.Rows[e.RowIndex].Cells[6].Value.ToString();
+            TxtIdUser.Text          = dgvUsers.Rows[e.RowIndex].Cells[0].Value.ToString();
+            TxtNameUser.Text        = dgvUsers.Rows[e.RowIndex].Cells[1].Value.ToString();
+            TxtCpfUser.Text         = dgvUsers.Rows[e.RowIndex].Cells[2].Value.ToString();
+            TxtCargoUser.Text       = dgvUsers.Rows[e.RowIndex].Cells[3].Value.ToString();
+            TxtUser.Text        = dgvUsers.Rows[e.RowIndex].Cells[4].Value.ToString();
+            TxtPass.Text        = dgvUsers.Rows[e.RowIndex].Cells[5].Value.ToString();
+            TxtConfPass.Text    = dgvUsers.Rows[e.RowIndex].Cells[6].Value.ToString();
             BtnSalvar.Enabled   = false;
         }
 
 
         private void BtnLimpar_Click(object sender, EventArgs e)
         {
-            txtId.Text = "";
-            txtName.Text = "";
-            txtCPF.Text = "";
-            txtCargo.Text = "";
-            txtUser.Text = "";
-            txtPass.Text = "";
-            txtConfPass.Text = "";
+            TxtIdUser.Text = "";
+            TxtNameUser.Text = "";
+            TxtCpfUser.Text = "";
+            TxtCargoUser.Text = "";
+            TxtUser.Text = "";
+            TxtPass.Text = "";
+            TxtConfPass.Text = "";
             BtnSalvar.Enabled = true;
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (txtId.Text != "")
+            if (TxtIdUser.Text != "")
             {
                 DialogResult caixaMensagem = MessageBox.Show("Deseja realmente exluir esse usuário?", "Aviso", MessageBoxButtons.YesNo);
 
@@ -199,17 +233,17 @@ namespace inventoryControl
                         MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
                         conectar.Open();
 
-                        MySqlCommand cadastrar = new MySqlCommand("DELETE FROM usuario WHERE id_usuario = " + txtId.Text, conectar);
+                        MySqlCommand cadastrar = new MySqlCommand("DELETE FROM usuario WHERE id_usuario = " + TxtIdUser.Text, conectar);
                         cadastrar.ExecuteNonQuery();
 
                         MessageBox.Show("Dados excluidos com sucesso!");
-                        txtId.Text = "";
-                        txtName.Text = "";
-                        txtCPF.Text = "";
-                        txtCargo.Text = "";
-                        txtUser.Text = "";
-                        txtPass.Text = "";
-                        txtConfPass.Text = "";
+                        TxtIdUser.Text = "";
+                        TxtNameUser.Text = "";
+                        TxtCpfUser.Text = "";
+                        TxtCargoUser.Text = "";
+                        TxtUser.Text = "";
+                        TxtPass.Text = "";
+                        TxtConfPass.Text = "";
                         BtnSalvar.Enabled = true;
 
                         conectar.Close();
@@ -255,20 +289,20 @@ namespace inventoryControl
             MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
             conectar.Open();
 
-            MySqlCommand cadastrar = new MySqlCommand("UPDATE usuario SET nome_usuario='" + txtName.Text + "', cpf_usuario='" + txtCPF.Text +
-                "', cargo='" + txtCargo.Text + "', login='" + txtUser.Text + "', senha='" + txtPass.Text + "', confirm_senha='" + txtConfPass.Text +
-                "' WHERE id_usuario=" + txtId.Text, conectar);
+            MySqlCommand cadastrar = new MySqlCommand("UPDATE usuario SET nome_usuario='" + TxtNameUser.Text + "', cpf_usuario='" + TxtCpfUser.Text +
+                "', cargo='" + TxtCargoUser.Text + "', login='" + TxtUser.Text + "', senha='" + TxtPass.Text + "', confirm_senha='" + TxtConfPass.Text +
+                "' WHERE id_usuario=" + TxtIdUser.Text, conectar);
             cadastrar.ExecuteNonQuery();
 
 
             MessageBox.Show("Dados alterados!!!");
-            txtId.Text = "";
-            txtName.Text = "";
-            txtCPF.Text = "";
-            txtCargo.Text = "";
-            txtUser.Text = "";
-            txtPass.Text = "";
-            txtConfPass.Text = "";
+            TxtIdUser.Text = "";
+            TxtNameUser.Text = "";
+            TxtCpfUser.Text = "";
+            TxtCargoUser.Text = "";
+            TxtUser.Text = "";
+            TxtPass.Text = "";
+            TxtConfPass.Text = "";
             BtnSalvar.Enabled = true;
 
             using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
@@ -300,18 +334,18 @@ namespace inventoryControl
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
             // Verifica se todos os campos obrigatórios estão preenchidos
-            if (txtName.Text == "" || txtCPF.Text == "" || txtCargo.Text == "" || txtUser.Text == "" || txtPass.Text == "" || txtConfPass.Text == "")
+            if (TxtNameUser.Text == "" || TxtCpfUser.Text == "" || TxtCargoUser.Text == "" || TxtUser.Text == "" || TxtPass.Text == "" || TxtConfPass.Text == "")
             {
                 MessageBox.Show("Todos os campos precisam ser preenchidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtName.Select(); // Coloca o foco no campo de nome caso esteja vazio
+                TxtNameUser.Select(); // Coloca o foco no campo de nome caso esteja vazio
             }
             //Verifica se as senhas digitadas são iguais
-            else if (txtPass.Text != txtConfPass.Text)
+            else if (TxtPass.Text != TxtConfPass.Text)
             {
                 MessageBox.Show("As Senhas digitadas São diferentes! \n Por Favor digite a senha novamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtPass.Text = "";
-                txtConfPass.Text = "";
-                txtPass.Select(); // Coloca o foco no campo de senha caso as senhas sejam diferentes
+                TxtPass.Text = "";
+                TxtConfPass.Text = "";
+                TxtPass.Select(); // Coloca o foco no campo de senha caso as senhas sejam diferentes
             }
             else
             {
@@ -323,7 +357,7 @@ namespace inventoryControl
                 try
                 {
                     // Cria um novo comando MySqlCommand para inserir os dados na tabela usuario
-                    MySqlCommand cadastrar = new MySqlCommand("INSERT INTO usuario (nome_usuario, cpf_usuario, cargo, login, senha, confirm_senha) values ('" + txtName.Text + "','" + txtCPF.Text + "','" + txtCargo.Text + "','" + txtUser.Text + "','" + txtPass.Text + "','" + txtConfPass.Text + "');", conectar);
+                    MySqlCommand cadastrar = new MySqlCommand("INSERT INTO usuario (nome_usuario, cpf_usuario, cargo, login, senha, confirm_senha) values ('" + TxtNameUser.Text + "','" + TxtCpfUser.Text + "','" + TxtCargoUser.Text + "','" + TxtUser.Text + "','" + TxtPass.Text + "','" + TxtConfPass.Text + "');", conectar);
 
                     // Executa o comando de inserção
                     cadastrar.ExecuteNonQuery();
@@ -332,13 +366,13 @@ namespace inventoryControl
                     MessageBox.Show("Cadastro realizado com sucesso!", "Sucesso", MessageBoxButtons.OK);
 
                     // Limpa os campos de entrada de dados
-                    txtName.Text = "";
-                    txtCPF.Text = "";
-                    txtCargo.Text = "";
-                    txtUser.Text = "";
-                    txtPass.Text = "";
-                    txtConfPass.Text = "";
-                    txtName.Select(); // Coloca o foco no campo de nome
+                    TxtNameUser.Text = "";
+                    TxtCpfUser.Text = "";
+                    TxtCargoUser.Text = "";
+                    TxtUser.Text = "";
+                    TxtPass.Text = "";
+                    TxtConfPass.Text = "";
+                    TxtNameUser.Select(); // Coloca o foco no campo de nome
                 }
                 catch (Exception ex)
                 {
@@ -379,7 +413,7 @@ namespace inventoryControl
         private void dgvClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             txtId1.Text             = dgvClientes.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtNomeCliente.Text     = dgvClientes.Rows[e.RowIndex].Cells[1].Value.ToString();
+            TxtNomeCliente.Text     = dgvClientes.Rows[e.RowIndex].Cells[1].Value.ToString();
             MskCnpjClient.Text      = dgvClientes.Rows[e.RowIndex].Cells[2].Value.ToString();
             txtTelefoneCliente.Text = dgvClientes.Rows[e.RowIndex].Cells[3].Value.ToString();
             txtEmailCliente.Text    = dgvClientes.Rows[e.RowIndex].Cells[4].Value.ToString();
@@ -389,12 +423,12 @@ namespace inventoryControl
         private void BtnSaveClient_Click(object sender, EventArgs e)
         {
             // Verifica se todos os campos obrigatórios estão preenchidos
-            if (txtNomeCliente.Text == "" || MskCnpjClient.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "")
+            if (TxtNomeCliente.Text == "" || MskCnpjClient.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "")
             {
                 MessageBox.Show("Todos os campos devem ser preenchidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             // Verifica se os campos nome do cliente e CNPJ são números
-            else if (int.TryParse(txtNomeCliente.Text, out _) == true || float.TryParse(txtNomeCliente.Text, out _) == true)
+            else if (int.TryParse(TxtNomeCliente.Text, out _) == true || float.TryParse(TxtNomeCliente.Text, out _) == true)
             {
                 MessageBox.Show("Um ou mais campo estão incorretos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -411,7 +445,7 @@ namespace inventoryControl
                     string numeros = new string(MskCnpjClient.Text.Where(char.IsDigit).ToArray());
 
                     // Cria um novo comando MySqlCommand para inserir os dados na tabela cliente
-                    MySqlCommand comando = new MySqlCommand("INSERT INTO cliente (nome_cliente, cnpj, telefone_cliente, email_cliente) VALUES ('" + txtNomeCliente.Text + "','" + numeros + "','" + txtTelefoneCliente.Text + "','" + txtEmailCliente.Text + "');", conexaoMYSQL);
+                    MySqlCommand comando = new MySqlCommand("INSERT INTO cliente (nome_cliente, cnpj, telefone_cliente, email_cliente) VALUES ('" + TxtNomeCliente.Text + "','" + numeros + "','" + txtTelefoneCliente.Text + "','" + txtEmailCliente.Text + "');", conexaoMYSQL);
 
                     // Executa o comando de inserção
                     comando.ExecuteNonQuery();
@@ -421,7 +455,7 @@ namespace inventoryControl
 
                     // Limpa os campos de entrada de dados
                     txtId1.Text = "";
-                    txtNomeCliente.Text = "";
+                    TxtNomeCliente.Text = "";
                     MskCnpjClient.Text = "";
                     txtTelefoneCliente.Text = "";
                     txtEmailCliente.Text = "";
@@ -445,7 +479,7 @@ namespace inventoryControl
         private void BtnEditClient_Click(object sender, EventArgs e)
         {
             // Verifica se todos os campos obrigatórios estão preenchidos
-            if (txtNomeCliente.Text == "" || MskCnpjClient.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "")
+            if (TxtNomeCliente.Text == "" || MskCnpjClient.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "")
             {
                 MessageBox.Show("Selecione um cliente existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -463,7 +497,7 @@ namespace inventoryControl
                     string numeros = new string(MskCnpjClient.Text.Where(char.IsDigit).ToArray());
 
                     // Cria um novo comando MySqlCommand para alterar os dados na tabela cliente
-                    MySqlCommand comando = new MySqlCommand("UPDATE cliente SET nome_cliente='" + txtNomeCliente.Text + "',cnpj='" + numeros + "',telefone_cliente='" + txtTelefoneCliente.Text + "',email_cliente='" + txtEmailCliente.Text + "' where id_cliente=" + txtId1.Text, conexaoMYSQL);
+                    MySqlCommand comando = new MySqlCommand("UPDATE cliente SET nome_cliente='" + TxtNomeCliente.Text + "',cnpj='" + numeros + "',telefone_cliente='" + txtTelefoneCliente.Text + "',email_cliente='" + txtEmailCliente.Text + "' where id_cliente=" + txtId1.Text, conexaoMYSQL);
 
                     // Executa o comando de alteração
                     comando.ExecuteNonQuery();
@@ -473,7 +507,7 @@ namespace inventoryControl
 
                     // Limpa os campos de entrada de dados
                     txtId1.Text = "";
-                    txtNomeCliente.Text = "";
+                    TxtNomeCliente.Text = "";
                     MskCnpjClient.Text = "";
                     txtTelefoneCliente.Text = "";
                     txtEmailCliente.Text = "";
@@ -501,7 +535,7 @@ namespace inventoryControl
 
             if (caixaMensagem == DialogResult.Yes)
             {
-                if (txtNomeCliente.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "")
+                if (TxtNomeCliente.Text == "" || txtTelefoneCliente.Text == "" || txtEmailCliente.Text == "")
                 {
                     MessageBox.Show("Selecione um cliente existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -526,7 +560,7 @@ namespace inventoryControl
 
                         // Limpa os campos de entrada de dados
                         txtId1.Text = "";
-                        txtNomeCliente.Text = "";
+                        TxtNomeCliente.Text = "";
                         MskCnpjClient.Text = "";
                         txtTelefoneCliente.Text = "";
                         txtEmailCliente.Text = "";
@@ -552,7 +586,7 @@ namespace inventoryControl
         private void BtnClearClient_Click(object sender, EventArgs e)
         {
             txtId1.Text = "";
-            txtNomeCliente.Text = "";
+            TxtNomeCliente.Text = "";
             MskCnpjClient.Text = "";
             txtTelefoneCliente.Text = "";
             txtEmailCliente.Text = "";
@@ -682,120 +716,203 @@ namespace inventoryControl
 
         private void dgvComponentes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            txtId3.Text = dgvComponentes.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtNomeComponente.Text = dgvComponentes.Rows[e.RowIndex].Cells[1].Value.ToString();
+            TxtIdComp.Text = dgvComponentes.Rows[e.RowIndex].Cells[0].Value.ToString();
+            TxtNomeComp.Text = dgvComponentes.Rows[e.RowIndex].Cells[1].Value.ToString();
+            TxtValorComp.Text = dgvComponentes.Rows[e.RowIndex].Cells[2].Value.ToString();
         }
 
-        private void btnSalvar3_Click(object sender, EventArgs e)
+        private void BtnSaveComp_Click(object sender, EventArgs e)
         {
-            if (txtNomeComponente.Text == "")
+            if (TxtNomeComp.Text == "" || TxtValorComp.Text == "")
             {
                 MessageBox.Show("Todos os campos devem ser preenchidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
+                // Cria uma nova conexão MySqlConnection utilizando a string de conexão definida em Program.conexaoBD
                 MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
+
+                // Abre a conexão com o banco de dados
                 conexaoMYSQL.Open();
-                MySqlCommand comando = new MySqlCommand("insert into componente(nome_comp)values('" + txtNomeComponente.Text + "');", conexaoMYSQL);
-                comando.ExecuteNonQuery();
-                MessageBox.Show("Dados criados!", "Sucesso", MessageBoxButtons.OK);
-                txtId3.Text = "";
-                txtNomeComponente.Text = "";
+                try
+                {
+                    // Cria um novo comando MySqlCommand para inserir os dados na tabela componete
+                    MySqlCommand comando = new MySqlCommand("INSERT INTO componente(nome_comp,valor_comp)VALUES('" + TxtNomeComp.Text + "','" + TxtValorComp.Text + "');", conexaoMYSQL);
+
+                    // Executa o comando de inserir os dados
+                    comando.ExecuteNonQuery();
+
+                    // Exibe uma mensagem de sucesso
+                    MessageBox.Show("Dados criados!", "Sucesso", MessageBoxButtons.OK);
+
+                    // Limpa os campos de entrada de dados
+                    TxtIdComp.Text = "";
+                    TxtNomeComp.Text = "";
+                    TxtValorComp.Text = "";
+                    TxtNomeComp.Select();
+
+                    // Chama o Método que irá carregar as informações dentro do dgvComponentes
+                    LoadTableComp();
+                }
+                catch (Exception ex)
+                {
+                    // Exibe uma mensagem de erro caso ocorra uma exceção
+                    MessageBox.Show("Erro ao carregar dados: " + ex.Message);
+                }
+                finally
+                {
+                    // Fecha a conexão com o banco de dados, independentemente de ocorrer uma exceção ou não
+                    conexaoMYSQL.Close();
+                }
             }
         }
 
-        private void btnEditar3_Click(object sender, EventArgs e)
+        private void BtnEditComp_Click(object sender, EventArgs e)
         {
-            if (txtNomeComponente.Text == "")
+            if (TxtNomeComp.Text == "" || TxtValorComp.Text == "")
             {
                 MessageBox.Show("Selecione um componente existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
+                // Cria uma nova conexão MySqlConnection utilizando a string de conexão definida em Program.conexaoBD
+                MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
+
+                // Abre a conexão com o banco de dados
+                conexaoMYSQL.Open();
                 try
                 {
-                    MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
-                    conexaoMYSQL.Open();
-                    MySqlCommand comando = new MySqlCommand("update componente set nome_comp='" + txtNomeComponente.Text + "' where id_comp=" + txtId3.Text, conexaoMYSQL);
+                    // Cria um novo comando MySqlCommand para Editar os dados na tabela componete
+                    MySqlCommand comando = new MySqlCommand("UPDATE componente SET nome_comp='" + TxtNomeComp.Text + "',valor_comp='" + TxtValorComp.Text + "' WHERE id_componente=" + TxtIdComp.Text, conexaoMYSQL);
+                    
+                    // Executa o comando de inserir os dados
                     comando.ExecuteNonQuery();
+
+                    // Exibe uma mensagem de sucesso
                     MessageBox.Show("Dados alterados!", "Sucesso", MessageBoxButtons.OK);
-                    txtId3.Text = "";
-                    txtNomeComponente.Text = "";
+
+                    // Limpa os campos de entrada de dados
+                    TxtIdComp.Text = "";
+                    TxtNomeComp.Text = "";
+                    TxtValorComp.Text = "";
+                    TxtNomeComp.Select();
+
+                    // Chama o Método que irá carregar as informações dentro do dgvComponentes
+                    LoadTableComp();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Você não pode criar um produto com o botão Editar!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    // Exibe uma mensagem de erro caso ocorra uma exceção
+                    MessageBox.Show("Erro ao carregar dados: " + ex.Message);
+                }
+                finally
+                {
+                    // Fecha a conexão com o banco de dados, independentemente de ocorrer uma exceção ou não
+                    conexaoMYSQL.Close();
                 }
             }
         }
 
-        private void btnExcluir3_Click(object sender, EventArgs e)
+        private void BtnDelComp_Click(object sender, EventArgs e)
         {
             DialogResult caixaMensagem = MessageBox.Show("Deseja realmente exluir esse componente?", "Aviso", MessageBoxButtons.YesNo);
 
             if (caixaMensagem == DialogResult.Yes)
             {
-                if (txtNomeComponente.Text == "")
+                if (TxtNomeComp.Text == "")
                 {
                     MessageBox.Show("Selecione um componente existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
+                    // Cria uma nova conexão MySqlConnection utilizando a string de conexão definida em Program.conexaoBD
                     MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
+
+                    // Abre a conexão com o banco de dados
                     conexaoMYSQL.Open();
-                    MySqlCommand comando = new MySqlCommand("delete from componente where id_comp=" + txtId3.Text + ";", conexaoMYSQL);
-                    comando.ExecuteNonQuery();
-                    MessageBox.Show("Dados excluídos!", "Sucesso", MessageBoxButtons.OK);
-                    txtId3.Text = "";
-                    txtNomeComponente.Text = "";
+                    try
+                    {
+                        // Cria um novo comando MySqlCommand para deletar os dados na tabela componete
+                        MySqlCommand comando = new MySqlCommand("DELETE FROM componente WHERE id_componente=" + TxtIdComp.Text + ";", conexaoMYSQL);
+
+                        // Executa o comando de inserir os dados
+                        comando.ExecuteNonQuery();
+
+                        // Exibe uma mensagem de sucesso
+                        MessageBox.Show("Dados excluídos!", "Sucesso", MessageBoxButtons.OK);
+
+                        // Limpa os campos de entrada de dados
+                        TxtIdComp.Text = "";
+                        TxtNomeComp.Text = "";
+                        TxtValorComp.Text = "";
+                        TxtNomeComp.Select();
+
+                        // Chama o Método que irá carregar as informações dentro do dgvComponentes
+                        LoadTableComp();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Exibe uma mensagem de erro caso ocorra uma exceção
+                        MessageBox.Show("Erro ao carregar dados: " + ex.Message);
+                    }
+                    finally
+                    {
+                        // Fecha a conexão com o banco de dados, independentemente de ocorrer uma exceção ou não
+                        conexaoMYSQL.Close();
+                    }
                 }
             }
         }
 
-        private void btnSair3_Click(object sender, EventArgs e)
+        private void BtnClearComp_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            login.Show();
-            this.Hide();
+            TxtIdComp.Text = "";
+            TxtNomeComp.Text = "";
+            TxtValorComp.Text = "";
+            TxtNomeComp.Select(); 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void BtnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
         private void btnMostrar1_Click(object sender, EventArgs e)
         {
-            if (txtPass.PasswordChar == '*')
+            if (TxtPass.PasswordChar == '*')
             {
-                txtPass.PasswordChar = default;
+                TxtPass.PasswordChar = default;
                 btnMostrar1.Text = "Ocultar";
             }
             else
             {
-                txtPass.PasswordChar = '*';
+                TxtPass.PasswordChar = '*';
                 btnMostrar1.Text = "Mostrar";
             }
         }
 
         private void btnMostrar2_Click(object sender, EventArgs e)
         {
-            if (txtConfPass.PasswordChar == '*')
+            if (TxtConfPass.PasswordChar == '*')
             {
-                txtConfPass.PasswordChar = default;
+                TxtConfPass.PasswordChar = default;
                 btnMostrar2.Text = "Ocultar";
             }
             else
             {
-                txtConfPass.PasswordChar = '*';
+                TxtConfPass.PasswordChar = '*';
                 btnMostrar2.Text = "Mostrar";
             }
         }
 
-        private void txtPescCPF_TextChanged(object sender, EventArgs e)
+
+
+        private void TxtPescCPF_TextChanged(object sender, EventArgs e)
         {
+            MySqlConnection conexao1 = new MySqlConnection(Program.conexaoBD);
+
             // Construa a consulta SQL dinâmica com base no texto no TextBox
-            string filtro = txtPescCPF.Text;
+            string filtro = TxtPescCPF.Text;
             string query = "SELECT * FROM usuario WHERE cpf_usuario LIKE @filtro";
 
             // Abra a conexão com o banco de dados
@@ -819,19 +936,19 @@ namespace inventoryControl
             dgvUsers.DataSource = dt;
         }
 
-        private void txtNomeCliente_TextChanged(object sender, EventArgs e)
+        private void TxtNomeCliente_TextChanged(object sender, EventArgs e)
         {
             // Desabilita o evento TextChanged para evitar recursão infinita
-            txtNomeCliente.TextChanged -= txtNomeCliente_TextChanged;
+            TxtNomeCliente.TextChanged -= TxtNomeCliente_TextChanged;
 
             // Converte o texto para maiúsculas
-            txtNomeCliente.Text = txtNomeCliente.Text.ToUpper();
+            TxtNomeCliente.Text = TxtNomeCliente.Text.ToUpper();
 
             // Reabilita o evento TextChanged
-            txtNomeCliente.TextChanged += txtNomeCliente_TextChanged;
+            TxtNomeCliente.TextChanged += TxtNomeCliente_TextChanged;
 
             // Define a posição do cursor no final do texto
-            txtNomeCliente.SelectionStart = txtNomeCliente.Text.Length;
+            TxtNomeCliente.SelectionStart = TxtNomeCliente.Text.Length;
         }
 
         private void BtnDark_Click(object sender, EventArgs e)

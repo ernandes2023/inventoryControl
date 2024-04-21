@@ -31,11 +31,11 @@ namespace inventoryControl
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro));
             this.BtnSalvar = new System.Windows.Forms.Button();
-            this.btnVoltarLogin = new System.Windows.Forms.Button();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtPass = new System.Windows.Forms.TextBox();
-            this.txtUser = new System.Windows.Forms.TextBox();
-            this.txtCargo = new System.Windows.Forms.TextBox();
+            this.BtnBackLogin = new System.Windows.Forms.Button();
+            this.TxtNameUser = new System.Windows.Forms.TextBox();
+            this.TxtPass = new System.Windows.Forms.TextBox();
+            this.TxtUser = new System.Windows.Forms.TextBox();
+            this.TxtCargoUser = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@ namespace inventoryControl
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.txtPescCPF = new System.Windows.Forms.TextBox();
+            this.TxtPescCPF = new System.Windows.Forms.TextBox();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnExcluir = new System.Windows.Forms.Button();
@@ -53,11 +53,11 @@ namespace inventoryControl
             this.btnMostrar2 = new System.Windows.Forms.Button();
             this.btnMostrar1 = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
-            this.txtCPF = new System.Windows.Forms.TextBox();
+            this.TxtCpfUser = new System.Windows.Forms.TextBox();
             this.BtnLimpar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtConfPass = new System.Windows.Forms.TextBox();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.TxtConfPass = new System.Windows.Forms.TextBox();
+            this.TxtIdUser = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -78,48 +78,53 @@ namespace inventoryControl
             this.label11 = new System.Windows.Forms.Label();
             this.BtnSaveClient = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtNomeCliente = new System.Windows.Forms.TextBox();
+            this.TxtNomeCliente = new System.Windows.Forms.TextBox();
             this.BtnEditClient = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.TxtSerialProd = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.BtnClearProd = new System.Windows.Forms.Button();
+            this.TxtNomeProd = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.TxtCodProd = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.TxtNomeProd = new System.Windows.Forms.TextBox();
             this.BtnSaveProd = new System.Windows.Forms.Button();
             this.TxtIdProd = new System.Windows.Forms.TextBox();
             this.BtnEditProd = new System.Windows.Forms.Button();
             this.BtnDelProd = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label14 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.dgvComponentes = new System.Windows.Forms.DataGridView();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.btnExcluir3 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btnSair3 = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.btnEditar3 = new System.Windows.Forms.Button();
-            this.txtNomeComponente = new System.Windows.Forms.TextBox();
-            this.btnSalvar3 = new System.Windows.Forms.Button();
-            this.txtId3 = new System.Windows.Forms.TextBox();
+            this.TxtValorComp = new System.Windows.Forms.TextBox();
+            this.TxtNomeComp = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.BtnDelComp = new System.Windows.Forms.Button();
+            this.BtnClearComp = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.BtnEditComp = new System.Windows.Forms.Button();
+            this.BtnSaveComp = new System.Windows.Forms.Button();
+            this.TxtIdComp = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.dgvComponentes = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.BtnClean = new System.Windows.Forms.Button();
             this.BtnDark = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.BtnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -137,11 +142,11 @@ namespace inventoryControl
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage4.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvComponentes)).BeginInit();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvComponentes)).BeginInit();
             this.tabPage5.SuspendLayout();
-            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnSalvar
@@ -156,58 +161,58 @@ namespace inventoryControl
             this.BtnSalvar.UseVisualStyleBackColor = true;
             this.BtnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
             // 
-            // btnVoltarLogin
+            // BtnBackLogin
             // 
-            this.btnVoltarLogin.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltarLogin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnVoltarLogin.Location = new System.Drawing.Point(12, 596);
-            this.btnVoltarLogin.Name = "btnVoltarLogin";
-            this.btnVoltarLogin.Size = new System.Drawing.Size(154, 37);
-            this.btnVoltarLogin.TabIndex = 1;
-            this.btnVoltarLogin.Text = "Voltar para login";
-            this.btnVoltarLogin.UseVisualStyleBackColor = true;
-            this.btnVoltarLogin.Click += new System.EventHandler(this.button2_Click);
+            this.BtnBackLogin.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBackLogin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BtnBackLogin.Location = new System.Drawing.Point(12, 596);
+            this.BtnBackLogin.Name = "BtnBackLogin";
+            this.BtnBackLogin.Size = new System.Drawing.Size(154, 37);
+            this.BtnBackLogin.TabIndex = 1;
+            this.BtnBackLogin.Text = "Voltar para login";
+            this.BtnBackLogin.UseVisualStyleBackColor = true;
+            this.BtnBackLogin.Click += new System.EventHandler(this.BtnBackLogin_Click);
             // 
-            // txtName
+            // TxtNameUser
             // 
-            this.txtName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtName.Location = new System.Drawing.Point(112, 48);
-            this.txtName.MaxLength = 55;
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(422, 23);
-            this.txtName.TabIndex = 1;
+            this.TxtNameUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNameUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.TxtNameUser.Location = new System.Drawing.Point(112, 48);
+            this.TxtNameUser.MaxLength = 55;
+            this.TxtNameUser.Name = "TxtNameUser";
+            this.TxtNameUser.Size = new System.Drawing.Size(422, 23);
+            this.TxtNameUser.TabIndex = 1;
             // 
-            // txtPass
+            // TxtPass
             // 
-            this.txtPass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtPass.Location = new System.Drawing.Point(112, 164);
-            this.txtPass.MaxLength = 20;
-            this.txtPass.Name = "txtPass";
-            this.txtPass.PasswordChar = '*';
-            this.txtPass.Size = new System.Drawing.Size(186, 23);
-            this.txtPass.TabIndex = 6;
+            this.TxtPass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtPass.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.TxtPass.Location = new System.Drawing.Point(112, 164);
+            this.TxtPass.MaxLength = 20;
+            this.TxtPass.Name = "TxtPass";
+            this.TxtPass.PasswordChar = '*';
+            this.TxtPass.Size = new System.Drawing.Size(186, 23);
+            this.TxtPass.TabIndex = 6;
             // 
-            // txtUser
+            // TxtUser
             // 
-            this.txtUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtUser.Location = new System.Drawing.Point(112, 135);
-            this.txtUser.MaxLength = 20;
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(186, 23);
-            this.txtUser.TabIndex = 4;
+            this.TxtUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.TxtUser.Location = new System.Drawing.Point(112, 135);
+            this.TxtUser.MaxLength = 20;
+            this.TxtUser.Name = "TxtUser";
+            this.TxtUser.Size = new System.Drawing.Size(186, 23);
+            this.TxtUser.TabIndex = 4;
             // 
-            // txtCargo
+            // TxtCargoUser
             // 
-            this.txtCargo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCargo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtCargo.Location = new System.Drawing.Point(112, 106);
-            this.txtCargo.MaxLength = 55;
-            this.txtCargo.Name = "txtCargo";
-            this.txtCargo.Size = new System.Drawing.Size(186, 23);
-            this.txtCargo.TabIndex = 3;
+            this.TxtCargoUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCargoUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.TxtCargoUser.Location = new System.Drawing.Point(112, 106);
+            this.TxtCargoUser.MaxLength = 55;
+            this.TxtCargoUser.Name = "TxtCargoUser";
+            this.TxtCargoUser.Size = new System.Drawing.Size(186, 23);
+            this.TxtCargoUser.TabIndex = 3;
             // 
             // label1
             // 
@@ -293,7 +298,7 @@ namespace inventoryControl
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.txtPescCPF);
+            this.groupBox2.Controls.Add(this.TxtPescCPF);
             this.groupBox2.Controls.Add(this.dgvUsers);
             this.groupBox2.Location = new System.Drawing.Point(6, 263);
             this.groupBox2.Name = "groupBox2";
@@ -311,13 +316,13 @@ namespace inventoryControl
             this.label18.TabIndex = 4;
             this.label18.Text = "CPF:";
             // 
-            // txtPescCPF
+            // TxtPescCPF
             // 
-            this.txtPescCPF.Location = new System.Drawing.Point(112, 13);
-            this.txtPescCPF.Name = "txtPescCPF";
-            this.txtPescCPF.Size = new System.Drawing.Size(186, 23);
-            this.txtPescCPF.TabIndex = 3;
-            this.txtPescCPF.TextChanged += new System.EventHandler(this.txtPescCPF_TextChanged);
+            this.TxtPescCPF.Location = new System.Drawing.Point(112, 13);
+            this.TxtPescCPF.Name = "TxtPescCPF";
+            this.TxtPescCPF.Size = new System.Drawing.Size(186, 23);
+            this.TxtPescCPF.TabIndex = 3;
+            this.TxtPescCPF.TextChanged += new System.EventHandler(this.TxtPescCPF_TextChanged);
             // 
             // dgvUsers
             // 
@@ -338,19 +343,19 @@ namespace inventoryControl
             this.groupBox1.Controls.Add(this.btnMostrar2);
             this.groupBox1.Controls.Add(this.btnMostrar1);
             this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.txtCPF);
+            this.groupBox1.Controls.Add(this.TxtCpfUser);
             this.groupBox1.Controls.Add(this.BtnLimpar);
-            this.groupBox1.Controls.Add(this.txtName);
+            this.groupBox1.Controls.Add(this.TxtNameUser);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.BtnSalvar);
-            this.groupBox1.Controls.Add(this.txtCargo);
+            this.groupBox1.Controls.Add(this.TxtCargoUser);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtUser);
+            this.groupBox1.Controls.Add(this.TxtUser);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtPass);
-            this.groupBox1.Controls.Add(this.txtConfPass);
+            this.groupBox1.Controls.Add(this.TxtPass);
+            this.groupBox1.Controls.Add(this.TxtConfPass);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtId);
+            this.groupBox1.Controls.Add(this.TxtIdUser);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
@@ -409,12 +414,12 @@ namespace inventoryControl
             this.label17.TabIndex = 11;
             this.label17.Text = "CPF:";
             // 
-            // txtCPF
+            // TxtCpfUser
             // 
-            this.txtCPF.Location = new System.Drawing.Point(112, 77);
-            this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(186, 23);
-            this.txtCPF.TabIndex = 2;
+            this.TxtCpfUser.Location = new System.Drawing.Point(112, 77);
+            this.TxtCpfUser.Name = "TxtCpfUser";
+            this.TxtCpfUser.Size = new System.Drawing.Size(186, 23);
+            this.TxtCpfUser.TabIndex = 2;
             // 
             // BtnLimpar
             // 
@@ -438,26 +443,26 @@ namespace inventoryControl
             this.label5.TabIndex = 6;
             this.label5.Text = "Id:";
             // 
-            // txtConfPass
+            // TxtConfPass
             // 
-            this.txtConfPass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfPass.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtConfPass.Location = new System.Drawing.Point(112, 193);
-            this.txtConfPass.MaxLength = 20;
-            this.txtConfPass.Name = "txtConfPass";
-            this.txtConfPass.PasswordChar = '*';
-            this.txtConfPass.Size = new System.Drawing.Size(186, 23);
-            this.txtConfPass.TabIndex = 7;
+            this.TxtConfPass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtConfPass.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.TxtConfPass.Location = new System.Drawing.Point(112, 193);
+            this.TxtConfPass.MaxLength = 20;
+            this.TxtConfPass.Name = "TxtConfPass";
+            this.TxtConfPass.PasswordChar = '*';
+            this.TxtConfPass.Size = new System.Drawing.Size(186, 23);
+            this.TxtConfPass.TabIndex = 7;
             // 
-            // txtId
+            // TxtIdUser
             // 
-            this.txtId.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtId.Location = new System.Drawing.Point(112, 19);
-            this.txtId.MaxLength = 55;
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(61, 23);
-            this.txtId.TabIndex = 0;
+            this.TxtIdUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtIdUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.TxtIdUser.Location = new System.Drawing.Point(112, 19);
+            this.TxtIdUser.MaxLength = 55;
+            this.TxtIdUser.Name = "TxtIdUser";
+            this.TxtIdUser.Size = new System.Drawing.Size(61, 23);
+            this.TxtIdUser.TabIndex = 0;
             // 
             // label6
             // 
@@ -545,7 +550,7 @@ namespace inventoryControl
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.BtnSaveClient);
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.txtNomeCliente);
+            this.groupBox3.Controls.Add(this.TxtNomeCliente);
             this.groupBox3.Controls.Add(this.BtnEditClient);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Location = new System.Drawing.Point(6, 6);
@@ -669,15 +674,15 @@ namespace inventoryControl
             this.label8.TabIndex = 56;
             this.label8.Text = "Telefone:";
             // 
-            // txtNomeCliente
+            // TxtNomeCliente
             // 
-            this.txtNomeCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeCliente.Location = new System.Drawing.Point(112, 48);
-            this.txtNomeCliente.MaxLength = 55;
-            this.txtNomeCliente.Name = "txtNomeCliente";
-            this.txtNomeCliente.Size = new System.Drawing.Size(422, 23);
-            this.txtNomeCliente.TabIndex = 49;
-            this.txtNomeCliente.TextChanged += new System.EventHandler(this.txtNomeCliente_TextChanged);
+            this.TxtNomeCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNomeCliente.Location = new System.Drawing.Point(112, 48);
+            this.TxtNomeCliente.MaxLength = 55;
+            this.TxtNomeCliente.Name = "TxtNomeCliente";
+            this.TxtNomeCliente.Size = new System.Drawing.Size(422, 23);
+            this.TxtNomeCliente.TabIndex = 49;
+            this.TxtNomeCliente.TextChanged += new System.EventHandler(this.TxtNomeCliente_TextChanged);
             // 
             // BtnEditClient
             // 
@@ -717,12 +722,16 @@ namespace inventoryControl
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.dgvProdutos);
+            this.groupBox6.Controls.Add(this.label25);
+            this.groupBox6.Controls.Add(this.textBox3);
+            this.groupBox6.Controls.Add(this.textBox4);
+            this.groupBox6.Controls.Add(this.label26);
             this.groupBox6.Location = new System.Drawing.Point(6, 263);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(866, 280);
             this.groupBox6.TabIndex = 55;
             this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "groupBox6";
+            this.groupBox6.Text = "Pesquisa";
             // 
             // dgvProdutos
             // 
@@ -734,20 +743,55 @@ namespace inventoryControl
             this.dgvProdutos.TabIndex = 45;
             this.dgvProdutos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProdutos_CellMouseDoubleClick);
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(44, 19);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(62, 17);
+            this.label25.TabIndex = 54;
+            this.label25.Text = "Código:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(112, 16);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(61, 23);
+            this.textBox3.TabIndex = 55;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(237, 16);
+            this.textBox4.MaxLength = 55;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(422, 23);
+            this.textBox4.TabIndex = 44;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(179, 19);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(52, 17);
+            this.label26.TabIndex = 41;
+            this.label26.Text = "Nome:";
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.TxtSerialProd);
             this.groupBox5.Controls.Add(this.label23);
             this.groupBox5.Controls.Add(this.BtnClearProd);
+            this.groupBox5.Controls.Add(this.TxtNomeProd);
+            this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Controls.Add(this.TxtCodProd);
             this.groupBox5.Controls.Add(this.label22);
             this.groupBox5.Controls.Add(this.label21);
-            this.groupBox5.Controls.Add(this.TxtNomeProd);
             this.groupBox5.Controls.Add(this.BtnSaveProd);
             this.groupBox5.Controls.Add(this.TxtIdProd);
             this.groupBox5.Controls.Add(this.BtnEditProd);
             this.groupBox5.Controls.Add(this.BtnDelProd);
-            this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Location = new System.Drawing.Point(6, 6);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(866, 251);
@@ -781,6 +825,25 @@ namespace inventoryControl
             this.BtnClearProd.UseVisualStyleBackColor = true;
             this.BtnClearProd.Click += new System.EventHandler(this.BtnClearProd_Click);
             // 
+            // TxtNomeProd
+            // 
+            this.TxtNomeProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNomeProd.Location = new System.Drawing.Point(112, 77);
+            this.TxtNomeProd.MaxLength = 55;
+            this.TxtNomeProd.Name = "TxtNomeProd";
+            this.TxtNomeProd.Size = new System.Drawing.Size(422, 23);
+            this.TxtNomeProd.TabIndex = 44;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(54, 80);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(52, 17);
+            this.label12.TabIndex = 41;
+            this.label12.Text = "Nome:";
+            // 
             // TxtCodProd
             // 
             this.TxtCodProd.Location = new System.Drawing.Point(112, 48);
@@ -805,15 +868,6 @@ namespace inventoryControl
             this.label21.Size = new System.Drawing.Size(24, 17);
             this.label21.TabIndex = 53;
             this.label21.Text = "Id:";
-            // 
-            // TxtNomeProd
-            // 
-            this.TxtNomeProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtNomeProd.Location = new System.Drawing.Point(112, 77);
-            this.TxtNomeProd.MaxLength = 55;
-            this.TxtNomeProd.Name = "TxtNomeProd";
-            this.TxtNomeProd.Size = new System.Drawing.Size(422, 23);
-            this.TxtNomeProd.TabIndex = 44;
             // 
             // BtnSaveProd
             // 
@@ -857,16 +911,6 @@ namespace inventoryControl
             this.BtnDelProd.UseVisualStyleBackColor = true;
             this.BtnDelProd.Click += new System.EventHandler(this.BtnDelProd_Click);
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(54, 80);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(52, 17);
-            this.label12.TabIndex = 41;
-            this.label12.Text = "Nome:";
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
@@ -901,122 +945,82 @@ namespace inventoryControl
             this.tabPage4.Text = "Componentes";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.dgvComponentes);
+            this.groupBox8.Controls.Add(this.textBox5);
+            this.groupBox8.Controls.Add(this.label27);
+            this.groupBox8.Location = new System.Drawing.Point(6, 263);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.groupBox8.Size = new System.Drawing.Size(866, 280);
+            this.groupBox8.TabIndex = 62;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Pesquisa";
+            // 
+            // dgvComponentes
+            // 
+            this.dgvComponentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvComponentes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvComponentes.Location = new System.Drawing.Point(6, 42);
+            this.dgvComponentes.Name = "dgvComponentes";
+            this.dgvComponentes.Size = new System.Drawing.Size(853, 232);
+            this.dgvComponentes.TabIndex = 54;
+            this.dgvComponentes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvComponentes_CellMouseDoubleClick);
+            // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(112, 13);
+            this.textBox5.MaxLength = 55;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(310, 23);
+            this.textBox5.TabIndex = 53;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(54, 16);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(52, 17);
+            this.label27.TabIndex = 51;
+            this.label27.Text = "Nome:";
+            // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.comboBox2);
-            this.groupBox7.Controls.Add(this.label24);
-            this.groupBox7.Controls.Add(this.btnExcluir3);
-            this.groupBox7.Controls.Add(this.comboBox1);
-            this.groupBox7.Controls.Add(this.btnSair3);
-            this.groupBox7.Controls.Add(this.label13);
-            this.groupBox7.Controls.Add(this.btnEditar3);
-            this.groupBox7.Controls.Add(this.txtNomeComponente);
-            this.groupBox7.Controls.Add(this.btnSalvar3);
-            this.groupBox7.Controls.Add(this.txtId3);
+            this.groupBox7.Controls.Add(this.TxtValorComp);
+            this.groupBox7.Controls.Add(this.TxtNomeComp);
             this.groupBox7.Controls.Add(this.label16);
+            this.groupBox7.Controls.Add(this.label24);
+            this.groupBox7.Controls.Add(this.BtnDelComp);
+            this.groupBox7.Controls.Add(this.BtnClearComp);
+            this.groupBox7.Controls.Add(this.label13);
+            this.groupBox7.Controls.Add(this.BtnEditComp);
+            this.groupBox7.Controls.Add(this.BtnSaveComp);
+            this.groupBox7.Controls.Add(this.TxtIdComp);
             this.groupBox7.Location = new System.Drawing.Point(6, 6);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(866, 251);
             this.groupBox7.TabIndex = 61;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "groupBox7";
+            this.groupBox7.Text = "Cadastro";
             // 
-            // comboBox2
+            // TxtValorComp
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(112, 82);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 25);
-            this.comboBox2.TabIndex = 57;
+            this.TxtValorComp.Location = new System.Drawing.Point(112, 77);
+            this.TxtValorComp.Name = "TxtValorComp";
+            this.TxtValorComp.Size = new System.Drawing.Size(100, 23);
+            this.TxtValorComp.TabIndex = 60;
             // 
-            // label24
+            // TxtNomeComp
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(60, 85);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(46, 17);
-            this.label24.TabIndex = 56;
-            this.label24.Text = "Valor:";
-            // 
-            // btnExcluir3
-            // 
-            this.btnExcluir3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir3.Location = new System.Drawing.Point(704, 222);
-            this.btnExcluir3.Name = "btnExcluir3";
-            this.btnExcluir3.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir3.TabIndex = 59;
-            this.btnExcluir3.Text = "Excluir";
-            this.btnExcluir3.UseVisualStyleBackColor = true;
-            this.btnExcluir3.Click += new System.EventHandler(this.btnExcluir3_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(112, 48);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(183, 25);
-            this.comboBox1.TabIndex = 55;
-            // 
-            // btnSair3
-            // 
-            this.btnSair3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair3.Location = new System.Drawing.Point(785, 222);
-            this.btnSair3.Name = "btnSair3";
-            this.btnSair3.Size = new System.Drawing.Size(75, 23);
-            this.btnSair3.TabIndex = 58;
-            this.btnSair3.Text = "Sair";
-            this.btnSair3.UseVisualStyleBackColor = true;
-            this.btnSair3.Click += new System.EventHandler(this.btnSair3_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(82, 22);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(24, 17);
-            this.label13.TabIndex = 54;
-            this.label13.Text = "Id:";
-            // 
-            // btnEditar3
-            // 
-            this.btnEditar3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar3.Location = new System.Drawing.Point(623, 222);
-            this.btnEditar3.Name = "btnEditar3";
-            this.btnEditar3.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar3.TabIndex = 57;
-            this.btnEditar3.Text = "Editar";
-            this.btnEditar3.UseVisualStyleBackColor = true;
-            this.btnEditar3.Click += new System.EventHandler(this.btnEditar3_Click);
-            // 
-            // txtNomeComponente
-            // 
-            this.txtNomeComponente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeComponente.Location = new System.Drawing.Point(112, 113);
-            this.txtNomeComponente.MaxLength = 55;
-            this.txtNomeComponente.Name = "txtNomeComponente";
-            this.txtNomeComponente.Size = new System.Drawing.Size(172, 23);
-            this.txtNomeComponente.TabIndex = 53;
-            // 
-            // btnSalvar3
-            // 
-            this.btnSalvar3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar3.Location = new System.Drawing.Point(542, 222);
-            this.btnSalvar3.Name = "btnSalvar3";
-            this.btnSalvar3.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar3.TabIndex = 56;
-            this.btnSalvar3.Text = "Salvar";
-            this.btnSalvar3.UseVisualStyleBackColor = true;
-            this.btnSalvar3.Click += new System.EventHandler(this.btnSalvar3_Click);
-            // 
-            // txtId3
-            // 
-            this.txtId3.Enabled = false;
-            this.txtId3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId3.Location = new System.Drawing.Point(112, 19);
-            this.txtId3.Name = "txtId3";
-            this.txtId3.Size = new System.Drawing.Size(49, 23);
-            this.txtId3.TabIndex = 52;
-            this.txtId3.Visible = false;
+            this.TxtNomeComp.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNomeComp.Location = new System.Drawing.Point(112, 48);
+            this.TxtNomeComp.MaxLength = 55;
+            this.TxtNomeComp.Name = "TxtNomeComp";
+            this.TxtNomeComp.Size = new System.Drawing.Size(310, 23);
+            this.TxtNomeComp.TabIndex = 53;
             // 
             // label16
             // 
@@ -1027,6 +1031,76 @@ namespace inventoryControl
             this.label16.Size = new System.Drawing.Size(52, 17);
             this.label16.TabIndex = 51;
             this.label16.Text = "Nome:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(60, 80);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(46, 17);
+            this.label24.TabIndex = 56;
+            this.label24.Text = "Valor:";
+            // 
+            // BtnDelComp
+            // 
+            this.BtnDelComp.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDelComp.Location = new System.Drawing.Point(704, 222);
+            this.BtnDelComp.Name = "BtnDelComp";
+            this.BtnDelComp.Size = new System.Drawing.Size(75, 23);
+            this.BtnDelComp.TabIndex = 59;
+            this.BtnDelComp.Text = "Excluir";
+            this.BtnDelComp.UseVisualStyleBackColor = true;
+            this.BtnDelComp.Click += new System.EventHandler(this.BtnDelComp_Click);
+            // 
+            // BtnClearComp
+            // 
+            this.BtnClearComp.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnClearComp.Location = new System.Drawing.Point(785, 222);
+            this.BtnClearComp.Name = "BtnClearComp";
+            this.BtnClearComp.Size = new System.Drawing.Size(75, 23);
+            this.BtnClearComp.TabIndex = 58;
+            this.BtnClearComp.Text = "Limpar";
+            this.BtnClearComp.UseVisualStyleBackColor = true;
+            this.BtnClearComp.Click += new System.EventHandler(this.BtnClearComp_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(82, 22);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(24, 17);
+            this.label13.TabIndex = 54;
+            this.label13.Text = "Id:";
+            // 
+            // BtnEditComp
+            // 
+            this.BtnEditComp.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEditComp.Location = new System.Drawing.Point(623, 222);
+            this.BtnEditComp.Name = "BtnEditComp";
+            this.BtnEditComp.Size = new System.Drawing.Size(75, 23);
+            this.BtnEditComp.TabIndex = 57;
+            this.BtnEditComp.Text = "Editar";
+            this.BtnEditComp.UseVisualStyleBackColor = true;
+            this.BtnEditComp.Click += new System.EventHandler(this.BtnEditComp_Click);
+            // 
+            // BtnSaveComp
+            // 
+            this.BtnSaveComp.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSaveComp.Location = new System.Drawing.Point(542, 222);
+            this.BtnSaveComp.Name = "BtnSaveComp";
+            this.BtnSaveComp.Size = new System.Drawing.Size(75, 23);
+            this.BtnSaveComp.TabIndex = 56;
+            this.BtnSaveComp.Text = "Salvar";
+            this.BtnSaveComp.UseVisualStyleBackColor = true;
+            this.BtnSaveComp.Click += new System.EventHandler(this.BtnSaveComp_Click);
+            // 
+            // TxtIdComp
+            // 
+            this.TxtIdComp.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtIdComp.Location = new System.Drawing.Point(112, 19);
+            this.TxtIdComp.Name = "TxtIdComp";
+            this.TxtIdComp.Size = new System.Drawing.Size(49, 23);
+            this.TxtIdComp.TabIndex = 52;
             // 
             // pictureBox3
             // 
@@ -1047,16 +1121,6 @@ namespace inventoryControl
             this.label15.Size = new System.Drawing.Size(166, 18);
             this.label15.TabIndex = 55;
             this.label15.Text = "Lista de componentes:";
-            // 
-            // dgvComponentes
-            // 
-            this.dgvComponentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvComponentes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvComponentes.Location = new System.Drawing.Point(6, 42);
-            this.dgvComponentes.Name = "dgvComponentes";
-            this.dgvComponentes.Size = new System.Drawing.Size(853, 232);
-            this.dgvComponentes.TabIndex = 54;
-            this.dgvComponentes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvComponentes_CellMouseDoubleClick);
             // 
             // tabPage5
             // 
@@ -1089,27 +1153,16 @@ namespace inventoryControl
             this.BtnDark.UseVisualStyleBackColor = true;
             this.BtnDark.Click += new System.EventHandler(this.BtnDark_Click);
             // 
-            // button4
+            // BtnExit
             // 
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(1020, 596);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(90, 37);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Sair";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.dgvComponentes);
-            this.groupBox8.Location = new System.Drawing.Point(6, 263);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox8.Size = new System.Drawing.Size(866, 280);
-            this.groupBox8.TabIndex = 62;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "groupBox8";
+            this.BtnExit.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnExit.Location = new System.Drawing.Point(1020, 596);
+            this.BtnExit.Name = "BtnExit";
+            this.BtnExit.Size = new System.Drawing.Size(90, 37);
+            this.BtnExit.TabIndex = 0;
+            this.BtnExit.Text = "Sair";
+            this.BtnExit.UseVisualStyleBackColor = true;
+            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // Cadastro
             // 
@@ -1117,9 +1170,9 @@ namespace inventoryControl
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1119, 642);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.btnVoltarLogin);
+            this.Controls.Add(this.BtnBackLogin);
             this.Name = "Cadastro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro";
@@ -1142,18 +1195,20 @@ namespace inventoryControl
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvComponentes)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvComponentes)).EndInit();
             this.tabPage5.ResumeLayout(false);
-            this.groupBox8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1161,11 +1216,11 @@ namespace inventoryControl
         #endregion
 
         private System.Windows.Forms.Button BtnSalvar;
-        private System.Windows.Forms.Button btnVoltarLogin;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtPass;
-        private System.Windows.Forms.TextBox txtUser;
-        private System.Windows.Forms.TextBox txtCargo;
+        private System.Windows.Forms.Button BtnBackLogin;
+        private System.Windows.Forms.TextBox TxtNameUser;
+        private System.Windows.Forms.TextBox TxtPass;
+        private System.Windows.Forms.TextBox TxtUser;
+        private System.Windows.Forms.TextBox TxtCargoUser;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -1175,21 +1230,21 @@ namespace inventoryControl
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox TxtIdUser;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtConfPass;
+        private System.Windows.Forms.TextBox TxtConfPass;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvUsers;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button BtnExit;
         private System.Windows.Forms.Button BtnLimpar;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.TextBox txtId1;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtNomeCliente;
+        private System.Windows.Forms.TextBox TxtNomeCliente;
         private System.Windows.Forms.Button BtnDelClient;
         private System.Windows.Forms.Button BtnEditClient;
         private System.Windows.Forms.Label label8;
@@ -1205,21 +1260,21 @@ namespace inventoryControl
         private System.Windows.Forms.Button BtnSaveProd;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridView dgvProdutos;
-        private System.Windows.Forms.Button btnExcluir3;
-        private System.Windows.Forms.Button btnSair3;
-        private System.Windows.Forms.Button btnEditar3;
-        private System.Windows.Forms.Button btnSalvar3;
+        private System.Windows.Forms.Button BtnDelComp;
+        private System.Windows.Forms.Button BtnClearComp;
+        private System.Windows.Forms.Button BtnEditComp;
+        private System.Windows.Forms.Button BtnSaveComp;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DataGridView dgvComponentes;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox txtId3;
-        private System.Windows.Forms.TextBox txtNomeComponente;
-        private System.Windows.Forms.TextBox txtCPF;
+        private System.Windows.Forms.TextBox TxtIdComp;
+        private System.Windows.Forms.TextBox TxtNomeComp;
+        private System.Windows.Forms.TextBox TxtCpfUser;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnMostrar2;
         private System.Windows.Forms.Button btnMostrar1;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox txtPescCPF;
+        private System.Windows.Forms.TextBox TxtPescCPF;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button BtnEditar;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -1245,10 +1300,15 @@ namespace inventoryControl
         private System.Windows.Forms.Button BtnClean;
         private System.Windows.Forms.Button BtnDark;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.TextBox TxtValorComp;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label27;
     }
 }
