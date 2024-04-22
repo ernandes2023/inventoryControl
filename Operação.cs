@@ -19,8 +19,6 @@ namespace inventoryControl
         private UserTecnico userTecnico;
         private Timer timer;
 
-
-
         public Operação()
         {
             operacoes = new List<Operacao>();

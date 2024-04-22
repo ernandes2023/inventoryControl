@@ -201,12 +201,11 @@ namespace inventoryControl
             TxtNameUser.Text        = dgvUsers.Rows[e.RowIndex].Cells[1].Value.ToString();
             TxtCpfUser.Text         = dgvUsers.Rows[e.RowIndex].Cells[2].Value.ToString();
             TxtCargoUser.Text       = dgvUsers.Rows[e.RowIndex].Cells[3].Value.ToString();
-            TxtUser.Text        = dgvUsers.Rows[e.RowIndex].Cells[4].Value.ToString();
-            TxtPass.Text        = dgvUsers.Rows[e.RowIndex].Cells[5].Value.ToString();
-            TxtConfPass.Text    = dgvUsers.Rows[e.RowIndex].Cells[6].Value.ToString();
-            BtnSalvar.Enabled   = false;
+            TxtUser.Text            = dgvUsers.Rows[e.RowIndex].Cells[4].Value.ToString();
+            TxtPass.Text            = dgvUsers.Rows[e.RowIndex].Cells[5].Value.ToString();
+            TxtConfPass.Text        = dgvUsers.Rows[e.RowIndex].Cells[6].Value.ToString();
+            BtnSalvar.Enabled       = false;
         }
-
 
         private void BtnLimpar_Click(object sender, EventArgs e)
         {
@@ -293,7 +292,6 @@ namespace inventoryControl
                 "', cargo='" + TxtCargoUser.Text + "', login='" + TxtUser.Text + "', senha='" + TxtPass.Text + "', confirm_senha='" + TxtConfPass.Text +
                 "' WHERE id_usuario=" + TxtIdUser.Text, conectar);
             cadastrar.ExecuteNonQuery();
-
 
             MessageBox.Show("Dados alterados!!!");
             TxtIdUser.Text = "";
@@ -905,8 +903,6 @@ namespace inventoryControl
             }
         }
 
-
-
         private void TxtPescCPF_TextChanged(object sender, EventArgs e)
         {
             MySqlConnection conexao1 = new MySqlConnection(Program.conexaoBD);
@@ -967,6 +963,56 @@ namespace inventoryControl
                 tabControl1.BackColor = colorDialog.Color;
             }
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void MskPesqCnpj_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void MskPesqCnpj_TextChanged(object sender, EventArgs e)
+        {
+            MySqlConnection conexao = new MySqlConnection(Program.conexaoBD);
+
+            // Remover os caracteres não numéricos do MaskedTextBox
+            string numeros = new string(MskCnpjClient.Text.Where(char.IsDigit).ToArray());
+
+            // Construa a consulta SQL dinâmica com base no texto no TextBox
+            string filtro = MskPesqCnpj.Text;
+            string query = "SELECT * FROM cliente WHERE cnpj LIKE @filtro";
+
+            // Abra a conexão com o banco de dados
+            conexao.Open();
+
+            // Prepare o comando SQL
+            MySqlCommand comando = new MySqlCommand(query, conexao);
+            comando.Parameters.AddWithValue("@filtro", "%" + filtro + "%");
+
+            // Crie um adaptador de dados e um DataTable para armazenar os resultados
+            MySqlDataAdapter adapter = new MySqlDataAdapter(comando);
+            DataTable dt = new DataTable();
+
+            // Preencha o DataTable com os resultados da consulta
+            adapter.Fill(dt);
+
+            // Feche a conexão com o banco de dados
+            conexao.Close();
+
+            // Renomear as colunas conforme necessário
+            dt.Columns["id_cliente"].ColumnName = "Id:";
+            dt.Columns["nome_cliente"].ColumnName = "Nome:";
+            dt.Columns["cnpj"].ColumnName = "CNPJ:";
+            dt.Columns["telefone_cliente"].ColumnName = "Telefone:";
+            dt.Columns["email_cliente"].ColumnName = "Email";
+
+            dgvClientes.DataSource = dt;
+        }
+
+
     }
 }
 

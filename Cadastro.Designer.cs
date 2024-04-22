@@ -62,6 +62,8 @@ namespace inventoryControl
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.MskPesqCnpj = new System.Windows.Forms.MaskedTextBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
@@ -125,6 +127,8 @@ namespace inventoryControl
             this.BtnClean = new System.Windows.Forms.Button();
             this.BtnDark = new System.Windows.Forms.Button();
             this.BtnExit = new System.Windows.Forms.Button();
+            this.label29 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -500,6 +504,8 @@ namespace inventoryControl
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.MskPesqCnpj);
+            this.groupBox4.Controls.Add(this.label28);
             this.groupBox4.Controls.Add(this.textBox1);
             this.groupBox4.Controls.Add(this.label19);
             this.groupBox4.Controls.Add(this.dgvClientes);
@@ -510,17 +516,36 @@ namespace inventoryControl
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Pesquisa";
             // 
+            // MskPesqCnpj
+            // 
+            this.MskPesqCnpj.Location = new System.Drawing.Point(112, 13);
+            this.MskPesqCnpj.Name = "MskPesqCnpj";
+            this.MskPesqCnpj.Size = new System.Drawing.Size(136, 23);
+            this.MskPesqCnpj.TabIndex = 54;
+            this.MskPesqCnpj.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.MskPesqCnpj_MaskInputRejected);
+            this.MskPesqCnpj.TextChanged += new System.EventHandler(this.MskPesqCnpj_TextChanged);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(59, 16);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(47, 17);
+            this.label28.TabIndex = 53;
+            this.label28.Text = "CNPJ:";
+            // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(112, 13);
+            this.textBox1.Location = new System.Drawing.Point(325, 13);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(161, 23);
             this.textBox1.TabIndex = 52;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(41, 16);
+            this.label19.Location = new System.Drawing.Point(254, 16);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(65, 17);
             this.label19.TabIndex = 51;
@@ -721,6 +746,8 @@ namespace inventoryControl
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.textBox2);
+            this.groupBox6.Controls.Add(this.label29);
             this.groupBox6.Controls.Add(this.dgvProdutos);
             this.groupBox6.Controls.Add(this.label25);
             this.groupBox6.Controls.Add(this.textBox3);
@@ -765,7 +792,7 @@ namespace inventoryControl
             this.textBox4.Location = new System.Drawing.Point(237, 16);
             this.textBox4.MaxLength = 55;
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(422, 23);
+            this.textBox4.Size = new System.Drawing.Size(308, 23);
             this.textBox4.TabIndex = 44;
             // 
             // label26
@@ -803,7 +830,7 @@ namespace inventoryControl
             // 
             this.TxtSerialProd.Location = new System.Drawing.Point(112, 106);
             this.TxtSerialProd.Name = "TxtSerialProd";
-            this.TxtSerialProd.Size = new System.Drawing.Size(186, 23);
+            this.TxtSerialProd.Size = new System.Drawing.Size(155, 23);
             this.TxtSerialProd.TabIndex = 58;
             // 
             // label23
@@ -886,7 +913,7 @@ namespace inventoryControl
             this.TxtIdProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtIdProd.Location = new System.Drawing.Point(112, 19);
             this.TxtIdProd.Name = "TxtIdProd";
-            this.TxtIdProd.Size = new System.Drawing.Size(61, 23);
+            this.TxtIdProd.Size = new System.Drawing.Size(53, 23);
             this.TxtIdProd.TabIndex = 43;
             // 
             // BtnEditProd
@@ -1164,6 +1191,22 @@ namespace inventoryControl
             this.BtnExit.UseVisualStyleBackColor = true;
             this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(551, 19);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(60, 17);
+            this.label29.TabIndex = 57;
+            this.label29.Text = "Nº Série:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(617, 16);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(155, 23);
+            this.textBox2.TabIndex = 58;
+            // 
             // Cadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1310,5 +1353,9 @@ namespace inventoryControl
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.MaskedTextBox MskPesqCnpj;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label29;
     }
 }
