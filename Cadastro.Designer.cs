@@ -85,6 +85,8 @@ namespace inventoryControl
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
             this.label25 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -127,8 +129,6 @@ namespace inventoryControl
             this.BtnClean = new System.Windows.Forms.Button();
             this.BtnDark = new System.Windows.Forms.Button();
             this.BtnExit = new System.Windows.Forms.Button();
-            this.label29 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -280,6 +280,7 @@ namespace inventoryControl
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.ItemSize = new System.Drawing.Size(63, 30);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -291,10 +292,10 @@ namespace inventoryControl
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.pictureBox1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 26);
+            this.tabPage1.Location = new System.Drawing.Point(4, 34);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1094, 548);
+            this.tabPage1.Size = new System.Drawing.Size(1094, 540);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Usuários";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -484,10 +485,10 @@ namespace inventoryControl
             this.tabPage2.Controls.Add(this.pictureBox5);
             this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Controls.Add(this.groupBox3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 26);
+            this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1094, 548);
+            this.tabPage2.Size = new System.Drawing.Size(1094, 540);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Clientes";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -736,10 +737,10 @@ namespace inventoryControl
             this.tabPage3.Controls.Add(this.groupBox5);
             this.tabPage3.Controls.Add(this.pictureBox2);
             this.tabPage3.Controls.Add(this.label14);
-            this.tabPage3.Location = new System.Drawing.Point(4, 26);
+            this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1094, 548);
+            this.tabPage3.Size = new System.Drawing.Size(1094, 540);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Produtos";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -759,6 +760,22 @@ namespace inventoryControl
             this.groupBox6.TabIndex = 55;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Pesquisa";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(617, 16);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(155, 23);
+            this.textBox2.TabIndex = 58;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(551, 19);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(60, 17);
+            this.label29.TabIndex = 57;
+            this.label29.Text = "Nº Série:";
             // 
             // dgvProdutos
             // 
@@ -964,10 +981,10 @@ namespace inventoryControl
             this.tabPage4.Controls.Add(this.groupBox7);
             this.tabPage4.Controls.Add(this.pictureBox3);
             this.tabPage4.Controls.Add(this.label15);
-            this.tabPage4.Location = new System.Drawing.Point(4, 26);
+            this.tabPage4.Location = new System.Drawing.Point(4, 34);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1094, 548);
+            this.tabPage4.Size = new System.Drawing.Size(1094, 540);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Componentes";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1153,10 +1170,10 @@ namespace inventoryControl
             // 
             this.tabPage5.Controls.Add(this.BtnClean);
             this.tabPage5.Controls.Add(this.BtnDark);
-            this.tabPage5.Location = new System.Drawing.Point(4, 26);
+            this.tabPage5.Location = new System.Drawing.Point(4, 34);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1094, 548);
+            this.tabPage5.Size = new System.Drawing.Size(1094, 540);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Teste de Cores";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1190,22 +1207,6 @@ namespace inventoryControl
             this.BtnExit.Text = "Sair";
             this.BtnExit.UseVisualStyleBackColor = true;
             this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(551, 19);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(60, 17);
-            this.label29.TabIndex = 57;
-            this.label29.Text = "Nº Série:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(617, 16);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(155, 23);
-            this.textBox2.TabIndex = 58;
             // 
             // Cadastro
             // 

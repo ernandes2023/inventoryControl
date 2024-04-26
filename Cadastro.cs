@@ -947,8 +947,11 @@ namespace inventoryControl
             TxtNomeCliente.SelectionStart = TxtNomeCliente.Text.Length;
         }
 
+        private bool temaEscuroAtivo = false;
+
         private void BtnDark_Click(object sender, EventArgs e)
         {
+            /*
             // Exibe a caixa de diálogo de seleção de cor
             ColorDialog colorDialog = new ColorDialog();
             if (colorDialog.ShowDialog() == DialogResult.OK)
@@ -961,6 +964,39 @@ namespace inventoryControl
                 tabPage4.BackColor = colorDialog.Color;
                 tabPage5.BackColor = colorDialog.Color;
                 tabControl1.BackColor = colorDialog.Color;
+            }
+            */
+
+            // Alternar o tema entre claro e escuro
+            temaEscuroAtivo = !temaEscuroAtivo;
+
+            if (temaEscuroAtivo)
+            {
+                // Configurar cores para o tema escuro
+                this.BackColor = Color.FromArgb(30, 30, 30);
+                this.ForeColor = Color.White;
+                tabPage1.BackColor = Color.FromArgb(30, 30, 30);
+                tabPage2.BackColor = Color.FromArgb(30, 30, 30);
+                tabPage3.BackColor = Color.FromArgb(30, 30, 30);
+                tabPage4.BackColor = Color.FromArgb(30, 30, 30);
+                tabPage5.BackColor = Color.FromArgb(30, 30, 30);
+                tabControl1.BackColor = Color.FromArgb(30, 30, 30);
+                BtnDark.BackColor = Color.FromArgb(30, 30, 30);
+                // Atualizar outros componentes visuais conforme necessário
+            }
+            else
+            {
+                // Configurar cores para o tema claro (pode voltar aos padrões do sistema)
+                this.BackColor = SystemColors.Control;
+                this.ForeColor = SystemColors.ControlText;
+                tabPage1.BackColor = SystemColors.Control;
+                tabPage2.BackColor = SystemColors.Control;
+                tabPage3.BackColor = SystemColors.Control;
+                tabPage4.BackColor= SystemColors.Control;
+                tabPage5.BackColor = SystemColors.Control;
+                tabControl1.BackColor = SystemColors.Control;
+                BtnDark.BackColor = SystemColors.Control;
+                // Atualizar outros componentes visuais conforme necessário
             }
         }
 
