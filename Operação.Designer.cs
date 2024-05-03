@@ -54,6 +54,7 @@ namespace inventoryControl
             this.dataAtual = new System.Windows.Forms.TextBox();
             this.tecnico = new System.Windows.Forms.TextBox();
             this.Olá = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -297,12 +298,23 @@ namespace inventoryControl
             this.Olá.TabIndex = 26;
             this.Olá.Text = "Olá";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(943, 23);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(119, 23);
+            this.button2.TabIndex = 27;
+            this.button2.Text = "Cadastrar nova GRM";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Operação
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1101, 528);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.Olá);
             this.Controls.Add(this.tecnico);
             this.Controls.Add(this.dataAtual);
@@ -365,5 +377,6 @@ namespace inventoryControl
         private System.Windows.Forms.TextBox dataAtual;
         private System.Windows.Forms.TextBox tecnico;
         private System.Windows.Forms.Label Olá;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -8,7 +8,7 @@ namespace inventoryControl
 {
     static class Program
     {
-        public static string conexaoBD = "server=localhost;database=inventory;uid=root;pwd=123456";
+        public static string conexaoBD = "server=localhost;database=inventory;uid=root;pwd=ernandes";
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.
         /// </summary>
@@ -17,7 +17,7 @@ namespace inventoryControl
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Cadastro());
+            Application.Run(new Login());
         }
     }
 }

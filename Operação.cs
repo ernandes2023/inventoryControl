@@ -96,6 +96,8 @@ namespace inventoryControl
                 while(reader.Read())
                 {
                     grmNumero.Items.Add(reader["numero_grm"].ToString());
+
+                    grmNumero.ValueMember = reader["id_grm"].ToString();
                 }
                 reader.Close();
             }
@@ -118,21 +120,8 @@ namespace inventoryControl
             }
         }
         private void carregDadoProd()
-        {            
-            string query = "Select * from produto";
-
-            using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
-            {
-                MySqlCommand comando = new MySqlCommand(query, connection);
-                connection.Open();
-                MySqlDataReader reader = comando.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    produto.Items.Add(reader["nome_produto"].ToString());
-                }
-                reader.Close();
-            }
+        {
+           
         }
         private void carregDadoComp()
         {
@@ -238,6 +227,37 @@ namespace inventoryControl
             string grmSelecionado = grmNumero.SelectedItem.ToString();
 
             operacao.grm = grmSelecionado;
+
+            try
+            {
+
+                string query = "select produto.nome_produto from grm_oper inner join produto on grm_oper.fk_prod = produto.id_produto inner join grm on grm_oper.fk_grm = grm.id_grm where id_grm in(select id_grm from grm where numero_grm = {0,10});";
+                query = String.Format(query, operacao.grm);
+
+                //string query = "select produto.nome_produto from grm_oper inner join produto on grm_oper.fk_prod = produto.id_produto inner join grm on grm_oper.fk_grm = grm.id_grm where id_grm = " + operacao.grm + ";" ;
+
+                using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
+                {
+
+                    MySqlCommand comando = new MySqlCommand(query, connection);
+                    connection.Open();
+                    MySqlDataReader reader = comando.ExecuteReader();
+
+                    produto.Items.Clear();
+
+                    while (reader.Read())
+                    {
+                        produto.Items.Add(reader["nome_produto"].ToString()); // Est6á me ouvindo?
+
+                    }
+                    reader.Close();
+                }
+            }
+            catch
+            {
+                // Lidar com exceções, por exemplo, exibir uma mensagem de erro
+                MessageBox.Show("Falha ao executar a consulta no banco");
+            }
         }
 
         private void produto_SelectedIndexChanged(object sender, EventArgs e)
@@ -247,6 +267,23 @@ namespace inventoryControl
             string produtoSelecionado = produto.SelectedItem.ToString();
 
             operacao.module = produtoSelecionado;
+
+            string query = "select produto.nome_produto from  grm_oper inner join produto on grm_oper.fk_prod = produto.id_produto  inner join grm  on grm_oper.fk_grm = grm.id_grm where  id_grm = " + grmNumero.ValueMember + ";";
+
+            using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
+            {
+                MySqlCommand comando = new MySqlCommand(query, connection);
+                connection.Open();
+                MySqlDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    produto.Items.Add(reader["nome_produto"].ToString());
+
+                    produto.ValueMember = reader["fk_prod"].ToString();
+                }
+                reader.Close();
+            }
         }
 
         private void addList_Click(object sender, EventArgs e)
@@ -345,6 +382,13 @@ namespace inventoryControl
             string tec = tecnico.Text.ToString();
 
             userTecnico.tecnico = tec;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            cadastrarGrm grm = new cadastrarGrm();
+            grm.Show();
+            this.Hide();
         }
     }
 }
