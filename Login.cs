@@ -17,16 +17,12 @@ namespace inventoryControl
         public Login()
         {
             InitializeComponent();
-            
-
-
         }
 
         private void btn_entrar_Click(object sender, EventArgs e)
         {
             MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
             conectar.Open();
-
 
                 try
                 {
@@ -72,12 +68,7 @@ namespace inventoryControl
                     conectar.Close();
                     conectar.ClearAllPoolsAsync();
                 }
-
-            
-
         }
-
-
 
         private void btnOlho_Click(object sender, EventArgs e)
         {
@@ -96,16 +87,6 @@ namespace inventoryControl
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        public void txtLogin1_TextChanged(object sender, EventArgs e)
-        {
-
         }
      
     }

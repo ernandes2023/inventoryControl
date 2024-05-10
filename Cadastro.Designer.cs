@@ -93,8 +93,6 @@ namespace inventoryControl
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.TxtSerialProd = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
             this.BtnClearProd = new System.Windows.Forms.Button();
             this.TxtNomeProd = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -113,10 +111,8 @@ namespace inventoryControl
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.TxtValorComp = new System.Windows.Forms.TextBox();
             this.TxtNomeComp = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.BtnDelComp = new System.Windows.Forms.Button();
             this.BtnClearComp = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
@@ -824,8 +820,6 @@ namespace inventoryControl
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.TxtSerialProd);
-            this.groupBox5.Controls.Add(this.label23);
             this.groupBox5.Controls.Add(this.BtnClearProd);
             this.groupBox5.Controls.Add(this.TxtNomeProd);
             this.groupBox5.Controls.Add(this.label12);
@@ -842,22 +836,6 @@ namespace inventoryControl
             this.groupBox5.TabIndex = 54;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Cadastro";
-            // 
-            // TxtSerialProd
-            // 
-            this.TxtSerialProd.Location = new System.Drawing.Point(112, 106);
-            this.TxtSerialProd.Name = "TxtSerialProd";
-            this.TxtSerialProd.Size = new System.Drawing.Size(155, 23);
-            this.TxtSerialProd.TabIndex = 58;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(46, 109);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(60, 17);
-            this.label23.TabIndex = 57;
-            this.label23.Text = "Nº Série:";
             // 
             // BtnClearProd
             // 
@@ -1033,10 +1011,8 @@ namespace inventoryControl
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.TxtValorComp);
             this.groupBox7.Controls.Add(this.TxtNomeComp);
             this.groupBox7.Controls.Add(this.label16);
-            this.groupBox7.Controls.Add(this.label24);
             this.groupBox7.Controls.Add(this.BtnDelComp);
             this.groupBox7.Controls.Add(this.BtnClearComp);
             this.groupBox7.Controls.Add(this.label13);
@@ -1049,13 +1025,6 @@ namespace inventoryControl
             this.groupBox7.TabIndex = 61;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Cadastro";
-            // 
-            // TxtValorComp
-            // 
-            this.TxtValorComp.Location = new System.Drawing.Point(112, 77);
-            this.TxtValorComp.Name = "TxtValorComp";
-            this.TxtValorComp.Size = new System.Drawing.Size(100, 23);
-            this.TxtValorComp.TabIndex = 60;
             // 
             // TxtNomeComp
             // 
@@ -1075,15 +1044,6 @@ namespace inventoryControl
             this.label16.Size = new System.Drawing.Size(52, 17);
             this.label16.TabIndex = 51;
             this.label16.Text = "Nome:";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(60, 80);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(46, 17);
-            this.label24.TabIndex = 56;
-            this.label24.Text = "Valor:";
             // 
             // BtnDelComp
             // 
@@ -1338,16 +1298,12 @@ namespace inventoryControl
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button BtnClearProd;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.TextBox TxtSerialProd;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Button BtnClean;
         private System.Windows.Forms.Button BtnDark;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.TextBox TxtValorComp;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
 using Mysqlx.Cursor;
 using MySqlX.XDevAPI;
@@ -29,6 +30,45 @@ namespace inventoryControl
             LoadTableClient();
             LoadTableProd();
             LoadTableComp();
+        }
+
+                private bool ValorJaInserido(string valor)
+        {
+            bool jaInserido = false;
+
+            try
+            {
+                // Conexão com o banco de dados MySQL
+                using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
+                {
+                    // Abre a conexão
+                    conexaoMYSQL.Open();
+
+                    // Cria um comando SQL para verificar se o valor já existe na tabela
+                    string query = "SELECT COUNT(*) FROM produto WHERE cod_produto = @Valor";
+                    using (MySqlCommand comando = new MySqlCommand(query, conexaoMYSQL))
+                    {
+                        // Adiciona o parâmetro para o valor que queremos verificar
+                        comando.Parameters.AddWithValue("@Valor", valor);
+
+                        // Executa o comando SQL e obtém o resultado
+                        int count = Convert.ToInt32(comando.ExecuteScalar());
+
+                        // Se count for maior que zero, significa que o valor já está na tabela
+                        if (count > 0)
+                        {
+                            jaInserido = true;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Trata exceções, se houver
+                MessageBox.Show("Erro ao verificar valor: " + ex.Message);
+            }
+
+            return jaInserido;
         }
 
         private void LoadTableClient() // Metodo privado que carrega dados da tabela Cliente.
@@ -74,7 +114,8 @@ namespace inventoryControl
             conexaoMYSQL.Open();
 
             // Cria um objeto MySqlDataAdapter para executar a consulta SQL e preencher o DataTable
-            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM produto", conexaoMYSQL);
+            //MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM produto", conexaoMYSQL);
+            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT id_produto,cod_produto,nome_produto FROM produto", conexaoMYSQL);
 
             // Cria um novo DataTable para armazenar os dados retornados pela consulta
             DataTable dt = new DataTable();
@@ -86,7 +127,7 @@ namespace inventoryControl
             dt.Columns["id_produto"].ColumnName = "Id:";
             dt.Columns["cod_produto"].ColumnName = "Código:";
             dt.Columns["nome_produto"].ColumnName = "Descrição:";
-            dt.Columns["serial_produto"].ColumnName = "Nº Série:";
+            //dt.Columns["serial_produto"].ColumnName = "Nº Série:";
 
             // Define o DataGridView dgvClientes como a fonte de dados para exibir os dados do DataTable
             dgvProdutos.DataSource = dt;
@@ -97,6 +138,7 @@ namespace inventoryControl
             // Formata as colunas do DataGridView para o tanho auto ajustavel
             dgvProdutos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
+
         private void LoadTableComp() // Metodo privado que carrega dados da tabela Produto.
         {
             // Cria uma nova conexão MySqlConnection utilizando a string de conexão definida em Program.conexaoBD
@@ -106,7 +148,8 @@ namespace inventoryControl
             conexaoMYSQL.Open();
 
             // Cria um objeto MySqlDataAdapter para executar a consulta SQL e preencher o DataTable
-            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM componente", conexaoMYSQL);
+            //MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM componente", conexaoMYSQL);
+            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT id_componente, nome_comp FROM componente", conexaoMYSQL);
 
             // Cria um novo DataTable para armazenar os dados retornados pela consulta
             DataTable dt = new DataTable();
@@ -117,7 +160,7 @@ namespace inventoryControl
             // Renomear as colunas conforme necessário
             dt.Columns["id_componente"].ColumnName = "Id:";
             dt.Columns["nome_comp"].ColumnName = "Nome:";
-            dt.Columns["valor_comp"].ColumnName = "Valor:";
+            
 
             // Define o DataGridView dgvClientes como a fonte de dados para exibir os dados do DataTable
             dgvComponentes.DataSource = dt;
@@ -596,37 +639,57 @@ namespace inventoryControl
             TxtIdProd.Text          = dgvProdutos.Rows[e.RowIndex].Cells[0].Value.ToString();
             TxtCodProd.Text         = dgvProdutos.Rows[e.RowIndex].Cells[1].Value.ToString();
             TxtNomeProd.Text        = dgvProdutos.Rows[e.RowIndex].Cells[2].Value.ToString();
-            TxtSerialProd.Text      = dgvProdutos.Rows[e.RowIndex].Cells[3].Value.ToString();
             BtnSaveProd.Enabled = false;
         }
 
+        // Função acionada quando o botão "BtnSaveProd" é clicado
         private void BtnSaveProd_Click(object sender, EventArgs e)
         {
-            if (TxtCodProd.Text == "" || TxtNomeProd.Text == "" || TxtSerialProd.Text == "")
+            // Verifica se os campos de código e nome do produto estão vazios
+            if (TxtCodProd.Text == "" || TxtNomeProd.Text == "")
             {
+                // Se algum campo estiver vazio, exibe uma mensagem de aviso
                 MessageBox.Show("Todos os campos devem ser preenchidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
+                // Verifica se o código do produto já está na tabela
+                if (ValorJaInserido(TxtCodProd.Text))
+                {
+                    // Se o código já estiver na tabela, exibe uma mensagem de aviso
+                    MessageBox.Show("Este código de produto já foi inserido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // Sai da função para evitar a inserção duplicada
+                }
+
+                // Conexão com o banco de dados MySQL
                 MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
-                conexaoMYSQL.Open();
+                conexaoMYSQL.Open(); // Abre a conexão
+
                 try
                 {
-                    MySqlCommand comando = new MySqlCommand("INSERT INTO produto(cod_produto,nome_produto,serial_produto)VALUES('" + TxtCodProd.Text + "','" + TxtNomeProd.Text + "','" + TxtSerialProd.Text + "');", conexaoMYSQL);
-                    comando.ExecuteNonQuery();
+                    // Cria um comando SQL para inserir dados na tabela 'produto'
+                    MySqlCommand comando = new MySqlCommand("INSERT INTO produto(cod_produto, nome_produto) VALUES('" + TxtCodProd.Text + "','" + TxtNomeProd.Text + "');", conexaoMYSQL);
+                    comando.ExecuteNonQuery(); // Executa o comando SQL para inserção de dados
+
+                    // Exibe uma mensagem de sucesso
                     MessageBox.Show("Dados criados!", "Sucesso", MessageBoxButtons.OK);
+
+                    // Limpa os campos de entrada de texto
                     TxtIdProd.Text = "";
                     TxtCodProd.Text = "";
                     TxtNomeProd.Text = "";
-                    TxtSerialProd.Text = "";
+
+                    // Atualiza a tabela de produtos na interface
                     LoadTableProd();
                 }
                 catch (Exception ex)
                 {
+                    // Exibe uma mensagem de erro caso ocorra uma exceção durante a execução do código
                     MessageBox.Show("Erro ao carregar dados: " + ex.Message);
                 }
                 finally
                 {
+                    // Garante que a conexão com o banco de dados seja fechada, independentemente de ocorrerem exceções ou não
                     conexaoMYSQL.Close();
                 }
             }
@@ -644,13 +707,12 @@ namespace inventoryControl
                 conexaoMYSQL.Open();
                 try
                 {
-                    MySqlCommand comando = new MySqlCommand("UPDATE produto SET cod_produto='"+ TxtCodProd.Text + "',nome_produto='" + TxtNomeProd.Text + "', serial_produto='" + TxtSerialProd.Text + "' WHERE id_produto=" + TxtIdProd.Text, conexaoMYSQL);
+                    MySqlCommand comando = new MySqlCommand("UPDATE produto SET cod_produto='"+ TxtCodProd.Text + "',nome_produto='" + TxtNomeProd.Text + "' WHERE id_produto=" + TxtIdProd.Text, conexaoMYSQL);
                     comando.ExecuteNonQuery();
                     MessageBox.Show("Dados alterados!", "Sucesso", MessageBoxButtons.OK);
                     TxtIdProd.Text = "";
                     TxtCodProd.Text = "";
                     TxtNomeProd.Text = "";
-                    TxtSerialProd.Text = "";
                     LoadTableProd();
                     BtnSaveProd.Enabled = true;
                 }
@@ -687,7 +749,6 @@ namespace inventoryControl
                         TxtIdProd.Text = "";
                         TxtCodProd.Text = "";
                         TxtNomeProd.Text = "";
-                        TxtSerialProd.Text = "";
                         LoadTableProd();
                         BtnSaveProd.Enabled = true;
                     }
@@ -708,7 +769,6 @@ namespace inventoryControl
             TxtIdProd.Text = "";
             TxtCodProd.Text = "";
             TxtNomeProd.Text = "";
-            TxtSerialProd.Text = "";
             BtnSaveProd.Enabled = true;
         }
 
@@ -716,12 +776,11 @@ namespace inventoryControl
         {
             TxtIdComp.Text = dgvComponentes.Rows[e.RowIndex].Cells[0].Value.ToString();
             TxtNomeComp.Text = dgvComponentes.Rows[e.RowIndex].Cells[1].Value.ToString();
-            TxtValorComp.Text = dgvComponentes.Rows[e.RowIndex].Cells[2].Value.ToString();
         }
 
         private void BtnSaveComp_Click(object sender, EventArgs e)
         {
-            if (TxtNomeComp.Text == "" || TxtValorComp.Text == "")
+            if (TxtNomeComp.Text == "")
             {
                 MessageBox.Show("Todos os campos devem ser preenchidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -735,7 +794,7 @@ namespace inventoryControl
                 try
                 {
                     // Cria um novo comando MySqlCommand para inserir os dados na tabela componete
-                    MySqlCommand comando = new MySqlCommand("INSERT INTO componente(nome_comp,valor_comp)VALUES('" + TxtNomeComp.Text + "','" + TxtValorComp.Text + "');", conexaoMYSQL);
+                    MySqlCommand comando = new MySqlCommand("INSERT INTO componente(nome_comp)VALUES('" + TxtNomeComp.Text + "');", conexaoMYSQL);
 
                     // Executa o comando de inserir os dados
                     comando.ExecuteNonQuery();
@@ -746,7 +805,6 @@ namespace inventoryControl
                     // Limpa os campos de entrada de dados
                     TxtIdComp.Text = "";
                     TxtNomeComp.Text = "";
-                    TxtValorComp.Text = "";
                     TxtNomeComp.Select();
 
                     // Chama o Método que irá carregar as informações dentro do dgvComponentes
@@ -767,7 +825,7 @@ namespace inventoryControl
 
         private void BtnEditComp_Click(object sender, EventArgs e)
         {
-            if (TxtNomeComp.Text == "" || TxtValorComp.Text == "")
+            if (TxtNomeComp.Text == "")
             {
                 MessageBox.Show("Selecione um componente existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -781,7 +839,7 @@ namespace inventoryControl
                 try
                 {
                     // Cria um novo comando MySqlCommand para Editar os dados na tabela componete
-                    MySqlCommand comando = new MySqlCommand("UPDATE componente SET nome_comp='" + TxtNomeComp.Text + "',valor_comp='" + TxtValorComp.Text + "' WHERE id_componente=" + TxtIdComp.Text, conexaoMYSQL);
+                    MySqlCommand comando = new MySqlCommand("UPDATE componente SET nome_comp='" + TxtNomeComp.Text + "' WHERE id_componente=" + TxtIdComp.Text, conexaoMYSQL);
                     
                     // Executa o comando de inserir os dados
                     comando.ExecuteNonQuery();
@@ -792,7 +850,6 @@ namespace inventoryControl
                     // Limpa os campos de entrada de dados
                     TxtIdComp.Text = "";
                     TxtNomeComp.Text = "";
-                    TxtValorComp.Text = "";
                     TxtNomeComp.Select();
 
                     // Chama o Método que irá carregar as informações dentro do dgvComponentes
@@ -842,7 +899,6 @@ namespace inventoryControl
                         // Limpa os campos de entrada de dados
                         TxtIdComp.Text = "";
                         TxtNomeComp.Text = "";
-                        TxtValorComp.Text = "";
                         TxtNomeComp.Select();
 
                         // Chama o Método que irá carregar as informações dentro do dgvComponentes
@@ -866,7 +922,6 @@ namespace inventoryControl
         {
             TxtIdComp.Text = "";
             TxtNomeComp.Text = "";
-            TxtValorComp.Text = "";
             TxtNomeComp.Select(); 
         }
 
