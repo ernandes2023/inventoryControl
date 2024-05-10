@@ -52,7 +52,7 @@ namespace inventoryControl
             // moduloText
             // 
             this.moduloText.FormattingEnabled = true;
-            this.moduloText.Location = new System.Drawing.Point(49, 169);
+            this.moduloText.Location = new System.Drawing.Point(49, 170);
             this.moduloText.Name = "moduloText";
             this.moduloText.Size = new System.Drawing.Size(121, 21);
             this.moduloText.TabIndex = 1;
@@ -60,7 +60,7 @@ namespace inventoryControl
             // 
             // qtdText
             // 
-            this.qtdText.Location = new System.Drawing.Point(296, 170);
+            this.qtdText.Location = new System.Drawing.Point(194, 173);
             this.qtdText.Name = "qtdText";
             this.qtdText.Size = new System.Drawing.Size(39, 20);
             this.qtdText.TabIndex = 2;
@@ -87,7 +87,7 @@ namespace inventoryControl
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(293, 140);
+            this.label3.Location = new System.Drawing.Point(191, 143);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(24, 13);
             this.label3.TabIndex = 5;
@@ -98,13 +98,13 @@ namespace inventoryControl
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(49, 240);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(286, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(370, 150);
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(384, 367);
+            this.btnSalvar.Location = new System.Drawing.Point(260, 170);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 7;
@@ -114,7 +114,7 @@ namespace inventoryControl
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(366, 312);
+            this.btnVoltar.Location = new System.Drawing.Point(413, 405);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(75, 23);
             this.btnVoltar.TabIndex = 8;

@@ -268,7 +268,7 @@ namespace inventoryControl
 
             operacao.module = produtoSelecionado;
 
-            string query = "select produto.nome_produto from  grm_oper inner join produto on grm_oper.fk_prod = produto.id_produto  inner join grm  on grm_oper.fk_grm = grm.id_grm where  id_grm = " + grmNumero.ValueMember + ";";
+            string query = "select produto.nome_produto from  grm_oper inner join produto on grm_oper.fk_prod = produto.id_produto  inner join grm  on grm_oper.fk_grm = grm.id_grm where  id_grm = '" + grmNumero.ValueMember + "';";
 
             using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
             {
