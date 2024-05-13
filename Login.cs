@@ -36,19 +36,19 @@ namespace inventoryControl
 
                     if (resultado != null)
                     {
-                    if (txtLogin1.Text == "admin" || txtSenha1.Text == "admin")
-                    {
-                        Cadastro cadproduto = new Cadastro();
-                        cadproduto.Show();
-                        this.Hide();
-                    }
-                    else
-                    {
-                        UltimoValorTextBox = txtLogin1.Text;
-                        Operação cadprodutos = new Operação();
-                        cadprodutos.Show();
-                        Hide();
-                    }
+                        if (txtLogin1.Text == "admin" || txtSenha1.Text == "admin")
+                        {
+                            Cadastro cadproduto = new Cadastro();
+                            cadproduto.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            UltimoValorTextBox = txtLogin1.Text;
+                            Operação cadprodutos = new Operação();
+                            cadprodutos.Show();
+                            Hide();
+                        }
                     }
                     else if (txtLogin1.Text == "" || txtSenha1.Text == "")
                     {
@@ -88,6 +88,10 @@ namespace inventoryControl
         {
             Application.Exit();
         }
-     
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
