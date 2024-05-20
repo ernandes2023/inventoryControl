@@ -125,6 +125,7 @@ namespace inventoryControl
             this.BtnClean = new System.Windows.Forms.Button();
             this.BtnDark = new System.Windows.Forms.Button();
             this.BtnExit = new System.Windows.Forms.Button();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -275,6 +276,7 @@ namespace inventoryControl
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ItemSize = new System.Drawing.Size(63, 30);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
@@ -282,6 +284,7 @@ namespace inventoryControl
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1102, 578);
             this.tabControl1.TabIndex = 12;
+            this.tabControl1.Visible = false;
             // 
             // tabPage1
             // 
@@ -1168,6 +1171,16 @@ namespace inventoryControl
             this.BtnExit.UseVisualStyleBackColor = true;
             this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Location = new System.Drawing.Point(4, 34);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1094, 540);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Defeitos";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
             // Cadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1314,5 +1327,6 @@ namespace inventoryControl
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TabPage tabPage6;
     }
 }
