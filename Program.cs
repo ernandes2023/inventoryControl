@@ -9,16 +9,17 @@ namespace inventoryControl
     static class Program
     {
         //public static string conexaoBD = "server=localhost;database=inventory;uid=root;pwd=ernandes";
-        public static string conexaoBD = "server=localhost;database=inventory2;uid=root;pwd=ernandes";
+        public static string conexaoBD = "server=localhost;database=inventory;uid=root;pwd=ernandes";
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.
         /// </summary>
         [STAThread]
-        static void Main()
+        static  void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new cadastrarGrm());
+            Application.Run(new Operação());
         }
+
     }
 }

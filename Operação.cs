@@ -280,7 +280,7 @@ namespace inventoryControl
                 {
                     produto.Items.Add(reader["nome_produto"].ToString());
 
-                    produto.ValueMember = reader["fk_prod"].ToString();
+                    //produto.ValueMember = reader["fk_prod"].ToString();
                 }
                 reader.Close();
             }
@@ -324,22 +324,35 @@ namespace inventoryControl
         private void finalizar_Click(object sender, EventArgs e)
         {
 
-            /*foreach (Operacao op in operacoes) {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                // Verificar se a linha não é a linha de cabeçalho e está completa
+                if (!row.IsNewRow && row.Cells[0].Value != null && row.Cells[1].Value != null)
+                {
+                    string query = "INSERT INTO `operacao` (fk_grm, fk_prod, serial_number, garantia, state, fk_def, fk_usuario, data_operacao, componente, gtd_Comp) " +
+                                   "VALUES (@grm, @module, @serialNumber, @garantia, @status, @defeito, @tecnico, @dataAtual, @componente, @gtdComp)";
+                    
+                    using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
 
-                
-                
-                MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
-                conexaoMYSQL.Open();
-                MySqlCommand comando = new MySqlCommand("insert into tableta (modulo, componente, data) values(" + op.module.ToString() + op.componente + op.data + ")", conexaoMYSQL);
-                comando.ExecuteNonQuery();
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        // Parâmetros
+                        command.Parameters.AddWithValue("@grm", row.Cells[0].Value);
+                        command.Parameters.AddWithValue("@module", row.Cells[1].Value);
+                        command.Parameters.AddWithValue("@serialNumber", row.Cells[2].Value);
+                        command.Parameters.AddWithValue("@status", row.Cells[3].Value);
+                        command.Parameters.AddWithValue("@garantia", row.Cells[4].Value);
+                        command.Parameters.AddWithValue("@defeito", row.Cells[5].Value);
+                        command.Parameters.AddWithValue("@componente", row.Cells[6].Value);
+                        command.Parameters.AddWithValue("@gtdComp", row.Cells[7].Value);
+                        command.Parameters.AddWithValue("@tecnico", row.Cells[8].Value);
+                        command.Parameters.AddWithValue("@dataAtual", row.Cells[9].Value);
 
-                comando = new MySqlCommand("insert into tabela2 (modulo, componente, data) values(" + op.module.ToString() + op.componente + op.data + ")", conexaoMYSQL);
-                comando.ExecuteNonQuery();
-
-                comando = new MySqlCommand("insert into tabela 3 (modulo, componente, data) values(" + op.module.ToString() + op.componente + op.data + ")", conexaoMYSQL);
-                comando.ExecuteNonQuery();
-
-            }*/
+                        // Executar a query
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
         }
 
         private void serialNumber_TextChanged(object sender, EventArgs e)
