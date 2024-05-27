@@ -278,9 +278,9 @@ namespace inventoryControl
 
                 while (reader.Read())
                 {
+                    // Adicionando o nome do produto ao componente 'moduloText'
                     produto.Items.Add(reader["nome_produto"].ToString());
 
-                    //produto.ValueMember = reader["fk_prod"].ToString();
                 }
                 reader.Close();
             }
@@ -329,12 +329,13 @@ namespace inventoryControl
                 // Verificar se a linha não é a linha de cabeçalho e está completa
                 if (!row.IsNewRow && row.Cells[0].Value != null && row.Cells[1].Value != null)
                 {
-                    string query = "INSERT INTO `operacao` (fk_grm, fk_prod, serial_number, garantia, state, fk_def, fk_usuario, data_operacao, componente, gtd_Comp) " +
+                    string query = "INSERT INTO `operacao` (fk_grm, fk_prod, serial_number, garantia, state, fk_def, fk_usuario, data_operacao, componente, qtd_comp) " +
                                    "VALUES (@grm, @module, @serialNumber, @garantia, @status, @defeito, @tecnico, @dataAtual, @componente, @gtdComp)";
                     
                     using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
-
+                    
                     using (MySqlCommand command = new MySqlCommand(query, connection))
+
                     {
                         // Parâmetros
                         command.Parameters.AddWithValue("@grm", row.Cells[0].Value);
@@ -347,7 +348,7 @@ namespace inventoryControl
                         command.Parameters.AddWithValue("@gtdComp", row.Cells[7].Value);
                         command.Parameters.AddWithValue("@tecnico", row.Cells[8].Value);
                         command.Parameters.AddWithValue("@dataAtual", row.Cells[9].Value);
-
+                        connection.Open();
                         // Executar a query
                         command.ExecuteNonQuery();
                     }
