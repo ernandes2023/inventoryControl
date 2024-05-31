@@ -377,6 +377,13 @@ namespace inventoryControl
                         connection.Open();
                         // Executar a query
                         command.ExecuteNonQuery();
+
+                        // Exibe uma mensagem de sucesso
+                        MessageBox.Show("Dados inseridos com sucesso!", "Sucesso", MessageBoxButtons.OK);
+
+                        // Limpa os campos de entrada de dados na linha 
+                        command.Parameters.Clear();
+
                     }
                 }
             }
