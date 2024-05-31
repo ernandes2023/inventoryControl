@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace inventoryControl
 {
-    class Componente
+    class Defeito
     {
         public int id;
         public string nome;
-
     }
 }

@@ -8,14 +8,15 @@ namespace inventoryControl
 {
     class Operacao
     {
-        public string grm;
+        public GrmProdutos grm;
         public string serialNumber;
         public string status;
-        public string garantia;
-        public string defeito;
+        public Garantia garantia;
+        public Defeito defeito;
         public string gtdComp;
-        public string module;
-        public string componente;
+        public Modulo module;
+        public Componente componente;
         public DateTime dataAtual;
+        
     }
 }

@@ -9,5 +9,7 @@ namespace inventoryControl
     class UserTecnico
     {
         public string tecnico;
+        
+
     }
 }

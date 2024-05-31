@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 namespace inventoryControl
 {
 
-    class grmProdutos
+    class GrmProdutos
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
+        public int id { get; set; }
+        public string nome { get; set; }
 
         public override string ToString()
         {
-            return Nome; // A ComboBox usará o nome do produto para exibir
+            return nome; // A ComboBox usará o nome do produto para exibir
         }
     }
 }

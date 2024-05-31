@@ -33,8 +33,10 @@ namespace inventoryControl
             carregDadoDef();
             carregDadosStatus();
             carregDgv();
-
             
+
+
+
             tecnico.Text = Login.UltimoValorTextBox;
             operacao = new Operacao();
 
@@ -104,6 +106,8 @@ namespace inventoryControl
         }
         private void carregDadosGarantia()
         {
+            
+
             string query = "Select * from garantia";
 
             using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
@@ -115,6 +119,8 @@ namespace inventoryControl
                 while (reader.Read())
                 {
                     garantia.Items.Add(reader["status_garantia"].ToString());
+
+                    garantia.ValueMember = reader["id_garantia"].ToString();
                 }
                 reader.Close();
             }
@@ -139,10 +145,15 @@ namespace inventoryControl
 
                 while (reader.Read())
                 {
-                    Componente comp = new Componente(Convert.ToInt32(reader["id_componente"]), reader["nome_comp"].ToString());
-                    componentes.Add(comp);
+                    //Componente comp = new Componente(Convert.ToInt32(reader["id_componente"]), reader["nome_comp"].ToString());
+                    //componentes.Add(comp);
 
-                    componente.Items.Add(comp.nome);
+                    //componente.Items.Add(comp.nome);
+                    //componente.ValueMember = comp.id.ToString();
+
+                    componente.Items.Add(reader["nome_comp"].ToString());
+
+                    componente.ValueMember = reader["id_componente"].ToString();
                 }
                 reader.Close();
             }
@@ -160,10 +171,13 @@ namespace inventoryControl
                 while (reader.Read())
                 {
                     defeito.Items.Add(reader["nome_defeito"].ToString());
+                    
+                    defeito.ValueMember = reader["id"].ToString();
                 }
                 reader.Close();
             }
         }
+     
         private void carregDgv()
         {
             // Configurando as colunas manualmente
@@ -224,17 +238,19 @@ namespace inventoryControl
 
         private void grmNumero_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string grmSelecionado = grmNumero.SelectedItem.ToString();
+            
 
-            operacao.grm = grmSelecionado;
+            GrmProdutos grm = new GrmProdutos();
+            grm.id = int.Parse(grmNumero.ValueMember);
+            grm.nome = grmNumero.SelectedItem.ToString();
+
+            operacao.grm = grm;
 
             try
             {
 
-                string query = "select produto.nome_produto from grm_oper inner join produto on grm_oper.fk_prod = produto.id_produto inner join grm on grm_oper.fk_grm = grm.id_grm where id_grm in(select id_grm from grm where numero_grm = {0,10});";
-                query = String.Format(query, operacao.grm);
-
-                //string query = "select produto.nome_produto from grm_oper inner join produto on grm_oper.fk_prod = produto.id_produto inner join grm on grm_oper.fk_grm = grm.id_grm where id_grm = " + operacao.grm + ";" ;
+                string query = "select produto.nome_produto, produto.id_produto from grm_oper inner join produto on grm_oper.fk_prod = produto.id_produto inner join grm on grm_oper.fk_grm = grm.id_grm where id_grm in(select id_grm from grm where numero_grm = {0,10});";
+                query = String.Format(query, operacao.grm.nome);
 
                 using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
                 {
@@ -247,7 +263,9 @@ namespace inventoryControl
 
                     while (reader.Read())
                     {
-                        produto.Items.Add(reader["nome_produto"].ToString()); // Est6á me ouvindo?
+                        produto.Items.Add(reader["nome_produto"].ToString());
+
+                        produto.ValueMember = reader["id_produto"].ToString();
 
                     }
                     reader.Close();
@@ -262,13 +280,14 @@ namespace inventoryControl
 
         private void produto_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
-            // Captura o valor selecionado na ComboBox
-            string produtoSelecionado = produto.SelectedItem.ToString();
+            Modulo mod = new Modulo();
+            mod.id = int.Parse(produto.ValueMember);
+            mod.nome = produto.SelectedItem.ToString();
+            
 
-            operacao.module = produtoSelecionado;
+            operacao.module = mod;
 
-            string query = "select produto.nome_produto from  grm_oper inner join produto on grm_oper.fk_prod = produto.id_produto  inner join grm  on grm_oper.fk_grm = grm.id_grm where  id_grm = '" + grmNumero.ValueMember + "';";
+            string query = "select produto.nome_produto, produto.id_produto from  grm_oper inner join produto on grm_oper.fk_prod = produto.id_produto  inner join grm  on grm_oper.fk_grm = grm.id_grm where  id_grm = '" + grmNumero.ValueMember + "';";
 
             using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
             {
@@ -281,6 +300,8 @@ namespace inventoryControl
                     // Adicionando o nome do produto ao componente 'moduloText'
                     produto.Items.Add(reader["nome_produto"].ToString());
 
+                    produto.ValueMember = reader["id_produto"].ToString();
+
                 }
                 reader.Close();
             }
@@ -291,13 +312,13 @@ namespace inventoryControl
 
             int rowIndex = dataGridView1.Rows.Add();
 
-            dataGridView1.Rows[rowIndex].Cells[0].Value = operacao.grm;
-            dataGridView1.Rows[rowIndex].Cells[1].Value = operacao.module;
+            dataGridView1.Rows[rowIndex].Cells[0].Value = operacao.grm.nome;
+            dataGridView1.Rows[rowIndex].Cells[1].Value = operacao.module.nome;
             dataGridView1.Rows[rowIndex].Cells[2].Value = operacao.serialNumber;
             dataGridView1.Rows[rowIndex].Cells[3].Value = operacao.status;
-            dataGridView1.Rows[rowIndex].Cells[4].Value = operacao.garantia;
-            dataGridView1.Rows[rowIndex].Cells[5].Value = operacao.defeito;
-            dataGridView1.Rows[rowIndex].Cells[6].Value = operacao.componente;
+            dataGridView1.Rows[rowIndex].Cells[4].Value = operacao.garantia.nome;
+            dataGridView1.Rows[rowIndex].Cells[5].Value = operacao.defeito.nome;
+            dataGridView1.Rows[rowIndex].Cells[6].Value = operacao.componente.nome;
             dataGridView1.Rows[rowIndex].Cells[7].Value = operacao.gtdComp;
             dataGridView1.Rows[rowIndex].Cells[8].Value = userTecnico.tecnico;
             dataGridView1.Rows[rowIndex].Cells[9].Value = operacao.dataAtual;
@@ -318,43 +339,54 @@ namespace inventoryControl
             //string componenteSelecionado = componente.SelectedItem.ToString();
             //obj.componente = componenteSelecionado;
 
-            operacao.componente = componente.SelectedItem.ToString();
+            Componente comp = new Componente();
+            comp.id = int.Parse(componente.ValueMember);
+            comp.nome = componente.SelectedItem.ToString();
+
+            operacao.componente = comp;
         }
 
         private void finalizar_Click(object sender, EventArgs e)
         {
-
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            try
             {
-                // Verificar se a linha não é a linha de cabeçalho e está completa
-                if (!row.IsNewRow && row.Cells[0].Value != null && row.Cells[1].Value != null)
+
+                foreach (Operacao operacao in operacoes)
                 {
                     string query = "INSERT INTO `operacao` (fk_grm, fk_prod, serial_number, garantia, state, fk_def, fk_usuario, data_operacao, componente, qtd_comp) " +
-                                   "VALUES (@grm, @module, @serialNumber, @garantia, @status, @defeito, @tecnico, @dataAtual, @componente, @gtdComp)";
-                    
+                                       "VALUES (@grm, @module, @serialNumber, @garantia, @status, @defeito, @tecnico, @dataAtual, @componente, @gtdComp)";
+
                     using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
-                    
+
                     using (MySqlCommand command = new MySqlCommand(query, connection))
 
                     {
+                        int teste = 2;
                         // Parâmetros
-                        command.Parameters.AddWithValue("@grm", row.Cells[0].Value);
-                        command.Parameters.AddWithValue("@module", row.Cells[1].Value);
-                        command.Parameters.AddWithValue("@serialNumber", row.Cells[2].Value);
-                        command.Parameters.AddWithValue("@status", row.Cells[3].Value);
-                        command.Parameters.AddWithValue("@garantia", row.Cells[4].Value);
-                        command.Parameters.AddWithValue("@defeito", row.Cells[5].Value);
-                        command.Parameters.AddWithValue("@componente", row.Cells[6].Value);
-                        command.Parameters.AddWithValue("@gtdComp", row.Cells[7].Value);
-                        command.Parameters.AddWithValue("@tecnico", row.Cells[8].Value);
-                        command.Parameters.AddWithValue("@dataAtual", row.Cells[9].Value);
+                        command.Parameters.AddWithValue("@grm", operacao.grm.id);
+                        command.Parameters.AddWithValue("@module", operacao.module.id);
+                        command.Parameters.AddWithValue("@serialNumber", operacao.serialNumber);
+                        command.Parameters.AddWithValue("@status", operacao.status);
+                        command.Parameters.AddWithValue("@garantia", operacao.garantia.id);
+                        command.Parameters.AddWithValue("@defeito", operacao.defeito.id);
+                        command.Parameters.AddWithValue("@componente", operacao.componente.id);
+                        command.Parameters.AddWithValue("@gtdComp", operacao.gtdComp);
+                        command.Parameters.AddWithValue("@tecnico", teste);
+                        command.Parameters.AddWithValue("@dataAtual", operacao.dataAtual);
+
                         connection.Open();
                         // Executar a query
                         command.ExecuteNonQuery();
                     }
                 }
             }
-        }
+            catch (Exception ex)
+            {
+                // Lidar com exceções, por exemplo, exibir uma mensagem de erro
+                MessageBox.Show("Falha ao salvar as informações" + ex.Message);
+            }
+         }
+       
 
         private void serialNumber_TextChanged(object sender, EventArgs e)
         {
@@ -365,9 +397,16 @@ namespace inventoryControl
 
         private void garantia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string gar = garantia.SelectedItem.ToString();
+            Garantia gar = new Garantia();
+            gar.id = int.Parse(garantia.ValueMember);
+            gar.nome = garantia.SelectedItem.ToString();
 
             operacao.garantia = gar;
+
+            /*string gar = garantia.SelectedItem.ToString();
+
+            operacao.garantia.nome = gar;
+            */
         }
 
         private void status_SelectedIndexChanged(object sender, EventArgs e)
@@ -379,7 +418,9 @@ namespace inventoryControl
 
         private void defeito_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string def = defeito.SelectedItem.ToString();
+            Defeito def = new Defeito();
+            def.id = int.Parse(defeito.ValueMember);
+            def.nome = defeito.SelectedItem.ToString();
 
             operacao.defeito = def;
         }
@@ -393,6 +434,9 @@ namespace inventoryControl
 
         private void tecnico_TextChanged(object sender, EventArgs e)
         {
+            
+
+            
             string tec = tecnico.Text.ToString();
 
             userTecnico.tecnico = tec;

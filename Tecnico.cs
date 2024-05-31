@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace inventoryControl
 {
-    class Componente
+    class Tecnico
     {
-        public int id;
-        public string nome;
-
     }
 }
