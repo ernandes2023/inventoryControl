@@ -10,6 +10,7 @@ namespace inventoryControl
     {
         public string tecnico;
         
+        
 
     }
 }

@@ -26,30 +26,39 @@ namespace inventoryControl
 
                 try
                 {
-                    MySqlCommand comando = new MySqlCommand();
-                    //Comando SQL
-                    comando.CommandText = "select * from usuario where login = '" + txtLogin1.Text + "' and senha = '" + txtSenha1.Text + "'";
+                MySqlCommand comando = new MySqlCommand();
 
-                    comando.Connection = conectar;
-                    //Executar Comando
-                    var resultado = comando.ExecuteScalar();
+                // Comando SQL
+                comando.CommandText = "SELECT id_usuario FROM usuario WHERE login = @login AND senha = @senha";
+                comando.Parameters.AddWithValue("@login", txtLogin1.Text);
+                comando.Parameters.AddWithValue("@senha", txtSenha1.Text);
 
-                    if (resultado != null)
+                comando.Connection = conectar;
+
+                // Executar Comando
+                var resultado = comando.ExecuteScalar();
+
+                if (resultado != null)
+                {
+                    int userId = Convert.ToInt32(resultado); // Obtém o ID do usuário como um número inteiro
+
+                    if (txtLogin1.Text == "admin" || txtSenha1.Text == "admin")
                     {
-                        if (txtLogin1.Text == "admin" || txtSenha1.Text == "admin")
-                        {
-                            Cadastro cadproduto = new Cadastro();
-                            cadproduto.Show();
-                            this.Hide();
-                        }
-                        else
-                        {
-                            UltimoValorTextBox = txtLogin1.Text;
-                            Operação cadprodutos = new Operação();
-                            cadprodutos.Show();
-                            Hide();
-                        }
+                        Cadastro cadproduto = new Cadastro();
+                        cadproduto.Show();
+                        this.Hide();
                     }
+                    else
+                    {
+                        UltimoValorTextBox = txtLogin1.Text;
+
+                        Operação cadprodutos = new Operação(userId); // Passa o ID do usuário como argumento
+                        cadprodutos.Show();
+                        Hide();
+                    }
+                }
+
+            
                     else if (txtLogin1.Text == "" || txtSenha1.Text == "")
                     {
                         MessageBox.Show("Todos os campos devem ser preenchidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);

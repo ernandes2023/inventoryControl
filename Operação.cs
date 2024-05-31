@@ -18,12 +18,15 @@ namespace inventoryControl
         private List<Componente> componentes;
         private UserTecnico userTecnico;
         private Timer timer;
-
+        // Campo para armazenar o ID do usuário
+        private int userId;
         public Operação()
         {
             operacoes = new List<Operacao>();
             componentes = new List<Componente>();
             userTecnico = new UserTecnico();
+            // Novo construtor que aceita o ID do usuário
+         
 
             InitializeComponent();
             carregDadoProd();
@@ -45,6 +48,10 @@ namespace inventoryControl
             timer.Tick += Timer_Tick;
             timer.Start();
 
+        }
+        public Operação(int userId) : this() // Chama o construtor padrão para fazer outras inicializações
+        {
+            this.userId = userId;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -361,7 +368,7 @@ namespace inventoryControl
                     using (MySqlCommand command = new MySqlCommand(query, connection))
 
                     {
-                        int teste = 2;
+                       
                         // Parâmetros
                         command.Parameters.AddWithValue("@grm", operacao.grm.id);
                         command.Parameters.AddWithValue("@module", operacao.module.id);
@@ -371,7 +378,7 @@ namespace inventoryControl
                         command.Parameters.AddWithValue("@defeito", operacao.defeito.id);
                         command.Parameters.AddWithValue("@componente", operacao.componente.id);
                         command.Parameters.AddWithValue("@gtdComp", operacao.gtdComp);
-                        command.Parameters.AddWithValue("@tecnico", teste);
+                        command.Parameters.AddWithValue("@tecnico", userId);
                         command.Parameters.AddWithValue("@dataAtual", operacao.dataAtual);
 
                         connection.Open();
