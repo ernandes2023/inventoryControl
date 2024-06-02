@@ -119,6 +119,7 @@
     <Compile Include="Cadastro2.Designer.cs">
       <DependentUpon>Cadastro2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Criptografia.cs" />
     <Compile Include="Garantia.cs" />
     <Compile Include="Defeito.cs" />
     <Compile Include="GrmProdutos.cs" />
