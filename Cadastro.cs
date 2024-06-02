@@ -1087,12 +1087,6 @@ namespace inventoryControl
 
             dgvClientes.DataSource = dt;
         }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void dgvDefeito_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             txtIdDefeito.Text       = dgvDefeito.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -1145,7 +1139,6 @@ namespace inventoryControl
                 }
             }
         }
-
         private void btnEditDefeito_Click(object sender, EventArgs e)
         {
             if (txtDefeito.Text == "")
@@ -1191,7 +1184,6 @@ namespace inventoryControl
                 }
             }
         }
-
         private void btnDelDefeito_Click(object sender, EventArgs e)
         {
             DialogResult caixaMensagem = MessageBox.Show("Deseja realmente exluir esse componente?", "Aviso", MessageBoxButtons.YesNo);
