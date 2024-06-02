@@ -124,8 +124,8 @@ namespace inventoryControl
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.BtnClean = new System.Windows.Forms.Button();
             this.BtnDark = new System.Windows.Forms.Button();
-            this.BtnExit = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.BtnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -284,7 +284,6 @@ namespace inventoryControl
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1102, 578);
             this.tabControl1.TabIndex = 12;
-            this.tabControl1.Visible = false;
             // 
             // tabPage1
             // 
@@ -1161,6 +1160,16 @@ namespace inventoryControl
             this.BtnDark.UseVisualStyleBackColor = true;
             this.BtnDark.Click += new System.EventHandler(this.BtnDark_Click);
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Location = new System.Drawing.Point(4, 34);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1094, 540);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Defeitos";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
             // BtnExit
             // 
             this.BtnExit.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1171,16 +1180,6 @@ namespace inventoryControl
             this.BtnExit.Text = "Sair";
             this.BtnExit.UseVisualStyleBackColor = true;
             this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 34);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1094, 540);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Defeitos";
-            this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // Cadastro
             // 
