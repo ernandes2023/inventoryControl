@@ -21,6 +21,7 @@ namespace inventoryControl
 
         private void btn_entrar_Click(object sender, EventArgs e)
         {
+
             MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
             conectar.Open();
 
@@ -28,10 +29,13 @@ namespace inventoryControl
                 {
                 MySqlCommand comando = new MySqlCommand();
 
+                // Criptografa a senha fornecida pelo usuário
+                string senhaCriptografada = txtSenha1.Text.GerarHash();// 1. para voltar ao que era antes comente o código ao lado
+
                 // Comando SQL
                 comando.CommandText = "SELECT id_usuario FROM usuario WHERE login = @login AND senha = @senha";
                 comando.Parameters.AddWithValue("@login", txtLogin1.Text);
-                comando.Parameters.AddWithValue("@senha", txtSenha1.Text);
+                comando.Parameters.AddWithValue("@senha", senhaCriptografada); // 2. para voltar ao que era antes troque o senhaCriptografada por txtSenha1.Text
 
                 comando.Connection = conectar;
 
