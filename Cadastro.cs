@@ -30,6 +30,7 @@ namespace inventoryControl
             LoadTableClient();
             LoadTableProd();
             LoadTableComp();
+            LoadTableDefeito();
         }
 
                 private bool ValorJaInserido(string valor)
@@ -172,6 +173,37 @@ namespace inventoryControl
             dgvComponentes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
+        private void LoadTableDefeito() // Metodo privado que carrega dados da tabela Produto.
+        {
+            // Cria uma nova conexão MySqlConnection utilizando a string de conexão definida em Program.conexaoBD
+            MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
+
+            // Abre a conexão com o banco de dados
+            conexaoMYSQL.Open();
+
+            // Cria um objeto MySqlDataAdapter para executar a consulta SQL e preencher o DataTable
+            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT id,nome_defeito FROM defeito", conexaoMYSQL);
+
+            // Cria um novo DataTable para armazenar os dados retornados pela consulta
+            DataTable dt = new DataTable();
+
+            // Preenche o DataTable com os dados retornados pela consulta SQL usando o MySqlDataAdapter
+            adapter.Fill(dt);
+
+            // Renomear as colunas conforme necessário
+            dt.Columns["id"].ColumnName = "Id:";
+            dt.Columns["nome_defeito"].ColumnName = "Descrição:";
+
+            // Define o DataGridView dgvClientes como a fonte de dados para exibir os dados do DataTable
+            dgvDefeito.DataSource = dt;
+
+            // Fecha a conexão com o banco de dados
+            conexaoMYSQL.Close();
+
+            // Formata as colunas do DataGridView para o tanho auto ajustavel
+            dgvDefeito.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        }
+
         private void BtnBackLogin_Click(object sender, EventArgs e)
         {
             Login login = new Login();
@@ -187,6 +219,7 @@ namespace inventoryControl
             txtId1.Enabled = false;
             TxtIdProd.Enabled = false;
             TxtIdComp.Enabled = false;
+            txtIdDefeito.Enabled = false;
 
             dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
@@ -1002,69 +1035,6 @@ namespace inventoryControl
             TxtNomeCliente.SelectionStart = TxtNomeCliente.Text.Length;
         }
 
-        private bool temaEscuroAtivo = false;
-
-        private void BtnDark_Click(object sender, EventArgs e)
-        {
-            /*
-            // Exibe a caixa de diálogo de seleção de cor
-            ColorDialog colorDialog = new ColorDialog();
-            if (colorDialog.ShowDialog() == DialogResult.OK)
-            {
-                // Define a cor de fundo do formulário para a cor selecionada
-                this.BackColor = colorDialog.Color;
-                tabPage1.BackColor = colorDialog.Color;
-                tabPage2.BackColor = colorDialog.Color;
-                tabPage3.BackColor = colorDialog.Color;
-                tabPage4.BackColor = colorDialog.Color;
-                tabPage5.BackColor = colorDialog.Color;
-                tabControl1.BackColor = colorDialog.Color;
-            }
-            */
-
-            // Alternar o tema entre claro e escuro
-            temaEscuroAtivo = !temaEscuroAtivo;
-
-            if (temaEscuroAtivo)
-            {
-                // Configurar cores para o tema escuro
-                this.BackColor = Color.FromArgb(30, 30, 30);
-                this.ForeColor = Color.White;
-                tabPage1.BackColor = Color.FromArgb(30, 30, 30);
-                tabPage2.BackColor = Color.FromArgb(30, 30, 30);
-                tabPage3.BackColor = Color.FromArgb(30, 30, 30);
-                tabPage4.BackColor = Color.FromArgb(30, 30, 30);
-                tabPage5.BackColor = Color.FromArgb(30, 30, 30);
-                tabControl1.BackColor = Color.FromArgb(30, 30, 30);
-                BtnDark.BackColor = Color.FromArgb(30, 30, 30);
-                // Atualizar outros componentes visuais conforme necessário
-            }
-            else
-            {
-                // Configurar cores para o tema claro (pode voltar aos padrões do sistema)
-                this.BackColor = SystemColors.Control;
-                this.ForeColor = SystemColors.ControlText;
-                tabPage1.BackColor = SystemColors.Control;
-                tabPage2.BackColor = SystemColors.Control;
-                tabPage3.BackColor = SystemColors.Control;
-                tabPage4.BackColor= SystemColors.Control;
-                tabPage5.BackColor = SystemColors.Control;
-                tabControl1.BackColor = SystemColors.Control;
-                BtnDark.BackColor = SystemColors.Control;
-                // Atualizar outros componentes visuais conforme necessário
-            }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void MskPesqCnpj_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
         private void MskPesqCnpj_TextChanged(object sender, EventArgs e)
         {
             MySqlConnection conexao = new MySqlConnection(Program.conexaoBD);
@@ -1106,6 +1076,164 @@ namespace inventoryControl
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvDefeito_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtIdDefeito.Text       = dgvDefeito.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtDefeito.Text         = dgvDefeito.Rows[e.RowIndex].Cells[1].Value.ToString();
+            btnSaveDefeito.Enabled = false;
+        }
+
+        private void btnSaveDefeito_Click(object sender, EventArgs e)
+        {
+            // Verifica se os campos de código e nome do produto estão vazios
+            if (txtDefeito.Text == "")
+            {
+                // Se algum campo estiver vazio, exibe uma mensagem de aviso
+                MessageBox.Show("Todos os campos devem ser preenchidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                // Conexão com o banco de dados MySQL
+                MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
+                conexaoMYSQL.Open(); // Abre a conexão
+
+                try
+                {
+                    // Cria um comando SQL para inserir dados na tabela 'defeito'
+                    MySqlCommand comando = new MySqlCommand("INSERT INTO defeito(nome_defeito)VALUES('" + txtDefeito.Text + "');", conexaoMYSQL);
+
+                    // Executa o comando SQL para inserção de dados
+                    comando.ExecuteNonQuery();
+
+                    // Exibe uma mensagem de sucesso
+                    MessageBox.Show("Dados criados com Sucesso!", "Sucesso", MessageBoxButtons.OK);
+
+                    // Limpa os campos de entrada de texto
+                    txtIdDefeito.Text = "";
+                    txtDefeito.Text = "";
+
+
+                    // Atualiza a tabela de produtos na interface
+                    LoadTableDefeito();
+                }
+                catch (Exception ex)
+                {
+                    // Exibe uma mensagem de erro caso ocorra uma exceção durante a execução do código
+                    MessageBox.Show("Erro ao salvar dados dados: " + ex.Message);
+                }
+                finally
+                {
+                    // Garante que a conexão com o banco de dados seja fechada, independentemente de ocorrerem exceções ou não
+                    conexaoMYSQL.Close();
+                }
+            }
+        }
+
+        private void btnEditDefeito_Click(object sender, EventArgs e)
+        {
+            if (txtDefeito.Text == "")
+            {
+                MessageBox.Show("Selecione um componente existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                // Cria uma nova conexão MySqlConnection utilizando a string de conexão definida em Program.conexaoBD
+                MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
+
+                // Abre a conexão com o banco de dados
+                conexaoMYSQL.Open();
+                try
+                {
+                    // Cria um novo comando MySqlCommand para Editar os dados na tabela defeito
+                    MySqlCommand comando = new MySqlCommand("UPDATE defeito SET nome_defeito='" + txtDefeito.Text + "' WHERE id =" + txtIdDefeito.Text, conexaoMYSQL);
+
+                    // Executa o comando de inserir os dados
+                    comando.ExecuteNonQuery();
+
+                    // Exibe uma mensagem de sucesso
+                    MessageBox.Show("Dados alterados!", "Sucesso", MessageBoxButtons.OK);
+
+                    // Limpa os campos de entrada de dados
+                    txtIdDefeito.Text = "";
+                    txtDefeito.Text = "";
+                    txtDefeito.Select();
+                    btnSaveDefeito.Enabled = true;
+
+                    // Chama o Método que irá carregar as informações dentro do dgvComponentes
+                    LoadTableDefeito();
+                }
+                catch (Exception ex)
+                {
+                    // Exibe uma mensagem de erro caso ocorra uma exceção
+                    MessageBox.Show("Erro ao atualizar dados: " + ex.Message);
+                }
+                finally
+                {
+                    // Fecha a conexão com o banco de dados, independentemente de ocorrer uma exceção ou não
+                    conexaoMYSQL.Close();
+                }
+            }
+        }
+
+        private void btnDelDefeito_Click(object sender, EventArgs e)
+        {
+            DialogResult caixaMensagem = MessageBox.Show("Deseja realmente exluir esse componente?", "Aviso", MessageBoxButtons.YesNo);
+
+            if (caixaMensagem == DialogResult.Yes)
+            {
+                if (txtDefeito.Text == "")
+                {
+                    MessageBox.Show("Selecione um componente existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    // Cria uma nova conexão MySqlConnection utilizando a string de conexão definida em Program.conexaoBD
+                    MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD);
+
+                    // Abre a conexão com o banco de dados
+                    conexaoMYSQL.Open();
+                    try
+                    {
+                        // Cria um novo comando MySqlCommand para deletar os dados na tabela componete
+                        MySqlCommand comando = new MySqlCommand("DELETE FROM defeito WHERE id=" + txtIdDefeito.Text + ";", conexaoMYSQL);
+
+                        // Executa o comando de inserir os dados
+                        comando.ExecuteNonQuery();
+
+                        // Exibe uma mensagem de sucesso
+                        MessageBox.Show("Dados excluídos!", "Sucesso", MessageBoxButtons.OK);
+
+                        // Limpa os campos de entrada de dados
+                        txtIdDefeito.Text = "";
+                        txtDefeito.Text = "";
+                        txtDefeito.Select();
+                        btnSaveDefeito.Enabled = true;
+
+                        // Chama o Método que irá carregar as informações dentro do dgvComponentes
+                        LoadTableDefeito();
+                    }
+                    catch (Exception ex)
+                    {
+                        // Exibe uma mensagem de erro caso ocorra uma exceção
+                        MessageBox.Show("Erro ao carregar dados: " + ex.Message);
+                    }
+                    finally
+                    {
+                        // Fecha a conexão com o banco de dados, independentemente de ocorrer uma exceção ou não
+                        conexaoMYSQL.Close();
+                    }
+                }
+            }
+        }
+
+        private void btnClearDefeito_Click(object sender, EventArgs e)
+        {
+            txtIdDefeito.Text = "";
+            txtDefeito.Text = "";
+            txtDefeito.Select();
+            btnSaveDefeito.Enabled = true;
         }
     }
 }
