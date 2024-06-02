@@ -92,7 +92,10 @@ namespace inventoryControl
             }
         }
         private void carregDadosGrm()
-        {            
+        {
+           
+            
+
             string query = "Select * from grm";
 
 
@@ -107,32 +110,38 @@ namespace inventoryControl
                     grmNumero.Items.Add(reader["numero_grm"].ToString());
 
                     grmNumero.ValueMember = reader["id_grm"].ToString();
+
                 }
+                     
                 reader.Close();
             }
         }
         private void carregDadosGarantia()
         {
-            
 
+            
             string query = "Select * from garantia";
 
-            using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
-            {
-                MySqlCommand comando = new MySqlCommand(query, connection);
-                connection.Open();
-                MySqlDataReader reader = comando.ExecuteReader();
-
-                while (reader.Read())
+                using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
                 {
-                    garantia.Items.Add(reader["status_garantia"].ToString());
+                    MySqlCommand comando = new MySqlCommand(query, connection);
+                    connection.Open();
+                    MySqlDataReader reader = comando.ExecuteReader();
 
-                    garantia.ValueMember = reader["id_garantia"].ToString();
+                    while (reader.Read())
+                    {
+                        garantia.Items.Add(reader["status_garantia"].ToString());
+
+                    }
+
+                    
+
+                    reader.Close();
+
                 }
-                reader.Close();
-            }
+
         }
-        private void carregDadoProd()
+            private void carregDadoProd()
         {
            
         }
@@ -245,13 +254,12 @@ namespace inventoryControl
 
         private void grmNumero_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-
             GrmProdutos grm = new GrmProdutos();
             grm.id = int.Parse(grmNumero.ValueMember);
             grm.nome = grmNumero.SelectedItem.ToString();
 
             operacao.grm = grm;
+
 
             try
             {
@@ -276,7 +284,11 @@ namespace inventoryControl
 
                     }
                     reader.Close();
+
+                   
                 }
+
+               
             }
             catch
             {
@@ -343,9 +355,22 @@ namespace inventoryControl
 
         private void componente_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //string componenteSelecionado = componente.SelectedItem.ToString();
-            //obj.componente = componenteSelecionado;
+            string query = "select id_componente from componente where nome_comp ='" + componente.SelectedItem + "';";
 
+            using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
+            {
+                MySqlCommand comando = new MySqlCommand(query, connection);
+                connection.Open();
+                MySqlDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+
+                    componente.ValueMember = reader["id_componente"].ToString();
+
+                }
+                reader.Close();
+            }
             Componente comp = new Componente();
             comp.id = int.Parse(componente.ValueMember);
             comp.nome = componente.SelectedItem.ToString();
@@ -357,15 +382,16 @@ namespace inventoryControl
         {
             try
             {
+              
 
                 foreach (Operacao operacao in operacoes)
                 {
-                    string query = "INSERT INTO `operacao` (fk_grm, fk_prod, serial_number, garantia, state, fk_def, fk_usuario, data_operacao, componente, qtd_comp) " +
+                    string query2 = "INSERT INTO `operacao` (fk_grm, fk_prod, serial_number, garantia, state, fk_def, fk_usuario, data_operacao, componente, qtd_comp) " +
                                        "VALUES (@grm, @module, @serialNumber, @garantia, @status, @defeito, @tecnico, @dataAtual, @componente, @gtdComp)";
 
                     using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
 
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    using (MySqlCommand command = new MySqlCommand(query2, connection))
 
                     {
                        
@@ -411,16 +437,32 @@ namespace inventoryControl
 
         private void garantia_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
+
+            string query = "select id_garantia from garantia where status_garantia ='" + garantia.SelectedItem +"';" ;
+
+            using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
+            {
+                MySqlCommand comando = new MySqlCommand(query, connection);
+                connection.Open();
+                MySqlDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+                  
+                    garantia.ValueMember = reader["id_garantia"].ToString();
+
+                }
+                reader.Close();
+            }
+
             Garantia gar = new Garantia();
             gar.id = int.Parse(garantia.ValueMember);
             gar.nome = garantia.SelectedItem.ToString();
 
             operacao.garantia = gar;
 
-            /*string gar = garantia.SelectedItem.ToString();
 
-            operacao.garantia.nome = gar;
-            */
         }
 
         private void status_SelectedIndexChanged(object sender, EventArgs e)
@@ -432,6 +474,23 @@ namespace inventoryControl
 
         private void defeito_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string query = "select id from defeito where nome_defeito ='" + defeito.SelectedItem + "';";
+
+            using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
+            {
+                MySqlCommand comando = new MySqlCommand(query, connection);
+                connection.Open();
+                MySqlDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+
+                    defeito.ValueMember = reader["id"].ToString();
+
+                }
+                reader.Close();
+            }
+
             Defeito def = new Defeito();
             def.id = int.Parse(defeito.ValueMember);
             def.nome = defeito.SelectedItem.ToString();
