@@ -407,6 +407,7 @@ namespace inventoryControl
         /* Codigo abaixo realiza o Cadastro do Usuário */
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
+           
             // Verifica se todos os campos obrigatórios estão preenchidos
             if (TxtNameUser.Text == "" || TxtCpfUser.Text == "" || TxtCargoUser.Text == "" || TxtUser.Text == "" || TxtPass.Text == "" || TxtConfPass.Text == "")
             {
@@ -430,8 +431,22 @@ namespace inventoryControl
                 conectar.Open();
                 try
                 {
+                     // Definir a senha em uma variável
+                     string senha = TxtPass.Text;
+
+                    //Código que realiza a criptografia de senha
+                    senha = senha.GerarHash();
+
                     // Cria um novo comando MySqlCommand para inserir os dados na tabela usuario
-                    MySqlCommand cadastrar = new MySqlCommand("INSERT INTO usuario (nome_usuario, cpf_usuario, cargo, login, senha, confirm_senha) values ('" + TxtNameUser.Text + "','" + TxtCpfUser.Text + "','" + TxtCargoUser.Text + "','" + TxtUser.Text + "','" + TxtPass.Text + "','" + TxtConfPass.Text + "');", conectar);
+                    MySqlCommand cadastrar = new MySqlCommand("INSERT INTO usuario (nome_usuario, cpf_usuario, cargo, login, senha, confirm_senha) values (@Nome, @CPF, @Cargo, @Login, @Senha, @ConfSenha);", conectar);
+
+                    // Adiciona parâmetros ao comando
+                    cadastrar.Parameters.AddWithValue("@Nome", TxtNameUser.Text);
+                    cadastrar.Parameters.AddWithValue("@CPF", TxtCpfUser.Text);
+                    cadastrar.Parameters.AddWithValue("@Cargo", TxtCargoUser.Text);
+                    cadastrar.Parameters.AddWithValue("@Login", TxtUser.Text);
+                    cadastrar.Parameters.AddWithValue("@Senha", senha);
+                    cadastrar.Parameters.AddWithValue("@ConfSenha", TxtConfPass.Text);
 
                     // Executa o comando de inserção
                     cadastrar.ExecuteNonQuery();

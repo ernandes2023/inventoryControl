@@ -255,11 +255,12 @@ namespace inventoryControl
         private void grmNumero_SelectedIndexChanged(object sender, EventArgs e)
         {
             GrmProdutos grm = new GrmProdutos();
-            grm.id = int.Parse(grmNumero.ValueMember);
+            string idstr = grmNumero.ValueMember;
+            grm.id = int.Parse(idstr);
             grm.nome = grmNumero.SelectedItem.ToString();
 
             operacao.grm = grm;
-
+           
 
             try
             {
@@ -278,8 +279,12 @@ namespace inventoryControl
 
                     while (reader.Read())
                     {
+                        //string mp = reader["id_produto"].ToString();
+
                         produto.Items.Add(reader["nome_produto"].ToString());
 
+                        //produto.ValueMember = reader["id_produto"].ToString();
+                        //produto.DisplayMember = "nome_produto";
                         produto.ValueMember = reader["id_produto"].ToString();
 
                     }
@@ -295,17 +300,17 @@ namespace inventoryControl
                 // Lidar com exceções, por exemplo, exibir uma mensagem de erro
                 MessageBox.Show("Falha ao executar a consulta no banco");
             }
-        }
+        } 
 
         private void produto_SelectedIndexChanged(object sender, EventArgs e)
         {
             Modulo mod = new Modulo();
-            mod.id = int.Parse(produto.ValueMember);
-            mod.nome = produto.SelectedItem.ToString();
-            
-
+            string str = produto.ValueMember;
+            mod.id = int.Parse(str)-1;
+            mod.nome = produto.SelectedItem.ToString();            
             operacao.module = mod;
 
+            /*
             string query = "select produto.nome_produto, produto.id_produto from  grm_oper inner join produto on grm_oper.fk_prod = produto.id_produto  inner join grm  on grm_oper.fk_grm = grm.id_grm where  id_grm = '" + grmNumero.ValueMember + "';";
 
             using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
@@ -314,8 +319,11 @@ namespace inventoryControl
                 connection.Open();
                 MySqlDataReader reader = comando.ExecuteReader();
 
+                produto.Items.Clear();
+
                 while (reader.Read())
                 {
+                   
                     // Adicionando o nome do produto ao componente 'moduloText'
                     produto.Items.Add(reader["nome_produto"].ToString());
 
@@ -323,7 +331,7 @@ namespace inventoryControl
 
                 }
                 reader.Close();
-            }
+            }*/
         }
 
         private void addList_Click(object sender, EventArgs e)
@@ -415,16 +423,28 @@ namespace inventoryControl
                         MessageBox.Show("Dados inseridos com sucesso!", "Sucesso", MessageBoxButtons.OK);
 
                         // Limpa os campos de entrada de dados na linha 
-                        command.Parameters.Clear();
-
+                        //command.Parameters.Clear();
+              
                     }
                 }
+
+                dataGridView1.Rows.Clear();
+                serialNumber.Text = "";
+                grmNumero.SelectedIndex = -1;
+                dataAtual.Text = "";
+                garantia.SelectedIndex = -1;
+                componente.SelectedIndex = -1;
+                gtdComp.Text = "";
+                produto.SelectedIndex = -1;
+                status.SelectedIndex = -1;
+                defeito.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
                 // Lidar com exceções, por exemplo, exibir uma mensagem de erro
                 MessageBox.Show("Falha ao salvar as informações" + ex.Message);
             }
+
          }
        
 
