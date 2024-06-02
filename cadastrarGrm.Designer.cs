@@ -69,6 +69,7 @@ namespace inventoryControl
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(46, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
@@ -78,6 +79,7 @@ namespace inventoryControl
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(46, 140);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 13);
@@ -87,6 +89,7 @@ namespace inventoryControl
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label3.Location = new System.Drawing.Point(191, 143);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(24, 13);
@@ -114,6 +117,7 @@ namespace inventoryControl
             // 
             // btnVoltar
             // 
+            this.btnVoltar.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnVoltar.Location = new System.Drawing.Point(413, 405);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(75, 23);
@@ -126,6 +130,7 @@ namespace inventoryControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(500, 450);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnSalvar);
@@ -136,7 +141,9 @@ namespace inventoryControl
             this.Controls.Add(this.qtdText);
             this.Controls.Add(this.moduloText);
             this.Controls.Add(this.grmText);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "cadastrarGrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "cadastrarGrm";
             this.Load += new System.EventHandler(this.cadastrarGrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

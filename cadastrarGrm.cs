@@ -97,10 +97,10 @@ namespace inventoryControl
                         MySqlCommand comando = new MySqlCommand();
                         //Comando SQL
                         comando.CommandText = "select * from grm where numero_grm = '" + grmText.Text + "'";
+                        //  comando.CommandText = "select * from grm ";
 
-                                       
-                        // Cria um objeto MySqlDataAdapter para executar a consulta SQL e preencher o DataTable
-                        MySqlDataAdapter adapter = new MySqlDataAdapter("select grm.numero_grm, produto.nome_produto, grm_oper.qtd, grm_oper.reparado from grm_oper inner join produto on grm_oper.fk_prod = produto.id_produto inner join grm on grm_oper.fk_grm = grm.id_grm ORDER BY grm.numero_grm  DESC; ", conexaoMYSQL);
+            // Cria um objeto MySqlDataAdapter para executar a consulta SQL e preencher o DataTable
+            MySqlDataAdapter adapter = new MySqlDataAdapter("select grm.numero_grm, produto.nome_produto, grm_oper.qtd, grm_oper.reparado from grm_oper inner join produto on grm_oper.fk_prod = produto.id_produto inner join grm on grm_oper.fk_grm = grm.id_grm ORDER BY grm.numero_grm  DESC; ", conexaoMYSQL);
 
                         // Cria um novo DataTable para armazenar os dados retornados pela consulta
                         DataTable dt = new DataTable();
