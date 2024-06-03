@@ -46,7 +46,7 @@ namespace inventoryControl
                 {
                     int userId = Convert.ToInt32(resultado); // Obtém o ID do usuário como um número inteiro
 
-                    if (txtLogin1.Text == "admin" || txtSenha1.Text == "admin")
+                    if (txtLogin1.Text == "admin")
                     {
                         Cadastro cadproduto = new Cadastro();
                         cadproduto.Show();
