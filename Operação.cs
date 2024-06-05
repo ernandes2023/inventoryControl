@@ -14,6 +14,8 @@ namespace inventoryControl
     public partial class Operação : Form
     {
         private Operacao operacao;
+        private List<Modulo> modulos = new List<Modulo>();
+        private List<GrmProdutos> grms = new List<GrmProdutos>();
         private List<Operacao> operacoes;
         private List<Componente> componentes;
         private UserTecnico userTecnico;
@@ -107,9 +109,15 @@ namespace inventoryControl
 
                 while(reader.Read())
                 {
-                    grmNumero.Items.Add(reader["numero_grm"].ToString());
+                    GrmProdutos grm = new GrmProdutos();
+                    grm.nome = reader["numero_grm"].ToString();
+                    grm.id = Int32.Parse(reader["id_grm"].ToString());
 
-                    grmNumero.ValueMember = reader["id_grm"].ToString();
+                    grms.Add(grm);
+
+                    grmNumero.Items.Add(grm.nome);
+
+                   
 
                 }
                      
@@ -161,15 +169,13 @@ namespace inventoryControl
 
                 while (reader.Read())
                 {
-                    //Componente comp = new Componente(Convert.ToInt32(reader["id_componente"]), reader["nome_comp"].ToString());
-                    //componentes.Add(comp);
+                    Componente comp = new Componente();
+                    comp.nome = reader["nome_comp"].ToString();
+                    comp.id = Convert.ToInt32(reader["id_componente"]);
+                    componentes.Add(comp);
 
-                    //componente.Items.Add(comp.nome);
-                    //componente.ValueMember = comp.id.ToString();
-
-                    componente.Items.Add(reader["nome_comp"].ToString());
-
-                    componente.ValueMember = reader["id_componente"].ToString();
+                    componente.Items.Add(comp.nome);
+                   
                 }
                 reader.Close();
             }
@@ -254,14 +260,9 @@ namespace inventoryControl
 
         private void grmNumero_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GrmProdutos grm = new GrmProdutos();
-            string idstr = grmNumero.ValueMember;
-            grm.id = int.Parse(idstr);
-            grm.nome = grmNumero.SelectedItem.ToString();
-
-            operacao.grm = grm;
-           
-
+            GrmProdutos grmSelecionada = grms.Find(grm => grm.nome == grmNumero.SelectedItem.ToString());
+            operacao.grm = grmSelecionada;
+          
             try
             {
 
@@ -275,17 +276,26 @@ namespace inventoryControl
                     connection.Open();
                     MySqlDataReader reader = comando.ExecuteReader();
 
+                    modulos.Clear();
                     produto.Items.Clear();
 
                     while (reader.Read())
                     {
-                        //string mp = reader["id_produto"].ToString();
 
-                        produto.Items.Add(reader["nome_produto"].ToString());
+                        Modulo modulo = new Modulo();
+                        modulo.id = Int32.Parse(reader["id_produto"].ToString());
+                        modulo.nome = reader["nome_produto"].ToString();
+
+                        modulos.Add(modulo);
+
+                        //string mp = reader["id_produto"].ToString();
+                        produto.Items.Add(modulo.nome);
+                        
+                        //produto.Items.Add(reader["nome_produto"].ToString());
 
                         //produto.ValueMember = reader["id_produto"].ToString();
                         //produto.DisplayMember = "nome_produto";
-                        produto.ValueMember = reader["id_produto"].ToString();
+                        //produto.ValueMember = reader["id_produto"].ToString();
 
                     }
                     reader.Close();
@@ -304,10 +314,7 @@ namespace inventoryControl
 
         private void produto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Modulo mod = new Modulo();
-            string str = produto.ValueMember;
-            mod.id = int.Parse(str)-1;
-            mod.nome = produto.SelectedItem.ToString();            
+            Modulo mod = this.modulos.Find(modulo => modulo.nome == produto.SelectedItem.ToString());          
             operacao.module = mod;
 
             /*
@@ -359,31 +366,23 @@ namespace inventoryControl
             dataAtual.Text = Hoje.ToString("yyyy-MM-dd HH:mm:ss");
 
             operacao.dataAtual = Hoje;
+
+            serialNumber.Text = "";
+            grmNumero.ResetText();
+            dataAtual.Text = "";
+            garantia.ResetText();
+            componente.ResetText();
+            gtdComp.Text = "";
+            produto.ResetText();
+            status.ResetText();
+            defeito.ResetText();
         }
 
         private void componente_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string query = "select id_componente from componente where nome_comp ='" + componente.SelectedItem + "';";
 
-            using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
-            {
-                MySqlCommand comando = new MySqlCommand(query, connection);
-                connection.Open();
-                MySqlDataReader reader = comando.ExecuteReader();
-
-                while (reader.Read())
-                {
-
-                    componente.ValueMember = reader["id_componente"].ToString();
-
-                }
-                reader.Close();
-            }
-            Componente comp = new Componente();
-            comp.id = int.Parse(componente.ValueMember);
-            comp.nome = componente.SelectedItem.ToString();
-
-            operacao.componente = comp;
+            Componente compSelecionado = componentes.Find(comp => comp.nome == componente.SelectedItem.ToString());
+            operacao.componente = compSelecionado;
         }
 
         private void finalizar_Click(object sender, EventArgs e)
@@ -418,26 +417,18 @@ namespace inventoryControl
                         connection.Open();
                         // Executar a query
                         command.ExecuteNonQuery();
-
-                        // Exibe uma mensagem de sucesso
-                        MessageBox.Show("Dados inseridos com sucesso!", "Sucesso", MessageBoxButtons.OK);
-
                         // Limpa os campos de entrada de dados na linha 
-                        //command.Parameters.Clear();
+                        command.Parameters.Clear();
               
                     }
                 }
 
+                // Exibe uma mensagem de sucesso
+                MessageBox.Show("Dados inseridos com sucesso!", "Sucesso", MessageBoxButtons.OK);
                 dataGridView1.Rows.Clear();
-                serialNumber.Text = "";
-                grmNumero.SelectedIndex = -1;
-                dataAtual.Text = "";
-                garantia.SelectedIndex = -1;
-                componente.SelectedIndex = -1;
-                gtdComp.Text = "";
-                produto.SelectedIndex = -1;
-                status.SelectedIndex = -1;
-                defeito.SelectedIndex = -1;
+                operacoes.Clear();
+
+                
             }
             catch (Exception ex)
             {

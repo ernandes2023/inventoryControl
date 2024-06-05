@@ -194,6 +194,7 @@ namespace inventoryControl
             this.TxtPass.PasswordChar = '*';
             this.TxtPass.Size = new System.Drawing.Size(186, 23);
             this.TxtPass.TabIndex = 6;
+            this.TxtPass.TextChanged += new System.EventHandler(this.TxtPass_TextChanged);
             // 
             // TxtUser
             // 

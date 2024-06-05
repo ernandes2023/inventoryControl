@@ -1122,6 +1122,11 @@ namespace inventoryControl
         {
 
         }
+
+        private void TxtPass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
