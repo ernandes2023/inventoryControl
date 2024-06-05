@@ -16,6 +16,7 @@ namespace inventoryControl
         private Operacao operacao;
         private List<Modulo> modulos = new List<Modulo>();
         private List<GrmProdutos> grms = new List<GrmProdutos>();
+        private List<Defeito> defs = new List<Defeito>();
         private List<Operacao> operacoes;
         private List<Componente> componentes;
         private UserTecnico userTecnico;
@@ -192,9 +193,13 @@ namespace inventoryControl
 
                 while (reader.Read())
                 {
-                    defeito.Items.Add(reader["nome_defeito"].ToString());
-                    
-                    defeito.ValueMember = reader["id"].ToString();
+                    Defeito def = new Defeito();
+                    def.nome = reader["nome_defeito"].ToString();
+                    def.id = Convert.ToInt32(reader["id"]);
+                    defs.Add(def);
+
+                    defeito.Items.Add(def.nome);
+
                 }
                 reader.Close();
             }
@@ -288,15 +293,8 @@ namespace inventoryControl
 
                         modulos.Add(modulo);
 
-                        //string mp = reader["id_produto"].ToString();
                         produto.Items.Add(modulo.nome);
-                        
-                        //produto.Items.Add(reader["nome_produto"].ToString());
-
-                        //produto.ValueMember = reader["id_produto"].ToString();
-                        //produto.DisplayMember = "nome_produto";
-                        //produto.ValueMember = reader["id_produto"].ToString();
-
+           
                     }
                     reader.Close();
 
@@ -315,30 +313,7 @@ namespace inventoryControl
         private void produto_SelectedIndexChanged(object sender, EventArgs e)
         {
             Modulo mod = this.modulos.Find(modulo => modulo.nome == produto.SelectedItem.ToString());          
-            operacao.module = mod;
-
-            /*
-            string query = "select produto.nome_produto, produto.id_produto from  grm_oper inner join produto on grm_oper.fk_prod = produto.id_produto  inner join grm  on grm_oper.fk_grm = grm.id_grm where  id_grm = '" + grmNumero.ValueMember + "';";
-
-            using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
-            {
-                MySqlCommand comando = new MySqlCommand(query, connection);
-                connection.Open();
-                MySqlDataReader reader = comando.ExecuteReader();
-
-                produto.Items.Clear();
-
-                while (reader.Read())
-                {
-                   
-                    // Adicionando o nome do produto ao componente 'moduloText'
-                    produto.Items.Add(reader["nome_produto"].ToString());
-
-                    produto.ValueMember = reader["id_produto"].ToString();
-
-                }
-                reader.Close();
-            }*/
+            operacao.module = mod;       
         }
 
         private void addList_Click(object sender, EventArgs e)
@@ -485,28 +460,9 @@ namespace inventoryControl
 
         private void defeito_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string query = "select id from defeito where nome_defeito ='" + defeito.SelectedItem + "';";
-
-            using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
-            {
-                MySqlCommand comando = new MySqlCommand(query, connection);
-                connection.Open();
-                MySqlDataReader reader = comando.ExecuteReader();
-
-                while (reader.Read())
-                {
-
-                    defeito.ValueMember = reader["id"].ToString();
-
-                }
-                reader.Close();
-            }
-
-            Defeito def = new Defeito();
-            def.id = int.Parse(defeito.ValueMember);
-            def.nome = defeito.SelectedItem.ToString();
-
-            operacao.defeito = def;
+     
+            Defeito defSelecionado = defs.Find(def => def.nome == defeito.SelectedItem.ToString());
+            operacao.defeito = defSelecionado;
         }
 
         private void gtdComp_TextChanged(object sender, EventArgs e)
