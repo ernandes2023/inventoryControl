@@ -278,9 +278,11 @@ namespace inventoryControl
             TxtCpfUser.Text         = dgvUsers.Rows[e.RowIndex].Cells[2].Value.ToString();
             TxtCargoUser.Text       = dgvUsers.Rows[e.RowIndex].Cells[3].Value.ToString();
             TxtUser.Text            = dgvUsers.Rows[e.RowIndex].Cells[4].Value.ToString();
-            TxtPass.Text            = dgvUsers.Rows[e.RowIndex].Cells[5].Value.ToString();
-            TxtConfPass.Text        = dgvUsers.Rows[e.RowIndex].Cells[6].Value.ToString();
+          //  TxtPass.Text            = dgvUsers.Rows[e.RowIndex].Cells[5].Value.ToString();  ESSES TRECHOS NÃO PODEM SUBIR PARA A TEXT BOX
+          //  TxtConfPass.Text        = dgvUsers.Rows[e.RowIndex].Cells[6].Value.ToString();
             BtnSalvar.Enabled       = false;
+
+            MessageBox.Show("Digite a nova senha se necessário", "Altere o usuário", MessageBoxButtons.OK);
         }
 
         private void BtnLimpar_Click(object sender, EventArgs e)
@@ -361,30 +363,53 @@ namespace inventoryControl
 
         private void BtnEditar_Click_1(object sender, EventArgs e)
         {
+            string senhaCriptografada = TxtPass.Text.GerarHash();
             MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
-            conectar.Open();
 
-            MySqlCommand cadastrar = new MySqlCommand("UPDATE usuario SET nome_usuario='" + TxtNameUser.Text + "', cpf_usuario='" + TxtCpfUser.Text +
-                "', cargo='" + TxtCargoUser.Text + "', login='" + TxtUser.Text + "', senha='" + TxtPass.Text + "', confirm_senha='" + TxtConfPass.Text +
-                "' WHERE id_usuario=" + TxtIdUser.Text, conectar);
-            cadastrar.ExecuteNonQuery();
+            try
+            {
+                conectar.Open();
+                MySqlCommand cadastrar = new MySqlCommand(
+                    "UPDATE usuario SET nome_usuario=@Nome, cpf_usuario=@CPF, cargo=@Cargo, login=@Login, senha=@Senha, confirm_senha=@ConfSenha WHERE id_usuario=@Id", conectar);
+                
+                //abaixo tem os parâmetros que protegem contra SQL injection
+                cadastrar.Parameters.AddWithValue("@Nome", TxtNameUser.Text);
+                cadastrar.Parameters.AddWithValue("@CPF", TxtCpfUser.Text);
+                cadastrar.Parameters.AddWithValue("@Cargo", TxtCargoUser.Text);
+                cadastrar.Parameters.AddWithValue("@Login", TxtUser.Text);
+                cadastrar.Parameters.AddWithValue("@Senha", senhaCriptografada);
+                cadastrar.Parameters.AddWithValue("@ConfSenha", TxtConfPass.Text);
+                cadastrar.Parameters.AddWithValue("@Id", TxtIdUser.Text);
 
-            MessageBox.Show("Dados alterados!!!");
-            TxtIdUser.Text = "";
-            TxtNameUser.Text = "";
-            TxtCpfUser.Text = "";
-            TxtCargoUser.Text = "";
-            TxtUser.Text = "";
-            TxtPass.Text = "";
-            TxtConfPass.Text = "";
-            BtnSalvar.Enabled = true;
+                cadastrar.ExecuteNonQuery();
 
+                MessageBox.Show("Dados alterados!!!");
+                TxtIdUser.Text = "";
+                TxtNameUser.Text = "";
+                TxtCpfUser.Text = "";
+                TxtCargoUser.Text = "";
+                TxtUser.Text = "";
+                TxtPass.Text = "";
+                TxtConfPass.Text = "";
+                BtnSalvar.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao atualizar os dados: " + ex.Message);
+            }
+            finally
+            {
+                conectar.Close();
+            }
+
+            AtualizarDataGridView();
+        }
+        private void AtualizarDataGridView()
+        {
             using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
             {
                 conexaoMYSQL.Open();
-
                 string query = "SELECT * FROM usuario";
-
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
                 {
                     DataTable dt = new DataTable();
