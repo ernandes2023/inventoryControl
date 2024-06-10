@@ -10,7 +10,7 @@ namespace inventoryControl
     {
         public static string conexaoBD = "server=localhost;database=inventory;uid=root;pwd=ernandes";
 
-        //public static string conexaoBD = "server=localhost;database=inventory;uid=root;pwd=123456";
+        //public static string conexaoBD = "server=localhost;database=inventory;uid=root;pwd=gabriel";
 
 
         //public static string conexaoBD = "server=localhost;database=inventory;uid=root;pwd=gabriel";
@@ -23,7 +23,7 @@ namespace inventoryControl
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new Consultas());
         }
 
     }

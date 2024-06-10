@@ -29,7 +29,7 @@ namespace inventoryControl
             componentes = new List<Componente>();
             userTecnico = new UserTecnico();
             // Novo construtor que aceita o ID do usuário
-         
+
 
             InitializeComponent();
             carregDadoProd();
@@ -39,7 +39,7 @@ namespace inventoryControl
             carregDadoDef();
             carregDadosStatus();
             carregDgv();
-            
+
 
 
 
@@ -75,7 +75,7 @@ namespace inventoryControl
 
         }
 
-      
+
 
         private void carregDadosStatus()
         {
@@ -96,8 +96,8 @@ namespace inventoryControl
         }
         private void carregDadosGrm()
         {
-           
-            
+
+
 
             string query = "Select * from grm";
 
@@ -108,7 +108,7 @@ namespace inventoryControl
                 connection.Open();
                 MySqlDataReader reader = comando.ExecuteReader();
 
-                while(reader.Read())
+                while (reader.Read())
                 {
                     GrmProdutos grm = new GrmProdutos();
                     grm.nome = reader["numero_grm"].ToString();
@@ -118,41 +118,41 @@ namespace inventoryControl
 
                     grmNumero.Items.Add(grm.nome);
 
-                   
+
 
                 }
-                     
+
                 reader.Close();
             }
         }
         private void carregDadosGarantia()
         {
 
-            
+
             string query = "Select * from garantia";
 
-                using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
+            using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
+            {
+                MySqlCommand comando = new MySqlCommand(query, connection);
+                connection.Open();
+                MySqlDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
                 {
-                    MySqlCommand comando = new MySqlCommand(query, connection);
-                    connection.Open();
-                    MySqlDataReader reader = comando.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        garantia.Items.Add(reader["status_garantia"].ToString());
-
-                    }
-
-                    
-
-                    reader.Close();
+                    garantia.Items.Add(reader["status_garantia"].ToString());
 
                 }
 
+
+
+                reader.Close();
+
+            }
+
         }
-            private void carregDadoProd()
+        private void carregDadoProd()
         {
-           
+
         }
         private void carregDadoComp()
         {
@@ -176,7 +176,7 @@ namespace inventoryControl
                     componentes.Add(comp);
 
                     componente.Items.Add(comp.nome);
-                   
+
                 }
                 reader.Close();
             }
@@ -204,7 +204,7 @@ namespace inventoryControl
                 reader.Close();
             }
         }
-     
+
         private void carregDgv()
         {
             // Configurando as colunas manualmente
@@ -215,7 +215,7 @@ namespace inventoryControl
             dataGridView1.Columns.Add("Column5", "Garantia");
             dataGridView1.Columns.Add("Column6", "Defeito");
             dataGridView1.Columns.Add("Column7", "Componente");
-            dataGridView1.Columns.Add("Column8", "QTD");            
+            dataGridView1.Columns.Add("Column8", "QTD");
             dataGridView1.Columns.Add("Column9", "Tecnico");
             dataGridView1.Columns.Add("Column10", "Data");
             dataGridView1.Columns[2].Width = 150;
@@ -248,7 +248,7 @@ namespace inventoryControl
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
         }
 
         private void dataAtual_TextChanged(object sender, EventArgs e)
@@ -267,7 +267,7 @@ namespace inventoryControl
         {
             GrmProdutos grmSelecionada = grms.Find(grm => grm.nome == grmNumero.SelectedItem.ToString());
             operacao.grm = grmSelecionada;
-          
+
             try
             {
 
@@ -294,26 +294,26 @@ namespace inventoryControl
                         modulos.Add(modulo);
 
                         produto.Items.Add(modulo.nome);
-           
+
                     }
                     reader.Close();
 
-                   
+
                 }
 
-               
+
             }
             catch
             {
                 // Lidar com exceções, por exemplo, exibir uma mensagem de erro
                 MessageBox.Show("Falha ao executar a consulta no banco");
             }
-        } 
+        }
 
         private void produto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Modulo mod = this.modulos.Find(modulo => modulo.nome == produto.SelectedItem.ToString());          
-            operacao.module = mod;       
+            Modulo mod = this.modulos.Find(modulo => modulo.nome == produto.SelectedItem.ToString());
+            operacao.module = mod;
         }
 
         private void addList_Click(object sender, EventArgs e)
@@ -364,7 +364,7 @@ namespace inventoryControl
         {
             try
             {
-              
+
 
                 foreach (Operacao operacao in operacoes)
                 {
@@ -376,7 +376,7 @@ namespace inventoryControl
                     using (MySqlCommand command = new MySqlCommand(query2, connection))
 
                     {
-                       
+
                         // Parâmetros
                         command.Parameters.AddWithValue("@grm", operacao.grm.id);
                         command.Parameters.AddWithValue("@module", operacao.module.id);
@@ -394,7 +394,7 @@ namespace inventoryControl
                         command.ExecuteNonQuery();
                         // Limpa os campos de entrada de dados na linha 
                         command.Parameters.Clear();
-              
+
                     }
                 }
 
@@ -403,7 +403,7 @@ namespace inventoryControl
                 dataGridView1.Rows.Clear();
                 operacoes.Clear();
 
-                
+
             }
             catch (Exception ex)
             {
@@ -411,8 +411,8 @@ namespace inventoryControl
                 MessageBox.Show("Falha ao salvar as informações" + ex.Message);
             }
 
-         }
-       
+        }
+
 
         private void serialNumber_TextChanged(object sender, EventArgs e)
         {
@@ -423,9 +423,9 @@ namespace inventoryControl
 
         private void garantia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
 
-            string query = "select id_garantia from garantia where status_garantia ='" + garantia.SelectedItem +"';" ;
+
+            string query = "select id_garantia from garantia where status_garantia ='" + garantia.SelectedItem + "';";
 
             using (MySqlConnection connection = new MySqlConnection(Program.conexaoBD))
             {
@@ -435,7 +435,7 @@ namespace inventoryControl
 
                 while (reader.Read())
                 {
-                  
+
                     garantia.ValueMember = reader["id_garantia"].ToString();
 
                 }
@@ -460,7 +460,7 @@ namespace inventoryControl
 
         private void defeito_SelectedIndexChanged(object sender, EventArgs e)
         {
-     
+
             Defeito defSelecionado = defs.Find(def => def.nome == defeito.SelectedItem.ToString());
             operacao.defeito = defSelecionado;
         }
@@ -474,9 +474,9 @@ namespace inventoryControl
 
         private void tecnico_TextChanged(object sender, EventArgs e)
         {
-            
 
-            
+
+
             string tec = tecnico.Text.ToString();
 
             userTecnico.tecnico = tec;
@@ -486,6 +486,13 @@ namespace inventoryControl
         {
             cadastrarGrm grm = new cadastrarGrm();
             grm.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Consultas con = new Consultas();
+            con.Show();
             this.Hide();
         }
     }
