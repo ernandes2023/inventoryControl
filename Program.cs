@@ -8,7 +8,7 @@ namespace inventoryControl
 {
     static class Program
     {
-        public static string conexaoBD = "server=localhost;database=inventory;uid=root;pwd=etec";
+        public static string conexaoBD = "server=localhost;database=inventory;uid=root;pwd=ernandes";
 
         //public static string conexaoBD = "server=localhost;database=inventory;uid=root;pwd=gabriel";
 
@@ -23,7 +23,7 @@ namespace inventoryControl
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Cadastro());
+            Application.Run(new Login());
         }
 
     }

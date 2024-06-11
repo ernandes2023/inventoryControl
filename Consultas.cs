@@ -155,5 +155,77 @@ namespace inventoryControl
             }
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Inicializar a conexão com o banco de dados
+            MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
+            MySqlCommand comando = new MySqlCommand();
+
+            // Correção na consulta SQL
+            comando.CommandText = "SELECT id_grm FROM grm WHERE numero_grm = @grm";
+            comando.Parameters.AddWithValue("@grm", textBox2.Text);
+            comando.Connection = conectar;
+
+            try
+            {
+                // Abrir a conexão
+                conectar.Open();
+
+                // Executar o comando
+                var resultado = comando.ExecuteScalar();
+
+                // Verificar o resultado
+                if (resultado != null)
+                {
+                    // Consulta SQL para buscar os detalhes do produto
+                    string query = @"
+                    SELECT  
+                        numero_grm as GRM, 
+                        nome_produto as Modulo, 
+                        qtd as QTD, 
+                        reparado as Reparado
+                    FROM 
+                        grm_oper as go
+                        inner join grm as g on go.fk_grm = g.id_grm
+                        inner join produto as p on go.fk_prod = p.id_produto
+                    where 
+                        numero_grm = @numero_grm;";
+
+                    // Prepare o comando SQL
+                    MySqlCommand comando2 = new MySqlCommand(query, conectar);
+                    comando2.Parameters.AddWithValue("@numero_grm", textBox2.Text);
+
+                    // Crie um adaptador de dados e um DataTable para armazenar os resultados
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(comando2);
+                    DataTable dt = new DataTable();
+
+                    // Preencha o DataTable com os resultados da consulta
+                    adapter.Fill(dt);
+
+                    // Atualize o DataSource do DataGridView com os resultados filtrados
+                    dataGridView2.DataSource = dt;
+
+                }
+                else
+                {
+                    MessageBox.Show("GRM não encontrada");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Lidar com exceções, por exemplo, exibir uma mensagem de erro
+                MessageBox.Show("Falha na pesquisa: " + ex.Message);
+            }
+            finally
+            {
+                // Fechar a conexão
+                if (conectar.State == ConnectionState.Open)
+                {
+                    conectar.Close();
+                }
+
+            }
+        }
     }
 }
