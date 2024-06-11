@@ -48,7 +48,7 @@ namespace inventoryControl
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            
+           
 
            
         }
@@ -56,30 +56,39 @@ namespace inventoryControl
         private void button1_Click(object sender, EventArgs e)
         {
 
-      
-
-            // Inicializar a conexão com o banco de dados
-            MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
-            MySqlCommand comando = new MySqlCommand();
-
-            // Correção na consulta SQL
-            comando.CommandText = "SELECT id_operacao FROM operacao WHERE serial_number = @serial";
-            comando.Parameters.AddWithValue("@serial", textBox1.Text);
-            comando.Connection = conectar;
-
-            try
+            if (textBox1.Text == "")
             {
-                // Abrir a conexão
-                conectar.Open();
+                MessageBox.Show("Preencha o campo serial number");
+            }
+            else if (!int.TryParse(textBox1.Text, out int result))
+            {
+                MessageBox.Show("Neste campo deve conter apenas números");
+            }
+            else
+            {
+                // Inicializar a conexão com o banco de dados
+                MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
+                MySqlCommand comando = new MySqlCommand();
 
-                // Executar o comando
-                var resultado = comando.ExecuteScalar();
+                // Correção na consulta SQL
+                comando.CommandText = "SELECT id_operacao FROM operacao WHERE serial_number = @serial";
+                comando.Parameters.AddWithValue("@serial", textBox1.Text);
+                comando.Connection = conectar;
 
-                // Verificar o resultado
-                if (resultado != null)
+
+                try
                 {
-                    // Consulta SQL para buscar os detalhes do produto
-                    string query = @"
+                    // Abrir a conexão
+                    conectar.Open();
+
+                    // Executar o comando
+                    var resultado = comando.ExecuteScalar();
+
+                    // Verificar o resultado
+                    if (resultado != null)
+                    {
+                        // Consulta SQL para buscar os detalhes do produto
+                        string query = @"
             SELECT 
                 nome_produto AS Modulo, 
                 numero_grm AS GRM, 
@@ -102,46 +111,47 @@ namespace inventoryControl
             WHERE 
                 serial_number = @serial_number;";
 
-                    // Prepare o comando SQL
-                    MySqlCommand comando2 = new MySqlCommand(query, conectar);
-                    comando2.Parameters.AddWithValue("@serial_number", textBox1.Text);
+                        // Prepare o comando SQL
+                        MySqlCommand comando2 = new MySqlCommand(query, conectar);
+                        comando2.Parameters.AddWithValue("@serial_number", textBox1.Text);
 
-                    // Crie um adaptador de dados e um DataTable para armazenar os resultados
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(comando2);
-                    DataTable dt = new DataTable();
+                        // Crie um adaptador de dados e um DataTable para armazenar os resultados
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(comando2);
+                        DataTable dt = new DataTable();
 
-                    // Preencha o DataTable com os resultados da consulta
-                    adapter.Fill(dt);
+                        // Preencha o DataTable com os resultados da consulta
+                        adapter.Fill(dt);
 
-                    // Atualize o DataSource do DataGridView com os resultados filtrados
-                    dataGridView1.DataSource = dt;
+                        // Atualize o DataSource do DataGridView com os resultados filtrados
+                        dataGridView1.DataSource = dt;
 
-                    dataGridView1.Columns[0].Width = 120;
-                    dataGridView1.Columns[1].Width = 70;
-                    dataGridView1.Columns[3].Width = 150;
-                    dataGridView1.Columns[4].Width = 50;
-                    dataGridView1.Columns[2].Width = 160;
-                    dataGridView1.Columns[7].Width = 130;
-                    dataGridView1.Columns[6].Width = 150;
+                        dataGridView1.Columns[0].Width = 120;
+                        dataGridView1.Columns[1].Width = 70;
+                        dataGridView1.Columns[3].Width = 150;
+                        dataGridView1.Columns[4].Width = 50;
+                        dataGridView1.Columns[2].Width = 160;
+                        dataGridView1.Columns[7].Width = 130;
+                        dataGridView1.Columns[6].Width = 150;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Módulo não encontrado");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Módulo não encontrado");
+                    // Lidar com exceções, por exemplo, exibir uma mensagem de erro
+                    MessageBox.Show("Falha na pesquisa: " + ex.Message);
                 }
-            }
-            catch (Exception ex)
-            {
-                // Lidar com exceções, por exemplo, exibir uma mensagem de erro
-                MessageBox.Show("Falha na pesquisa: " + ex.Message);
-            }
-            finally
-            {
-                // Fechar a conexão
-                if (conectar.State == ConnectionState.Open)
+                finally
                 {
-                    conectar.Close();
-                }
+                    // Fechar a conexão
+                    if (conectar.State == ConnectionState.Open)
+                    {
+                        conectar.Close();
+                    }
 
+                }
             }
 
         }

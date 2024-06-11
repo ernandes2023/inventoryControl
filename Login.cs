@@ -106,5 +106,10 @@ namespace inventoryControl
         {
 
         }
+
+        private void txtLogin1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

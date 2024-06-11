@@ -229,19 +229,19 @@ namespace inventoryControl
                 using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
                 {
                     conexaoMYSQL.Open();
-                    string query = "SELECT * FROM usuario";
+                    string query = "SELECT nome_usuario, cpf_usuario, cargo, login, senha FROM usuario";
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
                     {
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
                         // Renomear as colunas conforme necessário
-                        dt.Columns["id_usuario"].ColumnName = "Id:";
+                        //dt.Columns["id_usuario"].ColumnName = "Id:";
                         dt.Columns["nome_usuario"].ColumnName = "Nome:";
                         dt.Columns["cpf_usuario"].ColumnName = "CPF:";
                         dt.Columns["cargo"].ColumnName = "Cargo";
                         dt.Columns["login"].ColumnName = "Usuário";
                         dt.Columns["senha"].ColumnName = "Senha:";
-                        dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
+                        //dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
                         dgvUsers.DataSource = dt;
                         conexaoMYSQL.Close();
                     }
@@ -329,7 +329,7 @@ namespace inventoryControl
                         {
                             conexaoMYSQL.Open();
 
-                            string query = "SELECT * FROM usuario";
+                            string query = "SELECT nome_usuario, cpf_usuario, cargo, login, senha FROM usuario";
 
                             using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
                             {
@@ -337,13 +337,13 @@ namespace inventoryControl
                                 adapter.Fill(dt);
 
                                 // Renomear as colunas conforme necessário
-                                dt.Columns["id_usuario"].ColumnName = "Id:";
+                               // dt.Columns["id_usuario"].ColumnName = "Id:";
                                 dt.Columns["nome_usuario"].ColumnName = "Nome:";
                                 dt.Columns["cpf_usuario"].ColumnName = "CPF:";
                                 dt.Columns["cargo"].ColumnName = "Cargo";
                                 dt.Columns["login"].ColumnName = "Usuário";
                                 dt.Columns["senha"].ColumnName = "Senha:";
-                                dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
+                                //dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
 
                                 dgvUsers.DataSource = dt;
                             }
@@ -409,20 +409,20 @@ namespace inventoryControl
             using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
             {
                 conexaoMYSQL.Open();
-                string query = "SELECT * FROM usuario";
+                string query = "SELECT nome_usuario, cpf_usuario, cargo, login, senha FROM usuario";
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
                 {
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
 
                     // Renomear as colunas conforme necessário
-                    dt.Columns["id_usuario"].ColumnName = "Id:";
+                   // dt.Columns["id_usuario"].ColumnName = "Id:";
                     dt.Columns["nome_usuario"].ColumnName = "Nome:";
                     dt.Columns["cpf_usuario"].ColumnName = "CPF:";
                     dt.Columns["cargo"].ColumnName = "Cargo";
                     dt.Columns["login"].ColumnName = "Usuário";
                     dt.Columns["senha"].ColumnName = "Senha:";
-                    dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
+                   // dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
 
                     dgvUsers.DataSource = dt;
                 }
@@ -502,20 +502,20 @@ namespace inventoryControl
                 {
                     conexaoMYSQL.Open();
 
-                    string query = "SELECT * FROM usuario";
+                    string query = "SELECT nome_usuario, cpf_usuario, cargo, login, senha FROM usuario";
 
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
                     {
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
                         // Renomear as colunas conforme necessário
-                        dt.Columns["id_usuario"].ColumnName = "Id:";
+                        //dt.Columns["id_usuario"].ColumnName = "Id:";
                         dt.Columns["nome_usuario"].ColumnName = "Nome:";
                         dt.Columns["cpf_usuario"].ColumnName = "CPF:";
                         dt.Columns["cargo"].ColumnName = "Cargo";
                         dt.Columns["login"].ColumnName = "Usuário";
                         dt.Columns["senha"].ColumnName = "Senha:";
-                        dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
+                       // dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
                         dgvUsers.DataSource = dt;
                     }
                 }
@@ -1000,7 +1000,9 @@ namespace inventoryControl
 
         private void BtnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Login login = new Login();
+            login.Show();
+            this.Hide();
         }
 
         private void btnMostrar1_Click(object sender, EventArgs e)
@@ -1269,6 +1271,26 @@ namespace inventoryControl
         }
 
         private void TxtPass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void TxtConfPass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }

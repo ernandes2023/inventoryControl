@@ -135,7 +135,6 @@ namespace inventoryControl
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage6.SuspendLayout();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDefeito)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -188,15 +187,10 @@ namespace inventoryControl
             // 
             // tabPage6
             // 
-            this.TxtPass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtPass.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TxtPass.Location = new System.Drawing.Point(112, 164);
-            this.TxtPass.MaxLength = 20;
-            this.TxtPass.Name = "TxtPass";
-            this.TxtPass.PasswordChar = '*';
-            this.TxtPass.Size = new System.Drawing.Size(186, 23);
-            this.TxtPass.TabIndex = 6;
-            this.TxtPass.TextChanged += new System.EventHandler(this.TxtPass_TextChanged);
+            this.tabPage6.Location = new System.Drawing.Point(4, 34);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(1094, 546);
+            this.tabPage6.TabIndex = 4;
             // 
             // groupBox9
             // 
@@ -315,7 +309,7 @@ namespace inventoryControl
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(82, 22);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(24, 17);
+            this.label24.Size = new System.Drawing.Size(19, 13);
             this.label24.TabIndex = 54;
             this.label24.Text = "Id:";
             // 
@@ -991,6 +985,7 @@ namespace inventoryControl
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Usuários";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // groupBox2
             // 
@@ -1003,6 +998,7 @@ namespace inventoryControl
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pesquisa";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // label18
             // 
@@ -1026,11 +1022,12 @@ namespace inventoryControl
             this.dgvUsers.AllowUserToAddRows = false;
             this.dgvUsers.AllowUserToDeleteRows = false;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Location = new System.Drawing.Point(6, 42);
+            this.dgvUsers.Location = new System.Drawing.Point(-3, 36);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.ReadOnly = true;
             this.dgvUsers.Size = new System.Drawing.Size(853, 232);
             this.dgvUsers.TabIndex = 0;
+            this.dgvUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellContentClick);
             this.dgvUsers.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellContentDoubleClick);
             // 
             // groupBox1
@@ -1214,6 +1211,7 @@ namespace inventoryControl
             this.TxtPass.PasswordChar = '*';
             this.TxtPass.Size = new System.Drawing.Size(186, 23);
             this.TxtPass.TabIndex = 6;
+            this.TxtPass.TextChanged += new System.EventHandler(this.TxtPass_TextChanged);
             // 
             // TxtConfPass
             // 
@@ -1225,6 +1223,7 @@ namespace inventoryControl
             this.TxtConfPass.PasswordChar = '*';
             this.TxtConfPass.Size = new System.Drawing.Size(186, 23);
             this.TxtConfPass.TabIndex = 7;
+            this.TxtConfPass.TextChanged += new System.EventHandler(this.TxtConfPass_TextChanged);
             // 
             // label3
             // 
@@ -1307,7 +1306,6 @@ namespace inventoryControl
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro";
             this.Load += new System.EventHandler(this.Cadastro_Load_1);
-            this.tabPage6.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDefeito)).EndInit();
