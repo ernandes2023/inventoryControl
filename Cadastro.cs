@@ -15,6 +15,7 @@ using MySqlX.XDevAPI;
 using Org.BouncyCastle.Bcpg.OpenPgp;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using System.Text.RegularExpressions;
 
 namespace inventoryControl
 {
@@ -33,7 +34,57 @@ namespace inventoryControl
             LoadTableDefeito();
         }
 
-                private bool ValorJaInserido(string valor)
+        public static class CpfValidator
+        {
+            public static bool IsValid(string cpf)
+            {
+                // Remova quaisquer caracteres não numéricos
+                cpf = Regex.Replace(cpf, @"[^0-9]", "");
+
+                // Verifique se o comprimento tem 11 dígitos
+                if (cpf.Length != 11)
+                    return false;
+
+                // Verifique se há padrões de CPF inválidos
+                if (new string(cpf[0], 11) == cpf)
+                    return false;
+
+                // Calcular a verificação do primeiro dígito
+                int[] multiplier1 = { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+                int[] multiplier2 = { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+
+                string tempCpf = cpf.Substring(0, 9);
+                int sum = 0;
+
+                for (int i = 0; i < 9; i++)
+                    sum += int.Parse(tempCpf[i].ToString()) * multiplier1[i];
+
+                int remainder = sum % 11;
+                if (remainder < 2)
+                    remainder = 0;
+                else
+                    remainder = 11 - remainder;
+
+                string digit = remainder.ToString();
+                tempCpf += digit;
+                sum = 0;
+
+                for (int i = 0; i < 10; i++)
+                    sum += int.Parse(tempCpf[i].ToString()) * multiplier2[i];
+
+                remainder = sum % 11;
+                if (remainder < 2)
+                    remainder = 0;
+                else
+                    remainder = 11 - remainder;
+
+                digit += remainder.ToString();
+
+                return cpf.EndsWith(digit);
+            }
+        }
+
+        private bool ValorJaInserido(string valor)
         {
             bool jaInserido = false;
 
@@ -429,23 +480,27 @@ namespace inventoryControl
             }
         }
 
-        /* Codigo abaixo realiza o Cadastro do Usuário */
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
-           
             // Verifica se todos os campos obrigatórios estão preenchidos
             if (TxtNameUser.Text == "" || TxtCpfUser.Text == "" || TxtCargoUser.Text == "" || TxtUser.Text == "" || TxtPass.Text == "" || TxtConfPass.Text == "")
             {
                 MessageBox.Show("Todos os campos precisam ser preenchidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 TxtNameUser.Select(); // Coloca o foco no campo de nome caso esteja vazio
             }
-            //Verifica se as senhas digitadas são iguais
+            // Verifica se as senhas digitadas são iguais
             else if (TxtPass.Text != TxtConfPass.Text)
             {
                 MessageBox.Show("As Senhas digitadas São diferentes! \n Por Favor digite a senha novamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 TxtPass.Text = "";
                 TxtConfPass.Text = "";
                 TxtPass.Select(); // Coloca o foco no campo de senha caso as senhas sejam diferentes
+            }
+            // Verifica se o CPF é válido
+            else if (!CpfValidator.IsValid(TxtCpfUser.Text))
+            {
+                MessageBox.Show("CPF inválido. Por favor, insira um CPF válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtCpfUser.Select(); // Coloca o foco no campo de CPF caso seja inválido
             }
             else
             {
@@ -456,10 +511,10 @@ namespace inventoryControl
                 conectar.Open();
                 try
                 {
-                     // Definir a senha em uma variável
-                     string senha = TxtPass.Text;
+                    // Definir a senha em uma variável
+                    string senha = TxtPass.Text;
 
-                    //Código que realiza a criptografia de senha
+                    // Código que realiza a criptografia de senha
                     senha = senha.GerarHash();
 
                     // Cria um novo comando MySqlCommand para inserir os dados na tabela usuario
@@ -490,7 +545,7 @@ namespace inventoryControl
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro não foi possivel Salvar informações: " + ex.Message);
+                    MessageBox.Show("Erro não foi possível salvar as informações: " + ex.Message);
                 }
                 finally
                 {
@@ -521,8 +576,6 @@ namespace inventoryControl
                 }
             }
         }
-
-        /* Fim do Código de cadastro de Usuario */
 
         private void dgvClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -1275,6 +1328,7 @@ namespace inventoryControl
 
         }
 
+<<<<<<< HEAD
         private void tabPage1_Click(object sender, EventArgs e)
         {
 
@@ -1291,6 +1345,9 @@ namespace inventoryControl
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
+=======
+        private void TxtCpfUser_TextChanged(object sender, EventArgs e)
+>>>>>>> 301d772d169c16c138fca65c9f04305c894e472b
         {
 
         }
