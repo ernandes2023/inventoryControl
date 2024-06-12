@@ -21,7 +21,6 @@ namespace inventoryControl
 {
     public partial class Cadastro : Form
     {
-
         public Cadastro()
         {
             InitializeComponent();
@@ -33,7 +32,6 @@ namespace inventoryControl
             LoadTableComp();
             LoadTableDefeito();
         }
-
         public static class CpfValidator
         {
             public static bool IsValid(string cpf)
@@ -83,7 +81,6 @@ namespace inventoryControl
                 return cpf.EndsWith(digit);
             }
         }
-
         private bool ValorJaInserido(string valor)
         {
             bool jaInserido = false;
@@ -122,7 +119,6 @@ namespace inventoryControl
 
             return jaInserido;
         }
-
         private void LoadTableClient() // Metodo privado que carrega dados da tabela Cliente.
         {
             // Cria uma nova conexão MySqlConnection utilizando a string de conexão definida em Program.conexaoBD
@@ -156,7 +152,6 @@ namespace inventoryControl
             // Formata as colunas do DataGridView para o tanho auto ajustavel
             dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
-
         private void LoadTableProd() // Metodo privado que carrega dados da tabela Produto.
         {
             // Cria uma nova conexão MySqlConnection utilizando a string de conexão definida em Program.conexaoBD
@@ -190,7 +185,6 @@ namespace inventoryControl
             // Formata as colunas do DataGridView para o tanho auto ajustavel
             dgvProdutos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
-
         private void LoadTableComp() // Metodo privado que carrega dados da tabela Produto.
         {
             // Cria uma nova conexão MySqlConnection utilizando a string de conexão definida em Program.conexaoBD
@@ -213,7 +207,6 @@ namespace inventoryControl
             dt.Columns["id_componente"].ColumnName = "Id:";
             dt.Columns["nome_comp"].ColumnName = "Nome:";
             
-
             // Define o DataGridView dgvClientes como a fonte de dados para exibir os dados do DataTable
             dgvComponentes.DataSource = dt;
 
@@ -223,7 +216,6 @@ namespace inventoryControl
             // Formata as colunas do DataGridView para o tanho auto ajustavel
             dgvComponentes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
-
         private void LoadTableDefeito() // Metodo privado que carrega dados da tabela Produto.
         {
             // Cria uma nova conexão MySqlConnection utilizando a string de conexão definida em Program.conexaoBD
@@ -254,14 +246,12 @@ namespace inventoryControl
             // Formata as colunas do DataGridView para o tanho auto ajustavel
             dgvDefeito.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
-
         private void BtnBackLogin_Click(object sender, EventArgs e)
         {
             Login login = new Login();
             login.Show();
             this.Hide();
         }
-
         private void Cadastro_Load_1(object sender, EventArgs e)
         {
             /* Inicialização da tela de cadastro */
@@ -280,13 +270,13 @@ namespace inventoryControl
                 using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
                 {
                     conexaoMYSQL.Open();
-                    string query = "SELECT nome_usuario, cpf_usuario, cargo, login, senha FROM usuario";
+                    string query = "SELECT id_usuario, nome_usuario, cpf_usuario, cargo, login, senha, confirm_senha FROM usuario";
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
                     {
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
                         // Renomear as colunas conforme necessário
-                        //dt.Columns["id_usuario"].ColumnName = "Id:";
+                        dt.Columns["id_usuario"].ColumnName = "Id:";
                         dt.Columns["nome_usuario"].ColumnName = "Nome:";
                         dt.Columns["cpf_usuario"].ColumnName = "CPF:";
                         dt.Columns["cargo"].ColumnName = "Cargo";
@@ -304,7 +294,6 @@ namespace inventoryControl
                 MessageBox.Show("Ocorreu um erro ao carregar os dados: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void dgvUsers_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             // Verifica se a célula atual pertence à coluna de senhas
@@ -320,7 +309,6 @@ namespace inventoryControl
                 e.Value = senhaAsteriscos;
             }
         }
-
         private void dgvUsers_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //Ao clicar duas vezes na info da lista irá subir as informações  para as textBox.
@@ -329,157 +317,12 @@ namespace inventoryControl
             TxtCpfUser.Text         = dgvUsers.Rows[e.RowIndex].Cells[2].Value.ToString();
             TxtCargoUser.Text       = dgvUsers.Rows[e.RowIndex].Cells[3].Value.ToString();
             TxtUser.Text            = dgvUsers.Rows[e.RowIndex].Cells[4].Value.ToString();
-          //  TxtPass.Text            = dgvUsers.Rows[e.RowIndex].Cells[5].Value.ToString();  ESSES TRECHOS NÃO PODEM SUBIR PARA A TEXT BOX
-          //  TxtConfPass.Text        = dgvUsers.Rows[e.RowIndex].Cells[6].Value.ToString();
+            TxtPass.Text            = dgvUsers.Rows[e.RowIndex].Cells[5].Value.ToString();  //ESSES TRECHOS NÃO PODEM SUBIR PARA A TEXT BOX
+            TxtConfPass.Text        = dgvUsers.Rows[e.RowIndex].Cells[6].Value.ToString();
             BtnSalvar.Enabled       = false;
 
-            MessageBox.Show("Digite a nova senha se necessário", "Altere o usuário", MessageBoxButtons.OK);
+            //MessageBox.Show("Digite a nova senha se necessário", "Altere o usuário", MessageBoxButtons.OK);
         }
-
-        private void BtnLimpar_Click(object sender, EventArgs e)
-        {
-            TxtIdUser.Text = "";
-            TxtNameUser.Text = "";
-            TxtCpfUser.Text = "";
-            TxtCargoUser.Text = "";
-            TxtUser.Text = "";
-            TxtPass.Text = "";
-            TxtConfPass.Text = "";
-            BtnSalvar.Enabled = true;
-        }
-
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            if (TxtIdUser.Text != "")
-            {
-                DialogResult caixaMensagem = MessageBox.Show("Deseja realmente exluir esse usuário?", "Aviso", MessageBoxButtons.YesNo);
-
-                if (caixaMensagem == DialogResult.Yes)
-                {
-                    try
-                    {
-                        MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
-                        conectar.Open();
-
-                        MySqlCommand cadastrar = new MySqlCommand("DELETE FROM usuario WHERE id_usuario = " + TxtIdUser.Text, conectar);
-                        cadastrar.ExecuteNonQuery();
-
-                        MessageBox.Show("Dados excluidos com sucesso!");
-                        TxtIdUser.Text = "";
-                        TxtNameUser.Text = "";
-                        TxtCpfUser.Text = "";
-                        TxtCargoUser.Text = "";
-                        TxtUser.Text = "";
-                        TxtPass.Text = "";
-                        TxtConfPass.Text = "";
-                        BtnSalvar.Enabled = true;
-
-                        conectar.Close();
-
-                        using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
-                        {
-                            conexaoMYSQL.Open();
-
-                            string query = "SELECT nome_usuario, cpf_usuario, cargo, login, senha FROM usuario";
-
-                            using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
-                            {
-                                DataTable dt = new DataTable();
-                                adapter.Fill(dt);
-
-                                // Renomear as colunas conforme necessário
-                               // dt.Columns["id_usuario"].ColumnName = "Id:";
-                                dt.Columns["nome_usuario"].ColumnName = "Nome:";
-                                dt.Columns["cpf_usuario"].ColumnName = "CPF:";
-                                dt.Columns["cargo"].ColumnName = "Cargo";
-                                dt.Columns["login"].ColumnName = "Usuário";
-                                dt.Columns["senha"].ColumnName = "Senha:";
-                                //dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
-
-                                dgvUsers.DataSource = dt;
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Erro ao Excluir os dados: " + ex.Message);
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Você deve Selecionar um Usuário antes.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void BtnEditar_Click_1(object sender, EventArgs e)
-        {
-            string senhaCriptografada = TxtPass.Text.GerarHash();
-            MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
-
-            try
-            {
-                conectar.Open();
-                MySqlCommand cadastrar = new MySqlCommand(
-                    "UPDATE usuario SET nome_usuario=@Nome, cpf_usuario=@CPF, cargo=@Cargo, login=@Login, senha=@Senha, confirm_senha=@ConfSenha WHERE id_usuario=@Id", conectar);
-                
-                //abaixo tem os parâmetros que protegem contra SQL injection
-                cadastrar.Parameters.AddWithValue("@Nome", TxtNameUser.Text);
-                cadastrar.Parameters.AddWithValue("@CPF", TxtCpfUser.Text);
-                cadastrar.Parameters.AddWithValue("@Cargo", TxtCargoUser.Text);
-                cadastrar.Parameters.AddWithValue("@Login", TxtUser.Text);
-                cadastrar.Parameters.AddWithValue("@Senha", senhaCriptografada);
-                cadastrar.Parameters.AddWithValue("@ConfSenha", TxtConfPass.Text);
-                cadastrar.Parameters.AddWithValue("@Id", TxtIdUser.Text);
-
-                cadastrar.ExecuteNonQuery();
-
-                MessageBox.Show("Dados alterados!!!");
-                TxtIdUser.Text = "";
-                TxtNameUser.Text = "";
-                TxtCpfUser.Text = "";
-                TxtCargoUser.Text = "";
-                TxtUser.Text = "";
-                TxtPass.Text = "";
-                TxtConfPass.Text = "";
-                BtnSalvar.Enabled = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao atualizar os dados: " + ex.Message);
-            }
-            finally
-            {
-                conectar.Close();
-            }
-
-            AtualizarDataGridView();
-        }
-        private void AtualizarDataGridView()
-        {
-            using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
-            {
-                conexaoMYSQL.Open();
-                string query = "SELECT nome_usuario, cpf_usuario, cargo, login, senha FROM usuario";
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
-                {
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-
-                    // Renomear as colunas conforme necessário
-                   // dt.Columns["id_usuario"].ColumnName = "Id:";
-                    dt.Columns["nome_usuario"].ColumnName = "Nome:";
-                    dt.Columns["cpf_usuario"].ColumnName = "CPF:";
-                    dt.Columns["cargo"].ColumnName = "Cargo";
-                    dt.Columns["login"].ColumnName = "Usuário";
-                    dt.Columns["senha"].ColumnName = "Senha:";
-                   // dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
-
-                    dgvUsers.DataSource = dt;
-                }
-            }
-        }
-
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
             // Verifica se todos os campos obrigatórios estão preenchidos
@@ -510,7 +353,18 @@ namespace inventoryControl
                 // Abre a conexão com o banco de dados
                 conectar.Open();
                 try
-                {
+                {   // Verifica se o usuário já existe
+                    string checkUserQuery = "SELECT COUNT(*) FROM usuario WHERE login = @Login OR cpf_usuario = @CPF";
+                    MySqlCommand checkUserCmd = new MySqlCommand(checkUserQuery, conectar);
+                    checkUserCmd.Parameters.AddWithValue("@Login", TxtUser.Text);
+                    checkUserCmd.Parameters.AddWithValue("@CPF", TxtCpfUser.Text);
+
+                    int userExists = Convert.ToInt32(checkUserCmd.ExecuteScalar());
+                    if (userExists > 0)
+                    {
+                        MessageBox.Show("Usuário ou CPF já cadastrado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     // Definir a senha em uma variável
                     string senha = TxtPass.Text;
 
@@ -557,26 +411,167 @@ namespace inventoryControl
                 {
                     conexaoMYSQL.Open();
 
-                    string query = "SELECT nome_usuario, cpf_usuario, cargo, login, senha FROM usuario";
+                    string query = "SELECT id_usuario, nome_usuario, cpf_usuario, cargo, login, senha, confirm_senha FROM usuario";
 
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
                     {
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
                         // Renomear as colunas conforme necessário
-                        //dt.Columns["id_usuario"].ColumnName = "Id:";
+                        dt.Columns["id_usuario"].ColumnName = "Id:";
                         dt.Columns["nome_usuario"].ColumnName = "Nome:";
                         dt.Columns["cpf_usuario"].ColumnName = "CPF:";
                         dt.Columns["cargo"].ColumnName = "Cargo";
                         dt.Columns["login"].ColumnName = "Usuário";
                         dt.Columns["senha"].ColumnName = "Senha:";
-                       // dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
+                        dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
                         dgvUsers.DataSource = dt;
                     }
                 }
             }
         }
 
+        private void BtnEditar_Click_1(object sender, EventArgs e)
+        {
+            string senhaCriptografada = TxtPass.Text.GerarHash();
+            MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
+
+            try
+            {
+                conectar.Open();
+                MySqlCommand cadastrar = new MySqlCommand(
+                    "UPDATE usuario SET nome_usuario=@Nome, cpf_usuario=@CPF, cargo=@Cargo, login=@Login, senha=@Senha, confirm_senha=@ConfSenha WHERE id_usuario=@Id", conectar);
+                
+                //abaixo tem os parâmetros que protegem contra SQL injection
+                cadastrar.Parameters.AddWithValue("@Nome", TxtNameUser.Text);
+                cadastrar.Parameters.AddWithValue("@CPF", TxtCpfUser.Text);
+                cadastrar.Parameters.AddWithValue("@Cargo", TxtCargoUser.Text);
+                cadastrar.Parameters.AddWithValue("@Login", TxtUser.Text);
+                cadastrar.Parameters.AddWithValue("@Senha", senhaCriptografada);
+                cadastrar.Parameters.AddWithValue("@ConfSenha", TxtConfPass.Text);
+                cadastrar.Parameters.AddWithValue("@Id", TxtIdUser.Text);
+
+                cadastrar.ExecuteNonQuery();
+
+                MessageBox.Show("Dados alterados!!!");
+                TxtIdUser.Text = "";
+                TxtNameUser.Text = "";
+                TxtCpfUser.Text = "";
+                TxtCargoUser.Text = "";
+                TxtUser.Text = "";
+                TxtPass.Text = "";
+                TxtConfPass.Text = "";
+                BtnSalvar.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao atualizar os dados: " + ex.Message);
+            }
+            finally
+            {
+                conectar.Close();
+            }
+
+            AtualizarDataGridView();
+        }
+        private void BtnLimpar_Click(object sender, EventArgs e)
+        {
+            TxtIdUser.Text = "";
+            TxtNameUser.Text = "";
+            TxtCpfUser.Text = "";
+            TxtCargoUser.Text = "";
+            TxtUser.Text = "";
+            TxtPass.Text = "";
+            TxtConfPass.Text = "";
+            BtnSalvar.Enabled = true;
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (TxtIdUser.Text != "")
+            {
+                DialogResult caixaMensagem = MessageBox.Show("Deseja realmente exluir esse usuário?", "Aviso", MessageBoxButtons.YesNo);
+
+                if (caixaMensagem == DialogResult.Yes)
+                {
+                    try
+                    {
+                        MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
+                        conectar.Open();
+
+                        MySqlCommand cadastrar = new MySqlCommand("DELETE FROM usuario WHERE id_usuario = " + TxtIdUser.Text, conectar);
+                        cadastrar.ExecuteNonQuery();
+
+                        MessageBox.Show("Dados excluidos com sucesso!");
+                        TxtIdUser.Text = "";
+                        TxtNameUser.Text = "";
+                        TxtCpfUser.Text = "";
+                        TxtCargoUser.Text = "";
+                        TxtUser.Text = "";
+                        TxtPass.Text = "";
+                        TxtConfPass.Text = "";
+                        BtnSalvar.Enabled = true;
+
+                        conectar.Close();
+
+                        using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
+                        {
+                            conexaoMYSQL.Open();
+
+                            string query = "SELECT id_usuario, nome_usuario, cpf_usuario, cargo, login, senha, confirm_senha FROM usuario";
+
+                            using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
+                            {
+                                DataTable dt = new DataTable();
+                                adapter.Fill(dt);
+
+                                // Renomear as colunas conforme necessário
+                                dt.Columns["id_usuario"].ColumnName = "Id:";
+                                dt.Columns["nome_usuario"].ColumnName = "Nome:";
+                                dt.Columns["cpf_usuario"].ColumnName = "CPF:";
+                                dt.Columns["cargo"].ColumnName = "Cargo";
+                                dt.Columns["login"].ColumnName = "Usuário";
+                                dt.Columns["senha"].ColumnName = "Senha:";
+                                dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
+
+                                dgvUsers.DataSource = dt;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao Excluir os dados: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Você deve Selecionar um Usuário antes.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void AtualizarDataGridView()
+        {
+            using (MySqlConnection conexaoMYSQL = new MySqlConnection(Program.conexaoBD))
+            {
+                conexaoMYSQL.Open();
+                string query = "SELECT id_usuario, nome_usuario, cpf_usuario, cargo, login, senha, confirm_senha FROM usuario";
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conexaoMYSQL))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    // Renomear as colunas conforme necessário
+                    dt.Columns["id_usuario"].ColumnName = "Id:";
+                    dt.Columns["nome_usuario"].ColumnName = "Nome:";
+                    dt.Columns["cpf_usuario"].ColumnName = "CPF:";
+                    dt.Columns["cargo"].ColumnName = "Cargo";
+                    dt.Columns["login"].ColumnName = "Usuário";
+                    dt.Columns["senha"].ColumnName = "Senha:";
+                    dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
+                    dgvUsers.DataSource = dt;
+                }
+            }
+        }
         private void dgvClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             txtId1.Text             = dgvClientes.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -1053,9 +1048,7 @@ namespace inventoryControl
 
         private void BtnExit_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            login.Show();
-            this.Hide();
+            Application.Exit();
         }
 
         private void btnMostrar1_Click(object sender, EventArgs e)
@@ -1171,7 +1164,7 @@ namespace inventoryControl
         {
             txtIdDefeito.Text       = dgvDefeito.Rows[e.RowIndex].Cells[0].Value.ToString();
             txtDefeito.Text         = dgvDefeito.Rows[e.RowIndex].Cells[1].Value.ToString();
-            btnSaveDefeito.Enabled = false;
+            btnSaveDefeito.Enabled  = false;
         }
 
         private void btnSaveDefeito_Click(object sender, EventArgs e)
@@ -1314,42 +1307,12 @@ namespace inventoryControl
                 }
             }
         }
-
         private void btnClearDefeito_Click(object sender, EventArgs e)
         {
             txtIdDefeito.Text = "";
             txtDefeito.Text = "";
             txtDefeito.Select();
             btnSaveDefeito.Enabled = true;
-        }
-
-        private void TxtPass_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-<<<<<<< HEAD
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void TxtConfPass_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-=======
-        private void TxtCpfUser_TextChanged(object sender, EventArgs e)
->>>>>>> 301d772d169c16c138fca65c9f04305c894e472b
-        {
-
         }
     }
 }
