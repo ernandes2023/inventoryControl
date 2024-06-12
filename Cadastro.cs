@@ -275,14 +275,14 @@ namespace inventoryControl
                     {
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
-                        // Renomear as colunas conforme necessário
+                        //Renomear as colunas conforme necessário
                         dt.Columns["id_usuario"].ColumnName = "Id:";
                         dt.Columns["nome_usuario"].ColumnName = "Nome:";
                         dt.Columns["cpf_usuario"].ColumnName = "CPF:";
                         dt.Columns["cargo"].ColumnName = "Cargo";
                         dt.Columns["login"].ColumnName = "Usuário";
                         dt.Columns["senha"].ColumnName = "Senha:";
-                        //dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
+                        dt.Columns["confirm_senha"].ColumnName = "Conf. Senha:";
                         dgvUsers.DataSource = dt;
                         conexaoMYSQL.Close();
                     }
@@ -320,6 +320,8 @@ namespace inventoryControl
             TxtPass.Text            = dgvUsers.Rows[e.RowIndex].Cells[5].Value.ToString();  //ESSES TRECHOS NÃO PODEM SUBIR PARA A TEXT BOX
             TxtConfPass.Text        = dgvUsers.Rows[e.RowIndex].Cells[6].Value.ToString();
             BtnSalvar.Enabled       = false;
+            btnMostrar1.Enabled     = false;
+            btnMostrar2.Enabled     = false;
 
             //MessageBox.Show("Digite a nova senha se necessário", "Altere o usuário", MessageBoxButtons.OK);
         }
@@ -371,6 +373,12 @@ namespace inventoryControl
                     // Código que realiza a criptografia de senha
                     senha = senha.GerarHash();
 
+                    // Definir a senha em uma variável
+                    string senha1 = TxtConfPass.Text;
+
+                    // Código que realiza a criptografia de senha
+                    senha1 = senha.GerarHash();
+
                     // Cria um novo comando MySqlCommand para inserir os dados na tabela usuario
                     MySqlCommand cadastrar = new MySqlCommand("INSERT INTO usuario (nome_usuario, cpf_usuario, cargo, login, senha, confirm_senha) values (@Nome, @CPF, @Cargo, @Login, @Senha, @ConfSenha);", conectar);
 
@@ -380,7 +388,7 @@ namespace inventoryControl
                     cadastrar.Parameters.AddWithValue("@Cargo", TxtCargoUser.Text);
                     cadastrar.Parameters.AddWithValue("@Login", TxtUser.Text);
                     cadastrar.Parameters.AddWithValue("@Senha", senha);
-                    cadastrar.Parameters.AddWithValue("@ConfSenha", TxtConfPass.Text);
+                    cadastrar.Parameters.AddWithValue("@ConfSenha", senha1);
 
                     // Executa o comando de inserção
                     cadastrar.ExecuteNonQuery();
@@ -436,6 +444,9 @@ namespace inventoryControl
             string senhaCriptografada = TxtPass.Text.GerarHash();
             MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
 
+            string senhaCriptografada1 = TxtConfPass.Text.GerarHash();
+            MySqlConnection conecta1 = new MySqlConnection(Program.conexaoBD);
+
             try
             {
                 conectar.Open();
@@ -448,7 +459,7 @@ namespace inventoryControl
                 cadastrar.Parameters.AddWithValue("@Cargo", TxtCargoUser.Text);
                 cadastrar.Parameters.AddWithValue("@Login", TxtUser.Text);
                 cadastrar.Parameters.AddWithValue("@Senha", senhaCriptografada);
-                cadastrar.Parameters.AddWithValue("@ConfSenha", TxtConfPass.Text);
+                cadastrar.Parameters.AddWithValue("@ConfSenha", senhaCriptografada1);
                 cadastrar.Parameters.AddWithValue("@Id", TxtIdUser.Text);
 
                 cadastrar.ExecuteNonQuery();
@@ -462,6 +473,8 @@ namespace inventoryControl
                 TxtPass.Text = "";
                 TxtConfPass.Text = "";
                 BtnSalvar.Enabled = true;
+                btnMostrar1.Enabled = true;
+                btnMostrar2.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -484,6 +497,8 @@ namespace inventoryControl
             TxtPass.Text = "";
             TxtConfPass.Text = "";
             BtnSalvar.Enabled = true;
+            btnMostrar1.Enabled = true;
+            btnMostrar2.Enabled = true;
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -511,6 +526,8 @@ namespace inventoryControl
                         TxtPass.Text = "";
                         TxtConfPass.Text = "";
                         BtnSalvar.Enabled = true;
+                        btnMostrar1.Enabled = true;
+                        btnMostrar2.Enabled = true;
 
                         conectar.Close();
 
@@ -1314,6 +1331,8 @@ namespace inventoryControl
             txtDefeito.Select();
             btnSaveDefeito.Enabled = true;
         }
+
+
     }
 }
 
