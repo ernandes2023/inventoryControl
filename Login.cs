@@ -17,8 +17,56 @@ namespace inventoryControl
         public Login()
         {
             InitializeComponent();
+            usuario();
         }
 
+        private void usuario()
+        {
+
+            // Define a string com a consulta SQL
+            string query = "SELECT id_usuario FROM usuario WHERE login = 'admin'";
+
+            // Cria uma conexão com o banco de dados
+            using (MySqlConnection conectar = new MySqlConnection(Program.conexaoBD))
+            {
+                try
+                {
+                    // Abre a conexão com o banco de dados
+                    conectar.Open();
+
+                    // Cria um comando MySQL com a consulta SQL
+                    using (MySqlCommand consulta = new MySqlCommand(query, conectar))
+                    {
+                        // Executa a consulta e obtém o resultado
+                        using (MySqlDataReader reader = consulta.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                // Se houver linhas, significa que o usuário "admin" existe
+                                //Console.WriteLine("O usuário 'admin' existe no banco de dados.");
+                            }
+                            else
+                            {
+                                // Se não houver linhas, significa que o usuário "admin" não existe
+                                MessageBox.Show("O usuário 'admin' não existe no banco de dados.");
+
+                                newAdmin admin = new newAdmin(); // Passa o ID do usuário como argumento
+                                admin.Show();
+                                this.Hide();
+
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Trata exceções
+                    Console.WriteLine("Ocorreu um erro: " + ex.Message);
+                }
+
+
+            }
+        }
         private void btn_entrar_Click(object sender, EventArgs e)
         {
 
@@ -58,7 +106,7 @@ namespace inventoryControl
 
                         Operação cadprodutos = new Operação(userId); // Passa o ID do usuário como argumento
                         cadprodutos.Show();
-                        Hide();
+                        this.Hide();
                     }
                 }
 
