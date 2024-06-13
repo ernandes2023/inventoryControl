@@ -8,12 +8,11 @@ namespace inventoryControl
 {
     static class Program
     {
-        public static string conexaoBD = "server=localhost;database=inventory;uid=root;pwd=ernandes";
+        //public static string conexaoBD = "server=localhost;database=inventory;uid=root;pwd=ernandes";
 
-        //public static string conexaoBD = "server=localhost;database=inventory;uid=root;pwd=gabriel";
+        public static string conexaoBD = System.Configuration.ConfigurationManager.ConnectionStrings["Conexao"].ConnectionString;
 
-
-        //public static string conexaoBD = "server=localhost;database=inventory;uid=root;pwd=123456";
+        
 
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.
