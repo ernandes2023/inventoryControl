@@ -251,7 +251,7 @@ namespace inventoryControl
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(54, 16);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(48, 16);
+            this.label15.Size = new System.Drawing.Size(47, 16);
             this.label15.TabIndex = 51;
             this.label15.Text = "Nome:";
             // 
@@ -287,7 +287,7 @@ namespace inventoryControl
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.Location = new System.Drawing.Point(34, 51);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(73, 16);
+            this.label29.Size = new System.Drawing.Size(72, 16);
             this.label29.TabIndex = 51;
             this.label29.Text = "Descrição:";
             // 
@@ -339,6 +339,7 @@ namespace inventoryControl
             this.button4.TabIndex = 56;
             this.button4.Text = "Salvar";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // textBox7
             // 
@@ -397,7 +398,7 @@ namespace inventoryControl
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.Location = new System.Drawing.Point(54, 16);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(48, 16);
+            this.label30.Size = new System.Drawing.Size(47, 16);
             this.label30.TabIndex = 51;
             this.label30.Text = "Nome:";
             this.label30.Visible = false;
@@ -444,7 +445,7 @@ namespace inventoryControl
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.Location = new System.Drawing.Point(47, 51);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(54, 16);
+            this.label23.Size = new System.Drawing.Size(53, 16);
             this.label23.TabIndex = 51;
             this.label23.Text = "Defeito:";
             // 
@@ -560,7 +561,7 @@ namespace inventoryControl
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.Location = new System.Drawing.Point(54, 16);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(48, 16);
+            this.label27.Size = new System.Drawing.Size(47, 16);
             this.label27.TabIndex = 51;
             this.label27.Text = "Nome:";
             // 
@@ -596,7 +597,7 @@ namespace inventoryControl
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(54, 51);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(48, 16);
+            this.label16.Size = new System.Drawing.Size(47, 16);
             this.label16.TabIndex = 51;
             this.label16.Text = "Nome:";
             // 
@@ -740,7 +741,7 @@ namespace inventoryControl
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.Location = new System.Drawing.Point(179, 16);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(48, 16);
+            this.label26.Size = new System.Drawing.Size(47, 16);
             this.label26.TabIndex = 41;
             this.label26.Text = "Nome:";
             // 
@@ -788,7 +789,7 @@ namespace inventoryControl
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(54, 80);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 16);
+            this.label12.Size = new System.Drawing.Size(47, 16);
             this.label12.TabIndex = 41;
             this.label12.Text = "Nome:";
             // 
@@ -1025,7 +1026,7 @@ namespace inventoryControl
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(38, 248);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(107, 16);
+            this.label7.Size = new System.Drawing.Size(106, 16);
             this.label7.TabIndex = 51;
             this.label7.Text = "Lista de clientes:";
             // 
@@ -1072,7 +1073,7 @@ namespace inventoryControl
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(54, 51);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 16);
+            this.label11.Size = new System.Drawing.Size(47, 16);
             this.label11.TabIndex = 48;
             this.label11.Text = "Nome:";
             // 
@@ -1093,7 +1094,7 @@ namespace inventoryControl
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(41, 109);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 16);
+            this.label8.Size = new System.Drawing.Size(64, 16);
             this.label8.TabIndex = 56;
             this.label8.Text = "Telefone:";
             // 
@@ -1124,7 +1125,7 @@ namespace inventoryControl
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(55, 138);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 16);
+            this.label9.Size = new System.Drawing.Size(48, 16);
             this.label9.TabIndex = 57;
             this.label9.Text = "E-mail:";
             // 

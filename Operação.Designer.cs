@@ -100,6 +100,7 @@ namespace inventoryControl
             // 
             // produto
             // 
+            this.produto.BackColor = System.Drawing.SystemColors.Window;
             this.produto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.produto.FormattingEnabled = true;
             this.produto.Location = new System.Drawing.Point(96, 22);
@@ -321,9 +322,9 @@ namespace inventoryControl
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(808, 231);
+            this.button2.Location = new System.Drawing.Point(795, 237);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(119, 23);
+            this.button2.Size = new System.Drawing.Size(163, 23);
             this.button2.TabIndex = 27;
             this.button2.Text = "Cadastrar nova GRM";
             this.button2.UseVisualStyleBackColor = true;
@@ -407,7 +408,7 @@ namespace inventoryControl
             // 
             this.groupBox5.Controls.Add(this.dataGridView1);
             this.groupBox5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.ForeColor = System.Drawing.Color.White;
+            this.groupBox5.ForeColor = System.Drawing.Color.Black;
             this.groupBox5.Location = new System.Drawing.Point(12, 266);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(1077, 217);
