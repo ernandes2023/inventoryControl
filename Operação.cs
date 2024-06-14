@@ -496,5 +496,7 @@ namespace inventoryControl
             con.Show();
             this.Hide();
         }
+
+
     }
 }
