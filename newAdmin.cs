@@ -63,7 +63,8 @@ namespace inventoryControl
                 }
 
                 // Exibe uma mensagem de sucesso
-                MessageBox.Show("Cadastro realizado com sucesso!", "Sucesso", MessageBoxButtons.OK);
+                MessageBox.Show("Usuário administrador criado com sucesso! Agora você pode fazer login no sistema.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
                 this.Hide();
 

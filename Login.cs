@@ -48,7 +48,7 @@ namespace inventoryControl
                             else
                             {
                                 // Se não houver linhas, significa que o usuário "admin" não existe
-                                MessageBox.Show("O usuário 'admin' não existe no banco de dados.");
+                                MessageBox.Show("É necessário cadastrar um usuário administrador");
 
                                 newAdmin admin = new newAdmin(); // Passa o ID do usuário como argumento
                                 admin.Show();
