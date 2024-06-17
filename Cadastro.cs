@@ -1332,7 +1332,6 @@ namespace inventoryControl
             btnSaveDefeito.Enabled = true;
         }
 
-
     }
 }
 

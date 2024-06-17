@@ -71,7 +71,7 @@ namespace inventoryControl
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(12, 489);
+            this.button1.Location = new System.Drawing.Point(1005, 489);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(78, 27);
             this.button1.TabIndex = 1;
@@ -250,7 +250,7 @@ namespace inventoryControl
             // finalizar
             // 
             this.finalizar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.finalizar.Location = new System.Drawing.Point(1014, 493);
+            this.finalizar.Location = new System.Drawing.Point(18, 493);
             this.finalizar.Name = "finalizar";
             this.finalizar.Size = new System.Drawing.Size(75, 23);
             this.finalizar.TabIndex = 18;
@@ -263,7 +263,7 @@ namespace inventoryControl
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(216, 22);
+            this.label8.Location = new System.Drawing.Point(197, 24);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 17);
             this.label8.TabIndex = 20;
@@ -292,16 +292,16 @@ namespace inventoryControl
             // dataAtual
             // 
             this.dataAtual.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataAtual.Location = new System.Drawing.Point(267, 19);
+            this.dataAtual.Location = new System.Drawing.Point(248, 21);
             this.dataAtual.Name = "dataAtual";
-            this.dataAtual.Size = new System.Drawing.Size(106, 23);
+            this.dataAtual.Size = new System.Drawing.Size(128, 23);
             this.dataAtual.TabIndex = 24;
             this.dataAtual.TextChanged += new System.EventHandler(this.dataAtual_TextChanged);
             // 
             // tecnico
             // 
             this.tecnico.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tecnico.Location = new System.Drawing.Point(85, 19);
+            this.tecnico.Location = new System.Drawing.Point(69, 20);
             this.tecnico.Name = "tecnico";
             this.tecnico.Size = new System.Drawing.Size(125, 23);
             this.tecnico.TabIndex = 25;
@@ -312,7 +312,7 @@ namespace inventoryControl
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(18, 23);
+            this.label10.Location = new System.Drawing.Point(2, 24);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(61, 17);
             this.label10.TabIndex = 26;
@@ -321,9 +321,9 @@ namespace inventoryControl
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(808, 231);
+            this.button2.Location = new System.Drawing.Point(925, 28);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(119, 23);
+            this.button2.Size = new System.Drawing.Size(158, 23);
             this.button2.TabIndex = 27;
             this.button2.Text = "Cadastrar nova GRM";
             this.button2.UseVisualStyleBackColor = true;
@@ -332,11 +332,11 @@ namespace inventoryControl
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(964, 237);
+            this.button3.Location = new System.Drawing.Point(951, 57);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(119, 23);
             this.button3.TabIndex = 28;
-            this.button3.Text = "Consultar Serial";
+            this.button3.Text = "Consultas";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -407,7 +407,7 @@ namespace inventoryControl
             // 
             this.groupBox5.Controls.Add(this.dataGridView1);
             this.groupBox5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.ForeColor = System.Drawing.Color.White;
+            this.groupBox5.ForeColor = System.Drawing.Color.Black;
             this.groupBox5.Location = new System.Drawing.Point(12, 266);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(1077, 217);
@@ -432,7 +432,7 @@ namespace inventoryControl
             this.Controls.Add(this.button1);
             this.Name = "Operação";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Operação";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.Operação_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);

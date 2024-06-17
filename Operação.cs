@@ -336,6 +336,9 @@ namespace inventoryControl
             operacoes.Add(operacao);
             operacao = new Operacao();
 
+            // Formata as colunas do DataGridView para o tanho auto ajustavel
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
             DateTime Hoje = DateTime.Now;
 
             // Atribuir a data atual ao texto da TextBox
