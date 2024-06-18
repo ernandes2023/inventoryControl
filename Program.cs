@@ -8,9 +8,9 @@ namespace inventoryControl
 {
     static class Program
     {
-        public static string conexaoBD = "server=localhost;database=inventory;uid=root;pwd=gabriel";
+        //public static string conexaoBD = "server=localhost;database=inventory;uid=root;pwd=gabriel";
 
-        //public static string conexaoBD = System.Configuration.ConfigurationManager.ConnectionStrings["Conexao"].ConnectionString;
+        public static string conexaoBD = System.Configuration.ConfigurationManager.ConnectionStrings["Conexao"].ConnectionString;
 
         
 
