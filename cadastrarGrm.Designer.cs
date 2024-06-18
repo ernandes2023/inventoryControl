@@ -43,16 +43,16 @@ namespace inventoryControl
             // 
             // grmText
             // 
-            this.grmText.Location = new System.Drawing.Point(49, 76);
+            this.grmText.Location = new System.Drawing.Point(43, 61);
             this.grmText.Name = "grmText";
-            this.grmText.Size = new System.Drawing.Size(100, 20);
+            this.grmText.Size = new System.Drawing.Size(121, 20);
             this.grmText.TabIndex = 0;
             this.grmText.TextChanged += new System.EventHandler(this.grmText_TextChanged);
             // 
             // moduloText
             // 
             this.moduloText.FormattingEnabled = true;
-            this.moduloText.Location = new System.Drawing.Point(49, 170);
+            this.moduloText.Location = new System.Drawing.Point(43, 127);
             this.moduloText.Name = "moduloText";
             this.moduloText.Size = new System.Drawing.Size(121, 21);
             this.moduloText.TabIndex = 1;
@@ -60,9 +60,9 @@ namespace inventoryControl
             // 
             // qtdText
             // 
-            this.qtdText.Location = new System.Drawing.Point(194, 173);
+            this.qtdText.Location = new System.Drawing.Point(188, 127);
             this.qtdText.Name = "qtdText";
-            this.qtdText.Size = new System.Drawing.Size(39, 20);
+            this.qtdText.Size = new System.Drawing.Size(44, 20);
             this.qtdText.TabIndex = 2;
             this.qtdText.TextChanged += new System.EventHandler(this.qtdText_TextChanged);
             // 
@@ -70,7 +70,7 @@ namespace inventoryControl
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(46, 39);
+            this.label1.Location = new System.Drawing.Point(40, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 3;
@@ -80,7 +80,7 @@ namespace inventoryControl
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(46, 140);
+            this.label2.Location = new System.Drawing.Point(40, 101);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 4;
@@ -90,7 +90,7 @@ namespace inventoryControl
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(191, 143);
+            this.label3.Location = new System.Drawing.Point(185, 101);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(24, 13);
             this.label3.TabIndex = 5;
@@ -99,15 +99,15 @@ namespace inventoryControl
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(49, 240);
+            this.dataGridView1.Location = new System.Drawing.Point(43, 164);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(370, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(427, 150);
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(260, 170);
+            this.btnSalvar.Location = new System.Drawing.Point(283, 127);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 7;
@@ -118,7 +118,7 @@ namespace inventoryControl
             // btnVoltar
             // 
             this.btnVoltar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnVoltar.Location = new System.Drawing.Point(413, 405);
+            this.btnVoltar.Location = new System.Drawing.Point(395, 329);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(75, 23);
             this.btnVoltar.TabIndex = 8;
@@ -131,7 +131,7 @@ namespace inventoryControl
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(500, 450);
+            this.ClientSize = new System.Drawing.Size(500, 389);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.dataGridView1);

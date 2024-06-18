@@ -320,41 +320,50 @@ namespace inventoryControl
         private void addList_Click(object sender, EventArgs e)
         {
 
-            int rowIndex = dataGridView1.Rows.Add();
+            if (produto.Text == "" || serialNumber.Text == "" || status.Text == "" || garantia.Text == "" || defeito.Text == "" || componente.Text == ""
+             || gtdComp.Text == "")
+            {
+                MessageBox.Show("Todos os campos precisam ser preenchidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //produto.Select(); Coloca o foco no campo de Produto caso esteja vazio
+            }
+            else
+            {
+                int rowIndex = dataGridView1.Rows.Add();
 
-            dataGridView1.Rows[rowIndex].Cells[0].Value = operacao.grm.nome;
-            dataGridView1.Rows[rowIndex].Cells[1].Value = operacao.module.nome;
-            dataGridView1.Rows[rowIndex].Cells[2].Value = operacao.serialNumber;
-            dataGridView1.Rows[rowIndex].Cells[3].Value = operacao.status;
-            dataGridView1.Rows[rowIndex].Cells[4].Value = operacao.garantia.nome;
-            dataGridView1.Rows[rowIndex].Cells[5].Value = operacao.defeito.nome;
-            dataGridView1.Rows[rowIndex].Cells[6].Value = operacao.componente.nome;
-            dataGridView1.Rows[rowIndex].Cells[7].Value = operacao.gtdComp;
-            dataGridView1.Rows[rowIndex].Cells[8].Value = userTecnico.tecnico;
-            dataGridView1.Rows[rowIndex].Cells[9].Value = operacao.dataAtual;
+                dataGridView1.Rows[rowIndex].Cells[0].Value = operacao.grm.nome;
+                dataGridView1.Rows[rowIndex].Cells[1].Value = operacao.module.nome;
+                dataGridView1.Rows[rowIndex].Cells[2].Value = operacao.serialNumber;
+                dataGridView1.Rows[rowIndex].Cells[3].Value = operacao.status;
+                dataGridView1.Rows[rowIndex].Cells[4].Value = operacao.garantia.nome;
+                dataGridView1.Rows[rowIndex].Cells[5].Value = operacao.defeito.nome;
+                dataGridView1.Rows[rowIndex].Cells[6].Value = operacao.componente.nome;
+                dataGridView1.Rows[rowIndex].Cells[7].Value = operacao.gtdComp;
+                dataGridView1.Rows[rowIndex].Cells[8].Value = userTecnico.tecnico;
+                dataGridView1.Rows[rowIndex].Cells[9].Value = operacao.dataAtual;
 
-            operacoes.Add(operacao);
-            operacao = new Operacao();
+                operacoes.Add(operacao);
+                operacao = new Operacao();
 
             // Formata as colunas do DataGridView para o tanho auto ajustavel
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
             DateTime Hoje = DateTime.Now;
 
-            // Atribuir a data atual ao texto da TextBox
-            dataAtual.Text = Hoje.ToString("yyyy-MM-dd HH:mm:ss");
+                // Atribuir a data atual ao texto da TextBox
+                dataAtual.Text = Hoje.ToString("yyyy-MM-dd HH:mm:ss");
 
-            operacao.dataAtual = Hoje;
+                operacao.dataAtual = Hoje;
 
-            serialNumber.Text = "";
-            grmNumero.ResetText();
-            dataAtual.Text = "";
-            garantia.ResetText();
-            componente.ResetText();
-            gtdComp.Text = "";
-            produto.ResetText();
-            status.ResetText();
-            defeito.ResetText();
+                serialNumber.Text = "";//2°
+                grmNumero.ResetText();
+                dataAtual.Text = "";
+                garantia.ResetText();//4°
+                componente.ResetText();//6°
+                gtdComp.Text = "";//7°
+                produto.ResetText();//1°
+                status.ResetText();//3°
+                defeito.ResetText();//5°
+            }
         }
 
         private void componente_SelectedIndexChanged(object sender, EventArgs e)
@@ -366,6 +375,7 @@ namespace inventoryControl
 
         private void finalizar_Click(object sender, EventArgs e)
         {
+         
             try
             {
 

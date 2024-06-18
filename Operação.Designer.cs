@@ -100,6 +100,7 @@ namespace inventoryControl
             // 
             // produto
             // 
+            this.produto.BackColor = System.Drawing.SystemColors.Window;
             this.produto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.produto.FormattingEnabled = true;
             this.produto.Location = new System.Drawing.Point(96, 22);
