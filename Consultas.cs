@@ -622,6 +622,7 @@ namespace inventoryControl
 
         private void Clear_Click(object sender, EventArgs e)
         {
+            TxtFiltroGrm.Text = "";
             carregar_manutencao();
 
         }
