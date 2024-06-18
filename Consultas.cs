@@ -21,8 +21,13 @@ namespace inventoryControl
         {
             InitializeComponent();
             carregar_manutencao();
+            InitializeComboBox();
             carregDadosGrm();
 
+        }
+        private void InitializeComboBox()
+        {
+            TxtFiltroGrm.TextChanged += TxtFiltroGrm_SelectedIndexChanged;
         }
 
         private void carregDadosGrm()
@@ -474,7 +479,9 @@ namespace inventoryControl
                         garantia AS ga ON o.garantia = ga.id_garantia
                     INNER JOIN 
                         componente AS c ON o.componente = c.id_componente
-                         where numero_grm = @numero_grm;";
+                         where numero_grm = @numero_grm
+                         ORDER BY 
+                        data_operacao DESC;";
 
                     // Prepare o comando SQL
                     MySqlCommand comando2 = new MySqlCommand(query, conectar);
@@ -510,6 +517,113 @@ namespace inventoryControl
                 }
 
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // Inicializar a conexão com o banco de dados
+            MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
+            MySqlCommand comando = new MySqlCommand();
+
+            // Correção na consulta SQL
+            comando.CommandText = "SELECT * FROM grm";
+            comando.Connection = conectar;
+
+            try
+            {
+                // Abrir a conexão
+                conectar.Open();
+
+                // Executar o comando
+                var resultado = comando.ExecuteScalar();
+
+                // Verificar o resultado
+                if (resultado != null)
+                {
+                    // Consulta SQL para buscar os detalhes do produto
+                    string query = @"
+                  SELECT 
+                        numero_grm as GRM, 
+                        nome_produto as Modulo, 
+                        serial_number as Série,
+                        state as Lacre, 
+                        status_garantia as Garantia,
+                        nome_defeito as Defeito,
+                        nome_comp as Componente, 
+                        qtd_comp as QTD, 
+                        login as Técnico, 
+                        data_operacao as Data
+                    FROM 
+                        operacao AS o
+                    INNER JOIN 
+                        grm AS g ON o.fk_grm = g.id_grm
+                    INNER JOIN 
+                        produto AS p ON o.fk_prod = p.id_produto
+                    INNER JOIN 
+                        defeito AS d ON o.fk_def = d.id
+                    INNER JOIN 
+                        usuario AS u ON o.fk_usuario = u.id_usuario
+                    INNER JOIN 
+                        garantia AS ga ON o.garantia = ga.id_garantia
+                    INNER JOIN 
+                        componente AS c ON o.componente = c.id_componente
+                    WHERE 
+                        data_operacao > @StartDate
+                        AND data_operacao < @EndDate
+                    ORDER BY
+                        data_operacao DESC;";
+
+                    // Prepare o comando SQL
+                    MySqlCommand comando2 = new MySqlCommand(query, conectar);
+                    comando2.Parameters.AddWithValue("@numero_grm", TxtFiltroGrm.Text);
+                    comando2.Parameters.AddWithValue("@StartDate", dateTimePicker1.Value);
+                    comando2.Parameters.AddWithValue("@EndDate", dateTimePicker2.Value);
+                    // Crie um adaptador de dados e um DataTable para armazenar os resultados
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(comando2);
+                    DataTable dt = new DataTable();
+
+                    // Preencha o DataTable com os resultados da consulta
+                    adapter.Fill(dt);
+
+                    // Atualize o DataSource do DataGridView com os resultados filtrados
+                    dataGridView3.DataSource = dt;
+
+                }
+                else
+                {
+                    MessageBox.Show("GRM não encontrada");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Lidar com exceções, por exemplo, exibir uma mensagem de erro
+                MessageBox.Show("Falha na pesquisa: " + ex.Message);
+            }
+            finally
+            {
+                // Fechar a conexão
+                if (conectar.State == ConnectionState.Open)
+                {
+                    conectar.Close();
+                }
+
+            }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            carregar_manutencao();
+
         }
     }
 }

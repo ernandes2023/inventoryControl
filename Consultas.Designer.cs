@@ -61,6 +61,8 @@ namespace inventoryControl
             this.exportPdf = new System.Windows.Forms.Button();
             this.exportXML = new System.Windows.Forms.Button();
             this.voltar_operacao = new System.Windows.Forms.Button();
+            this.Clear = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -74,6 +76,7 @@ namespace inventoryControl
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
@@ -87,8 +90,8 @@ namespace inventoryControl
             // tabControl1
             // 
             this.tabControl1.AccessibleName = "";
-            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
@@ -224,12 +227,11 @@ namespace inventoryControl
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.Clear);
             this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.groupBox5);
             this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Controls.Add(this.exportPdf);
-            this.tabPage2.Controls.Add(this.exportXML);
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -250,6 +252,7 @@ namespace inventoryControl
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.groupBox6);
             this.groupBox5.Controls.Add(this.dataGridView3);
             this.groupBox5.Location = new System.Drawing.Point(6, 119);
             this.groupBox5.Name = "groupBox5";
@@ -263,7 +266,7 @@ namespace inventoryControl
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Location = new System.Drawing.Point(6, 22);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(1070, 350);
+            this.dataGridView3.Size = new System.Drawing.Size(1070, 265);
             this.dataGridView3.TabIndex = 21;
             // 
             // groupBox3
@@ -328,6 +331,7 @@ namespace inventoryControl
             this.button3.TabIndex = 4;
             this.button3.Text = "Aplicar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // dateTimePicker2
             // 
@@ -335,6 +339,7 @@ namespace inventoryControl
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(205, 23);
             this.dateTimePicker2.TabIndex = 2;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // dateTimePicker1
             // 
@@ -342,6 +347,7 @@ namespace inventoryControl
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(205, 23);
             this.dateTimePicker1.TabIndex = 2;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label7
             // 
@@ -363,7 +369,7 @@ namespace inventoryControl
             // 
             // exportPdf
             // 
-            this.exportPdf.Location = new System.Drawing.Point(146, 498);
+            this.exportPdf.Location = new System.Drawing.Point(145, 25);
             this.exportPdf.Name = "exportPdf";
             this.exportPdf.Size = new System.Drawing.Size(128, 38);
             this.exportPdf.TabIndex = 24;
@@ -373,11 +379,11 @@ namespace inventoryControl
             // 
             // exportXML
             // 
-            this.exportXML.Location = new System.Drawing.Point(12, 498);
+            this.exportXML.Location = new System.Drawing.Point(0, 25);
             this.exportXML.Name = "exportXML";
             this.exportXML.Size = new System.Drawing.Size(128, 38);
             this.exportXML.TabIndex = 23;
-            this.exportXML.Text = "Exportar";
+            this.exportXML.Text = "Excel";
             this.exportXML.UseVisualStyleBackColor = true;
             this.exportXML.Click += new System.EventHandler(this.exportXML_Click);
             // 
@@ -390,6 +396,28 @@ namespace inventoryControl
             this.voltar_operacao.Text = "Voltar";
             this.voltar_operacao.UseVisualStyleBackColor = true;
             this.voltar_operacao.Click += new System.EventHandler(this.voltar_operacao_Click);
+            // 
+            // Clear
+            // 
+            this.Clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Clear.Location = new System.Drawing.Point(957, 498);
+            this.Clear.Name = "Clear";
+            this.Clear.Size = new System.Drawing.Size(125, 31);
+            this.Clear.TabIndex = 29;
+            this.Clear.Text = "Refresh";
+            this.Clear.UseVisualStyleBackColor = true;
+            this.Clear.Click += new System.EventHandler(this.Clear_Click);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.exportPdf);
+            this.groupBox6.Controls.Add(this.exportXML);
+            this.groupBox6.Location = new System.Drawing.Point(6, 293);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(291, 74);
+            this.groupBox6.TabIndex = 30;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Exportar";
             // 
             // Consultas
             // 
@@ -418,6 +446,7 @@ namespace inventoryControl
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -455,5 +484,7 @@ namespace inventoryControl
         private System.Windows.Forms.Button BtnPesquisarGrm;
         private System.Windows.Forms.ComboBox TxtFiltroGrm;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Clear;
+        private System.Windows.Forms.GroupBox groupBox6;
     }
 }
