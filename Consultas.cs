@@ -568,8 +568,8 @@ namespace inventoryControl
                     INNER JOIN 
                         componente AS c ON o.componente = c.id_componente
                     WHERE 
-                        data_operacao > @StartDate
-                        AND data_operacao < @EndDate
+                        data_operacao >= @StartDate
+                        AND data_operacao <= @EndDate
                     ORDER BY
                         data_operacao DESC;";
 
@@ -624,6 +624,11 @@ namespace inventoryControl
         {
             TxtFiltroGrm.Text = "";
             carregar_manutencao();
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
 
         }
     }
