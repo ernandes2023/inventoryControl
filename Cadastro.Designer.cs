@@ -184,9 +184,9 @@ namespace inventoryControl
             this.BtnBackLogin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BtnBackLogin.Location = new System.Drawing.Point(12, 602);
             this.BtnBackLogin.Name = "BtnBackLogin";
-            this.BtnBackLogin.Size = new System.Drawing.Size(154, 37);
+            this.BtnBackLogin.Size = new System.Drawing.Size(90, 37);
             this.BtnBackLogin.TabIndex = 1;
-            this.BtnBackLogin.Text = "Voltar para login";
+            this.BtnBackLogin.Text = "Login";
             this.BtnBackLogin.UseVisualStyleBackColor = true;
             this.BtnBackLogin.Click += new System.EventHandler(this.BtnBackLogin_Click);
             // 

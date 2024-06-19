@@ -60,6 +60,7 @@ namespace inventoryControl
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -255,7 +256,7 @@ namespace inventoryControl
             this.finalizar.Name = "finalizar";
             this.finalizar.Size = new System.Drawing.Size(75, 23);
             this.finalizar.TabIndex = 18;
-            this.finalizar.Text = "Finalizar";
+            this.finalizar.Text = "Salvar";
             this.finalizar.UseVisualStyleBackColor = true;
             this.finalizar.Click += new System.EventHandler(this.finalizar_Click);
             // 
@@ -406,6 +407,7 @@ namespace inventoryControl
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.label1);
             this.groupBox5.Controls.Add(this.dataGridView1);
             this.groupBox5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.Color.Black;
@@ -414,7 +416,16 @@ namespace inventoryControl
             this.groupBox5.Size = new System.Drawing.Size(1077, 217);
             this.groupBox5.TabIndex = 32;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Lista:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(7, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 17);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Lista";
             // 
             // Operação
             // 
@@ -445,6 +456,7 @@ namespace inventoryControl
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -481,5 +493,6 @@ namespace inventoryControl
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label1;
     }
 }
