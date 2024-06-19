@@ -144,20 +144,76 @@ namespace inventoryControl
                 btnOlho1.Text = "Mostrar";
             }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void Login_Load(object sender, EventArgs e)
+        private void txtSenha1_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
+                conectar.Open();
 
-        }
+                try
+                {
+                    MySqlCommand comando = new MySqlCommand();
 
-        private void txtLogin1_TextChanged(object sender, EventArgs e)
-        {
+                    // Criptografa a senha fornecida pelo usuário
+                    string senhaCriptografada = txtSenha1.Text.GerarHash();// 1. para voltar ao que era antes comente o código ao lado
 
+                    // Comando SQL
+                    comando.CommandText = "SELECT id_usuario FROM usuario WHERE login = @login AND senha = @senha";
+                    comando.Parameters.AddWithValue("@login", txtLogin1.Text);
+                    comando.Parameters.AddWithValue("@senha", senhaCriptografada); // 2. para voltar ao que era antes troque o senhaCriptografada por txtSenha1.Text
+
+                    comando.Connection = conectar;
+
+                    // Executar Comando
+                    var resultado = comando.ExecuteScalar();
+
+                    if (resultado != null)
+                    {
+                        int userId = Convert.ToInt32(resultado); // Obtém o ID do usuário como um número inteiro
+
+                        if (txtLogin1.Text == "admin")
+                        {
+                            Cadastro cadproduto = new Cadastro();
+                            cadproduto.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            UltimoValorTextBox = txtLogin1.Text;
+
+                            Operação cadprodutos = new Operação(userId); // Passa o ID do usuário como argumento
+                            cadprodutos.Show();
+                            this.Hide();
+                        }
+                    }
+
+
+                    else if (txtLogin1.Text == "" || txtSenha1.Text == "")
+                    {
+                        MessageBox.Show("Todos os campos devem ser preenchidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuário ou Senha inválidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (MySqlException er)
+                {
+                    MessageBox.Show("Alguma coisa deu errado!" + er, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    conectar.Close();
+                    conectar.ClearAllPoolsAsync();
+                }
+            }
+            
         }
     }
 }

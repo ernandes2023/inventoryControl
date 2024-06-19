@@ -231,6 +231,7 @@
   <ItemGroup>
     <Content Include="tcc.ico" />
     <Content Include="WhatsApp Image 2024-06-06 at 23.46.49.jpeg" />
+    <None Include="_img\botao-atualizar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

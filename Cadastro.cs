@@ -238,13 +238,13 @@ namespace inventoryControl
             dt.Columns["nome_defeito"].ColumnName = "Descrição:";
 
             // Define o DataGridView dgvClientes como a fonte de dados para exibir os dados do DataTable
-            dgvDefeito.DataSource = dt;
+            DgvDefect.DataSource = dt;
 
             // Fecha a conexão com o banco de dados
             conexaoMYSQL.Close();
 
             // Formata as colunas do DataGridView para o tanho auto ajustavel
-            dgvDefeito.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            DgvDefect.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         private void BtnBackLogin_Click(object sender, EventArgs e)
         {
@@ -1177,17 +1177,18 @@ namespace inventoryControl
 
             dgvClientes.DataSource = dt;
         }
-        private void dgvDefeito_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+
+        private void DgvDefect_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtIdDefeito.Text       = dgvDefeito.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtDefeito.Text         = dgvDefeito.Rows[e.RowIndex].Cells[1].Value.ToString();
-            btnSaveDefeito.Enabled  = false;
+            TxtIdDefect.Text = DgvDefect.Rows[e.RowIndex].Cells[0].Value.ToString();
+            TxtDefect.Text = DgvDefect.Rows[e.RowIndex].Cells[1].Value.ToString();
+            BtnSaveDefect.Enabled = false;
         }
 
-        private void btnSaveDefeito_Click(object sender, EventArgs e)
+        private void BtnSaveDefect_Click(object sender, EventArgs e)
         {
             // Verifica se os campos de código e nome do produto estão vazios
-            if (txtDefeito.Text == "")
+            if (TxtDefect.Text == "")
             {
                 // Se algum campo estiver vazio, exibe uma mensagem de aviso
                 MessageBox.Show("Todos os campos devem ser preenchidos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1201,7 +1202,7 @@ namespace inventoryControl
                 try
                 {
                     // Cria um comando SQL para inserir dados na tabela 'defeito'
-                    MySqlCommand comando = new MySqlCommand("INSERT INTO defeito(nome_defeito)VALUES('" + txtDefeito.Text + "');", conexaoMYSQL);
+                    MySqlCommand comando = new MySqlCommand("INSERT INTO defeito(nome_defeito)VALUES('" + TxtDefect.Text + "');", conexaoMYSQL);
 
                     // Executa o comando SQL para inserção de dados
                     comando.ExecuteNonQuery();
@@ -1211,7 +1212,7 @@ namespace inventoryControl
 
                     // Limpa os campos de entrada de texto
                     txtIdDefeito.Text = "";
-                    txtDefeito.Text = "";
+                    TxtDefect.Text = "";
 
 
                     // Atualiza a tabela de produtos na interface
@@ -1229,9 +1230,10 @@ namespace inventoryControl
                 }
             }
         }
-        private void btnEditDefeito_Click(object sender, EventArgs e)
+
+        private void BtnEditDefect_Click(object sender, EventArgs e)
         {
-            if (txtDefeito.Text == "")
+            if (TxtDefect.Text == "")
             {
                 MessageBox.Show("Selecione um componente existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -1245,7 +1247,7 @@ namespace inventoryControl
                 try
                 {
                     // Cria um novo comando MySqlCommand para Editar os dados na tabela defeito
-                    MySqlCommand comando = new MySqlCommand("UPDATE defeito SET nome_defeito='" + txtDefeito.Text + "' WHERE id =" + txtIdDefeito.Text, conexaoMYSQL);
+                    MySqlCommand comando = new MySqlCommand("UPDATE defeito SET nome_defeito='" + TxtDefect.Text + "' WHERE id =" + TxtIdDefect.Text, conexaoMYSQL);
 
                     // Executa o comando de inserir os dados
                     comando.ExecuteNonQuery();
@@ -1254,10 +1256,10 @@ namespace inventoryControl
                     MessageBox.Show("Dados alterados!", "Sucesso", MessageBoxButtons.OK);
 
                     // Limpa os campos de entrada de dados
-                    txtIdDefeito.Text = "";
-                    txtDefeito.Text = "";
-                    txtDefeito.Select();
-                    btnSaveDefeito.Enabled = true;
+                    TxtIdDefect.Text = "";
+                    TxtDefect.Text = "";
+                    TxtDefect.Select();
+                    BtnSaveDefect.Enabled = true;
 
                     // Chama o Método que irá carregar as informações dentro do dgvComponentes
                     LoadTableDefeito();
@@ -1274,13 +1276,14 @@ namespace inventoryControl
                 }
             }
         }
-        private void btnDelDefeito_Click(object sender, EventArgs e)
+
+        private void BtnDelDefect_Click(object sender, EventArgs e)
         {
             DialogResult caixaMensagem = MessageBox.Show("Deseja realmente exluir esse componente?", "Aviso", MessageBoxButtons.YesNo);
 
             if (caixaMensagem == DialogResult.Yes)
             {
-                if (txtDefeito.Text == "")
+                if (TxtDefect.Text == "")
                 {
                     MessageBox.Show("Selecione um componente existente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -1294,7 +1297,7 @@ namespace inventoryControl
                     try
                     {
                         // Cria um novo comando MySqlCommand para deletar os dados na tabela componete
-                        MySqlCommand comando = new MySqlCommand("DELETE FROM defeito WHERE id=" + txtIdDefeito.Text + ";", conexaoMYSQL);
+                        MySqlCommand comando = new MySqlCommand("DELETE FROM defeito WHERE id=" + TxtIdDefect.Text + ";", conexaoMYSQL);
 
                         // Executa o comando de inserir os dados
                         comando.ExecuteNonQuery();
@@ -1303,10 +1306,10 @@ namespace inventoryControl
                         MessageBox.Show("Dados excluídos!", "Sucesso", MessageBoxButtons.OK);
 
                         // Limpa os campos de entrada de dados
-                        txtIdDefeito.Text = "";
-                        txtDefeito.Text = "";
-                        txtDefeito.Select();
-                        btnSaveDefeito.Enabled = true;
+                        TxtIdDefect.Text = "";
+                        TxtDefect.Text = "";
+                        TxtDefect.Select();
+                        BtnSaveDefect.Enabled = true;
 
                         // Chama o Método que irá carregar as informações dentro do dgvComponentes
                         LoadTableDefeito();
@@ -1324,14 +1327,14 @@ namespace inventoryControl
                 }
             }
         }
-        private void btnClearDefeito_Click(object sender, EventArgs e)
-        {
-            txtIdDefeito.Text = "";
-            txtDefeito.Text = "";
-            txtDefeito.Select();
-            btnSaveDefeito.Enabled = true;
-        }
 
+        private void BtnClearDefect_Click(object sender, EventArgs e)
+        {
+            TxtIdDefect.Text = "";
+            TxtDefect.Text = "";
+            TxtDefect.Select();
+            BtnSaveDefect.Enabled = true;
+        }
     }
 }
 

@@ -68,7 +68,6 @@ namespace inventoryControl
             this.txtLogin1.Name = "txtLogin1";
             this.txtLogin1.Size = new System.Drawing.Size(121, 23);
             this.txtLogin1.TabIndex = 3;
-            this.txtLogin1.TextChanged += new System.EventHandler(this.txtLogin1_TextChanged);
             // 
             // txtSenha1
             // 
@@ -83,6 +82,7 @@ namespace inventoryControl
             this.txtSenha1.PasswordChar = '*';
             this.txtSenha1.Size = new System.Drawing.Size(121, 23);
             this.txtSenha1.TabIndex = 4;
+            this.txtSenha1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSenha1_KeyDown);
             // 
             // btnEntrar
             // 
@@ -171,7 +171,6 @@ namespace inventoryControl
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

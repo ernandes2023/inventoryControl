@@ -33,8 +33,7 @@ namespace inventoryControl
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.Clear = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.voltar_operacao = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.exportPdf = new System.Windows.Forms.Button();
@@ -56,16 +55,16 @@ namespace inventoryControl
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.Clear = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.voltar_operacao = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -76,6 +75,7 @@ namespace inventoryControl
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,26 +114,15 @@ namespace inventoryControl
             this.tabPage2.Text = "GRM geral";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // Clear
+            // voltar_operacao
             // 
-            this.Clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Clear.Location = new System.Drawing.Point(960, 331);
-            this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(125, 31);
-            this.Clear.TabIndex = 29;
-            this.Clear.Text = "Refresh";
-            this.Clear.UseVisualStyleBackColor = true;
-            this.Clear.Click += new System.EventHandler(this.Clear_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(878, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(210, 107);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 28;
-            this.pictureBox2.TabStop = false;
+            this.voltar_operacao.Location = new System.Drawing.Point(966, 506);
+            this.voltar_operacao.Name = "voltar_operacao";
+            this.voltar_operacao.Size = new System.Drawing.Size(122, 37);
+            this.voltar_operacao.TabIndex = 15;
+            this.voltar_operacao.Text = "Voltar";
+            this.voltar_operacao.UseVisualStyleBackColor = true;
+            this.voltar_operacao.Click += new System.EventHandler(this.voltar_operacao_Click);
             // 
             // groupBox5
             // 
@@ -153,16 +142,16 @@ namespace inventoryControl
             this.groupBox6.Controls.Add(this.exportXML);
             this.groupBox6.Location = new System.Drawing.Point(18, 299);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(291, 72);
+            this.groupBox6.Size = new System.Drawing.Size(201, 63);
             this.groupBox6.TabIndex = 30;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Exportar";
             // 
             // exportPdf
             // 
-            this.exportPdf.Location = new System.Drawing.Point(145, 25);
+            this.exportPdf.Location = new System.Drawing.Point(101, 22);
             this.exportPdf.Name = "exportPdf";
-            this.exportPdf.Size = new System.Drawing.Size(128, 38);
+            this.exportPdf.Size = new System.Drawing.Size(89, 28);
             this.exportPdf.TabIndex = 24;
             this.exportPdf.Text = "PDF";
             this.exportPdf.UseVisualStyleBackColor = true;
@@ -170,9 +159,9 @@ namespace inventoryControl
             // 
             // exportXML
             // 
-            this.exportXML.Location = new System.Drawing.Point(0, 22);
+            this.exportXML.Location = new System.Drawing.Point(6, 22);
             this.exportXML.Name = "exportXML";
-            this.exportXML.Size = new System.Drawing.Size(128, 38);
+            this.exportXML.Size = new System.Drawing.Size(89, 28);
             this.exportXML.TabIndex = 23;
             this.exportXML.Text = "Excel";
             this.exportXML.UseVisualStyleBackColor = true;
@@ -181,7 +170,7 @@ namespace inventoryControl
             // dataGridView3
             // 
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(18, 30);
+            this.dataGridView3.Location = new System.Drawing.Point(6, 22);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.Size = new System.Drawing.Size(1070, 263);
             this.dataGridView3.TabIndex = 21;
@@ -344,19 +333,6 @@ namespace inventoryControl
             this.label1.TabIndex = 4;
             this.label1.Text = "GRM";
             // 
-            // button2
-            // 
-            this.button2.Image = global::inventoryControl.Properties.Resources.lupa;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(250, 22);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(89, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Pesquisa";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -387,6 +363,42 @@ namespace inventoryControl
             this.label3.TabIndex = 4;
             this.label3.Text = "Nº Série:";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(878, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(210, 107);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 28;
+            this.pictureBox2.TabStop = false;
+            // 
+            // Clear
+            // 
+            this.Clear.Image = global::inventoryControl.Properties.Resources.botao_atualizar;
+            this.Clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Clear.Location = new System.Drawing.Point(999, 291);
+            this.Clear.Name = "Clear";
+            this.Clear.Size = new System.Drawing.Size(77, 31);
+            this.Clear.TabIndex = 29;
+            this.Clear.Text = "Refresh";
+            this.Clear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Clear.UseVisualStyleBackColor = true;
+            this.Clear.Click += new System.EventHandler(this.Clear_Click);
+            // 
+            // button2
+            // 
+            this.button2.Image = global::inventoryControl.Properties.Resources.lupa;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(250, 22);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(89, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Pesquisa";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // button1
             // 
             this.button1.Image = global::inventoryControl.Properties.Resources.lupa;
@@ -410,27 +422,16 @@ namespace inventoryControl
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
-            // voltar_operacao
-            // 
-            this.voltar_operacao.Location = new System.Drawing.Point(966, 506);
-            this.voltar_operacao.Name = "voltar_operacao";
-            this.voltar_operacao.Size = new System.Drawing.Size(122, 37);
-            this.voltar_operacao.TabIndex = 15;
-            this.voltar_operacao.Text = "Voltar";
-            this.voltar_operacao.UseVisualStyleBackColor = true;
-            this.voltar_operacao.Click += new System.EventHandler(this.voltar_operacao_Click);
-            // 
             // Consultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 588);
+            this.ClientSize = new System.Drawing.Size(1119, 600);
             this.Controls.Add(this.tabControl1);
             this.Name = "Consultas";
             this.Text = "Consultas";
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
@@ -446,6 +447,7 @@ namespace inventoryControl
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
