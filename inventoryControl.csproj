@@ -231,6 +231,14 @@
   <ItemGroup>
     <Content Include="tcc.ico" />
     <Content Include="WhatsApp Image 2024-06-06 at 23.46.49.jpeg" />
+    <None Include="_img\salve.png" />
+    <None Include="_img\salvar.png" />
+    <None Include="_img\pasta.png" />
+    <None Include="_img\olho_2.png" />
+    <None Include="_img\olho_1.png" />
+    <None Include="_img\camera.png" />
+    <None Include="_img\olho2.png" />
+    <None Include="_img\olho1.png" />
     <None Include="_img\botao-atualizar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

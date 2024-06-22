@@ -13,11 +13,19 @@ namespace inventoryControl
 {
     public partial class Login : Form
     {
+        private bool senhaVisivel = false;
+
         public static string UltimoValorTextBox { get; set; }
         public Login()
         {
             InitializeComponent();
             usuario();
+            AtualizarBotaoVisualizarSenha();
+        }
+        private void Login_Load(object sender, EventArgs e)
+        {
+            txtLogin1.TextAlign = HorizontalAlignment.Center;
+            txtSenha1.TextAlign = HorizontalAlignment.Center;
         }
 
         private void usuario()
@@ -73,8 +81,8 @@ namespace inventoryControl
             MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
             conectar.Open();
 
-                try
-                {
+            try
+            {
                 MySqlCommand comando = new MySqlCommand();
 
                 // Criptografa a senha fornecida pelo usuário
@@ -110,40 +118,27 @@ namespace inventoryControl
                     }
                 }
 
-            
-                    else if (txtLogin1.Text == "" || txtSenha1.Text == "")
-                    {
-                        MessageBox.Show("Todos os campos devem ser preenchidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Usuário ou Senha inválidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-                catch (MySqlException er)
+
+                else if (txtLogin1.Text == "" || txtSenha1.Text == "")
                 {
-                    MessageBox.Show("Alguma coisa deu errado!" + er, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Todos os campos devem ser preenchidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                finally
+                else
                 {
-                    conectar.Close();
-                    conectar.ClearAllPoolsAsync();
+                    MessageBox.Show("Usuário ou Senha inválidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+            }
+            catch (MySqlException er)
+            {
+                MessageBox.Show("Alguma coisa deu errado!" + er, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conectar.Close();
+                conectar.ClearAllPoolsAsync();
+            }
         }
 
-        private void btnOlho_Click(object sender, EventArgs e)
-        {
-            if (txtSenha1.PasswordChar =='*')
-            {
-                txtSenha1.PasswordChar = default;
-                btnOlho1.Text = "Ocultar";
-            }
-            else
-            {
-                txtSenha1.PasswordChar = '*';
-                btnOlho1.Text = "Mostrar";
-            }
-        }
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -213,7 +208,29 @@ namespace inventoryControl
                     conectar.ClearAllPoolsAsync();
                 }
             }
-            
+
+        }
+
+        private void BtnShow_Click(object sender, EventArgs e)
+        {
+            // Alterna a visibilidade da senha
+            senhaVisivel = !senhaVisivel;
+            AtualizarBotaoVisualizarSenha();
+        }
+        private void AtualizarBotaoVisualizarSenha()
+        {
+            if (senhaVisivel)
+            {
+                // Se a senha estiver visível, mostra a imagem de olho fechado
+                BtnShow.Image = Properties.Resources.olho1;
+                txtSenha1.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                // Se a senha estiver oculta, mostra a imagem de olho aberto
+                BtnShow.Image = Properties.Resources.olho2;
+                txtSenha1.UseSystemPasswordChar = true;
+            }
         }
     }
 }

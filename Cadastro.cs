@@ -21,6 +21,8 @@ namespace inventoryControl
 {
     public partial class Cadastro : Form
     {
+        private bool senhaVisivel = false;
+
         public Cadastro()
         {
             InitializeComponent();
@@ -31,6 +33,9 @@ namespace inventoryControl
             LoadTableProd();
             LoadTableComp();
             LoadTableDefeito();
+
+            AtualizarBotaoVisualizarSenha();
+            AtualizarBotaoVisualizarSenha2();
         }
         public static class CpfValidator
         {
@@ -320,8 +325,8 @@ namespace inventoryControl
             TxtPass.Text            = dgvUsers.Rows[e.RowIndex].Cells[5].Value.ToString();  //ESSES TRECHOS NÃO PODEM SUBIR PARA A TEXT BOX
             TxtConfPass.Text        = dgvUsers.Rows[e.RowIndex].Cells[6].Value.ToString();
             BtnSalvar.Enabled       = false;
-            btnMostrar1.Enabled     = false;
-            btnMostrar2.Enabled     = false;
+            BtnShow.Enabled         = false;
+            BtnShow2.Enabled        = false;
 
             //MessageBox.Show("Digite a nova senha se necessário", "Altere o usuário", MessageBoxButtons.OK);
         }
@@ -441,51 +446,81 @@ namespace inventoryControl
 
         private void BtnEditar_Click_1(object sender, EventArgs e)
         {
-            string senhaCriptografada = TxtPass.Text.GerarHash();
-            MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
-
-            string senhaCriptografada1 = TxtConfPass.Text.GerarHash();
-            MySqlConnection conecta1 = new MySqlConnection(Program.conexaoBD);
-
-            try
+            if (TxtIdUser.Text == "")
             {
-                conectar.Open();
-                MySqlCommand cadastrar = new MySqlCommand(
-                    "UPDATE usuario SET nome_usuario=@Nome, cpf_usuario=@CPF, cargo=@Cargo, login=@Login, senha=@Senha, confirm_senha=@ConfSenha WHERE id_usuario=@Id", conectar);
-                
-                //abaixo tem os parâmetros que protegem contra SQL injection
-                cadastrar.Parameters.AddWithValue("@Nome", TxtNameUser.Text);
-                cadastrar.Parameters.AddWithValue("@CPF", TxtCpfUser.Text);
-                cadastrar.Parameters.AddWithValue("@Cargo", TxtCargoUser.Text);
-                cadastrar.Parameters.AddWithValue("@Login", TxtUser.Text);
-                cadastrar.Parameters.AddWithValue("@Senha", senhaCriptografada);
-                cadastrar.Parameters.AddWithValue("@ConfSenha", senhaCriptografada1);
-                cadastrar.Parameters.AddWithValue("@Id", TxtIdUser.Text);
-
-                cadastrar.ExecuteNonQuery();
-
-                MessageBox.Show("Dados alterados!!!");
-                TxtIdUser.Text = "";
-                TxtNameUser.Text = "";
-                TxtCpfUser.Text = "";
-                TxtCargoUser.Text = "";
-                TxtUser.Text = "";
+                MessageBox.Show("Id do usuário não localizado \n Favor selicionar um usuário ou clique no botão 'salvar' \n para adicionar um novo usuário.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TxtNameUser.Select(); // Coloca o foco no campo de nome caso esteja vazio
+            }
+            // Verifica se todos os campos obrigatórios estão preenchidos
+            else if (TxtNameUser.Text == "" || TxtCpfUser.Text == "" || TxtCargoUser.Text == "" || TxtUser.Text == "" || TxtPass.Text == "" || TxtConfPass.Text == "")
+            {
+                MessageBox.Show("Todos os campos precisam ser preenchidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TxtNameUser.Select(); // Coloca o foco no campo de nome caso esteja vazio
+            }
+            // Verifica se as senhas digitadas são iguais
+            else if (TxtPass.Text != TxtConfPass.Text)
+            {
+                MessageBox.Show("As Senhas digitadas São diferentes! \n Por Favor digite a senha novamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 TxtPass.Text = "";
                 TxtConfPass.Text = "";
-                BtnSalvar.Enabled = true;
-                btnMostrar1.Enabled = true;
-                btnMostrar2.Enabled = true;
+                TxtPass.Select(); // Coloca o foco no campo de senha caso as senhas sejam diferentes
             }
-            catch (Exception ex)
+            // Verifica se o CPF é válido
+            else if (!CpfValidator.IsValid(TxtCpfUser.Text))
             {
-                MessageBox.Show("Erro ao atualizar os dados: " + ex.Message);
+                MessageBox.Show("CPF inválido. Por favor, insira um CPF válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtCpfUser.Select(); // Coloca o foco no campo de CPF caso seja inválido
             }
-            finally
+            else
             {
-                conectar.Close();
-            }
+                string senhaCriptografada = TxtPass.Text.GerarHash();
+                MySqlConnection conectar = new MySqlConnection(Program.conexaoBD);
 
-            AtualizarDataGridView();
+                string senhaCriptografada1 = TxtConfPass.Text.GerarHash();
+                MySqlConnection conecta1 = new MySqlConnection(Program.conexaoBD);
+
+                try
+                {
+                    conectar.Open();
+                    MySqlCommand cadastrar = new MySqlCommand(
+                        "UPDATE usuario SET nome_usuario=@Nome, cpf_usuario=@CPF, cargo=@Cargo, login=@Login, senha=@Senha, confirm_senha=@ConfSenha WHERE id_usuario=@Id", conectar);
+
+                    //abaixo tem os parâmetros que protegem contra SQL injection
+                    cadastrar.Parameters.AddWithValue("@Nome", TxtNameUser.Text);
+                    cadastrar.Parameters.AddWithValue("@CPF", TxtCpfUser.Text);
+                    cadastrar.Parameters.AddWithValue("@Cargo", TxtCargoUser.Text);
+                    cadastrar.Parameters.AddWithValue("@Login", TxtUser.Text);
+                    cadastrar.Parameters.AddWithValue("@Senha", senhaCriptografada);
+                    cadastrar.Parameters.AddWithValue("@ConfSenha", senhaCriptografada1);
+                    cadastrar.Parameters.AddWithValue("@Id", TxtIdUser.Text);
+
+                    cadastrar.ExecuteNonQuery();
+
+                    MessageBox.Show("Dados alterados com sucesso!","Sucesso", MessageBoxButtons.OK);
+
+                    TxtIdUser.Text = "";
+                    TxtNameUser.Text = "";
+                    TxtCpfUser.Text = "";
+                    TxtCargoUser.Text = "";
+                    TxtUser.Text = "";
+                    TxtPass.Text = "";
+                    TxtConfPass.Text = "";
+                    BtnSalvar.Enabled = true;
+                    BtnShow.Enabled = true;
+                    BtnShow2.Enabled = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao atualizar os dados: " + ex.Message);
+                }
+                finally
+                {
+                    conectar.Close();
+                }
+
+                AtualizarDataGridView();
+
+            }
         }
         private void BtnLimpar_Click(object sender, EventArgs e)
         {
@@ -497,8 +532,8 @@ namespace inventoryControl
             TxtPass.Text = "";
             TxtConfPass.Text = "";
             BtnSalvar.Enabled = true;
-            btnMostrar1.Enabled = true;
-            btnMostrar2.Enabled = true;
+            BtnShow.Enabled = true;
+            BtnShow2.Enabled = true;
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -526,8 +561,8 @@ namespace inventoryControl
                         TxtPass.Text = "";
                         TxtConfPass.Text = "";
                         BtnSalvar.Enabled = true;
-                        btnMostrar1.Enabled = true;
-                        btnMostrar2.Enabled = true;
+                        BtnShow.Enabled = true;
+                        BtnShow2.Enabled = true;
 
                         conectar.Close();
 
@@ -1068,34 +1103,6 @@ namespace inventoryControl
             Application.Exit();
         }
 
-        private void btnMostrar1_Click(object sender, EventArgs e)
-        {
-            if (TxtPass.PasswordChar == '*')
-            {
-                TxtPass.PasswordChar = default;
-                btnMostrar1.Text = "Ocultar";
-            }
-            else
-            {
-                TxtPass.PasswordChar = '*';
-                btnMostrar1.Text = "Mostrar";
-            }
-        }
-
-        private void btnMostrar2_Click(object sender, EventArgs e)
-        {
-            if (TxtConfPass.PasswordChar == '*')
-            {
-                TxtConfPass.PasswordChar = default;
-                btnMostrar2.Text = "Ocultar";
-            }
-            else
-            {
-                TxtConfPass.PasswordChar = '*';
-                btnMostrar2.Text = "Mostrar";
-            }
-        }
-
         private void TxtPescCPF_TextChanged(object sender, EventArgs e)
         {
             MySqlConnection conexao1 = new MySqlConnection(Program.conexaoBD);
@@ -1334,6 +1341,60 @@ namespace inventoryControl
             TxtDefect.Text = "";
             TxtDefect.Select();
             BtnSaveDefect.Enabled = true;
+        }
+
+        private void BtnShow_Click(object sender, EventArgs e)
+        {
+            // Alterna a visibilidade da senha
+            senhaVisivel = !senhaVisivel;
+            AtualizarBotaoVisualizarSenha();
+        }
+        private void AtualizarBotaoVisualizarSenha()
+        {
+            if (senhaVisivel)
+            {
+                // Se a senha estiver visível, mostra a imagem de olho fechado
+                BtnShow.Image = Properties.Resources.olho1;
+                TxtPass.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                // Se a senha estiver oculta, mostra a imagem de olho aberto
+                BtnShow.Image = Properties.Resources.olho2;
+                TxtPass.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void BtnShow2_Click(object sender, EventArgs e)
+        {
+            // Alterna a visibilidade da senha
+            senhaVisivel = !senhaVisivel;
+            AtualizarBotaoVisualizarSenha2();
+        }
+        private void AtualizarBotaoVisualizarSenha2()
+        {
+            if (senhaVisivel)
+            {
+                // Se a senha estiver visível, mostra a imagem de olho fechado
+                BtnShow2.Image = Properties.Resources.olho1;
+                TxtConfPass.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                // Se a senha estiver oculta, mostra a imagem de olho aberto
+                BtnShow2.Image = Properties.Resources.olho2;
+                TxtConfPass.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void TxtPass_TextChanged(object sender, EventArgs e)
+        {
+            BtnShow.Enabled = true;
+        }
+
+        private void TxtConfPass_TextChanged(object sender, EventArgs e)
+        {
+            BtnShow2.Enabled = true;
         }
     }
 }
