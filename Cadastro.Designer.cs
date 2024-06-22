@@ -30,6 +30,9 @@ namespace inventoryControl
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BtnBackLogin = new System.Windows.Forms.Button();
             this.BtnExit = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
@@ -180,7 +183,7 @@ namespace inventoryControl
             // 
             // BtnBackLogin
             // 
-            this.BtnBackLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBackLogin.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnBackLogin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BtnBackLogin.Location = new System.Drawing.Point(12, 602);
             this.BtnBackLogin.Name = "BtnBackLogin";
@@ -192,7 +195,7 @@ namespace inventoryControl
             // 
             // BtnExit
             // 
-            this.BtnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnExit.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnExit.Location = new System.Drawing.Point(1024, 602);
             this.BtnExit.Name = "BtnExit";
             this.BtnExit.Size = new System.Drawing.Size(90, 37);
@@ -253,26 +256,26 @@ namespace inventoryControl
             // 
             // TxtDefect
             // 
-            this.TxtDefect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtDefect.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDefect.Location = new System.Drawing.Point(112, 48);
             this.TxtDefect.MaxLength = 55;
             this.TxtDefect.Name = "TxtDefect";
-            this.TxtDefect.Size = new System.Drawing.Size(422, 22);
+            this.TxtDefect.Size = new System.Drawing.Size(422, 23);
             this.TxtDefect.TabIndex = 53;
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.Location = new System.Drawing.Point(34, 51);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(72, 16);
+            this.label29.Size = new System.Drawing.Size(76, 17);
             this.label29.TabIndex = 51;
             this.label29.Text = "Descrição:";
             // 
             // BtnDelDefect
             // 
-            this.BtnDelDefect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDelDefect.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDelDefect.Location = new System.Drawing.Point(703, 84);
             this.BtnDelDefect.Name = "BtnDelDefect";
             this.BtnDelDefect.Size = new System.Drawing.Size(75, 23);
@@ -283,7 +286,7 @@ namespace inventoryControl
             // 
             // BtnClearDefect
             // 
-            this.BtnClearDefect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnClearDefect.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnClearDefect.Location = new System.Drawing.Point(784, 84);
             this.BtnClearDefect.Name = "BtnClearDefect";
             this.BtnClearDefect.Size = new System.Drawing.Size(75, 23);
@@ -295,6 +298,7 @@ namespace inventoryControl
             // label31
             // 
             this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.Location = new System.Drawing.Point(82, 22);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(24, 17);
@@ -303,7 +307,7 @@ namespace inventoryControl
             // 
             // BtnEditDefect
             // 
-            this.BtnEditDefect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEditDefect.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEditDefect.Location = new System.Drawing.Point(622, 84);
             this.BtnEditDefect.Name = "BtnEditDefect";
             this.BtnEditDefect.Size = new System.Drawing.Size(75, 23);
@@ -314,7 +318,7 @@ namespace inventoryControl
             // 
             // BtnSaveDefect
             // 
-            this.BtnSaveDefect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSaveDefect.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSaveDefect.Location = new System.Drawing.Point(541, 84);
             this.BtnSaveDefect.Name = "BtnSaveDefect";
             this.BtnSaveDefect.Size = new System.Drawing.Size(75, 23);
@@ -325,10 +329,10 @@ namespace inventoryControl
             // 
             // TxtIdDefect
             // 
-            this.TxtIdDefect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtIdDefect.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtIdDefect.Location = new System.Drawing.Point(112, 19);
             this.TxtIdDefect.Name = "TxtIdDefect";
-            this.TxtIdDefect.Size = new System.Drawing.Size(61, 22);
+            this.TxtIdDefect.Size = new System.Drawing.Size(61, 23);
             this.TxtIdDefect.TabIndex = 52;
             // 
             // pictureBox6
@@ -505,6 +509,7 @@ namespace inventoryControl
             this.groupBox8.Controls.Add(this.dgvComponentes);
             this.groupBox8.Controls.Add(this.textBox5);
             this.groupBox8.Controls.Add(this.label27);
+            this.groupBox8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox8.Location = new System.Drawing.Point(6, 263);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -515,30 +520,54 @@ namespace inventoryControl
             // 
             // dgvComponentes
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvComponentes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvComponentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvComponentes.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvComponentes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvComponentes.Location = new System.Drawing.Point(6, 42);
             this.dgvComponentes.Name = "dgvComponentes";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvComponentes.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvComponentes.Size = new System.Drawing.Size(853, 232);
             this.dgvComponentes.TabIndex = 54;
             this.dgvComponentes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvComponentes_CellMouseDoubleClick);
             // 
             // textBox5
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.Location = new System.Drawing.Point(112, 13);
             this.textBox5.MaxLength = 55;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(310, 22);
+            this.textBox5.Size = new System.Drawing.Size(310, 23);
             this.textBox5.TabIndex = 53;
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.Location = new System.Drawing.Point(54, 16);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(47, 16);
+            this.label27.Size = new System.Drawing.Size(52, 17);
             this.label27.TabIndex = 51;
             this.label27.Text = "Nome:";
             // 
@@ -561,26 +590,26 @@ namespace inventoryControl
             // 
             // TxtNomeComp
             // 
-            this.TxtNomeComp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNomeComp.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNomeComp.Location = new System.Drawing.Point(112, 48);
             this.TxtNomeComp.MaxLength = 55;
             this.TxtNomeComp.Name = "TxtNomeComp";
-            this.TxtNomeComp.Size = new System.Drawing.Size(422, 22);
+            this.TxtNomeComp.Size = new System.Drawing.Size(422, 23);
             this.TxtNomeComp.TabIndex = 53;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(54, 51);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(47, 16);
+            this.label16.Size = new System.Drawing.Size(52, 17);
             this.label16.TabIndex = 51;
             this.label16.Text = "Nome:";
             // 
             // BtnDelComp
             // 
-            this.BtnDelComp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDelComp.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDelComp.Location = new System.Drawing.Point(703, 84);
             this.BtnDelComp.Name = "BtnDelComp";
             this.BtnDelComp.Size = new System.Drawing.Size(75, 23);
@@ -591,7 +620,7 @@ namespace inventoryControl
             // 
             // BtnClearComp
             // 
-            this.BtnClearComp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnClearComp.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnClearComp.Location = new System.Drawing.Point(784, 84);
             this.BtnClearComp.Name = "BtnClearComp";
             this.BtnClearComp.Size = new System.Drawing.Size(75, 23);
@@ -603,6 +632,7 @@ namespace inventoryControl
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(82, 22);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(24, 17);
@@ -611,7 +641,7 @@ namespace inventoryControl
             // 
             // BtnEditComp
             // 
-            this.BtnEditComp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEditComp.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEditComp.Location = new System.Drawing.Point(622, 84);
             this.BtnEditComp.Name = "BtnEditComp";
             this.BtnEditComp.Size = new System.Drawing.Size(75, 23);
@@ -622,7 +652,7 @@ namespace inventoryControl
             // 
             // BtnSaveComp
             // 
-            this.BtnSaveComp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSaveComp.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSaveComp.Location = new System.Drawing.Point(541, 84);
             this.BtnSaveComp.Name = "BtnSaveComp";
             this.BtnSaveComp.Size = new System.Drawing.Size(75, 23);
@@ -633,10 +663,10 @@ namespace inventoryControl
             // 
             // TxtIdComp
             // 
-            this.TxtIdComp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtIdComp.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtIdComp.Location = new System.Drawing.Point(112, 19);
             this.TxtIdComp.Name = "TxtIdComp";
-            this.TxtIdComp.Size = new System.Drawing.Size(61, 22);
+            this.TxtIdComp.Size = new System.Drawing.Size(61, 23);
             this.TxtIdComp.TabIndex = 52;
             // 
             // pictureBox3
@@ -681,7 +711,7 @@ namespace inventoryControl
             // 
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdutos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvProdutos.Location = new System.Drawing.Point(6, 42);
+            this.dgvProdutos.Location = new System.Drawing.Point(7, 36);
             this.dgvProdutos.Name = "dgvProdutos";
             this.dgvProdutos.Size = new System.Drawing.Size(853, 232);
             this.dgvProdutos.TabIndex = 45;
@@ -690,6 +720,7 @@ namespace inventoryControl
             // label25
             // 
             this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.Location = new System.Drawing.Point(44, 16);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(62, 17);
@@ -698,6 +729,7 @@ namespace inventoryControl
             // 
             // textBox3
             // 
+            this.textBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(112, 13);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(61, 23);
@@ -705,20 +737,20 @@ namespace inventoryControl
             // 
             // textBox4
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(237, 13);
             this.textBox4.MaxLength = 55;
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(308, 22);
+            this.textBox4.Size = new System.Drawing.Size(308, 23);
             this.textBox4.TabIndex = 44;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.Location = new System.Drawing.Point(179, 16);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(47, 16);
+            this.label26.Size = new System.Drawing.Size(52, 17);
             this.label26.TabIndex = 41;
             this.label26.Text = "Nome:";
             // 
@@ -743,6 +775,7 @@ namespace inventoryControl
             // 
             // BtnClearProd
             // 
+            this.BtnClearProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnClearProd.Location = new System.Drawing.Point(784, 222);
             this.BtnClearProd.Name = "BtnClearProd";
             this.BtnClearProd.Size = new System.Drawing.Size(75, 23);
@@ -753,25 +786,26 @@ namespace inventoryControl
             // 
             // TxtNomeProd
             // 
-            this.TxtNomeProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNomeProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNomeProd.Location = new System.Drawing.Point(112, 77);
             this.TxtNomeProd.MaxLength = 55;
             this.TxtNomeProd.Name = "TxtNomeProd";
-            this.TxtNomeProd.Size = new System.Drawing.Size(422, 22);
+            this.TxtNomeProd.Size = new System.Drawing.Size(422, 23);
             this.TxtNomeProd.TabIndex = 44;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(54, 80);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(47, 16);
+            this.label12.Size = new System.Drawing.Size(52, 17);
             this.label12.TabIndex = 41;
             this.label12.Text = "Nome:";
             // 
             // TxtCodProd
             // 
+            this.TxtCodProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCodProd.Location = new System.Drawing.Point(112, 48);
             this.TxtCodProd.Name = "TxtCodProd";
             this.TxtCodProd.Size = new System.Drawing.Size(61, 23);
@@ -780,6 +814,7 @@ namespace inventoryControl
             // label22
             // 
             this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(44, 51);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(62, 17);
@@ -789,6 +824,7 @@ namespace inventoryControl
             // label21
             // 
             this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(82, 22);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(24, 17);
@@ -797,7 +833,7 @@ namespace inventoryControl
             // 
             // BtnSaveProd
             // 
-            this.BtnSaveProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSaveProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSaveProd.Location = new System.Drawing.Point(542, 222);
             this.BtnSaveProd.Name = "BtnSaveProd";
             this.BtnSaveProd.Size = new System.Drawing.Size(75, 23);
@@ -809,15 +845,15 @@ namespace inventoryControl
             // TxtIdProd
             // 
             this.TxtIdProd.Enabled = false;
-            this.TxtIdProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtIdProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtIdProd.Location = new System.Drawing.Point(112, 19);
             this.TxtIdProd.Name = "TxtIdProd";
-            this.TxtIdProd.Size = new System.Drawing.Size(61, 22);
+            this.TxtIdProd.Size = new System.Drawing.Size(61, 23);
             this.TxtIdProd.TabIndex = 43;
             // 
             // BtnEditProd
             // 
-            this.BtnEditProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEditProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEditProd.Location = new System.Drawing.Point(623, 222);
             this.BtnEditProd.Name = "BtnEditProd";
             this.BtnEditProd.Size = new System.Drawing.Size(75, 23);
@@ -828,7 +864,7 @@ namespace inventoryControl
             // 
             // BtnDelProd
             // 
-            this.BtnDelProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDelProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDelProd.Location = new System.Drawing.Point(704, 222);
             this.BtnDelProd.Name = "BtnDelProd";
             this.BtnDelProd.Size = new System.Drawing.Size(75, 23);
@@ -963,6 +999,7 @@ namespace inventoryControl
             // 
             // BtnClearClient
             // 
+            this.BtnClearClient.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnClearClient.Location = new System.Drawing.Point(784, 222);
             this.BtnClearClient.Name = "BtnClearClient";
             this.BtnClearClient.Size = new System.Drawing.Size(75, 23);
@@ -973,6 +1010,7 @@ namespace inventoryControl
             // 
             // MskCnpjClient
             // 
+            this.MskCnpjClient.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MskCnpjClient.Location = new System.Drawing.Point(112, 77);
             this.MskCnpjClient.Mask = "00.000.000/0000-00";
             this.MskCnpjClient.Name = "MskCnpjClient";
@@ -982,6 +1020,7 @@ namespace inventoryControl
             // label20
             // 
             this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(59, 80);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(47, 17);
@@ -991,6 +1030,7 @@ namespace inventoryControl
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(82, 22);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(24, 17);
@@ -1009,16 +1049,16 @@ namespace inventoryControl
             // 
             // txtEmailCliente
             // 
-            this.txtEmailCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmailCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmailCliente.Location = new System.Drawing.Point(112, 135);
             this.txtEmailCliente.MaxLength = 55;
             this.txtEmailCliente.Name = "txtEmailCliente";
-            this.txtEmailCliente.Size = new System.Drawing.Size(422, 22);
+            this.txtEmailCliente.Size = new System.Drawing.Size(422, 23);
             this.txtEmailCliente.TabIndex = 60;
             // 
             // BtnDelClient
             // 
-            this.BtnDelClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDelClient.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDelClient.Location = new System.Drawing.Point(704, 222);
             this.BtnDelClient.Name = "BtnDelClient";
             this.BtnDelClient.Size = new System.Drawing.Size(75, 23);
@@ -1029,34 +1069,34 @@ namespace inventoryControl
             // 
             // txtId1
             // 
-            this.txtId1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId1.Location = new System.Drawing.Point(112, 19);
             this.txtId1.Name = "txtId1";
-            this.txtId1.Size = new System.Drawing.Size(61, 22);
+            this.txtId1.Size = new System.Drawing.Size(61, 23);
             this.txtId1.TabIndex = 63;
             // 
             // txtTelefoneCliente
             // 
-            this.txtTelefoneCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefoneCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefoneCliente.Location = new System.Drawing.Point(112, 106);
             this.txtTelefoneCliente.MaxLength = 14;
             this.txtTelefoneCliente.Name = "txtTelefoneCliente";
-            this.txtTelefoneCliente.Size = new System.Drawing.Size(136, 22);
+            this.txtTelefoneCliente.Size = new System.Drawing.Size(136, 23);
             this.txtTelefoneCliente.TabIndex = 59;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(54, 51);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(47, 16);
+            this.label11.Size = new System.Drawing.Size(52, 17);
             this.label11.TabIndex = 48;
             this.label11.Text = "Nome:";
             // 
             // BtnSaveClient
             // 
-            this.BtnSaveClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSaveClient.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSaveClient.Location = new System.Drawing.Point(541, 222);
             this.BtnSaveClient.Name = "BtnSaveClient";
             this.BtnSaveClient.Size = new System.Drawing.Size(75, 23);
@@ -1068,26 +1108,26 @@ namespace inventoryControl
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(41, 109);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 16);
+            this.label8.Size = new System.Drawing.Size(65, 17);
             this.label8.TabIndex = 56;
             this.label8.Text = "Telefone:";
             // 
             // TxtNomeCliente
             // 
-            this.TxtNomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNomeCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNomeCliente.Location = new System.Drawing.Point(112, 48);
             this.TxtNomeCliente.MaxLength = 55;
             this.TxtNomeCliente.Name = "TxtNomeCliente";
-            this.TxtNomeCliente.Size = new System.Drawing.Size(422, 22);
+            this.TxtNomeCliente.Size = new System.Drawing.Size(422, 23);
             this.TxtNomeCliente.TabIndex = 49;
             this.TxtNomeCliente.TextChanged += new System.EventHandler(this.TxtNomeCliente_TextChanged);
             // 
             // BtnEditClient
             // 
-            this.BtnEditClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEditClient.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEditClient.Location = new System.Drawing.Point(622, 222);
             this.BtnEditClient.Name = "BtnEditClient";
             this.BtnEditClient.Size = new System.Drawing.Size(75, 23);
@@ -1099,10 +1139,10 @@ namespace inventoryControl
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(55, 138);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 16);
+            this.label9.Size = new System.Drawing.Size(51, 17);
             this.label9.TabIndex = 57;
             this.label9.Text = "E-mail:";
             // 
