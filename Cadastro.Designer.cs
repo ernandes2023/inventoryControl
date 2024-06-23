@@ -30,9 +30,6 @@ namespace inventoryControl
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BtnBackLogin = new System.Windows.Forms.Button();
             this.BtnExit = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
@@ -183,7 +180,7 @@ namespace inventoryControl
             // 
             // BtnBackLogin
             // 
-            this.BtnBackLogin.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBackLogin.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnBackLogin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BtnBackLogin.Location = new System.Drawing.Point(12, 602);
             this.BtnBackLogin.Name = "BtnBackLogin";
@@ -195,7 +192,7 @@ namespace inventoryControl
             // 
             // BtnExit
             // 
-            this.BtnExit.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnExit.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnExit.Location = new System.Drawing.Point(1024, 602);
             this.BtnExit.Name = "BtnExit";
             this.BtnExit.Size = new System.Drawing.Size(90, 37);
@@ -206,7 +203,7 @@ namespace inventoryControl
             // 
             // tabPage6
             // 
-            this.tabPage6.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.tabPage6.BackColor = System.Drawing.Color.White;
             this.tabPage6.Controls.Add(this.groupBox11);
             this.tabPage6.Controls.Add(this.groupBox12);
             this.tabPage6.Controls.Add(this.pictureBox6);
@@ -219,7 +216,7 @@ namespace inventoryControl
             // groupBox11
             // 
             this.groupBox11.Controls.Add(this.DgvDefect);
-            this.groupBox11.Location = new System.Drawing.Point(6, 262);
+            this.groupBox11.Location = new System.Drawing.Point(6, 263);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.groupBox11.Size = new System.Drawing.Size(866, 280);
@@ -231,9 +228,9 @@ namespace inventoryControl
             // 
             this.DgvDefect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvDefect.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.DgvDefect.Location = new System.Drawing.Point(6, 22);
+            this.DgvDefect.Location = new System.Drawing.Point(6, 42);
             this.DgvDefect.Name = "DgvDefect";
-            this.DgvDefect.Size = new System.Drawing.Size(853, 252);
+            this.DgvDefect.Size = new System.Drawing.Size(854, 232);
             this.DgvDefect.TabIndex = 54;
             this.DgvDefect.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvDefect_CellContentDoubleClick);
             // 
@@ -247,9 +244,9 @@ namespace inventoryControl
             this.groupBox12.Controls.Add(this.BtnEditDefect);
             this.groupBox12.Controls.Add(this.BtnSaveDefect);
             this.groupBox12.Controls.Add(this.TxtIdDefect);
-            this.groupBox12.Location = new System.Drawing.Point(6, 5);
+            this.groupBox12.Location = new System.Drawing.Point(6, 6);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(866, 114);
+            this.groupBox12.Size = new System.Drawing.Size(866, 251);
             this.groupBox12.TabIndex = 64;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Cadastro";
@@ -275,10 +272,10 @@ namespace inventoryControl
             // 
             // BtnDelDefect
             // 
-            this.BtnDelDefect.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDelDefect.Location = new System.Drawing.Point(703, 84);
+            this.BtnDelDefect.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDelDefect.Location = new System.Drawing.Point(694, 220);
             this.BtnDelDefect.Name = "BtnDelDefect";
-            this.BtnDelDefect.Size = new System.Drawing.Size(75, 23);
+            this.BtnDelDefect.Size = new System.Drawing.Size(80, 25);
             this.BtnDelDefect.TabIndex = 59;
             this.BtnDelDefect.Text = "Excluir";
             this.BtnDelDefect.UseVisualStyleBackColor = true;
@@ -286,10 +283,10 @@ namespace inventoryControl
             // 
             // BtnClearDefect
             // 
-            this.BtnClearDefect.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnClearDefect.Location = new System.Drawing.Point(784, 84);
+            this.BtnClearDefect.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnClearDefect.Location = new System.Drawing.Point(780, 220);
             this.BtnClearDefect.Name = "BtnClearDefect";
-            this.BtnClearDefect.Size = new System.Drawing.Size(75, 23);
+            this.BtnClearDefect.Size = new System.Drawing.Size(80, 25);
             this.BtnClearDefect.TabIndex = 58;
             this.BtnClearDefect.Text = "Limpar";
             this.BtnClearDefect.UseVisualStyleBackColor = true;
@@ -307,10 +304,10 @@ namespace inventoryControl
             // 
             // BtnEditDefect
             // 
-            this.BtnEditDefect.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEditDefect.Location = new System.Drawing.Point(622, 84);
+            this.BtnEditDefect.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEditDefect.Location = new System.Drawing.Point(608, 220);
             this.BtnEditDefect.Name = "BtnEditDefect";
-            this.BtnEditDefect.Size = new System.Drawing.Size(75, 23);
+            this.BtnEditDefect.Size = new System.Drawing.Size(80, 25);
             this.BtnEditDefect.TabIndex = 57;
             this.BtnEditDefect.Text = "Editar";
             this.BtnEditDefect.UseVisualStyleBackColor = true;
@@ -318,10 +315,10 @@ namespace inventoryControl
             // 
             // BtnSaveDefect
             // 
-            this.BtnSaveDefect.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSaveDefect.Location = new System.Drawing.Point(541, 84);
+            this.BtnSaveDefect.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSaveDefect.Location = new System.Drawing.Point(522, 220);
             this.BtnSaveDefect.Name = "BtnSaveDefect";
-            this.BtnSaveDefect.Size = new System.Drawing.Size(75, 23);
+            this.BtnSaveDefect.Size = new System.Drawing.Size(80, 25);
             this.BtnSaveDefect.TabIndex = 56;
             this.BtnSaveDefect.Text = "Salvar";
             this.BtnSaveDefect.UseVisualStyleBackColor = true;
@@ -329,6 +326,7 @@ namespace inventoryControl
             // 
             // TxtIdDefect
             // 
+            this.TxtIdDefect.Enabled = false;
             this.TxtIdDefect.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtIdDefect.Location = new System.Drawing.Point(112, 19);
             this.TxtIdDefect.Name = "TxtIdDefect";
@@ -338,7 +336,7 @@ namespace inventoryControl
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(878, 5);
+            this.pictureBox6.Location = new System.Drawing.Point(878, 6);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(210, 107);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -520,35 +518,11 @@ namespace inventoryControl
             // 
             // dgvComponentes
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvComponentes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvComponentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvComponentes.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvComponentes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvComponentes.Location = new System.Drawing.Point(6, 42);
             this.dgvComponentes.Name = "dgvComponentes";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvComponentes.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dgvComponentes.Size = new System.Drawing.Size(853, 232);
+            this.dgvComponentes.Size = new System.Drawing.Size(854, 232);
             this.dgvComponentes.TabIndex = 54;
             this.dgvComponentes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvComponentes_CellMouseDoubleClick);
             // 
@@ -583,7 +557,7 @@ namespace inventoryControl
             this.groupBox7.Controls.Add(this.TxtIdComp);
             this.groupBox7.Location = new System.Drawing.Point(6, 6);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(866, 113);
+            this.groupBox7.Size = new System.Drawing.Size(866, 251);
             this.groupBox7.TabIndex = 61;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Cadastro";
@@ -609,10 +583,10 @@ namespace inventoryControl
             // 
             // BtnDelComp
             // 
-            this.BtnDelComp.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDelComp.Location = new System.Drawing.Point(703, 84);
+            this.BtnDelComp.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDelComp.Location = new System.Drawing.Point(694, 220);
             this.BtnDelComp.Name = "BtnDelComp";
-            this.BtnDelComp.Size = new System.Drawing.Size(75, 23);
+            this.BtnDelComp.Size = new System.Drawing.Size(80, 25);
             this.BtnDelComp.TabIndex = 59;
             this.BtnDelComp.Text = "Excluir";
             this.BtnDelComp.UseVisualStyleBackColor = true;
@@ -620,10 +594,10 @@ namespace inventoryControl
             // 
             // BtnClearComp
             // 
-            this.BtnClearComp.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnClearComp.Location = new System.Drawing.Point(784, 84);
+            this.BtnClearComp.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnClearComp.Location = new System.Drawing.Point(780, 220);
             this.BtnClearComp.Name = "BtnClearComp";
-            this.BtnClearComp.Size = new System.Drawing.Size(75, 23);
+            this.BtnClearComp.Size = new System.Drawing.Size(80, 25);
             this.BtnClearComp.TabIndex = 58;
             this.BtnClearComp.Text = "Limpar";
             this.BtnClearComp.UseVisualStyleBackColor = true;
@@ -641,10 +615,10 @@ namespace inventoryControl
             // 
             // BtnEditComp
             // 
-            this.BtnEditComp.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEditComp.Location = new System.Drawing.Point(622, 84);
+            this.BtnEditComp.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEditComp.Location = new System.Drawing.Point(608, 220);
             this.BtnEditComp.Name = "BtnEditComp";
-            this.BtnEditComp.Size = new System.Drawing.Size(75, 23);
+            this.BtnEditComp.Size = new System.Drawing.Size(80, 25);
             this.BtnEditComp.TabIndex = 57;
             this.BtnEditComp.Text = "Editar";
             this.BtnEditComp.UseVisualStyleBackColor = true;
@@ -652,10 +626,10 @@ namespace inventoryControl
             // 
             // BtnSaveComp
             // 
-            this.BtnSaveComp.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSaveComp.Location = new System.Drawing.Point(541, 84);
+            this.BtnSaveComp.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSaveComp.Location = new System.Drawing.Point(522, 220);
             this.BtnSaveComp.Name = "BtnSaveComp";
-            this.BtnSaveComp.Size = new System.Drawing.Size(75, 23);
+            this.BtnSaveComp.Size = new System.Drawing.Size(80, 25);
             this.BtnSaveComp.TabIndex = 56;
             this.BtnSaveComp.Text = "Salvar";
             this.BtnSaveComp.UseVisualStyleBackColor = true;
@@ -713,7 +687,7 @@ namespace inventoryControl
             this.dgvProdutos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvProdutos.Location = new System.Drawing.Point(6, 42);
             this.dgvProdutos.Name = "dgvProdutos";
-            this.dgvProdutos.Size = new System.Drawing.Size(853, 232);
+            this.dgvProdutos.Size = new System.Drawing.Size(854, 232);
             this.dgvProdutos.TabIndex = 45;
             this.dgvProdutos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProdutos_CellMouseDoubleClick);
             // 
@@ -775,10 +749,10 @@ namespace inventoryControl
             // 
             // BtnClearProd
             // 
-            this.BtnClearProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnClearProd.Location = new System.Drawing.Point(784, 222);
+            this.BtnClearProd.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnClearProd.Location = new System.Drawing.Point(780, 220);
             this.BtnClearProd.Name = "BtnClearProd";
-            this.BtnClearProd.Size = new System.Drawing.Size(75, 23);
+            this.BtnClearProd.Size = new System.Drawing.Size(80, 25);
             this.BtnClearProd.TabIndex = 56;
             this.BtnClearProd.Text = "Limpar";
             this.BtnClearProd.UseVisualStyleBackColor = true;
@@ -833,10 +807,10 @@ namespace inventoryControl
             // 
             // BtnSaveProd
             // 
-            this.BtnSaveProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSaveProd.Location = new System.Drawing.Point(542, 222);
+            this.BtnSaveProd.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSaveProd.Location = new System.Drawing.Point(522, 220);
             this.BtnSaveProd.Name = "BtnSaveProd";
-            this.BtnSaveProd.Size = new System.Drawing.Size(75, 23);
+            this.BtnSaveProd.Size = new System.Drawing.Size(80, 25);
             this.BtnSaveProd.TabIndex = 47;
             this.BtnSaveProd.Text = "Salvar";
             this.BtnSaveProd.UseVisualStyleBackColor = true;
@@ -853,10 +827,10 @@ namespace inventoryControl
             // 
             // BtnEditProd
             // 
-            this.BtnEditProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEditProd.Location = new System.Drawing.Point(623, 222);
+            this.BtnEditProd.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEditProd.Location = new System.Drawing.Point(608, 220);
             this.BtnEditProd.Name = "BtnEditProd";
-            this.BtnEditProd.Size = new System.Drawing.Size(75, 23);
+            this.BtnEditProd.Size = new System.Drawing.Size(80, 25);
             this.BtnEditProd.TabIndex = 48;
             this.BtnEditProd.Text = "Editar";
             this.BtnEditProd.UseVisualStyleBackColor = true;
@@ -864,10 +838,10 @@ namespace inventoryControl
             // 
             // BtnDelProd
             // 
-            this.BtnDelProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDelProd.Location = new System.Drawing.Point(704, 222);
+            this.BtnDelProd.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDelProd.Location = new System.Drawing.Point(694, 220);
             this.BtnDelProd.Name = "BtnDelProd";
-            this.BtnDelProd.Size = new System.Drawing.Size(75, 23);
+            this.BtnDelProd.Size = new System.Drawing.Size(80, 25);
             this.BtnDelProd.TabIndex = 50;
             this.BtnDelProd.Text = "Excluir";
             this.BtnDelProd.UseVisualStyleBackColor = true;
@@ -999,10 +973,10 @@ namespace inventoryControl
             // 
             // BtnClearClient
             // 
-            this.BtnClearClient.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnClearClient.Location = new System.Drawing.Point(785, 222);
+            this.BtnClearClient.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnClearClient.Location = new System.Drawing.Point(780, 220);
             this.BtnClearClient.Name = "BtnClearClient";
-            this.BtnClearClient.Size = new System.Drawing.Size(75, 23);
+            this.BtnClearClient.Size = new System.Drawing.Size(80, 25);
             this.BtnClearClient.TabIndex = 68;
             this.BtnClearClient.Text = "Limpar";
             this.BtnClearClient.UseVisualStyleBackColor = true;
@@ -1058,10 +1032,10 @@ namespace inventoryControl
             // 
             // BtnDelClient
             // 
-            this.BtnDelClient.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDelClient.Location = new System.Drawing.Point(704, 222);
+            this.BtnDelClient.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDelClient.Location = new System.Drawing.Point(694, 220);
             this.BtnDelClient.Name = "BtnDelClient";
-            this.BtnDelClient.Size = new System.Drawing.Size(75, 23);
+            this.BtnDelClient.Size = new System.Drawing.Size(80, 25);
             this.BtnDelClient.TabIndex = 55;
             this.BtnDelClient.Text = "Excluir";
             this.BtnDelClient.UseVisualStyleBackColor = true;
@@ -1096,10 +1070,10 @@ namespace inventoryControl
             // 
             // BtnSaveClient
             // 
-            this.BtnSaveClient.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSaveClient.Location = new System.Drawing.Point(542, 222);
+            this.BtnSaveClient.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSaveClient.Location = new System.Drawing.Point(522, 220);
             this.BtnSaveClient.Name = "BtnSaveClient";
-            this.BtnSaveClient.Size = new System.Drawing.Size(75, 23);
+            this.BtnSaveClient.Size = new System.Drawing.Size(80, 25);
             this.BtnSaveClient.TabIndex = 52;
             this.BtnSaveClient.Text = "Salvar";
             this.BtnSaveClient.UseVisualStyleBackColor = true;
@@ -1127,10 +1101,10 @@ namespace inventoryControl
             // 
             // BtnEditClient
             // 
-            this.BtnEditClient.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEditClient.Location = new System.Drawing.Point(623, 222);
+            this.BtnEditClient.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEditClient.Location = new System.Drawing.Point(608, 220);
             this.BtnEditClient.Name = "BtnEditClient";
-            this.BtnEditClient.Size = new System.Drawing.Size(75, 23);
+            this.BtnEditClient.Size = new System.Drawing.Size(80, 25);
             this.BtnEditClient.TabIndex = 53;
             this.BtnEditClient.Text = "Editar";
             this.BtnEditClient.UseVisualStyleBackColor = true;
@@ -1196,7 +1170,7 @@ namespace inventoryControl
             this.dgvUsers.Location = new System.Drawing.Point(6, 42);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.ReadOnly = true;
-            this.dgvUsers.Size = new System.Drawing.Size(853, 232);
+            this.dgvUsers.Size = new System.Drawing.Size(854, 232);
             this.dgvUsers.TabIndex = 0;
             this.dgvUsers.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellContentDoubleClick);
             // 
@@ -1231,6 +1205,7 @@ namespace inventoryControl
             // 
             // BtnShow
             // 
+            this.BtnShow.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnShow.Image = global::inventoryControl.Properties.Resources.olho2;
             this.BtnShow.Location = new System.Drawing.Point(270, 164);
             this.BtnShow.Name = "BtnShow";
@@ -1241,6 +1216,7 @@ namespace inventoryControl
             // 
             // BtnShow2
             // 
+            this.BtnShow2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnShow2.Image = global::inventoryControl.Properties.Resources.olho2;
             this.BtnShow2.Location = new System.Drawing.Point(270, 192);
             this.BtnShow2.Name = "BtnShow2";
@@ -1251,10 +1227,10 @@ namespace inventoryControl
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir.Location = new System.Drawing.Point(703, 222);
+            this.btnExcluir.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.Location = new System.Drawing.Point(694, 220);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.Size = new System.Drawing.Size(80, 25);
             this.btnExcluir.TabIndex = 18;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -1262,10 +1238,10 @@ namespace inventoryControl
             // 
             // BtnEditar
             // 
-            this.BtnEditar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEditar.Location = new System.Drawing.Point(622, 222);
+            this.BtnEditar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEditar.Location = new System.Drawing.Point(608, 220);
             this.BtnEditar.Name = "BtnEditar";
-            this.BtnEditar.Size = new System.Drawing.Size(75, 23);
+            this.BtnEditar.Size = new System.Drawing.Size(80, 25);
             this.BtnEditar.TabIndex = 17;
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.UseVisualStyleBackColor = true;
@@ -1283,6 +1259,7 @@ namespace inventoryControl
             // 
             // TxtCpfUser
             // 
+            this.TxtCpfUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCpfUser.Location = new System.Drawing.Point(112, 77);
             this.TxtCpfUser.Name = "TxtCpfUser";
             this.TxtCpfUser.Size = new System.Drawing.Size(186, 23);
@@ -1290,10 +1267,10 @@ namespace inventoryControl
             // 
             // BtnLimpar
             // 
-            this.BtnLimpar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLimpar.Location = new System.Drawing.Point(784, 222);
+            this.BtnLimpar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLimpar.Location = new System.Drawing.Point(780, 220);
             this.BtnLimpar.Name = "BtnLimpar";
-            this.BtnLimpar.Size = new System.Drawing.Size(75, 23);
+            this.BtnLimpar.Size = new System.Drawing.Size(80, 25);
             this.BtnLimpar.TabIndex = 9;
             this.BtnLimpar.Text = "Limpar";
             this.BtnLimpar.UseVisualStyleBackColor = true;
@@ -1301,12 +1278,12 @@ namespace inventoryControl
             // 
             // TxtNameUser
             // 
-            this.TxtNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNameUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNameUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.TxtNameUser.Location = new System.Drawing.Point(112, 48);
             this.TxtNameUser.MaxLength = 55;
             this.TxtNameUser.Name = "TxtNameUser";
-            this.TxtNameUser.Size = new System.Drawing.Size(422, 22);
+            this.TxtNameUser.Size = new System.Drawing.Size(422, 23);
             this.TxtNameUser.TabIndex = 1;
             // 
             // label5
@@ -1322,11 +1299,11 @@ namespace inventoryControl
             // 
             // BtnSalvar
             // 
-            this.BtnSalvar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSalvar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSalvar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BtnSalvar.Location = new System.Drawing.Point(541, 222);
+            this.BtnSalvar.Location = new System.Drawing.Point(522, 220);
             this.BtnSalvar.Name = "BtnSalvar";
-            this.BtnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.BtnSalvar.Size = new System.Drawing.Size(80, 25);
             this.BtnSalvar.TabIndex = 8;
             this.BtnSalvar.Text = "Salvar";
             this.BtnSalvar.UseVisualStyleBackColor = true;
@@ -1334,12 +1311,12 @@ namespace inventoryControl
             // 
             // TxtCargoUser
             // 
-            this.TxtCargoUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCargoUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCargoUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.TxtCargoUser.Location = new System.Drawing.Point(112, 106);
             this.TxtCargoUser.MaxLength = 55;
             this.TxtCargoUser.Name = "TxtCargoUser";
-            this.TxtCargoUser.Size = new System.Drawing.Size(186, 22);
+            this.TxtCargoUser.Size = new System.Drawing.Size(186, 23);
             this.TxtCargoUser.TabIndex = 3;
             // 
             // label1
@@ -1355,12 +1332,12 @@ namespace inventoryControl
             // 
             // TxtUser
             // 
-            this.TxtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.TxtUser.Location = new System.Drawing.Point(112, 135);
             this.TxtUser.MaxLength = 20;
             this.TxtUser.Name = "TxtUser";
-            this.TxtUser.Size = new System.Drawing.Size(186, 22);
+            this.TxtUser.Size = new System.Drawing.Size(186, 23);
             this.TxtUser.TabIndex = 4;
             // 
             // label2
@@ -1376,23 +1353,23 @@ namespace inventoryControl
             // 
             // TxtPass
             // 
-            this.TxtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtPass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPass.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.TxtPass.Location = new System.Drawing.Point(112, 164);
             this.TxtPass.MaxLength = 20;
             this.TxtPass.Name = "TxtPass";
-            this.TxtPass.Size = new System.Drawing.Size(152, 22);
+            this.TxtPass.Size = new System.Drawing.Size(152, 23);
             this.TxtPass.TabIndex = 6;
             this.TxtPass.TextChanged += new System.EventHandler(this.TxtPass_TextChanged);
             // 
             // TxtConfPass
             // 
-            this.TxtConfPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtConfPass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtConfPass.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.TxtConfPass.Location = new System.Drawing.Point(112, 193);
             this.TxtConfPass.MaxLength = 20;
             this.TxtConfPass.Name = "TxtConfPass";
-            this.TxtConfPass.Size = new System.Drawing.Size(152, 22);
+            this.TxtConfPass.Size = new System.Drawing.Size(152, 23);
             this.TxtConfPass.TabIndex = 7;
             this.TxtConfPass.TextChanged += new System.EventHandler(this.TxtConfPass_TextChanged);
             // 
@@ -1409,12 +1386,12 @@ namespace inventoryControl
             // 
             // TxtIdUser
             // 
-            this.TxtIdUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtIdUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtIdUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.TxtIdUser.Location = new System.Drawing.Point(112, 19);
             this.TxtIdUser.MaxLength = 55;
             this.TxtIdUser.Name = "TxtIdUser";
-            this.TxtIdUser.Size = new System.Drawing.Size(61, 22);
+            this.TxtIdUser.Size = new System.Drawing.Size(61, 23);
             this.TxtIdUser.TabIndex = 0;
             // 
             // label6
@@ -1468,8 +1445,8 @@ namespace inventoryControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Menu;
-            this.ClientSize = new System.Drawing.Size(1119, 651);
+            this.BackColor = System.Drawing.Color.Gray;
+            this.ClientSize = new System.Drawing.Size(1124, 651);
             this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.BtnBackLogin);

@@ -125,7 +125,7 @@ namespace inventoryControl
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(13, 13);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(267, 263);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -136,7 +136,7 @@ namespace inventoryControl
             // 
             this.button1.Font = new System.Drawing.Font("Century Gothic", 12.75F);
             this.button1.Location = new System.Drawing.Point(428, 234);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(132, 42);
             this.button1.TabIndex = 12;
@@ -147,7 +147,7 @@ namespace inventoryControl
             // BtnShow
             // 
             this.BtnShow.Location = new System.Drawing.Point(529, 49);
-            this.BtnShow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnShow.Margin = new System.Windows.Forms.Padding(4);
             this.BtnShow.Name = "BtnShow";
             this.BtnShow.Size = new System.Drawing.Size(31, 31);
             this.BtnShow.TabIndex = 13;

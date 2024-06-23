@@ -29,6 +29,7 @@ namespace inventoryControl
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Operação));
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.grmNumero = new System.Windows.Forms.ComboBox();
@@ -61,31 +62,33 @@ namespace inventoryControl
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1005, 489);
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
+            this.button1.Location = new System.Drawing.Point(1017, 602);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(78, 27);
+            this.button1.Size = new System.Drawing.Size(90, 37);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Saír";
+            this.button1.Text = "Sair";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 23);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 22);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1065, 188);
+            this.dataGridView1.Size = new System.Drawing.Size(1089, 290);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -93,7 +96,7 @@ namespace inventoryControl
             // 
             this.grmNumero.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grmNumero.FormattingEnabled = true;
-            this.grmNumero.Location = new System.Drawing.Point(96, 26);
+            this.grmNumero.Location = new System.Drawing.Point(96, 32);
             this.grmNumero.Name = "grmNumero";
             this.grmNumero.Size = new System.Drawing.Size(126, 25);
             this.grmNumero.TabIndex = 3;
@@ -126,7 +129,7 @@ namespace inventoryControl
             this.componente.FormattingEnabled = true;
             this.componente.Location = new System.Drawing.Point(112, 22);
             this.componente.Name = "componente";
-            this.componente.Size = new System.Drawing.Size(165, 25);
+            this.componente.Size = new System.Drawing.Size(192, 25);
             this.componente.TabIndex = 6;
             this.componente.SelectedIndexChanged += new System.EventHandler(this.componente_SelectedIndexChanged);
             // 
@@ -135,7 +138,7 @@ namespace inventoryControl
             this.GRM.AutoSize = true;
             this.GRM.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GRM.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.GRM.Location = new System.Drawing.Point(48, 29);
+            this.GRM.Location = new System.Drawing.Point(48, 35);
             this.GRM.Name = "GRM";
             this.GRM.Size = new System.Drawing.Size(42, 17);
             this.GRM.TabIndex = 7;
@@ -239,11 +242,11 @@ namespace inventoryControl
             // 
             // addList
             // 
-            this.addList.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addList.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
             this.addList.ForeColor = System.Drawing.Color.Black;
-            this.addList.Location = new System.Drawing.Point(541, 151);
+            this.addList.Location = new System.Drawing.Point(637, 139);
             this.addList.Name = "addList";
-            this.addList.Size = new System.Drawing.Size(106, 23);
+            this.addList.Size = new System.Drawing.Size(100, 30);
             this.addList.TabIndex = 17;
             this.addList.Text = "Adicionar";
             this.addList.UseVisualStyleBackColor = true;
@@ -251,10 +254,10 @@ namespace inventoryControl
             // 
             // finalizar
             // 
-            this.finalizar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.finalizar.Location = new System.Drawing.Point(18, 493);
+            this.finalizar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
+            this.finalizar.Location = new System.Drawing.Point(18, 602);
             this.finalizar.Name = "finalizar";
-            this.finalizar.Size = new System.Drawing.Size(75, 23);
+            this.finalizar.Size = new System.Drawing.Size(90, 37);
             this.finalizar.TabIndex = 18;
             this.finalizar.Text = "Salvar";
             this.finalizar.UseVisualStyleBackColor = true;
@@ -265,7 +268,7 @@ namespace inventoryControl
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(197, 24);
+            this.label8.Location = new System.Drawing.Point(216, 32);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 17);
             this.label8.TabIndex = 20;
@@ -294,7 +297,7 @@ namespace inventoryControl
             // dataAtual
             // 
             this.dataAtual.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataAtual.Location = new System.Drawing.Point(248, 21);
+            this.dataAtual.Location = new System.Drawing.Point(267, 29);
             this.dataAtual.Name = "dataAtual";
             this.dataAtual.Size = new System.Drawing.Size(128, 23);
             this.dataAtual.TabIndex = 24;
@@ -303,7 +306,7 @@ namespace inventoryControl
             // tecnico
             // 
             this.tecnico.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tecnico.Location = new System.Drawing.Point(69, 20);
+            this.tecnico.Location = new System.Drawing.Point(85, 29);
             this.tecnico.Name = "tecnico";
             this.tecnico.Size = new System.Drawing.Size(125, 23);
             this.tecnico.TabIndex = 25;
@@ -314,7 +317,7 @@ namespace inventoryControl
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(2, 24);
+            this.label10.Location = new System.Drawing.Point(18, 33);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(61, 17);
             this.label10.TabIndex = 26;
@@ -322,21 +325,22 @@ namespace inventoryControl
             // 
             // button2
             // 
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(925, 28);
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(228, 32);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(158, 23);
+            this.button2.Size = new System.Drawing.Size(100, 25);
             this.button2.TabIndex = 27;
-            this.button2.Text = "Cadastrar nova GRM";
+            this.button2.Text = "Nova GRM";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(951, 57);
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
+            this.button3.Location = new System.Drawing.Point(1007, 242);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(119, 23);
+            this.button3.Size = new System.Drawing.Size(100, 30);
             this.button3.TabIndex = 28;
             this.button3.Text = "Consultas";
             this.button3.UseVisualStyleBackColor = true;
@@ -344,13 +348,14 @@ namespace inventoryControl
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.grmNumero);
             this.groupBox1.Controls.Add(this.GRM);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 9);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(265, 65);
+            this.groupBox1.Size = new System.Drawing.Size(336, 77);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Guia Remessa de Material";
@@ -359,11 +364,11 @@ namespace inventoryControl
             // 
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.garantia);
+            this.groupBox2.Controls.Add(this.addList);
             this.groupBox2.Controls.Add(this.defeito);
             this.groupBox2.Controls.Add(this.produto);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.addList);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.status);
             this.groupBox2.Controls.Add(this.serialNumber);
@@ -371,9 +376,9 @@ namespace inventoryControl
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(12, 80);
+            this.groupBox2.Location = new System.Drawing.Point(12, 92);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(653, 180);
+            this.groupBox2.Size = new System.Drawing.Size(746, 180);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Equipamento:";
@@ -384,9 +389,9 @@ namespace inventoryControl
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.gtdComp);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Location = new System.Drawing.Point(359, 12);
+            this.groupBox3.Location = new System.Drawing.Point(427, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(288, 90);
+            this.groupBox3.Size = new System.Drawing.Size(310, 90);
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
             // 
@@ -398,12 +403,11 @@ namespace inventoryControl
             this.groupBox4.Controls.Add(this.dataAtual);
             this.groupBox4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.White;
-            this.groupBox4.Location = new System.Drawing.Point(283, 12);
+            this.groupBox4.Location = new System.Drawing.Point(354, 9);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(382, 62);
+            this.groupBox4.Size = new System.Drawing.Size(404, 77);
             this.groupBox4.TabIndex = 31;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "groupBox4";
             // 
             // groupBox5
             // 
@@ -411,9 +415,9 @@ namespace inventoryControl
             this.groupBox5.Controls.Add(this.dataGridView1);
             this.groupBox5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.Color.Black;
-            this.groupBox5.Location = new System.Drawing.Point(12, 266);
+            this.groupBox5.Location = new System.Drawing.Point(12, 278);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1077, 217);
+            this.groupBox5.Size = new System.Drawing.Size(1100, 318);
             this.groupBox5.TabIndex = 32;
             this.groupBox5.TabStop = false;
             // 
@@ -427,19 +431,29 @@ namespace inventoryControl
             this.label1.TabIndex = 33;
             this.label1.Text = "Lista";
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(902, 12);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(210, 107);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox6.TabIndex = 64;
+            this.pictureBox6.TabStop = false;
+            // 
             // Operação
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1101, 528);
+            this.BackColor = System.Drawing.Color.Gray;
+            this.ClientSize = new System.Drawing.Size(1124, 651);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.finalizar);
             this.Controls.Add(this.button1);
             this.Name = "Operação";
@@ -457,6 +471,7 @@ namespace inventoryControl
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -494,5 +509,6 @@ namespace inventoryControl
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }
