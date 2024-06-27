@@ -258,7 +258,7 @@ namespace inventoryControl
             this.TxtDefect.MaxLength = 55;
             this.TxtDefect.Name = "TxtDefect";
             this.TxtDefect.Size = new System.Drawing.Size(422, 23);
-            this.TxtDefect.TabIndex = 53;
+            this.TxtDefect.TabIndex = 1;
             // 
             // label29
             // 
@@ -276,7 +276,7 @@ namespace inventoryControl
             this.BtnDelDefect.Location = new System.Drawing.Point(694, 220);
             this.BtnDelDefect.Name = "BtnDelDefect";
             this.BtnDelDefect.Size = new System.Drawing.Size(80, 25);
-            this.BtnDelDefect.TabIndex = 59;
+            this.BtnDelDefect.TabIndex = 4;
             this.BtnDelDefect.Text = "Excluir";
             this.BtnDelDefect.UseVisualStyleBackColor = true;
             this.BtnDelDefect.Click += new System.EventHandler(this.BtnDelDefect_Click);
@@ -287,7 +287,7 @@ namespace inventoryControl
             this.BtnClearDefect.Location = new System.Drawing.Point(780, 220);
             this.BtnClearDefect.Name = "BtnClearDefect";
             this.BtnClearDefect.Size = new System.Drawing.Size(80, 25);
-            this.BtnClearDefect.TabIndex = 58;
+            this.BtnClearDefect.TabIndex = 5;
             this.BtnClearDefect.Text = "Limpar";
             this.BtnClearDefect.UseVisualStyleBackColor = true;
             this.BtnClearDefect.Click += new System.EventHandler(this.BtnClearDefect_Click);
@@ -308,7 +308,7 @@ namespace inventoryControl
             this.BtnEditDefect.Location = new System.Drawing.Point(608, 220);
             this.BtnEditDefect.Name = "BtnEditDefect";
             this.BtnEditDefect.Size = new System.Drawing.Size(80, 25);
-            this.BtnEditDefect.TabIndex = 57;
+            this.BtnEditDefect.TabIndex = 3;
             this.BtnEditDefect.Text = "Editar";
             this.BtnEditDefect.UseVisualStyleBackColor = true;
             this.BtnEditDefect.Click += new System.EventHandler(this.BtnEditDefect_Click);
@@ -319,7 +319,7 @@ namespace inventoryControl
             this.BtnSaveDefect.Location = new System.Drawing.Point(522, 220);
             this.BtnSaveDefect.Name = "BtnSaveDefect";
             this.BtnSaveDefect.Size = new System.Drawing.Size(80, 25);
-            this.BtnSaveDefect.TabIndex = 56;
+            this.BtnSaveDefect.TabIndex = 2;
             this.BtnSaveDefect.Text = "Salvar";
             this.BtnSaveDefect.UseVisualStyleBackColor = true;
             this.BtnSaveDefect.Click += new System.EventHandler(this.BtnSaveDefect_Click);
@@ -331,7 +331,7 @@ namespace inventoryControl
             this.TxtIdDefect.Location = new System.Drawing.Point(112, 19);
             this.TxtIdDefect.Name = "TxtIdDefect";
             this.TxtIdDefect.Size = new System.Drawing.Size(61, 23);
-            this.TxtIdDefect.TabIndex = 52;
+            this.TxtIdDefect.TabIndex = 0;
             // 
             // pictureBox6
             // 
@@ -533,7 +533,7 @@ namespace inventoryControl
             this.textBox5.MaxLength = 55;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(310, 23);
-            this.textBox5.TabIndex = 53;
+            this.textBox5.TabIndex = 0;
             // 
             // label27
             // 
@@ -569,7 +569,7 @@ namespace inventoryControl
             this.TxtNomeComp.MaxLength = 55;
             this.TxtNomeComp.Name = "TxtNomeComp";
             this.TxtNomeComp.Size = new System.Drawing.Size(422, 23);
-            this.TxtNomeComp.TabIndex = 53;
+            this.TxtNomeComp.TabIndex = 1;
             // 
             // label16
             // 
@@ -587,7 +587,7 @@ namespace inventoryControl
             this.BtnDelComp.Location = new System.Drawing.Point(694, 220);
             this.BtnDelComp.Name = "BtnDelComp";
             this.BtnDelComp.Size = new System.Drawing.Size(80, 25);
-            this.BtnDelComp.TabIndex = 59;
+            this.BtnDelComp.TabIndex = 4;
             this.BtnDelComp.Text = "Excluir";
             this.BtnDelComp.UseVisualStyleBackColor = true;
             this.BtnDelComp.Click += new System.EventHandler(this.BtnDelComp_Click);
@@ -598,7 +598,7 @@ namespace inventoryControl
             this.BtnClearComp.Location = new System.Drawing.Point(780, 220);
             this.BtnClearComp.Name = "BtnClearComp";
             this.BtnClearComp.Size = new System.Drawing.Size(80, 25);
-            this.BtnClearComp.TabIndex = 58;
+            this.BtnClearComp.TabIndex = 5;
             this.BtnClearComp.Text = "Limpar";
             this.BtnClearComp.UseVisualStyleBackColor = true;
             this.BtnClearComp.Click += new System.EventHandler(this.BtnClearComp_Click);
@@ -619,7 +619,7 @@ namespace inventoryControl
             this.BtnEditComp.Location = new System.Drawing.Point(608, 220);
             this.BtnEditComp.Name = "BtnEditComp";
             this.BtnEditComp.Size = new System.Drawing.Size(80, 25);
-            this.BtnEditComp.TabIndex = 57;
+            this.BtnEditComp.TabIndex = 3;
             this.BtnEditComp.Text = "Editar";
             this.BtnEditComp.UseVisualStyleBackColor = true;
             this.BtnEditComp.Click += new System.EventHandler(this.BtnEditComp_Click);
@@ -630,7 +630,7 @@ namespace inventoryControl
             this.BtnSaveComp.Location = new System.Drawing.Point(522, 220);
             this.BtnSaveComp.Name = "BtnSaveComp";
             this.BtnSaveComp.Size = new System.Drawing.Size(80, 25);
-            this.BtnSaveComp.TabIndex = 56;
+            this.BtnSaveComp.TabIndex = 2;
             this.BtnSaveComp.Text = "Salvar";
             this.BtnSaveComp.UseVisualStyleBackColor = true;
             this.BtnSaveComp.Click += new System.EventHandler(this.BtnSaveComp_Click);
@@ -641,7 +641,7 @@ namespace inventoryControl
             this.TxtIdComp.Location = new System.Drawing.Point(112, 19);
             this.TxtIdComp.Name = "TxtIdComp";
             this.TxtIdComp.Size = new System.Drawing.Size(61, 23);
-            this.TxtIdComp.TabIndex = 52;
+            this.TxtIdComp.TabIndex = 0;
             // 
             // pictureBox3
             // 
@@ -707,7 +707,7 @@ namespace inventoryControl
             this.textBox3.Location = new System.Drawing.Point(112, 13);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(61, 23);
-            this.textBox3.TabIndex = 55;
+            this.textBox3.TabIndex = 0;
             // 
             // textBox4
             // 
@@ -716,7 +716,7 @@ namespace inventoryControl
             this.textBox4.MaxLength = 55;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(308, 23);
-            this.textBox4.TabIndex = 44;
+            this.textBox4.TabIndex = 1;
             // 
             // label26
             // 
@@ -753,7 +753,7 @@ namespace inventoryControl
             this.BtnClearProd.Location = new System.Drawing.Point(780, 220);
             this.BtnClearProd.Name = "BtnClearProd";
             this.BtnClearProd.Size = new System.Drawing.Size(80, 25);
-            this.BtnClearProd.TabIndex = 56;
+            this.BtnClearProd.TabIndex = 6;
             this.BtnClearProd.Text = "Limpar";
             this.BtnClearProd.UseVisualStyleBackColor = true;
             this.BtnClearProd.Click += new System.EventHandler(this.BtnClearProd_Click);
@@ -765,7 +765,7 @@ namespace inventoryControl
             this.TxtNomeProd.MaxLength = 55;
             this.TxtNomeProd.Name = "TxtNomeProd";
             this.TxtNomeProd.Size = new System.Drawing.Size(422, 23);
-            this.TxtNomeProd.TabIndex = 44;
+            this.TxtNomeProd.TabIndex = 2;
             // 
             // label12
             // 
@@ -783,7 +783,7 @@ namespace inventoryControl
             this.TxtCodProd.Location = new System.Drawing.Point(112, 48);
             this.TxtCodProd.Name = "TxtCodProd";
             this.TxtCodProd.Size = new System.Drawing.Size(61, 23);
-            this.TxtCodProd.TabIndex = 55;
+            this.TxtCodProd.TabIndex = 1;
             // 
             // label22
             // 
@@ -811,7 +811,7 @@ namespace inventoryControl
             this.BtnSaveProd.Location = new System.Drawing.Point(522, 220);
             this.BtnSaveProd.Name = "BtnSaveProd";
             this.BtnSaveProd.Size = new System.Drawing.Size(80, 25);
-            this.BtnSaveProd.TabIndex = 47;
+            this.BtnSaveProd.TabIndex = 3;
             this.BtnSaveProd.Text = "Salvar";
             this.BtnSaveProd.UseVisualStyleBackColor = true;
             this.BtnSaveProd.Click += new System.EventHandler(this.BtnSaveProd_Click);
@@ -823,7 +823,7 @@ namespace inventoryControl
             this.TxtIdProd.Location = new System.Drawing.Point(112, 19);
             this.TxtIdProd.Name = "TxtIdProd";
             this.TxtIdProd.Size = new System.Drawing.Size(61, 23);
-            this.TxtIdProd.TabIndex = 43;
+            this.TxtIdProd.TabIndex = 0;
             // 
             // BtnEditProd
             // 
@@ -831,7 +831,7 @@ namespace inventoryControl
             this.BtnEditProd.Location = new System.Drawing.Point(608, 220);
             this.BtnEditProd.Name = "BtnEditProd";
             this.BtnEditProd.Size = new System.Drawing.Size(80, 25);
-            this.BtnEditProd.TabIndex = 48;
+            this.BtnEditProd.TabIndex = 4;
             this.BtnEditProd.Text = "Editar";
             this.BtnEditProd.UseVisualStyleBackColor = true;
             this.BtnEditProd.Click += new System.EventHandler(this.BtnEditProd_Click);
@@ -842,7 +842,7 @@ namespace inventoryControl
             this.BtnDelProd.Location = new System.Drawing.Point(694, 220);
             this.BtnDelProd.Name = "BtnDelProd";
             this.BtnDelProd.Size = new System.Drawing.Size(80, 25);
-            this.BtnDelProd.TabIndex = 50;
+            this.BtnDelProd.TabIndex = 5;
             this.BtnDelProd.Text = "Excluir";
             this.BtnDelProd.UseVisualStyleBackColor = true;
             this.BtnDelProd.Click += new System.EventHandler(this.BtnDelProd_Click);
@@ -909,7 +909,7 @@ namespace inventoryControl
             this.MskPesqCnpj.Location = new System.Drawing.Point(112, 13);
             this.MskPesqCnpj.Name = "MskPesqCnpj";
             this.MskPesqCnpj.Size = new System.Drawing.Size(136, 23);
-            this.MskPesqCnpj.TabIndex = 54;
+            this.MskPesqCnpj.TabIndex = 0;
             this.MskPesqCnpj.TextChanged += new System.EventHandler(this.MskPesqCnpj_TextChanged);
             // 
             // label28
@@ -926,7 +926,7 @@ namespace inventoryControl
             this.textBox1.Location = new System.Drawing.Point(325, 13);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(161, 23);
-            this.textBox1.TabIndex = 52;
+            this.textBox1.TabIndex = 1;
             // 
             // label19
             // 
@@ -977,7 +977,7 @@ namespace inventoryControl
             this.BtnClearClient.Location = new System.Drawing.Point(780, 220);
             this.BtnClearClient.Name = "BtnClearClient";
             this.BtnClearClient.Size = new System.Drawing.Size(80, 25);
-            this.BtnClearClient.TabIndex = 68;
+            this.BtnClearClient.TabIndex = 8;
             this.BtnClearClient.Text = "Limpar";
             this.BtnClearClient.UseVisualStyleBackColor = true;
             this.BtnClearClient.Click += new System.EventHandler(this.BtnClearClient_Click);
@@ -989,7 +989,7 @@ namespace inventoryControl
             this.MskCnpjClient.Mask = "00.000.000/0000-00";
             this.MskCnpjClient.Name = "MskCnpjClient";
             this.MskCnpjClient.Size = new System.Drawing.Size(136, 23);
-            this.MskCnpjClient.TabIndex = 67;
+            this.MskCnpjClient.TabIndex = 2;
             // 
             // label20
             // 
@@ -1028,7 +1028,7 @@ namespace inventoryControl
             this.txtEmailCliente.MaxLength = 55;
             this.txtEmailCliente.Name = "txtEmailCliente";
             this.txtEmailCliente.Size = new System.Drawing.Size(422, 23);
-            this.txtEmailCliente.TabIndex = 60;
+            this.txtEmailCliente.TabIndex = 4;
             // 
             // BtnDelClient
             // 
@@ -1036,7 +1036,7 @@ namespace inventoryControl
             this.BtnDelClient.Location = new System.Drawing.Point(694, 220);
             this.BtnDelClient.Name = "BtnDelClient";
             this.BtnDelClient.Size = new System.Drawing.Size(80, 25);
-            this.BtnDelClient.TabIndex = 55;
+            this.BtnDelClient.TabIndex = 7;
             this.BtnDelClient.Text = "Excluir";
             this.BtnDelClient.UseVisualStyleBackColor = true;
             this.BtnDelClient.Click += new System.EventHandler(this.BtnDelClient_Click);
@@ -1047,7 +1047,7 @@ namespace inventoryControl
             this.txtId1.Location = new System.Drawing.Point(112, 19);
             this.txtId1.Name = "txtId1";
             this.txtId1.Size = new System.Drawing.Size(61, 23);
-            this.txtId1.TabIndex = 63;
+            this.txtId1.TabIndex = 0;
             // 
             // txtTelefoneCliente
             // 
@@ -1056,7 +1056,7 @@ namespace inventoryControl
             this.txtTelefoneCliente.MaxLength = 14;
             this.txtTelefoneCliente.Name = "txtTelefoneCliente";
             this.txtTelefoneCliente.Size = new System.Drawing.Size(136, 23);
-            this.txtTelefoneCliente.TabIndex = 59;
+            this.txtTelefoneCliente.TabIndex = 3;
             // 
             // label11
             // 
@@ -1074,7 +1074,7 @@ namespace inventoryControl
             this.BtnSaveClient.Location = new System.Drawing.Point(522, 220);
             this.BtnSaveClient.Name = "BtnSaveClient";
             this.BtnSaveClient.Size = new System.Drawing.Size(80, 25);
-            this.BtnSaveClient.TabIndex = 52;
+            this.BtnSaveClient.TabIndex = 5;
             this.BtnSaveClient.Text = "Salvar";
             this.BtnSaveClient.UseVisualStyleBackColor = true;
             this.BtnSaveClient.Click += new System.EventHandler(this.BtnSaveClient_Click);
@@ -1096,7 +1096,7 @@ namespace inventoryControl
             this.TxtNomeCliente.MaxLength = 55;
             this.TxtNomeCliente.Name = "TxtNomeCliente";
             this.TxtNomeCliente.Size = new System.Drawing.Size(422, 23);
-            this.TxtNomeCliente.TabIndex = 49;
+            this.TxtNomeCliente.TabIndex = 1;
             this.TxtNomeCliente.TextChanged += new System.EventHandler(this.TxtNomeCliente_TextChanged);
             // 
             // BtnEditClient
@@ -1105,7 +1105,7 @@ namespace inventoryControl
             this.BtnEditClient.Location = new System.Drawing.Point(608, 220);
             this.BtnEditClient.Name = "BtnEditClient";
             this.BtnEditClient.Size = new System.Drawing.Size(80, 25);
-            this.BtnEditClient.TabIndex = 53;
+            this.BtnEditClient.TabIndex = 6;
             this.BtnEditClient.Text = "Editar";
             this.BtnEditClient.UseVisualStyleBackColor = true;
             this.BtnEditClient.Click += new System.EventHandler(this.BtnEditClient_Click);
@@ -1159,7 +1159,7 @@ namespace inventoryControl
             this.TxtPescCPF.Location = new System.Drawing.Point(112, 13);
             this.TxtPescCPF.Name = "TxtPescCPF";
             this.TxtPescCPF.Size = new System.Drawing.Size(186, 23);
-            this.TxtPescCPF.TabIndex = 3;
+            this.TxtPescCPF.TabIndex = 0;
             this.TxtPescCPF.TextChanged += new System.EventHandler(this.TxtPescCPF_TextChanged);
             // 
             // dgvUsers
@@ -1231,7 +1231,7 @@ namespace inventoryControl
             this.btnExcluir.Location = new System.Drawing.Point(694, 220);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(80, 25);
-            this.btnExcluir.TabIndex = 18;
+            this.btnExcluir.TabIndex = 9;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -1242,7 +1242,7 @@ namespace inventoryControl
             this.BtnEditar.Location = new System.Drawing.Point(608, 220);
             this.BtnEditar.Name = "BtnEditar";
             this.BtnEditar.Size = new System.Drawing.Size(80, 25);
-            this.BtnEditar.TabIndex = 17;
+            this.BtnEditar.TabIndex = 8;
             this.BtnEditar.Text = "Editar";
             this.BtnEditar.UseVisualStyleBackColor = true;
             this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click_1);
@@ -1271,7 +1271,7 @@ namespace inventoryControl
             this.BtnLimpar.Location = new System.Drawing.Point(780, 220);
             this.BtnLimpar.Name = "BtnLimpar";
             this.BtnLimpar.Size = new System.Drawing.Size(80, 25);
-            this.BtnLimpar.TabIndex = 9;
+            this.BtnLimpar.TabIndex = 10;
             this.BtnLimpar.Text = "Limpar";
             this.BtnLimpar.UseVisualStyleBackColor = true;
             this.BtnLimpar.Click += new System.EventHandler(this.BtnLimpar_Click);
@@ -1304,7 +1304,7 @@ namespace inventoryControl
             this.BtnSalvar.Location = new System.Drawing.Point(522, 220);
             this.BtnSalvar.Name = "BtnSalvar";
             this.BtnSalvar.Size = new System.Drawing.Size(80, 25);
-            this.BtnSalvar.TabIndex = 8;
+            this.BtnSalvar.TabIndex = 7;
             this.BtnSalvar.Text = "Salvar";
             this.BtnSalvar.UseVisualStyleBackColor = true;
             this.BtnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
@@ -1359,7 +1359,7 @@ namespace inventoryControl
             this.TxtPass.MaxLength = 20;
             this.TxtPass.Name = "TxtPass";
             this.TxtPass.Size = new System.Drawing.Size(152, 23);
-            this.TxtPass.TabIndex = 6;
+            this.TxtPass.TabIndex = 5;
             this.TxtPass.TextChanged += new System.EventHandler(this.TxtPass_TextChanged);
             // 
             // TxtConfPass
@@ -1370,7 +1370,7 @@ namespace inventoryControl
             this.TxtConfPass.MaxLength = 20;
             this.TxtConfPass.Name = "TxtConfPass";
             this.TxtConfPass.Size = new System.Drawing.Size(152, 23);
-            this.TxtConfPass.TabIndex = 7;
+            this.TxtConfPass.TabIndex = 6;
             this.TxtConfPass.TextChanged += new System.EventHandler(this.TxtConfPass_TextChanged);
             // 
             // label3

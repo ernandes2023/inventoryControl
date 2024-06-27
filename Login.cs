@@ -19,7 +19,7 @@ namespace inventoryControl
         public Login()
         {
             InitializeComponent();
-            usuario();
+            //usuario();
             AtualizarBotaoVisualizarSenha();
         }
         private void Login_Load(object sender, EventArgs e)
@@ -61,7 +61,6 @@ namespace inventoryControl
                                 newAdmin admin = new newAdmin(); // Passa o ID do usuário como argumento
                                 admin.Show();
                                 this.Hide();
-
                             }
                         }
                     }
@@ -231,6 +230,11 @@ namespace inventoryControl
                 BtnShow.Image = Properties.Resources.olho2;
                 txtSenha1.UseSystemPasswordChar = true;
             }
+        }
+
+        private void Login_MouseLeave(object sender, EventArgs e)
+        {
+            usuario();
         }
     }
 }

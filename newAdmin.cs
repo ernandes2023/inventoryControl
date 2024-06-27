@@ -64,11 +64,10 @@ namespace inventoryControl
 
                 // Exibe uma mensagem de sucesso
                 MessageBox.Show("Usuário administrador criado com sucesso! Agora você pode fazer login no sistema.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
                 this.Hide();
+                Login login = new Login();
+                login.Show();
 
-               
             }
             catch (Exception ex)
             {
