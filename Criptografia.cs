@@ -11,19 +11,22 @@ namespace inventoryControl
     {
         public static string GerarHash(this string valor)
         {
-            var hash = SHA1.Create();
-            var encoding = new ASCIIEncoding();
-            var array = encoding.GetBytes(valor);
+            using (var hash = SHA256.Create())                  // Cria uma instância do algoritmo SHA-256.
+            {
+                var encoding = new UTF8Encoding();              // Cria uma instância da codificação ASCII.
+                
+                var array = encoding.GetBytes(valor);           // Converte a string de entrada em um array de bytes ASCII.
 
-            array = hash.ComputeHash(array);
+                array = hash.ComputeHash(array);                // Calcula o hash SHA-1 do array de bytes.
 
-            var strHexa = new StringBuilder();
+                var strHexa = new StringBuilder();              // Cria um StringBuilder para construir a string hexadecimal do hash.
 
-            foreach(var item in array){
-                strHexa.Append(item.ToString("X2"));
+                foreach (var item in array)                     // Itera sobre cada byte do hash.
+                {
+                    strHexa.Append(item.ToString("X2"));        // Converte cada byte em uma string hexadecimal de dois dígitos e adiciona ao StringBuilder.
+                }
+                return strHexa.ToString();                      // Retorna a string hexadecimal completa.
             }
-
-            return strHexa.ToString();
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace inventoryControl
 {
     partial class Cadastro
@@ -1264,6 +1266,7 @@ namespace inventoryControl
             this.TxtCpfUser.Name = "TxtCpfUser";
             this.TxtCpfUser.Size = new System.Drawing.Size(186, 23);
             this.TxtCpfUser.TabIndex = 2;
+            this.TxtCpfUser.TextChanged += new System.EventHandler(this.TxtCpfUser_TextChanged);
             // 
             // BtnLimpar
             // 
@@ -1285,6 +1288,7 @@ namespace inventoryControl
             this.TxtNameUser.Name = "TxtNameUser";
             this.TxtNameUser.Size = new System.Drawing.Size(422, 23);
             this.TxtNameUser.TabIndex = 1;
+            this.TxtNameUser.TextChanged += new System.EventHandler(this.TxtNameUser_TextChanged);
             // 
             // label5
             // 

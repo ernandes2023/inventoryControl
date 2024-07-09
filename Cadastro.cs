@@ -16,6 +16,7 @@ using Org.BouncyCastle.Bcpg.OpenPgp;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using System.Text.RegularExpressions;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace inventoryControl
 {
@@ -27,7 +28,9 @@ namespace inventoryControl
         {
             InitializeComponent();
             dgvUsers.CellFormatting += dgvUsers_CellFormatting;// referente ao codigo de formatação das colunas "senha e conf senha" no dgvUsers
-            
+            TxtNameUser.TextChanged += new EventHandler(TxtNameUser_TextChanged);
+            TxtCpfUser.LostFocus += new EventHandler(TxtCpfUser_LostFocus);
+
             // Chama o método que carrega as informações dentro do dgvClientes e dgvProdutos
             LoadTableClient();
             LoadTableProd();
@@ -360,11 +363,15 @@ namespace inventoryControl
                 // Abre a conexão com o banco de dados
                 conectar.Open();
                 try
-                {   // Verifica se o usuário já existe
+                {
+                    // Remover os caracteres não numéricos do MaskedTextBox
+                    string numeros = new string(TxtCpfUser.Text.Where(char.IsDigit).ToArray());
+
+                    // Verifica se o usuário já existe
                     string checkUserQuery = "SELECT COUNT(*) FROM usuario WHERE login = @Login OR cpf_usuario = @CPF";
                     MySqlCommand checkUserCmd = new MySqlCommand(checkUserQuery, conectar);
                     checkUserCmd.Parameters.AddWithValue("@Login", TxtUser.Text);
-                    checkUserCmd.Parameters.AddWithValue("@CPF", TxtCpfUser.Text);
+                    checkUserCmd.Parameters.AddWithValue("@CPF", numeros);
 
                     int userExists = Convert.ToInt32(checkUserCmd.ExecuteScalar());
                     if (userExists > 0)
@@ -389,7 +396,7 @@ namespace inventoryControl
 
                     // Adiciona parâmetros ao comando
                     cadastrar.Parameters.AddWithValue("@Nome", TxtNameUser.Text);
-                    cadastrar.Parameters.AddWithValue("@CPF", TxtCpfUser.Text);
+                    cadastrar.Parameters.AddWithValue("@CPF", numeros);
                     cadastrar.Parameters.AddWithValue("@Cargo", TxtCargoUser.Text);
                     cadastrar.Parameters.AddWithValue("@Login", TxtUser.Text);
                     cadastrar.Parameters.AddWithValue("@Senha", senha);
@@ -481,13 +488,16 @@ namespace inventoryControl
 
                 try
                 {
+                    // Remover os caracteres não numéricos do MaskedTextBox
+                    string numeros = new string(TxtCpfUser.Text.Where(char.IsDigit).ToArray());
+                    
                     conectar.Open();
                     MySqlCommand cadastrar = new MySqlCommand(
                         "UPDATE usuario SET nome_usuario=@Nome, cpf_usuario=@CPF, cargo=@Cargo, login=@Login, senha=@Senha, confirm_senha=@ConfSenha WHERE id_usuario=@Id", conectar);
 
                     //abaixo tem os parâmetros que protegem contra SQL injection
                     cadastrar.Parameters.AddWithValue("@Nome", TxtNameUser.Text);
-                    cadastrar.Parameters.AddWithValue("@CPF", TxtCpfUser.Text);
+                    cadastrar.Parameters.AddWithValue("@CPF", numeros);
                     cadastrar.Parameters.AddWithValue("@Cargo", TxtCargoUser.Text);
                     cadastrar.Parameters.AddWithValue("@Login", TxtUser.Text);
                     cadastrar.Parameters.AddWithValue("@Senha", senhaCriptografada);
@@ -655,6 +665,7 @@ namespace inventoryControl
                 conexaoMYSQL.Open();
                 try
                 {
+                    //
                     // Remover os caracteres não numéricos do MaskedTextBox
                     string numeros = new string(MskCnpjClient.Text.Where(char.IsDigit).ToArray());
 
@@ -1395,6 +1406,74 @@ namespace inventoryControl
         private void TxtConfPass_TextChanged(object sender, EventArgs e)
         {
             BtnShow2.Enabled = true;
+        }
+
+        private void TxtNameUser_TextChanged(object sender, EventArgs e)
+        {
+            if (sender is TextBox textBox)
+
+            {
+                int selectionStart = textBox.SelectionStart;
+                int selectionLength = textBox.SelectionLength;
+
+                // Use a versão específica do "ToTitleCase" para respeitar a cultura atual
+                textBox.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(textBox.Text.ToLower());
+
+                // Restaurar a seleção original
+                textBox.Select(selectionStart, selectionLength);
+            }
+        }
+
+        private void TxtCpfUser_TextChanged(object sender, EventArgs e)
+        {
+            // Obtém o texto do TextBox
+            string cpf = TxtCpfUser.Text;
+
+            // Filtra apenas os dígitos do texto, removendo qualquer caractere não numérico
+            cpf = new string(cpf.Where(char.IsDigit).ToArray());
+
+            // Limita o comprimento do CPF a no máximo 11 dígitos
+            if (cpf.Length > 11)
+                cpf = cpf.Substring(0, 11);
+
+            // Variável para armazenar o CPF formatado
+            string formattedCpf = string.Empty;
+
+            // Adiciona os primeiros 3 dígitos
+            if (cpf.Length > 0)
+                formattedCpf += cpf.Substring(0, Math.Min(3, cpf.Length));
+
+            // Adiciona o segundo grupo de 3 dígitos com um ponto na frente
+            if (cpf.Length > 3)
+                formattedCpf += "." + cpf.Substring(3, Math.Min(3, cpf.Length - 3));
+
+            // Adiciona o terceiro grupo de 3 dígitos com outro ponto na frente
+            if (cpf.Length > 6)
+                formattedCpf += "." + cpf.Substring(6, Math.Min(3, cpf.Length - 6));
+
+            // Adiciona os últimos 2 dígitos com um traço na frente
+            if (cpf.Length > 9)
+                formattedCpf += "-" + cpf.Substring(9, Math.Min(2, cpf.Length - 9));
+
+            // Define o texto do TextBox como o CPF formatado
+            TxtCpfUser.Text = formattedCpf;
+
+            // Ajusta a posição do cursor para o final do texto
+            TxtCpfUser.SelectionStart = formattedCpf.Length;
+        }
+
+        private void TxtCpfUser_LostFocus(object sender, EventArgs e)
+        {
+            if (TxtCpfUser.Text != "")
+            {
+                if (!CpfValidator.IsValid(TxtCpfUser.Text))
+                {
+                    MessageBox.Show("CPF inválido. Por favor, insira um CPF válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //TxtCpfUser.Select(); // Coloca o foco no campo de CPF caso seja inválido
+                    //TxtCpfUser.BackColor = Color.RosyBrown;
+                    TxtCpfUser.BackColor = ColorTranslator.FromHtml("#FD9D9D");
+                }
+            }
         }
     }
 }
