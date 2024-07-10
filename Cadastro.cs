@@ -17,6 +17,8 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using System.Text.RegularExpressions;
 using TextBox = System.Windows.Forms.TextBox;
+using System.Globalization;
+using System.Xml.Linq;
 
 namespace inventoryControl
 {
@@ -30,6 +32,7 @@ namespace inventoryControl
             dgvUsers.CellFormatting += dgvUsers_CellFormatting;// referente ao codigo de formatação das colunas "senha e conf senha" no dgvUsers
             TxtNameUser.TextChanged += new EventHandler(TxtNameUser_TextChanged);
             TxtCpfUser.LostFocus += new EventHandler(TxtCpfUser_LostFocus);
+            //TxtCpfUser.KeyPress += new EventHandler(TxtCpfUser_KeyPress);
 
             // Chama o método que carrega as informações dentro do dgvClientes e dgvProdutos
             LoadTableClient();
@@ -126,6 +129,17 @@ namespace inventoryControl
             }
 
             return jaInserido;
+        }
+
+        private void resetColor()
+        {
+            TxtNameUser.BackColor = ColorTranslator.FromHtml(default);
+            TxtCpfUser.BackColor = ColorTranslator.FromHtml(default);
+            TxtCargoUser.BackColor = ColorTranslator.FromHtml(default);
+            TxtUser.BackColor = ColorTranslator.FromHtml(default);
+            TxtPass.BackColor = ColorTranslator.FromHtml(default);
+            TxtConfPass.BackColor = ColorTranslator.FromHtml(default);
+
         }
         private void LoadTableClient() // Metodo privado que carrega dados da tabela Cliente.
         {
@@ -298,7 +312,6 @@ namespace inventoryControl
             }
             catch (Exception ex)
             {
-                // Tratar exceção, registrar em log, etc.
                 MessageBox.Show("Ocorreu um erro ao carregar os dados: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -325,35 +338,58 @@ namespace inventoryControl
             TxtCpfUser.Text         = dgvUsers.Rows[e.RowIndex].Cells[2].Value.ToString();
             TxtCargoUser.Text       = dgvUsers.Rows[e.RowIndex].Cells[3].Value.ToString();
             TxtUser.Text            = dgvUsers.Rows[e.RowIndex].Cells[4].Value.ToString();
-            TxtPass.Text            = dgvUsers.Rows[e.RowIndex].Cells[5].Value.ToString();  //ESSES TRECHOS NÃO PODEM SUBIR PARA A TEXT BOX
+            TxtPass.Text            = dgvUsers.Rows[e.RowIndex].Cells[5].Value.ToString();
             TxtConfPass.Text        = dgvUsers.Rows[e.RowIndex].Cells[6].Value.ToString();
             BtnSalvar.Enabled       = false;
             BtnShow.Enabled         = false;
             BtnShow2.Enabled        = false;
-
-            //MessageBox.Show("Digite a nova senha se necessário", "Altere o usuário", MessageBoxButtons.OK);
+            TxtCpfUser.BackColor    = ColorTranslator.FromHtml(default);
         }
+
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
-            // Verifica se todos os campos obrigatórios estão preenchidos
-            if (TxtNameUser.Text == "" || TxtCpfUser.Text == "" || TxtCargoUser.Text == "" || TxtUser.Text == "" || TxtPass.Text == "" || TxtConfPass.Text == "")
+            string errorMessage = "";
+
+            if (string.IsNullOrWhiteSpace(TxtNameUser.Text))
             {
-                MessageBox.Show("Todos os campos precisam ser preenchidos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TxtNameUser.Select(); // Coloca o foco no campo de nome caso esteja vazio
+                errorMessage += "Nome: \n";
+                TxtNameUser.BackColor = ColorTranslator.FromHtml("#FEC6C6");
             }
-            // Verifica se as senhas digitadas são iguais
-            else if (TxtPass.Text != TxtConfPass.Text)
+
+            if (string.IsNullOrWhiteSpace(TxtCpfUser.Text))
             {
-                MessageBox.Show("As Senhas digitadas São diferentes! \n Por Favor digite a senha novamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TxtPass.Text = "";
-                TxtConfPass.Text = "";
-                TxtPass.Select(); // Coloca o foco no campo de senha caso as senhas sejam diferentes
+                errorMessage += "CPF: \n";
+                TxtCpfUser.BackColor = ColorTranslator.FromHtml("#FEC6C6");
             }
-            // Verifica se o CPF é válido
-            else if (!CpfValidator.IsValid(TxtCpfUser.Text))
+
+            if (string.IsNullOrWhiteSpace(TxtCargoUser.Text))
             {
-                MessageBox.Show("CPF inválido. Por favor, insira um CPF válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TxtCpfUser.Select(); // Coloca o foco no campo de CPF caso seja inválido
+                errorMessage += "Cargo: \n";
+                TxtCargoUser.BackColor = ColorTranslator.FromHtml("#FEC6C6");
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtUser.Text))
+            {
+                errorMessage += "Usuário: \n";
+                TxtUser.BackColor = ColorTranslator.FromHtml("#FEC6C6");
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtPass.Text))
+            {
+                errorMessage += "Senha: \n";
+                TxtPass.BackColor = ColorTranslator.FromHtml("#FEC6C6");
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtConfPass.Text))
+            {
+                errorMessage += "Conf. Senha \n";
+                TxtConfPass.BackColor = ColorTranslator.FromHtml("#FEC6C6");
+            }
+
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                MessageBox.Show($"Os seguintes campos são obrigatórios:\n\n{errorMessage}", 
+                    "Campos Obrigatórios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -364,24 +400,51 @@ namespace inventoryControl
                 conectar.Open();
                 try
                 {
-                    // Remover os caracteres não numéricos do MaskedTextBox
+                    // Remover os caracteres não numéricos do TextBox
                     string numeros = new string(TxtCpfUser.Text.Where(char.IsDigit).ToArray());
 
                     // Verifica se o usuário já existe
+                    
+                    // Define a query SQL para contar quantos registros existem na tabela 'usuario' com o mesmo login ou CPF fornecido.
                     string checkUserQuery = "SELECT COUNT(*) FROM usuario WHERE login = @Login OR cpf_usuario = @CPF";
+
+                    // Cria um comando MySQL com a query definida e a conexão ao banco de dados.
                     MySqlCommand checkUserCmd = new MySqlCommand(checkUserQuery, conectar);
+
+                    // Adiciona o valor do parâmetro @Login com o texto do campo TxtUser.
                     checkUserCmd.Parameters.AddWithValue("@Login", TxtUser.Text);
+
+                    // Adiciona o valor do parâmetro @CPF com a variável 'numeros'.
                     checkUserCmd.Parameters.AddWithValue("@CPF", numeros);
 
+                    // Executa a query e converte o resultado (que é um único valor) para um inteiro.
+                    // Este valor indica quantos registros correspondentes foram encontrados.
                     int userExists = Convert.ToInt32(checkUserCmd.ExecuteScalar());
+
+                    // Se já existe um usuário com o mesmo login ou CPF (ou seja, userExists > 0),
+                    // exibe uma mensagem de aviso e retorna, interrompendo o fluxo.
                     if (userExists > 0)
                     {
-                        MessageBox.Show("Usuário ou CPF já cadastrado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        // Mostra uma mensagem de aviso informando que o usuário ou CPF já está cadastrado.
+                        MessageBox.Show("Usuário ou CPF já cadastrado!",
+                            "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        // Retorna, interrompendo a execução do método.
                         return;
                     }
-                    // Definir a senha em uma variável
-                    string senha = TxtPass.Text;
 
+                    // Verifica se a senha e a cofirmação da senha são diferentes
+                    if (TxtPass.Text != TxtConfPass.Text)
+                    {
+                        TxtConfPass.BackColor = ColorTranslator.FromHtml("#FEC6C6");
+                        MessageBox.Show("As Senhas digitadas São diferentes! \n Por Favor digite a senha novamente.",
+                            "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        TxtConfPass.Select();
+                        return;
+                    }
+                        // Definir a senha em uma variável
+                        string senha = TxtPass.Text;
+                    
                     // Código que realiza a criptografia de senha
                     senha = senha.GerarHash();
 
@@ -392,7 +455,7 @@ namespace inventoryControl
                     senha1 = senha.GerarHash();
 
                     // Cria um novo comando MySqlCommand para inserir os dados na tabela usuario
-                    MySqlCommand cadastrar = new MySqlCommand("INSERT INTO usuario (nome_usuario, cpf_usuario, cargo, login, senha, confirm_senha) values (@Nome, @CPF, @Cargo, @Login, @Senha, @ConfSenha);", conectar);
+                    MySqlCommand cadastrar = new MySqlCommand("INSERT INTO usuario (nome_usuario, cpf_usuario, cargo, login, senha, confirm_senha)values (@Nome, @CPF, @Cargo, @Login, @Senha, @ConfSenha);", conectar);
 
                     // Adiciona parâmetros ao comando
                     cadastrar.Parameters.AddWithValue("@Nome", TxtNameUser.Text);
@@ -406,7 +469,8 @@ namespace inventoryControl
                     cadastrar.ExecuteNonQuery();
 
                     // Exibe uma mensagem de sucesso
-                    MessageBox.Show("Cadastro realizado com sucesso!", "Sucesso", MessageBoxButtons.OK);
+                    MessageBox.Show("Dados cadastrado com sucesso!",
+                        "Sucesso", MessageBoxButtons.OK);
 
                     // Limpa os campos de entrada de dados
                     TxtNameUser.Text = "";
@@ -415,7 +479,8 @@ namespace inventoryControl
                     TxtUser.Text = "";
                     TxtPass.Text = "";
                     TxtConfPass.Text = "";
-                    TxtNameUser.Select(); // Coloca o foco no campo de nome
+                    TxtNameUser.Select();
+                    resetColor();
                 }
                 catch (Exception ex)
                 {
@@ -1468,13 +1533,112 @@ namespace inventoryControl
             {
                 if (!CpfValidator.IsValid(TxtCpfUser.Text))
                 {
-                    MessageBox.Show("CPF inválido. Por favor, insira um CPF válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //TxtCpfUser.Select(); // Coloca o foco no campo de CPF caso seja inválido
-                    //TxtCpfUser.BackColor = Color.RosyBrown;
-                    TxtCpfUser.BackColor = ColorTranslator.FromHtml("#FD9D9D");
+                    TxtCpfUser.BackColor = ColorTranslator.FromHtml("#FEC6C6");
+                    MessageBox.Show("CPF inválido. Por favor, insira um CPF válido.",
+                        "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TxtCpfUser.Text = "";
+                    TxtCpfUser.Select();
                 }
             }
         }
+
+        private void TxtUser_TextChanged(object sender, EventArgs e)
+        {
+            TxtUser.BackColor = ColorTranslator.FromHtml(default);
+            string textOriginal = TxtUser.Text;
+
+            string textProcessado = RemoveAcentos(textOriginal.ToLower());
+
+            if (TxtUser.Text != textProcessado)
+            {
+                TxtUser.Text = textProcessado;
+                TxtUser.SelectionStart = textProcessado.Length;
+            }
+        }
+
+        private string RemoveAcentos(string texto)
+        {
+            string textoNormalizado = texto.Normalize(NormalizationForm.FormD);
+            StringBuilder sb = new StringBuilder();
+
+            foreach (char c in textoNormalizado)
+            {
+                if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
+                {
+                    sb.Append(c);
+                }
+            }
+            return sb.ToString().Normalize(NormalizationForm.FormC);
+        }
+
+        private void TxtNameUser_Leave(object sender, EventArgs e)
+        {
+            // Adqueirir o nome completo do TextBox
+            string nomeCompleto = TxtNameUser.Text.Trim();
+
+            // Divide o nome completo em partes
+            string[] partesNome = nomeCompleto.Split(' ');
+
+            if (partesNome.Length > 1)
+            {
+                // Obter o primerio nome
+                string primeiroNome = partesNome[0];
+
+                // Obter o útimo Sobrenome
+                string ultimoSobrenome = partesNome[partesNome.Length - 1];
+
+                //return $"{primeiroNome}{utimoSobrenome}";
+                TxtUser.Text = primeiroNome + "." + ultimoSobrenome;
+            }/*
+            else
+            {
+                MessageBox.Show("Favor Digite o nome completo.",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }*/
+        }
+
+        private void TxtNameUser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TxtNameUser.BackColor = ColorTranslator.FromHtml(default);
+        }
+
+        private void TxtCpfUser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TxtCpfUser.BackColor = ColorTranslator.FromHtml(default);
+        }
+
+        private void TxtCargoUser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TxtCargoUser.BackColor = ColorTranslator.FromHtml(default);
+        }
+
+        private void TxtUser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TxtUser.BackColor = ColorTranslator.FromHtml(default);
+        }
+
+        private void TxtPass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TxtPass.BackColor = ColorTranslator.FromHtml(default);
+        }
+
+        private void TxtConfPass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TxtConfPass.BackColor = ColorTranslator.FromHtml(default);
+        }
+
+        private void TxtConfPass_Leave(object sender, EventArgs e)
+        {/*
+            // Verifica se a senha e a cofirmação da senha são diferentes
+            if (TxtPass.Text != TxtConfPass.Text)
+            {
+                MessageBox.Show("As Senhas digitadas São diferentes! \n Por Favor digite a senha novamente.",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TxtPass.Text = "";
+                TxtConfPass.Text = "";
+                TxtPass.Select();
+            }
+        */}
     }
 }
 

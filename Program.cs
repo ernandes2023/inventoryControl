@@ -12,8 +12,6 @@ namespace inventoryControl
 
         public static string conexaoBD = System.Configuration.ConfigurationManager.ConnectionStrings["Conexao"].ConnectionString;
 
-        
-
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.
         /// </summary>
@@ -24,6 +22,5 @@ namespace inventoryControl
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
         }
-
     }
 }

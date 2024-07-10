@@ -1267,6 +1267,7 @@ namespace inventoryControl
             this.TxtCpfUser.Size = new System.Drawing.Size(186, 23);
             this.TxtCpfUser.TabIndex = 2;
             this.TxtCpfUser.TextChanged += new System.EventHandler(this.TxtCpfUser_TextChanged);
+            this.TxtCpfUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCpfUser_KeyPress);
             // 
             // BtnLimpar
             // 
@@ -1289,6 +1290,8 @@ namespace inventoryControl
             this.TxtNameUser.Size = new System.Drawing.Size(422, 23);
             this.TxtNameUser.TabIndex = 1;
             this.TxtNameUser.TextChanged += new System.EventHandler(this.TxtNameUser_TextChanged);
+            this.TxtNameUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNameUser_KeyPress);
+            this.TxtNameUser.Leave += new System.EventHandler(this.TxtNameUser_Leave);
             // 
             // label5
             // 
@@ -1322,6 +1325,7 @@ namespace inventoryControl
             this.TxtCargoUser.Name = "TxtCargoUser";
             this.TxtCargoUser.Size = new System.Drawing.Size(186, 23);
             this.TxtCargoUser.TabIndex = 3;
+            this.TxtCargoUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCargoUser_KeyPress);
             // 
             // label1
             // 
@@ -1343,6 +1347,8 @@ namespace inventoryControl
             this.TxtUser.Name = "TxtUser";
             this.TxtUser.Size = new System.Drawing.Size(186, 23);
             this.TxtUser.TabIndex = 4;
+            this.TxtUser.TextChanged += new System.EventHandler(this.TxtUser_TextChanged);
+            this.TxtUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtUser_KeyPress);
             // 
             // label2
             // 
@@ -1365,6 +1371,7 @@ namespace inventoryControl
             this.TxtPass.Size = new System.Drawing.Size(152, 23);
             this.TxtPass.TabIndex = 5;
             this.TxtPass.TextChanged += new System.EventHandler(this.TxtPass_TextChanged);
+            this.TxtPass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPass_KeyPress);
             // 
             // TxtConfPass
             // 
@@ -1376,6 +1383,8 @@ namespace inventoryControl
             this.TxtConfPass.Size = new System.Drawing.Size(152, 23);
             this.TxtConfPass.TabIndex = 6;
             this.TxtConfPass.TextChanged += new System.EventHandler(this.TxtConfPass_TextChanged);
+            this.TxtConfPass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtConfPass_KeyPress);
+            this.TxtConfPass.Leave += new System.EventHandler(this.TxtConfPass_Leave);
             // 
             // label3
             // 
